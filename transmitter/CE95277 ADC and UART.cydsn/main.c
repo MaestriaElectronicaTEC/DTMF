@@ -129,7 +129,8 @@ int main()
     /* Start the components */
     ADC_DelSig_1_Start();
     UART_1_Start();
-    WaveDAC8_Start();
+    Col_Tone_Start();
+    Row_Tone_Start();
     
     /* Initialize Variables */
     ContinuouslySendData = FALSE;

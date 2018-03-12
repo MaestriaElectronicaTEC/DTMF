@@ -6,7 +6,7 @@
 
 #Build Date:         Jul 19 2017 14:31:00
 
-#File Generated:     Mar 11 2018 15:38:21
+#File Generated:     Mar 11 2018 17:20:47
 
 #Purpose:            
 
@@ -45,16 +45,16 @@ Phase 3
 
 Design Statistics after Packing
     Number of Combinational MCs 	:	11
-    Number of Sequential MCs    	:	17
-    Number of DPs               	:	3
-    Number of Controls          	:	1
-    Number of Status            	:	2
+    Number of Sequential MCs    	:	28
+    Number of DPs               	:	5
+    Number of Controls          	:	3
+    Number of Status            	:	4
     Number of SyncCells         	:	0
     Number of count7cells       	:	1
 
 Device Utilization Summary after Packing
-    Macrocells                  :	28/192
-    UDBS                        :	5/24
+    Macrocells                  :	39/192
+    UDBS                        :	7/24
     IOs                         :	3/72
 
 
@@ -79,7 +79,7 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 15
+Number of clocks: 14
 Clock: ADC_DelSig_1_Ext_CP_Clk | Frequency: N/A       | Target:  24.0 MHz
 Clock: ADC_DelSig_1_Ext_CP_Clk(routed) | Frequency: N/A       | Target:  24.0 MHz
 Clock: ADC_DelSig_1_theACLK | Frequency: N/A       | Target:   0.2 MHz
@@ -91,9 +91,8 @@ Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: UART_1_IntClock      | Frequency:  53.6 MHz | Target:   0.9 MHz
-Clock: WaveDAC8_DacClk      | Frequency:  71.7 MHz | Target:   0.1 MHz
-Clock: WaveDAC8_DacClk(routed) | Frequency: N/A       | Target:   0.1 MHz
+Clock: ToneClock            | Frequency:  77.2 MHz | Target:  12.0 MHz
+Clock: UART_1_IntClock      | Frequency:  55.3 MHz | Target:   0.9 MHz
 Clock: \ADC_DelSig_1:DSM\/dec_clock | Frequency: N/A       | Target:   0.1 MHz
 
 ======================================================================
@@ -106,7 +105,7 @@ Phase 7
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 15
+Number of clocks: 14
 Clock: ADC_DelSig_1_Ext_CP_Clk | Frequency: N/A       | Target:  24.0 MHz
 Clock: ADC_DelSig_1_Ext_CP_Clk(routed) | Frequency: N/A       | Target:  24.0 MHz
 Clock: ADC_DelSig_1_theACLK | Frequency: N/A       | Target:   0.2 MHz
@@ -118,28 +117,27 @@ Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: ToneClock            | Frequency:  77.2 MHz | Target:  12.0 MHz
 Clock: UART_1_IntClock      | Frequency:   1.3 MHz | Target:   0.9 MHz
-Clock: WaveDAC8_DacClk      | Frequency:   1.7 MHz | Target:   0.1 MHz
-Clock: WaveDAC8_DacClk(routed) | Frequency: N/A       | Target:   0.1 MHz
 Clock: \ADC_DelSig_1:DSM\/dec_clock | Frequency: N/A       | Target:   0.1 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.6 (sec)
+D2088: Phase 7, elapsed time : 0.5 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	11
-    Number of Sequential MCs    	:	17
-    Number of DPs               	:	3
-    Number of Controls          	:	1
-    Number of Status            	:	2
+    Number of Sequential MCs    	:	28
+    Number of DPs               	:	5
+    Number of Controls          	:	3
+    Number of Status            	:	4
     Number of SyncCells         	:	0
     Number of count7cells       	:	1
     Number of IOs       	:	3
 
 Device Utilization Summary
-    Macrocells                  :	28/192
+    Macrocells                  :	39/192
     IOs                         :	3/72
 
 
@@ -156,7 +154,7 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 15
+Number of clocks: 14
 Clock: ADC_DelSig_1_Ext_CP_Clk | Frequency: N/A       | Target:  24.0 MHz
 Clock: ADC_DelSig_1_Ext_CP_Clk(routed) | Frequency: N/A       | Target:  24.0 MHz
 Clock: ADC_DelSig_1_theACLK | Frequency: N/A       | Target:   0.2 MHz
@@ -168,9 +166,8 @@ Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: ToneClock            | Frequency:  75.6 MHz | Target:  12.0 MHz
 Clock: UART_1_IntClock      | Frequency:   1.5 MHz | Target:   0.9 MHz
-Clock: WaveDAC8_DacClk      | Frequency:   1.7 MHz | Target:   0.1 MHz
-Clock: WaveDAC8_DacClk(routed) | Frequency: N/A       | Target:   0.1 MHz
 Clock: \ADC_DelSig_1:DSM\/dec_clock | Frequency: N/A       | Target:   0.1 MHz
 
 ======================================================================
@@ -182,5 +179,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 1.6 sec.
+I2076: Total run-time: 1.5 sec.
 

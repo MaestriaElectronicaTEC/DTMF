@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 1
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 1
 
 
    1              		.syntax unified
@@ -19,30 +19,62 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.comm	Output,2,2
-  20              		.comm	ContinuouslySendData,1,1
-  21              		.comm	SendSingleByte,1,1
-  22              		.comm	SendEmulatedData,1,1
-  23              		.comm	TransmitBuffer,16,4
-  24              		.comm	EmulatedData,1,1
-  25              		.section	.rodata
-  26              		.align	2
-  27              	.LC0:
-  28 0000 25580D0A 		.ascii	"%X\015\012\000"
-  28      00
-  29 0005 000000   		.align	2
-  30              	.LC1:
-  31 0008 25780D0A 		.ascii	"%x\015\012\000"
-  31      00
-  32              		.section	.text.Transmit,"ax",%progbits
-  33              		.align	2
-  34              		.global	Transmit
-  35              		.thumb
-  36              		.thumb_func
-  37              		.type	Transmit, %function
-  38              	Transmit:
-  39              	.LFB64:
-  40              		.file 1 "main.c"
+  19              		.global	keyCodes
+  20              		.data
+  21              		.align	2
+  22              		.type	keyCodes, %object
+  23              		.size	keyCodes, 17
+  24              	keyCodes:
+  25 0000 31323341 		.ascii	"123A456B789C*0#D\000"
+  25      34353642 
+  25      37383943 
+  25      2A302344 
+  25      00
+  26              		.global	rowDiv
+  27 0011 000000   		.align	2
+  28              		.type	rowDiv, %object
+  29              		.size	rowDiv, 4
+  30              	rowDiv:
+  31 0014 D6       		.byte	-42
+  32 0015 C2       		.byte	-62
+  33 0016 AF       		.byte	-81
+  34 0017 9E       		.byte	-98
+  35              		.global	colDiv
+  36              		.align	2
+  37              		.type	colDiv, %object
+  38              		.size	colDiv, 4
+  39              	colDiv:
+  40 0018 C6       		.byte	-58
+  41 0019 B3       		.byte	-77
+  42 001a A1       		.byte	-95
+  43 001b 92       		.byte	-110
+  44              		.comm	Output,2,2
+  45              		.comm	ContinuouslySendData,1,1
+  46              		.comm	SendSingleByte,1,1
+  47              		.comm	SendEmulatedData,1,1
+  48              		.comm	TransmitBuffer,16,4
+  49              		.comm	EmulatedData,1,1
+  50              		.section	.rodata
+  51              		.align	2
+  52              	.LC0:
+  53 0000 25580D0A 		.ascii	"%X\015\012\000"
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 2
+
+
+  53      00
+  54 0005 000000   		.align	2
+  55              	.LC1:
+  56 0008 25780D0A 		.ascii	"%x\015\012\000"
+  56      00
+  57              		.section	.text.Transmit,"ax",%progbits
+  58              		.align	2
+  59              		.global	Transmit
+  60              		.thumb
+  61              		.thumb_func
+  62              		.type	Transmit, %function
+  63              	Transmit:
+  64              	.LFB64:
+  65              		.file 1 "main.c"
    1:main.c        **** /******************************************************************************
    2:main.c        **** * Project Name		: CE95277 ADC and UART
    3:main.c        **** * File Name			: main.c
@@ -58,9 +90,6 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 1
   13:main.c        **** ********************************************************************************
   14:main.c        **** * This software is owned by Cypress Semiconductor Corporation (Cypress)
   15:main.c        **** * and is protected by and subject to worldwide patent protection (United
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 2
-
-
   16:main.c        **** * States and foreign), United States copyright laws and international treaty
   17:main.c        **** * provisions. Cypress hereby grants to licensee a personal, non-exclusive,
   18:main.c        **** * non-transferable license to copy, use, modify, create derivative works of,
@@ -89,1023 +118,1907 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 1
   41:main.c        **** 
   42:main.c        **** #include <device.h>
   43:main.c        **** #include "stdio.h"
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 3
+
+
   44:main.c        **** 
   45:main.c        **** /* Project Defines */
   46:main.c        **** #define FALSE  0
   47:main.c        **** #define TRUE   1
   48:main.c        **** #define TRANSMIT_BUFFER_SIZE  16
-  49:main.c        **** 
-  50:main.c        ****     /* Variable to store ADC result */
-  51:main.c        ****     uint16 Output;
-  52:main.c        ****     /* Flags used to store transmit data commands */
-  53:main.c        ****     uint8 ContinuouslySendData;
-  54:main.c        ****     uint8 SendSingleByte;
-  55:main.c        ****     uint8 SendEmulatedData;
-  56:main.c        ****     /* Transmit Buffer */
-  57:main.c        ****     char TransmitBuffer[TRANSMIT_BUFFER_SIZE];
-  58:main.c        ****     /* Variable used to send emulated data */
-  59:main.c        ****     uint8 EmulatedData;
-  60:main.c        **** 
-  61:main.c        **** 
-  62:main.c        **** CY_ISR_PROTO(Transmit);
-  63:main.c        **** 
-  64:main.c        **** CY_ISR(Transmit)
-  65:main.c        **** {
-  41              		.loc 1 65 0
-  42              		.cfi_startproc
-  43              		@ args = 0, pretend = 0, frame = 0
-  44              		@ frame_needed = 1, uses_anonymous_args = 0
-  45 0000 80B5     		push	{r7, lr}
-  46              		.cfi_def_cfa_offset 8
-  47              		.cfi_offset 7, -8
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 3
+  49:main.c        **** #define TONE_DURATION_MS 80 /* Duration of tone in mSec */
+  50:main.c        **** #define TONE_SPACE_MS 50 /* Duration of space between tones in mSec */
+  51:main.c        **** #define TONE_PAUSE_MS 100 /* Pause caused by invalid code */
+  52:main.c        **** 
+  53:main.c        **** /* Function prototypes */
+  54:main.c        **** void DialNumber( char * number );
+  55:main.c        **** void PlayTones( char key );
+  56:main.c        **** int8 KeyIndex(char * keyString, char key);
+  57:main.c        **** 
+  58:main.c        **** char keyCodes[] = "123A456B789C*0#D"; /* Valid character array */
+  59:main.c        **** /* The tables below store the dividers loaded into */
+  60:main.c        **** /* the counter period register to generate the row */
+  61:main.c        **** /* and column tones. */
+  62:main.c        **** /* Row Tones (Hz) 697 770 852 941 */
+  63:main.c        **** uint8 rowDiv[] = {214, 194, 175, 158};
+  64:main.c        **** /* Col Tones (Hz) 1209 1336 1477 1633 */
+  65:main.c        **** uint8 colDiv[] = { 198, 179, 161, 146};
+  66:main.c        **** 
+  67:main.c        **** /* Variable to store ADC result */
+  68:main.c        **** uint16 Output;
+  69:main.c        **** /* Flags used to store transmit data commands */
+  70:main.c        **** uint8 ContinuouslySendData;
+  71:main.c        **** uint8 SendSingleByte;
+  72:main.c        **** uint8 SendEmulatedData;
+  73:main.c        **** /* Transmit Buffer */
+  74:main.c        **** char TransmitBuffer[TRANSMIT_BUFFER_SIZE];
+  75:main.c        **** /* Variable used to send emulated data */
+  76:main.c        **** uint8 EmulatedData;
+  77:main.c        **** 
+  78:main.c        **** 
+  79:main.c        **** CY_ISR_PROTO(Transmit);
+  80:main.c        **** 
+  81:main.c        **** CY_ISR(Transmit)
+  82:main.c        **** {
+  66              		.loc 1 82 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 1, uses_anonymous_args = 0
+  70 0000 80B5     		push	{r7, lr}
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 7, -8
+  73              		.cfi_offset 14, -4
+  74 0002 00AF     		add	r7, sp, #0
+  75              		.cfi_def_cfa_register 7
+  83:main.c        ****         /* Check to see if an ADC conversion has completed */
+  84:main.c        ****         if(ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS))
+  76              		.loc 1 84 0
+  77 0004 0120     		movs	r0, #1
+  78 0006 FFF7FEFF 		bl	ADC_DelSig_1_IsEndConversion
+  79 000a 0346     		mov	r3, r0
+  80 000c 002B     		cmp	r3, #0
+  81 000e 32D0     		beq	.L5
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 4
 
 
-  48              		.cfi_offset 14, -4
-  49 0002 00AF     		add	r7, sp, #0
-  50              		.cfi_def_cfa_register 7
-  66:main.c        ****         /* Check to see if an ADC conversion has completed */
-  67:main.c        ****         if(ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS))
-  51              		.loc 1 67 0
-  52 0004 0120     		movs	r0, #1
-  53 0006 FFF7FEFF 		bl	ADC_DelSig_1_IsEndConversion
-  54 000a 0346     		mov	r3, r0
-  55 000c 002B     		cmp	r3, #0
-  56 000e 32D0     		beq	.L5
-  68:main.c        ****         {
-  69:main.c        ****             /* Use the GetResult16 API to get an 8 bit unsigned result in
-  70:main.c        ****              * single ended mode.  The API CountsTo_mVolts is then used
-  71:main.c        ****              * to convert the ADC counts into mV before transmitting via
-  72:main.c        ****              * the UART.  See the datasheet API description for more
-  73:main.c        ****              * details */
-  74:main.c        ****             //Output = ADC_DelSig_1_CountsTo_mVolts(ADC_DelSig_1_GetResult16());
-  75:main.c        ****             Output = ADC_DelSig_1_GetResult16();
-  57              		.loc 1 75 0
-  58 0010 FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
-  59 0014 0346     		mov	r3, r0
-  60 0016 9AB2     		uxth	r2, r3
-  61 0018 184B     		ldr	r3, .L6
-  62 001a 1A80     		strh	r2, [r3]	@ movhi
-  76:main.c        ****             
-  77:main.c        ****             /* Send data based on last UART command */
-  78:main.c        ****             if(SendSingleByte || ContinuouslySendData)
-  63              		.loc 1 78 0
-  64 001c 184B     		ldr	r3, .L6+4
-  65 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  66 0020 002B     		cmp	r3, #0
-  67 0022 03D1     		bne	.L3
-  68              		.loc 1 78 0 is_stmt 0 discriminator 1
-  69 0024 174B     		ldr	r3, .L6+8
-  70 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  71 0028 002B     		cmp	r3, #0
-  72 002a 0DD0     		beq	.L4
-  73              	.L3:
-  79:main.c        ****             {
-  80:main.c        ****                 /* Format ADC result for transmition */
-  81:main.c        ****                 //sprintf(TransmitBuffer, "Sample: %d mV\r\n", Output);
-  82:main.c        ****                 sprintf(TransmitBuffer, "%X\r\n", Output);
-  74              		.loc 1 82 0 is_stmt 1
-  75 002c 134B     		ldr	r3, .L6
-  76 002e 1B88     		ldrh	r3, [r3]
-  77 0030 1A46     		mov	r2, r3
-  78 0032 1549     		ldr	r1, .L6+12
-  79 0034 1548     		ldr	r0, .L6+16
-  80 0036 FFF7FEFF 		bl	sprintf
-  83:main.c        ****                 /* Send out the data */
-  84:main.c        ****                 UART_1_PutString(TransmitBuffer);
-  81              		.loc 1 84 0
-  82 003a 1448     		ldr	r0, .L6+16
-  83 003c FFF7FEFF 		bl	UART_1_PutString
-  85:main.c        ****                 /* Reset the send once flag */
-  86:main.c        ****                 SendSingleByte = FALSE;
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 4
+  85:main.c        ****         {
+  86:main.c        ****             /* Use the GetResult16 API to get an 8 bit unsigned result in
+  87:main.c        ****              * single ended mode.  The API CountsTo_mVolts is then used
+  88:main.c        ****              * to convert the ADC counts into mV before transmitting via
+  89:main.c        ****              * the UART.  See the datasheet API description for more
+  90:main.c        ****              * details */
+  91:main.c        ****             //Output = ADC_DelSig_1_CountsTo_mVolts(ADC_DelSig_1_GetResult16());
+  92:main.c        ****             Output = ADC_DelSig_1_GetResult16();
+  82              		.loc 1 92 0
+  83 0010 FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
+  84 0014 0346     		mov	r3, r0
+  85 0016 9AB2     		uxth	r2, r3
+  86 0018 184B     		ldr	r3, .L6
+  87 001a 1A80     		strh	r2, [r3]	@ movhi
+  93:main.c        ****             
+  94:main.c        ****             /* Send data based on last UART command */
+  95:main.c        ****             if(SendSingleByte || ContinuouslySendData)
+  88              		.loc 1 95 0
+  89 001c 184B     		ldr	r3, .L6+4
+  90 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  91 0020 002B     		cmp	r3, #0
+  92 0022 03D1     		bne	.L3
+  93              		.loc 1 95 0 is_stmt 0 discriminator 1
+  94 0024 174B     		ldr	r3, .L6+8
+  95 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  96 0028 002B     		cmp	r3, #0
+  97 002a 0DD0     		beq	.L4
+  98              	.L3:
+  96:main.c        ****             {
+  97:main.c        ****                 /* Format ADC result for transmition */
+  98:main.c        ****                 //sprintf(TransmitBuffer, "Sample: %d mV\r\n", Output);
+  99:main.c        ****                 sprintf(TransmitBuffer, "%X\r\n", Output);
+  99              		.loc 1 99 0 is_stmt 1
+ 100 002c 134B     		ldr	r3, .L6
+ 101 002e 1B88     		ldrh	r3, [r3]
+ 102 0030 1A46     		mov	r2, r3
+ 103 0032 1549     		ldr	r1, .L6+12
+ 104 0034 1548     		ldr	r0, .L6+16
+ 105 0036 FFF7FEFF 		bl	sprintf
+ 100:main.c        ****                 /* Send out the data */
+ 101:main.c        ****                 UART_1_PutString(TransmitBuffer);
+ 106              		.loc 1 101 0
+ 107 003a 1448     		ldr	r0, .L6+16
+ 108 003c FFF7FEFF 		bl	UART_1_PutString
+ 102:main.c        ****                 /* Reset the send once flag */
+ 103:main.c        ****                 SendSingleByte = FALSE;
+ 109              		.loc 1 103 0
+ 110 0040 0F4B     		ldr	r3, .L6+4
+ 111 0042 0022     		movs	r2, #0
+ 112 0044 1A70     		strb	r2, [r3]
+ 104:main.c        ****             }
+ 105:main.c        ****             else if(SendEmulatedData)
+ 106:main.c        ****             {
+ 107:main.c        ****                 /* Format ADC result for transmition */
+ 108:main.c        ****                 sprintf(TransmitBuffer, "%x\r\n", EmulatedData);
+ 109:main.c        ****                 /* Send out the data */
+ 110:main.c        ****                 UART_1_PutString(TransmitBuffer);
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 5
 
 
-  84              		.loc 1 86 0
-  85 0040 0F4B     		ldr	r3, .L6+4
-  86 0042 0022     		movs	r2, #0
-  87 0044 1A70     		strb	r2, [r3]
-  87:main.c        ****             }
-  88:main.c        ****             else if(SendEmulatedData)
-  89:main.c        ****             {
-  90:main.c        ****                 /* Format ADC result for transmition */
-  91:main.c        ****                 sprintf(TransmitBuffer, "%x\r\n", EmulatedData);
-  92:main.c        ****                 /* Send out the data */
-  93:main.c        ****                 UART_1_PutString(TransmitBuffer);
-  94:main.c        ****                 EmulatedData++;
-  95:main.c        ****                 /* Reset the send once flag */
-  96:main.c        ****                 SendEmulatedData = FALSE;   
-  97:main.c        ****             }
-  98:main.c        ****         }    
-  99:main.c        ****     
- 100:main.c        **** }
-  88              		.loc 1 100 0
-  89 0046 16E0     		b	.L5
-  90              	.L4:
-  88:main.c        ****             {
-  91              		.loc 1 88 0
-  92 0048 114B     		ldr	r3, .L6+20
-  93 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  94 004c 002B     		cmp	r3, #0
-  95 004e 12D0     		beq	.L5
-  91:main.c        ****                 /* Send out the data */
-  96              		.loc 1 91 0
-  97 0050 104B     		ldr	r3, .L6+24
-  98 0052 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  99 0054 1A46     		mov	r2, r3
- 100 0056 1049     		ldr	r1, .L6+28
- 101 0058 0C48     		ldr	r0, .L6+16
- 102 005a FFF7FEFF 		bl	sprintf
-  93:main.c        ****                 EmulatedData++;
- 103              		.loc 1 93 0
- 104 005e 0B48     		ldr	r0, .L6+16
- 105 0060 FFF7FEFF 		bl	UART_1_PutString
-  94:main.c        ****                 /* Reset the send once flag */
- 106              		.loc 1 94 0
- 107 0064 0B4B     		ldr	r3, .L6+24
- 108 0066 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 109 0068 0133     		adds	r3, r3, #1
- 110 006a DAB2     		uxtb	r2, r3
- 111 006c 094B     		ldr	r3, .L6+24
- 112 006e 1A70     		strb	r2, [r3]
-  96:main.c        ****             }
- 113              		.loc 1 96 0
- 114 0070 074B     		ldr	r3, .L6+20
- 115 0072 0022     		movs	r2, #0
- 116 0074 1A70     		strb	r2, [r3]
- 117              	.L5:
- 118              		.loc 1 100 0
- 119 0076 00BF     		nop
- 120 0078 80BD     		pop	{r7, pc}
- 121              	.L7:
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 5
+ 111:main.c        ****                 EmulatedData++;
+ 112:main.c        ****                 /* Reset the send once flag */
+ 113:main.c        ****                 SendEmulatedData = FALSE;   
+ 114:main.c        ****             }
+ 115:main.c        ****         }    
+ 116:main.c        ****     
+ 117:main.c        **** }
+ 113              		.loc 1 117 0
+ 114 0046 16E0     		b	.L5
+ 115              	.L4:
+ 105:main.c        ****             {
+ 116              		.loc 1 105 0
+ 117 0048 114B     		ldr	r3, .L6+20
+ 118 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 119 004c 002B     		cmp	r3, #0
+ 120 004e 12D0     		beq	.L5
+ 108:main.c        ****                 /* Send out the data */
+ 121              		.loc 1 108 0
+ 122 0050 104B     		ldr	r3, .L6+24
+ 123 0052 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 124 0054 1A46     		mov	r2, r3
+ 125 0056 1049     		ldr	r1, .L6+28
+ 126 0058 0C48     		ldr	r0, .L6+16
+ 127 005a FFF7FEFF 		bl	sprintf
+ 110:main.c        ****                 EmulatedData++;
+ 128              		.loc 1 110 0
+ 129 005e 0B48     		ldr	r0, .L6+16
+ 130 0060 FFF7FEFF 		bl	UART_1_PutString
+ 111:main.c        ****                 /* Reset the send once flag */
+ 131              		.loc 1 111 0
+ 132 0064 0B4B     		ldr	r3, .L6+24
+ 133 0066 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 134 0068 0133     		adds	r3, r3, #1
+ 135 006a DAB2     		uxtb	r2, r3
+ 136 006c 094B     		ldr	r3, .L6+24
+ 137 006e 1A70     		strb	r2, [r3]
+ 113:main.c        ****             }
+ 138              		.loc 1 113 0
+ 139 0070 074B     		ldr	r3, .L6+20
+ 140 0072 0022     		movs	r2, #0
+ 141 0074 1A70     		strb	r2, [r3]
+ 142              	.L5:
+ 143              		.loc 1 117 0
+ 144 0076 00BF     		nop
+ 145 0078 80BD     		pop	{r7, pc}
+ 146              	.L7:
+ 147 007a 00BF     		.align	2
+ 148              	.L6:
+ 149 007c 00000000 		.word	Output
+ 150 0080 00000000 		.word	SendSingleByte
+ 151 0084 00000000 		.word	ContinuouslySendData
+ 152 0088 00000000 		.word	.LC0
+ 153 008c 00000000 		.word	TransmitBuffer
+ 154 0090 00000000 		.word	SendEmulatedData
+ 155 0094 00000000 		.word	EmulatedData
+ 156 0098 08000000 		.word	.LC1
+ 157              		.cfi_endproc
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 6
 
 
- 122 007a 00BF     		.align	2
- 123              	.L6:
- 124 007c 00000000 		.word	Output
- 125 0080 00000000 		.word	SendSingleByte
- 126 0084 00000000 		.word	ContinuouslySendData
- 127 0088 00000000 		.word	.LC0
- 128 008c 00000000 		.word	TransmitBuffer
- 129 0090 00000000 		.word	SendEmulatedData
- 130 0094 00000000 		.word	EmulatedData
- 131 0098 08000000 		.word	.LC1
- 132              		.cfi_endproc
- 133              	.LFE64:
- 134              		.size	Transmit, .-Transmit
- 135              		.section	.rodata
- 136 000d 000000   		.align	2
- 137              	.LC2:
- 138 0010 434F4D20 		.ascii	"COM Port Open\000"
- 138      506F7274 
- 138      204F7065 
- 138      6E00
- 139              		.section	.text.main,"ax",%progbits
- 140              		.align	2
- 141              		.global	main
- 142              		.thumb
- 143              		.thumb_func
- 144              		.type	main, %function
- 145              	main:
- 146              	.LFB65:
- 101:main.c        **** 
- 102:main.c        **** /*******************************************************************************
- 103:main.c        **** * Function Name: main
- 104:main.c        **** ********************************************************************************
- 105:main.c        **** *
- 106:main.c        **** * Summary:
- 107:main.c        **** *  main() performs following functions:
- 108:main.c        **** *  1: Starts the ADC and UART components.
- 109:main.c        **** *  2: Checks for ADC end of conversion.  Stores latest result in output
- 110:main.c        **** *     if conversion complete.
- 111:main.c        **** *  3: Checks for UART input.
- 112:main.c        **** *     On 'C' or 'c' received: transmits the last sample via the UART.
- 113:main.c        **** *     On 'S' or 's' received: continuously transmits samples as they are completed.
- 114:main.c        **** *     On 'X' or 'x' received: stops continuously transmitting samples.
- 115:main.c        **** *     On 'E' or 'e' received: transmits a dummy byte of data.
- 116:main.c        **** *
- 117:main.c        **** * Parameters:
- 118:main.c        **** *  None.
- 119:main.c        **** *
- 120:main.c        **** * Return:
- 121:main.c        **** *  None.
+ 158              	.LFE64:
+ 159              		.size	Transmit, .-Transmit
+ 160              		.section	.rodata
+ 161 000d 000000   		.align	2
+ 162              	.LC2:
+ 163 0010 434F4D20 		.ascii	"COM Port Open\015\012\000"
+ 163      506F7274 
+ 163      204F7065 
+ 163      6E0D0A00 
+ 164              		.section	.text.main,"ax",%progbits
+ 165              		.align	2
+ 166              		.global	main
+ 167              		.thumb
+ 168              		.thumb_func
+ 169              		.type	main, %function
+ 170              	main:
+ 171              	.LFB65:
+ 118:main.c        **** 
+ 119:main.c        **** /*******************************************************************************
+ 120:main.c        **** * Function Name: main
+ 121:main.c        **** ********************************************************************************
  122:main.c        **** *
- 123:main.c        **** *******************************************************************************/
- 124:main.c        **** int main()
- 125:main.c        **** {
- 147              		.loc 1 125 0
- 148              		.cfi_startproc
- 149              		@ args = 0, pretend = 0, frame = 8
- 150              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 6
+ 123:main.c        **** * Summary:
+ 124:main.c        **** *  main() performs following functions:
+ 125:main.c        **** *  1: Starts the ADC and UART components.
+ 126:main.c        **** *  2: Checks for ADC end of conversion.  Stores latest result in output
+ 127:main.c        **** *     if conversion complete.
+ 128:main.c        **** *  3: Checks for UART input.
+ 129:main.c        **** *     On 'C' or 'c' received: transmits the last sample via the UART.
+ 130:main.c        **** *     On 'S' or 's' received: continuously transmits samples as they are completed.
+ 131:main.c        **** *     On 'X' or 'x' received: stops continuously transmitting samples.
+ 132:main.c        **** *     On 'E' or 'e' received: transmits a dummy byte of data.
+ 133:main.c        **** *
+ 134:main.c        **** * Parameters:
+ 135:main.c        **** *  None.
+ 136:main.c        **** *
+ 137:main.c        **** * Return:
+ 138:main.c        **** *  None.
+ 139:main.c        **** *
+ 140:main.c        **** *******************************************************************************/
+ 141:main.c        **** int main()
+ 142:main.c        **** {
+ 172              		.loc 1 142 0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 8
+ 175              		@ frame_needed = 1, uses_anonymous_args = 0
+ 176 0000 80B5     		push	{r7, lr}
+ 177              		.cfi_def_cfa_offset 8
+ 178              		.cfi_offset 7, -8
+ 179              		.cfi_offset 14, -4
+ 180 0002 82B0     		sub	sp, sp, #8
+ 181              		.cfi_def_cfa_offset 16
+ 182 0004 00AF     		add	r7, sp, #0
+ 183              		.cfi_def_cfa_register 7
+ 143:main.c        ****     /* Variable to store UART received character */
+ 144:main.c        ****     uint8 Ch;
+ 145:main.c        ****     
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 7
 
 
- 151 0000 80B5     		push	{r7, lr}
- 152              		.cfi_def_cfa_offset 8
- 153              		.cfi_offset 7, -8
- 154              		.cfi_offset 14, -4
- 155 0002 82B0     		sub	sp, sp, #8
- 156              		.cfi_def_cfa_offset 16
- 157 0004 00AF     		add	r7, sp, #0
- 158              		.cfi_def_cfa_register 7
- 126:main.c        ****     /* Variable to store UART received character */
- 127:main.c        ****     uint8 Ch;
- 128:main.c        ****     
- 129:main.c        ****     /* Start the components */
- 130:main.c        ****     ADC_DelSig_1_Start();
- 159              		.loc 1 130 0
- 160 0006 FFF7FEFF 		bl	ADC_DelSig_1_Start
- 131:main.c        ****     UART_1_Start();
- 161              		.loc 1 131 0
- 162 000a FFF7FEFF 		bl	UART_1_Start
- 132:main.c        ****     Col_Tone_Start();
- 163              		.loc 1 132 0
- 164 000e FFF7FEFF 		bl	Col_Tone_Start
- 133:main.c        ****     Row_Tone_Start();
- 165              		.loc 1 133 0
- 166 0012 FFF7FEFF 		bl	Row_Tone_Start
- 134:main.c        ****     
- 135:main.c        ****     /* Initialize Variables */
- 136:main.c        ****     ContinuouslySendData = FALSE;
- 167              		.loc 1 136 0
- 168 0016 254B     		ldr	r3, .L21
- 169 0018 0022     		movs	r2, #0
- 170 001a 1A70     		strb	r2, [r3]
- 137:main.c        ****     SendSingleByte = FALSE;
- 171              		.loc 1 137 0
- 172 001c 244B     		ldr	r3, .L21+4
- 173 001e 0022     		movs	r2, #0
- 174 0020 1A70     		strb	r2, [r3]
- 138:main.c        ****     SendEmulatedData = FALSE;
- 175              		.loc 1 138 0
- 176 0022 244B     		ldr	r3, .L21+8
- 177 0024 0022     		movs	r2, #0
- 178 0026 1A70     		strb	r2, [r3]
- 139:main.c        ****     EmulatedData = 0;
- 179              		.loc 1 139 0
- 180 0028 234B     		ldr	r3, .L21+12
- 181 002a 0022     		movs	r2, #0
- 182 002c 1A70     		strb	r2, [r3]
- 140:main.c        ****     
- 141:main.c        ****     /* Start the ADC conversion */
- 142:main.c        ****     ADC_DelSig_1_StartConvert();
- 183              		.loc 1 142 0
- 184 002e FFF7FEFF 		bl	ADC_DelSig_1_StartConvert
- 143:main.c        ****     
- 144:main.c        ****     /* Send message to verify COM port is connected properly */
- 145:main.c        ****     UART_1_PutString("COM Port Open");
- 185              		.loc 1 145 0
- 186 0032 2248     		ldr	r0, .L21+16
- 187 0034 FFF7FEFF 		bl	UART_1_PutString
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 7
+ 146:main.c        ****     /* Start the components */
+ 147:main.c        ****     ADC_DelSig_1_Start();
+ 184              		.loc 1 147 0
+ 185 0006 FFF7FEFF 		bl	ADC_DelSig_1_Start
+ 148:main.c        ****     UART_1_Start();
+ 186              		.loc 1 148 0
+ 187 000a FFF7FEFF 		bl	UART_1_Start
+ 149:main.c        ****     ToneClock_Stop();
+ 188              		.loc 1 149 0
+ 189 000e FFF7FEFF 		bl	ToneClock_Stop
+ 150:main.c        ****     Row_Divider_Start();
+ 190              		.loc 1 150 0
+ 191 0012 FFF7FEFF 		bl	Row_Divider_Start
+ 151:main.c        ****     Col_Divider_Start();
+ 192              		.loc 1 151 0
+ 193 0016 FFF7FEFF 		bl	Col_Divider_Start
+ 152:main.c        ****     Row_Tone_Start();
+ 194              		.loc 1 152 0
+ 195 001a FFF7FEFF 		bl	Row_Tone_Start
+ 153:main.c        ****     Col_Tone_Start();
+ 196              		.loc 1 153 0
+ 197 001e FFF7FEFF 		bl	Col_Tone_Start
+ 154:main.c        ****     DTMF_Buffer_Start();
+ 198              		.loc 1 154 0
+ 199 0022 FFF7FEFF 		bl	DTMF_Buffer_Start
+ 155:main.c        ****     
+ 156:main.c        ****     /* Initialize Variables */
+ 157:main.c        ****     ContinuouslySendData = FALSE;
+ 200              		.loc 1 157 0
+ 201 0026 964B     		ldr	r3, .L20
+ 202 0028 0022     		movs	r2, #0
+ 203 002a 1A70     		strb	r2, [r3]
+ 158:main.c        ****     SendSingleByte = FALSE;
+ 204              		.loc 1 158 0
+ 205 002c 954B     		ldr	r3, .L20+4
+ 206 002e 0022     		movs	r2, #0
+ 207 0030 1A70     		strb	r2, [r3]
+ 159:main.c        ****     SendEmulatedData = FALSE;
+ 208              		.loc 1 159 0
+ 209 0032 954B     		ldr	r3, .L20+8
+ 210 0034 0022     		movs	r2, #0
+ 211 0036 1A70     		strb	r2, [r3]
+ 160:main.c        ****     EmulatedData = 0;
+ 212              		.loc 1 160 0
+ 213 0038 944B     		ldr	r3, .L20+12
+ 214 003a 0022     		movs	r2, #0
+ 215 003c 1A70     		strb	r2, [r3]
+ 161:main.c        ****     
+ 162:main.c        ****     /* Start the ADC conversion */
+ 163:main.c        ****     ADC_DelSig_1_StartConvert();
+ 216              		.loc 1 163 0
+ 217 003e FFF7FEFF 		bl	ADC_DelSig_1_StartConvert
+ 164:main.c        ****     
+ 165:main.c        ****     /* Send message to verify COM port is connected properly */
+ 166:main.c        ****     UART_1_PutString("COM Port Open\r\n");
+ 218              		.loc 1 166 0
+ 219 0042 9348     		ldr	r0, .L20+16
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 8
 
 
- 146:main.c        ****     
- 147:main.c        ****     Timer_Start();
- 188              		.loc 1 147 0
- 189 0038 FFF7FEFF 		bl	Timer_Start
- 148:main.c        ****     isr_StartEx(Transmit);
- 190              		.loc 1 148 0
- 191 003c 2048     		ldr	r0, .L21+20
- 192 003e FFF7FEFF 		bl	isr_StartEx
- 149:main.c        ****     CyGlobalIntEnable;
- 193              		.loc 1 149 0
- 194              		.syntax unified
- 195              	@ 149 "main.c" 1
- 196 0042 62B6     		CPSIE   i
- 197              	@ 0 "" 2
- 198              		.thumb
- 199              		.syntax unified
- 200              	.L19:
- 150:main.c        ****     
- 151:main.c        ****     for(;;)
- 152:main.c        ****     {        
- 153:main.c        ****         /* Non-blocking call to get the latest data recieved  */
- 154:main.c        ****         Ch = UART_1_GetChar();
- 201              		.loc 1 154 0
- 202 0044 FFF7FEFF 		bl	UART_1_GetChar
- 203 0048 0346     		mov	r3, r0
- 204 004a FB71     		strb	r3, [r7, #7]
- 155:main.c        ****         
- 156:main.c        ****         /* Set flags based on UART command */
- 157:main.c        ****         switch(Ch)
- 205              		.loc 1 157 0
- 206 004c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 207 004e 582B     		cmp	r3, #88
- 208 0050 21D0     		beq	.L10
- 209 0052 582B     		cmp	r3, #88
- 210 0054 0BDC     		bgt	.L11
- 211 0056 432B     		cmp	r3, #67
- 212 0058 15D0     		beq	.L12
- 213 005a 432B     		cmp	r3, #67
- 214 005c 02DC     		bgt	.L13
- 215 005e 002B     		cmp	r3, #0
- 216 0060 21D0     		beq	.L20
- 158:main.c        ****         {
- 159:main.c        ****             case 0:
- 160:main.c        ****                 /* No new data was recieved */
- 161:main.c        ****                 break;
- 162:main.c        ****             case 'C':
- 163:main.c        ****             case 'c':
- 164:main.c        ****                 SendSingleByte = TRUE;
- 165:main.c        ****                 break;
- 166:main.c        ****             case 'S':
- 167:main.c        ****             case 's':
- 168:main.c        ****                 ContinuouslySendData = TRUE;
- 169:main.c        ****                 break;
- 170:main.c        ****             case 'X':
- 171:main.c        ****             case 'x':
- 172:main.c        ****                 ContinuouslySendData = FALSE;
- 173:main.c        ****                 break;
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 8
+ 220 0044 FFF7FEFF 		bl	UART_1_PutString
+ 167:main.c        ****     
+ 168:main.c        ****     Timer_Start();
+ 221              		.loc 1 168 0
+ 222 0048 FFF7FEFF 		bl	Timer_Start
+ 169:main.c        ****     isr_StartEx(Transmit);
+ 223              		.loc 1 169 0
+ 224 004c 9148     		ldr	r0, .L20+20
+ 225 004e FFF7FEFF 		bl	isr_StartEx
+ 170:main.c        ****     CyGlobalIntEnable;
+ 226              		.loc 1 170 0
+ 227              		.syntax unified
+ 228              	@ 170 "main.c" 1
+ 229 0052 62B6     		CPSIE   i
+ 230              	@ 0 "" 2
+ 231              		.thumb
+ 232              		.syntax unified
+ 233              	.L18:
+ 171:main.c        ****     
+ 172:main.c        ****     for(;;)
+ 173:main.c        ****     {        
+ 174:main.c        ****         /* Non-blocking call to get the latest data recieved  */
+ 175:main.c        ****         Ch = UART_1_GetChar();
+ 234              		.loc 1 175 0
+ 235 0054 FFF7FEFF 		bl	UART_1_GetChar
+ 236 0058 0346     		mov	r3, r0
+ 237 005a FB71     		strb	r3, [r7, #7]
+ 176:main.c        ****         
+ 177:main.c        ****         /* Set flags based on UART command */
+ 178:main.c        ****         switch(Ch)
+ 238              		.loc 1 178 0
+ 239 005c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 240 005e 782B     		cmp	r3, #120
+ 241 0060 00F20B81 		bhi	.L19
+ 242 0064 01A2     		adr	r2, .L11
+ 243 0066 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 244 006a 00BF     		.p2align 2
+ 245              	.L11:
+ 246 006c 7B020000 		.word	.L19+1
+ 247 0070 7B020000 		.word	.L19+1
+ 248 0074 7B020000 		.word	.L19+1
+ 249 0078 7B020000 		.word	.L19+1
+ 250 007c 7B020000 		.word	.L19+1
+ 251 0080 7B020000 		.word	.L19+1
+ 252 0084 7B020000 		.word	.L19+1
+ 253 0088 7B020000 		.word	.L19+1
+ 254 008c 7B020000 		.word	.L19+1
+ 255 0090 7B020000 		.word	.L19+1
+ 256 0094 7B020000 		.word	.L19+1
+ 257 0098 7B020000 		.word	.L19+1
+ 258 009c 7B020000 		.word	.L19+1
+ 259 00a0 7B020000 		.word	.L19+1
+ 260 00a4 7B020000 		.word	.L19+1
+ 261 00a8 7B020000 		.word	.L19+1
+ 262 00ac 7B020000 		.word	.L19+1
+ 263 00b0 7B020000 		.word	.L19+1
+ 264 00b4 7B020000 		.word	.L19+1
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 9
 
 
- 174:main.c        ****             case 'E':
- 175:main.c        ****             case 'e':
- 176:main.c        ****                 SendEmulatedData = TRUE;
- 177:main.c        ****                 break;
- 178:main.c        ****             default:
- 179:main.c        ****                 /* Place error handling code here */
- 180:main.c        ****                 break;    
- 217              		.loc 1 180 0
- 218 0062 21E0     		b	.L18
- 219              	.L13:
- 157:main.c        ****         {
- 220              		.loc 1 157 0
- 221 0064 452B     		cmp	r3, #69
- 222 0066 1AD0     		beq	.L15
- 223 0068 532B     		cmp	r3, #83
- 224 006a 10D0     		beq	.L16
- 225              		.loc 1 180 0
- 226 006c 1CE0     		b	.L18
- 227              	.L11:
- 157:main.c        ****         {
- 228              		.loc 1 157 0
- 229 006e 652B     		cmp	r3, #101
- 230 0070 15D0     		beq	.L15
- 231 0072 652B     		cmp	r3, #101
- 232 0074 02DC     		bgt	.L17
- 233 0076 632B     		cmp	r3, #99
- 234 0078 05D0     		beq	.L12
- 235              		.loc 1 180 0
- 236 007a 15E0     		b	.L18
- 237              	.L17:
- 157:main.c        ****         {
- 238              		.loc 1 157 0
- 239 007c 732B     		cmp	r3, #115
- 240 007e 06D0     		beq	.L16
- 241 0080 782B     		cmp	r3, #120
- 242 0082 08D0     		beq	.L10
- 243              		.loc 1 180 0
- 244 0084 10E0     		b	.L18
- 245              	.L12:
- 164:main.c        ****                 break;
- 246              		.loc 1 164 0
- 247 0086 0A4B     		ldr	r3, .L21+4
- 248 0088 0122     		movs	r2, #1
- 249 008a 1A70     		strb	r2, [r3]
- 165:main.c        ****             case 'S':
- 250              		.loc 1 165 0
- 251 008c 0CE0     		b	.L18
- 252              	.L16:
- 168:main.c        ****                 break;
- 253              		.loc 1 168 0
- 254 008e 074B     		ldr	r3, .L21
- 255 0090 0122     		movs	r2, #1
- 256 0092 1A70     		strb	r2, [r3]
- 169:main.c        ****             case 'X':
- 257              		.loc 1 169 0
- 258 0094 08E0     		b	.L18
- 259              	.L10:
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 9
+ 265 00b8 7B020000 		.word	.L19+1
+ 266 00bc 7B020000 		.word	.L19+1
+ 267 00c0 7B020000 		.word	.L19+1
+ 268 00c4 7B020000 		.word	.L19+1
+ 269 00c8 7B020000 		.word	.L19+1
+ 270 00cc 7B020000 		.word	.L19+1
+ 271 00d0 7B020000 		.word	.L19+1
+ 272 00d4 7B020000 		.word	.L19+1
+ 273 00d8 7B020000 		.word	.L19+1
+ 274 00dc 7B020000 		.word	.L19+1
+ 275 00e0 7B020000 		.word	.L19+1
+ 276 00e4 7B020000 		.word	.L19+1
+ 277 00e8 7B020000 		.word	.L19+1
+ 278 00ec 7B020000 		.word	.L19+1
+ 279 00f0 7B020000 		.word	.L19+1
+ 280 00f4 7B020000 		.word	.L19+1
+ 281 00f8 51020000 		.word	.L12+1
+ 282 00fc 7B020000 		.word	.L19+1
+ 283 0100 7B020000 		.word	.L19+1
+ 284 0104 7B020000 		.word	.L19+1
+ 285 0108 7B020000 		.word	.L19+1
+ 286 010c 7B020000 		.word	.L19+1
+ 287 0110 7B020000 		.word	.L19+1
+ 288 0114 51020000 		.word	.L12+1
+ 289 0118 7B020000 		.word	.L19+1
+ 290 011c 7B020000 		.word	.L19+1
+ 291 0120 7B020000 		.word	.L19+1
+ 292 0124 7B020000 		.word	.L19+1
+ 293 0128 7B020000 		.word	.L19+1
+ 294 012c 51020000 		.word	.L12+1
+ 295 0130 51020000 		.word	.L12+1
+ 296 0134 51020000 		.word	.L12+1
+ 297 0138 51020000 		.word	.L12+1
+ 298 013c 51020000 		.word	.L12+1
+ 299 0140 51020000 		.word	.L12+1
+ 300 0144 51020000 		.word	.L12+1
+ 301 0148 51020000 		.word	.L12+1
+ 302 014c 51020000 		.word	.L12+1
+ 303 0150 51020000 		.word	.L12+1
+ 304 0154 7B020000 		.word	.L19+1
+ 305 0158 7B020000 		.word	.L19+1
+ 306 015c 7B020000 		.word	.L19+1
+ 307 0160 7B020000 		.word	.L19+1
+ 308 0164 7B020000 		.word	.L19+1
+ 309 0168 7B020000 		.word	.L19+1
+ 310 016c 7B020000 		.word	.L19+1
+ 311 0170 7B020000 		.word	.L19+1
+ 312 0174 7B020000 		.word	.L19+1
+ 313 0178 5B020000 		.word	.L13+1
+ 314 017c 7B020000 		.word	.L19+1
+ 315 0180 73020000 		.word	.L14+1
+ 316 0184 7B020000 		.word	.L19+1
+ 317 0188 7B020000 		.word	.L19+1
+ 318 018c 7B020000 		.word	.L19+1
+ 319 0190 7B020000 		.word	.L19+1
+ 320 0194 7B020000 		.word	.L19+1
+ 321 0198 7B020000 		.word	.L19+1
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 10
 
 
- 172:main.c        ****                 break;
- 260              		.loc 1 172 0
- 261 0096 054B     		ldr	r3, .L21
- 262 0098 0022     		movs	r2, #0
- 263 009a 1A70     		strb	r2, [r3]
- 173:main.c        ****             case 'E':
- 264              		.loc 1 173 0
- 265 009c 04E0     		b	.L18
- 266              	.L15:
- 176:main.c        ****                 break;
- 267              		.loc 1 176 0
- 268 009e 054B     		ldr	r3, .L21+8
- 269 00a0 0122     		movs	r2, #1
- 270 00a2 1A70     		strb	r2, [r3]
- 177:main.c        ****             default:
- 271              		.loc 1 177 0
- 272 00a4 00E0     		b	.L18
- 273              	.L20:
- 161:main.c        ****             case 'C':
- 274              		.loc 1 161 0
- 275 00a6 00BF     		nop
- 276              	.L18:
- 181:main.c        ****         }
- 182:main.c        ****         
- 183:main.c        ****     }
- 277              		.loc 1 183 0 discriminator 1
- 278 00a8 CCE7     		b	.L19
- 279              	.L22:
- 280 00aa 00BF     		.align	2
- 281              	.L21:
- 282 00ac 00000000 		.word	ContinuouslySendData
- 283 00b0 00000000 		.word	SendSingleByte
- 284 00b4 00000000 		.word	SendEmulatedData
- 285 00b8 00000000 		.word	EmulatedData
- 286 00bc 10000000 		.word	.LC2
- 287 00c0 00000000 		.word	Transmit
- 288              		.cfi_endproc
- 289              	.LFE65:
- 290              		.size	main, .-main
- 291              		.text
- 292              	.Letext0:
- 293              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 294              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 295              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 296              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
- 297              		.section	.debug_info,"",%progbits
- 298              	.Ldebug_info0:
- 299 0000 78010000 		.4byte	0x178
- 300 0004 0400     		.2byte	0x4
- 301 0006 00000000 		.4byte	.Ldebug_abbrev0
- 302 000a 04       		.byte	0x4
- 303 000b 01       		.uleb128 0x1
- 304 000c 0D000000 		.4byte	.LASF25
- 305 0010 0C       		.byte	0xc
- 306 0011 C4010000 		.4byte	.LASF26
- 307 0015 C7000000 		.4byte	.LASF27
- 308 0019 00000000 		.4byte	.Ldebug_ranges0+0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 10
+ 322 019c 7B020000 		.word	.L19+1
+ 323 01a0 7B020000 		.word	.L19+1
+ 324 01a4 7B020000 		.word	.L19+1
+ 325 01a8 7B020000 		.word	.L19+1
+ 326 01ac 7B020000 		.word	.L19+1
+ 327 01b0 7B020000 		.word	.L19+1
+ 328 01b4 7B020000 		.word	.L19+1
+ 329 01b8 63020000 		.word	.L15+1
+ 330 01bc 7B020000 		.word	.L19+1
+ 331 01c0 7B020000 		.word	.L19+1
+ 332 01c4 7B020000 		.word	.L19+1
+ 333 01c8 7B020000 		.word	.L19+1
+ 334 01cc 6B020000 		.word	.L16+1
+ 335 01d0 7B020000 		.word	.L19+1
+ 336 01d4 7B020000 		.word	.L19+1
+ 337 01d8 7B020000 		.word	.L19+1
+ 338 01dc 7B020000 		.word	.L19+1
+ 339 01e0 7B020000 		.word	.L19+1
+ 340 01e4 7B020000 		.word	.L19+1
+ 341 01e8 7B020000 		.word	.L19+1
+ 342 01ec 7B020000 		.word	.L19+1
+ 343 01f0 7B020000 		.word	.L19+1
+ 344 01f4 7B020000 		.word	.L19+1
+ 345 01f8 5B020000 		.word	.L13+1
+ 346 01fc 7B020000 		.word	.L19+1
+ 347 0200 73020000 		.word	.L14+1
+ 348 0204 7B020000 		.word	.L19+1
+ 349 0208 7B020000 		.word	.L19+1
+ 350 020c 7B020000 		.word	.L19+1
+ 351 0210 7B020000 		.word	.L19+1
+ 352 0214 7B020000 		.word	.L19+1
+ 353 0218 7B020000 		.word	.L19+1
+ 354 021c 7B020000 		.word	.L19+1
+ 355 0220 7B020000 		.word	.L19+1
+ 356 0224 7B020000 		.word	.L19+1
+ 357 0228 7B020000 		.word	.L19+1
+ 358 022c 7B020000 		.word	.L19+1
+ 359 0230 7B020000 		.word	.L19+1
+ 360 0234 7B020000 		.word	.L19+1
+ 361 0238 63020000 		.word	.L15+1
+ 362 023c 7B020000 		.word	.L19+1
+ 363 0240 7B020000 		.word	.L19+1
+ 364 0244 7B020000 		.word	.L19+1
+ 365 0248 7B020000 		.word	.L19+1
+ 366 024c 6B020000 		.word	.L16+1
+ 367              		.p2align 1
+ 368              	.L12:
+ 179:main.c        ****         {
+ 180:main.c        ****             case 0:
+ 181:main.c        ****                 /* No new data was recieved */
+ 182:main.c        ****                 break;
+ 183:main.c        ****             case '0':
+ 184:main.c        ****             case '1':
+ 185:main.c        ****             case '2':
+ 186:main.c        ****             case '3':
+ 187:main.c        ****             case '4':
+ 188:main.c        ****             case '5':
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 11
 
 
- 309 001d 00000000 		.4byte	0
- 310 0021 00000000 		.4byte	.Ldebug_line0
- 311 0025 02       		.uleb128 0x2
- 312 0026 01       		.byte	0x1
- 313 0027 06       		.byte	0x6
- 314 0028 04020000 		.4byte	.LASF0
- 315 002c 02       		.uleb128 0x2
- 316 002d 01       		.byte	0x1
- 317 002e 08       		.byte	0x8
- 318 002f 14010000 		.4byte	.LASF1
- 319 0033 02       		.uleb128 0x2
- 320 0034 02       		.byte	0x2
- 321 0035 05       		.byte	0x5
- 322 0036 D0010000 		.4byte	.LASF2
- 323 003a 02       		.uleb128 0x2
- 324 003b 02       		.byte	0x2
- 325 003c 07       		.byte	0x7
- 326 003d 34010000 		.4byte	.LASF3
- 327 0041 03       		.uleb128 0x3
- 328 0042 9B000000 		.4byte	.LASF9
- 329 0046 02       		.byte	0x2
- 330 0047 3F       		.byte	0x3f
- 331 0048 4C000000 		.4byte	0x4c
- 332 004c 02       		.uleb128 0x2
- 333 004d 04       		.byte	0x4
- 334 004e 05       		.byte	0x5
- 335 004f EF010000 		.4byte	.LASF4
- 336 0053 02       		.uleb128 0x2
- 337 0054 04       		.byte	0x4
- 338 0055 07       		.byte	0x7
- 339 0056 22010000 		.4byte	.LASF5
- 340 005a 02       		.uleb128 0x2
- 341 005b 08       		.byte	0x8
- 342 005c 05       		.byte	0x5
- 343 005d B6010000 		.4byte	.LASF6
- 344 0061 02       		.uleb128 0x2
- 345 0062 08       		.byte	0x8
- 346 0063 07       		.byte	0x7
- 347 0064 85010000 		.4byte	.LASF7
- 348 0068 04       		.uleb128 0x4
- 349 0069 04       		.byte	0x4
- 350 006a 05       		.byte	0x5
- 351 006b 696E7400 		.ascii	"int\000"
- 352 006f 02       		.uleb128 0x2
- 353 0070 04       		.byte	0x4
- 354 0071 07       		.byte	0x7
- 355 0072 78010000 		.4byte	.LASF8
- 356 0076 03       		.uleb128 0x3
- 357 0077 9C010000 		.4byte	.LASF10
- 358 007b 03       		.byte	0x3
- 359 007c 2C       		.byte	0x2c
- 360 007d 41000000 		.4byte	0x41
- 361 0081 05       		.uleb128 0x5
- 362 0082 E9010000 		.4byte	.LASF11
- 363 0086 04       		.byte	0x4
- 364 0087 9201     		.2byte	0x192
- 365 0089 2C000000 		.4byte	0x2c
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 11
+ 189:main.c        ****             case '6':
+ 190:main.c        ****             case '7':
+ 191:main.c        ****             case '8':
+ 192:main.c        ****             case '9':
+ 193:main.c        ****             case '*':
+ 194:main.c        ****             case '#':
+ 195:main.c        ****                 DialNumber((char*)&Ch);
+ 369              		.loc 1 195 0
+ 370 0250 FB1D     		adds	r3, r7, #7
+ 371 0252 1846     		mov	r0, r3
+ 372 0254 FFF7FEFF 		bl	DialNumber
+ 196:main.c        ****                 break;
+ 373              		.loc 1 196 0
+ 374 0258 10E0     		b	.L17
+ 375              	.L13:
+ 197:main.c        ****             case 'C':
+ 198:main.c        ****             case 'c':
+ 199:main.c        ****                 SendSingleByte = TRUE;
+ 376              		.loc 1 199 0
+ 377 025a 0A4B     		ldr	r3, .L20+4
+ 378 025c 0122     		movs	r2, #1
+ 379 025e 1A70     		strb	r2, [r3]
+ 200:main.c        ****                 break;
+ 380              		.loc 1 200 0
+ 381 0260 0CE0     		b	.L17
+ 382              	.L15:
+ 201:main.c        ****             case 'S':
+ 202:main.c        ****             case 's':
+ 203:main.c        ****                 ContinuouslySendData = TRUE;
+ 383              		.loc 1 203 0
+ 384 0262 074B     		ldr	r3, .L20
+ 385 0264 0122     		movs	r2, #1
+ 386 0266 1A70     		strb	r2, [r3]
+ 204:main.c        ****                 break;
+ 387              		.loc 1 204 0
+ 388 0268 08E0     		b	.L17
+ 389              	.L16:
+ 205:main.c        ****             case 'X':
+ 206:main.c        ****             case 'x':
+ 207:main.c        ****                 ContinuouslySendData = FALSE;
+ 390              		.loc 1 207 0
+ 391 026a 054B     		ldr	r3, .L20
+ 392 026c 0022     		movs	r2, #0
+ 393 026e 1A70     		strb	r2, [r3]
+ 208:main.c        ****                 break;
+ 394              		.loc 1 208 0
+ 395 0270 04E0     		b	.L17
+ 396              	.L14:
+ 209:main.c        ****             case 'E':
+ 210:main.c        ****             case 'e':
+ 211:main.c        ****                 SendEmulatedData = TRUE;
+ 397              		.loc 1 211 0
+ 398 0272 054B     		ldr	r3, .L20+8
+ 399 0274 0122     		movs	r2, #1
+ 400 0276 1A70     		strb	r2, [r3]
+ 212:main.c        ****                 break;
+ 401              		.loc 1 212 0
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 12
 
 
- 366 008d 05       		.uleb128 0x5
- 367 008e 71010000 		.4byte	.LASF12
- 368 0092 04       		.byte	0x4
- 369 0093 9301     		.2byte	0x193
- 370 0095 3A000000 		.4byte	0x3a
- 371 0099 02       		.uleb128 0x2
- 372 009a 04       		.byte	0x4
- 373 009b 04       		.byte	0x4
- 374 009c C1000000 		.4byte	.LASF13
- 375 00a0 02       		.uleb128 0x2
- 376 00a1 08       		.byte	0x8
- 377 00a2 04       		.byte	0x4
- 378 00a3 65010000 		.4byte	.LASF14
- 379 00a7 02       		.uleb128 0x2
- 380 00a8 01       		.byte	0x1
- 381 00a9 08       		.byte	0x8
- 382 00aa CB010000 		.4byte	.LASF15
- 383 00ae 02       		.uleb128 0x2
- 384 00af 08       		.byte	0x8
- 385 00b0 04       		.byte	0x4
- 386 00b1 F8010000 		.4byte	.LASF16
- 387 00b5 02       		.uleb128 0x2
- 388 00b6 04       		.byte	0x4
- 389 00b7 07       		.byte	0x7
- 390 00b8 AD010000 		.4byte	.LASF17
- 391 00bc 06       		.uleb128 0x6
- 392 00bd A4010000 		.4byte	.LASF28
- 393 00c1 01       		.byte	0x1
- 394 00c2 40       		.byte	0x40
- 395 00c3 00000000 		.4byte	.LFB64
- 396 00c7 9C000000 		.4byte	.LFE64-.LFB64
- 397 00cb 01       		.uleb128 0x1
- 398 00cc 9C       		.byte	0x9c
- 399 00cd 07       		.uleb128 0x7
- 400 00ce 6C010000 		.4byte	.LASF29
- 401 00d2 01       		.byte	0x1
- 402 00d3 7C       		.byte	0x7c
- 403 00d4 68000000 		.4byte	0x68
- 404 00d8 00000000 		.4byte	.LFB65
- 405 00dc C4000000 		.4byte	.LFE65-.LFB65
- 406 00e0 01       		.uleb128 0x1
- 407 00e1 9C       		.byte	0x9c
- 408 00e2 F4000000 		.4byte	0xf4
- 409 00e6 08       		.uleb128 0x8
- 410 00e7 436800   		.ascii	"Ch\000"
- 411 00ea 01       		.byte	0x1
- 412 00eb 7F       		.byte	0x7f
- 413 00ec 81000000 		.4byte	0x81
- 414 00f0 02       		.uleb128 0x2
- 415 00f1 91       		.byte	0x91
- 416 00f2 77       		.sleb128 -9
- 417 00f3 00       		.byte	0
- 418 00f4 09       		.uleb128 0x9
- 419 00f5 47010000 		.4byte	.LASF18
- 420 00f9 05       		.byte	0x5
- 421 00fa 1207     		.2byte	0x712
- 422 00fc 00010000 		.4byte	0x100
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 12
+ 402 0278 00E0     		b	.L17
+ 403              	.L19:
+ 213:main.c        ****             default:
+ 214:main.c        ****                 /* Place error handling code here */
+ 215:main.c        ****                 break;    
+ 404              		.loc 1 215 0
+ 405 027a 00BF     		nop
+ 406              	.L17:
+ 216:main.c        ****         }
+ 217:main.c        ****         
+ 218:main.c        ****     }
+ 407              		.loc 1 218 0 discriminator 1
+ 408 027c EAE6     		b	.L18
+ 409              	.L21:
+ 410 027e 00BF     		.align	2
+ 411              	.L20:
+ 412 0280 00000000 		.word	ContinuouslySendData
+ 413 0284 00000000 		.word	SendSingleByte
+ 414 0288 00000000 		.word	SendEmulatedData
+ 415 028c 00000000 		.word	EmulatedData
+ 416 0290 10000000 		.word	.LC2
+ 417 0294 00000000 		.word	Transmit
+ 418              		.cfi_endproc
+ 419              	.LFE65:
+ 420              		.size	main, .-main
+ 421              		.section	.text.DialNumber,"ax",%progbits
+ 422              		.align	2
+ 423              		.global	DialNumber
+ 424              		.thumb
+ 425              		.thumb_func
+ 426              		.type	DialNumber, %function
+ 427              	DialNumber:
+ 428              	.LFB66:
+ 219:main.c        **** }
+ 220:main.c        **** 
+ 221:main.c        **** /*******************************************************************************
+ 222:main.c        **** * Function Name: DialNumber( char * number )
+ 223:main.c        **** ********************************************************************************
+ 224:main.c        **** *
+ 225:main.c        **** * Summary:
+ 226:main.c        **** * This function dials the number passed to it in a character string. After
+ 227:main.c        **** * the number has been dialed the funtions returns.
+ 228:main.c        **** *
+ 229:main.c        **** * Parameters:
+ 230:main.c        **** * char * number: Pointer to phone number string.
+ 231:main.c        **** *
+ 232:main.c        **** * Return:
+ 233:main.c        **** * void
+ 234:main.c        **** *
+ 235:main.c        **** *******************************************************************************/
+ 236:main.c        **** void DialNumber( char * number )
+ 237:main.c        **** {
+ 429              		.loc 1 237 0
+ 430              		.cfi_startproc
+ 431              		@ args = 0, pretend = 0, frame = 16
+ 432              		@ frame_needed = 1, uses_anonymous_args = 0
+ 433 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 13
 
 
- 423 0100 0A       		.uleb128 0xa
- 424 0101 76000000 		.4byte	0x76
- 425 0105 0B       		.uleb128 0xb
- 426 0106 A5000000 		.4byte	.LASF19
- 427 010a 01       		.byte	0x1
- 428 010b 33       		.byte	0x33
- 429 010c 8D000000 		.4byte	0x8d
- 430 0110 05       		.uleb128 0x5
- 431 0111 03       		.byte	0x3
- 432 0112 00000000 		.4byte	Output
- 433 0116 0B       		.uleb128 0xb
- 434 0117 AC000000 		.4byte	.LASF20
- 435 011b 01       		.byte	0x1
- 436 011c 35       		.byte	0x35
- 437 011d 81000000 		.4byte	0x81
- 438 0121 05       		.uleb128 0x5
- 439 0122 03       		.byte	0x3
- 440 0123 00000000 		.4byte	ContinuouslySendData
- 441 0127 0B       		.uleb128 0xb
- 442 0128 10020000 		.4byte	.LASF21
- 443 012c 01       		.byte	0x1
- 444 012d 36       		.byte	0x36
- 445 012e 81000000 		.4byte	0x81
- 446 0132 05       		.uleb128 0x5
- 447 0133 03       		.byte	0x3
- 448 0134 00000000 		.4byte	SendSingleByte
- 449 0138 0B       		.uleb128 0xb
- 450 0139 54010000 		.4byte	.LASF22
- 451 013d 01       		.byte	0x1
- 452 013e 37       		.byte	0x37
- 453 013f 81000000 		.4byte	0x81
- 454 0143 05       		.uleb128 0x5
- 455 0144 03       		.byte	0x3
- 456 0145 00000000 		.4byte	SendEmulatedData
- 457 0149 0C       		.uleb128 0xc
- 458 014a A7000000 		.4byte	0xa7
- 459 014e 59010000 		.4byte	0x159
- 460 0152 0D       		.uleb128 0xd
- 461 0153 B5000000 		.4byte	0xb5
- 462 0157 0F       		.byte	0xf
- 463 0158 00       		.byte	0
- 464 0159 0B       		.uleb128 0xb
- 465 015a DA010000 		.4byte	.LASF23
- 466 015e 01       		.byte	0x1
- 467 015f 39       		.byte	0x39
- 468 0160 49010000 		.4byte	0x149
- 469 0164 05       		.uleb128 0x5
- 470 0165 03       		.byte	0x3
- 471 0166 00000000 		.4byte	TransmitBuffer
- 472 016a 0B       		.uleb128 0xb
- 473 016b 00000000 		.4byte	.LASF24
- 474 016f 01       		.byte	0x1
- 475 0170 3B       		.byte	0x3b
- 476 0171 81000000 		.4byte	0x81
- 477 0175 05       		.uleb128 0x5
- 478 0176 03       		.byte	0x3
- 479 0177 00000000 		.4byte	EmulatedData
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 13
+ 434              		.cfi_def_cfa_offset 8
+ 435              		.cfi_offset 7, -8
+ 436              		.cfi_offset 14, -4
+ 437 0002 84B0     		sub	sp, sp, #16
+ 438              		.cfi_def_cfa_offset 24
+ 439 0004 00AF     		add	r7, sp, #0
+ 440              		.cfi_def_cfa_register 7
+ 441 0006 7860     		str	r0, [r7, #4]
+ 238:main.c        ****     uint8 c = 0;
+ 442              		.loc 1 238 0
+ 443 0008 0023     		movs	r3, #0
+ 444 000a FB73     		strb	r3, [r7, #15]
+ 239:main.c        ****     while( number[c] != 0 ) /* Step through the dial string */
+ 445              		.loc 1 239 0
+ 446 000c 0CE0     		b	.L23
+ 447              	.L24:
+ 240:main.c        ****     {
+ 241:main.c        ****         PlayTones( number[c] ); /* Play tone for each digit */
+ 448              		.loc 1 241 0
+ 449 000e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 450 0010 7A68     		ldr	r2, [r7, #4]
+ 451 0012 1344     		add	r3, r3, r2
+ 452 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 453 0016 1846     		mov	r0, r3
+ 454 0018 FFF7FEFF 		bl	PlayTones
+ 242:main.c        ****         CyDelay(TONE_SPACE_MS); /* Wait minimum space between tones */
+ 455              		.loc 1 242 0
+ 456 001c 3220     		movs	r0, #50
+ 457 001e FFF7FEFF 		bl	CyDelay
+ 243:main.c        ****         c++;
+ 458              		.loc 1 243 0
+ 459 0022 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 460 0024 0133     		adds	r3, r3, #1
+ 461 0026 FB73     		strb	r3, [r7, #15]
+ 462              	.L23:
+ 239:main.c        ****     {
+ 463              		.loc 1 239 0
+ 464 0028 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 465 002a 7A68     		ldr	r2, [r7, #4]
+ 466 002c 1344     		add	r3, r3, r2
+ 467 002e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 468 0030 002B     		cmp	r3, #0
+ 469 0032 ECD1     		bne	.L24
+ 244:main.c        ****     }
+ 245:main.c        **** }
+ 470              		.loc 1 245 0
+ 471 0034 00BF     		nop
+ 472 0036 1037     		adds	r7, r7, #16
+ 473              		.cfi_def_cfa_offset 8
+ 474 0038 BD46     		mov	sp, r7
+ 475              		.cfi_def_cfa_register 13
+ 476              		@ sp needed
+ 477 003a 80BD     		pop	{r7, pc}
+ 478              		.cfi_endproc
+ 479              	.LFE66:
+ 480              		.size	DialNumber, .-DialNumber
+ 481              		.section	.text.PlayTones,"ax",%progbits
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 14
 
 
- 480 017b 00       		.byte	0
- 481              		.section	.debug_abbrev,"",%progbits
- 482              	.Ldebug_abbrev0:
- 483 0000 01       		.uleb128 0x1
- 484 0001 11       		.uleb128 0x11
- 485 0002 01       		.byte	0x1
- 486 0003 25       		.uleb128 0x25
- 487 0004 0E       		.uleb128 0xe
- 488 0005 13       		.uleb128 0x13
- 489 0006 0B       		.uleb128 0xb
- 490 0007 03       		.uleb128 0x3
- 491 0008 0E       		.uleb128 0xe
- 492 0009 1B       		.uleb128 0x1b
- 493 000a 0E       		.uleb128 0xe
- 494 000b 55       		.uleb128 0x55
- 495 000c 17       		.uleb128 0x17
- 496 000d 11       		.uleb128 0x11
- 497 000e 01       		.uleb128 0x1
- 498 000f 10       		.uleb128 0x10
- 499 0010 17       		.uleb128 0x17
- 500 0011 00       		.byte	0
- 501 0012 00       		.byte	0
- 502 0013 02       		.uleb128 0x2
- 503 0014 24       		.uleb128 0x24
- 504 0015 00       		.byte	0
- 505 0016 0B       		.uleb128 0xb
- 506 0017 0B       		.uleb128 0xb
- 507 0018 3E       		.uleb128 0x3e
- 508 0019 0B       		.uleb128 0xb
- 509 001a 03       		.uleb128 0x3
- 510 001b 0E       		.uleb128 0xe
- 511 001c 00       		.byte	0
- 512 001d 00       		.byte	0
- 513 001e 03       		.uleb128 0x3
- 514 001f 16       		.uleb128 0x16
- 515 0020 00       		.byte	0
- 516 0021 03       		.uleb128 0x3
- 517 0022 0E       		.uleb128 0xe
- 518 0023 3A       		.uleb128 0x3a
- 519 0024 0B       		.uleb128 0xb
- 520 0025 3B       		.uleb128 0x3b
- 521 0026 0B       		.uleb128 0xb
- 522 0027 49       		.uleb128 0x49
- 523 0028 13       		.uleb128 0x13
- 524 0029 00       		.byte	0
- 525 002a 00       		.byte	0
- 526 002b 04       		.uleb128 0x4
- 527 002c 24       		.uleb128 0x24
- 528 002d 00       		.byte	0
- 529 002e 0B       		.uleb128 0xb
- 530 002f 0B       		.uleb128 0xb
- 531 0030 3E       		.uleb128 0x3e
- 532 0031 0B       		.uleb128 0xb
- 533 0032 03       		.uleb128 0x3
- 534 0033 08       		.uleb128 0x8
- 535 0034 00       		.byte	0
- 536 0035 00       		.byte	0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 14
+ 482              		.align	2
+ 483              		.global	PlayTones
+ 484              		.thumb
+ 485              		.thumb_func
+ 486              		.type	PlayTones, %function
+ 487              	PlayTones:
+ 488              	.LFB67:
+ 246:main.c        **** 
+ 247:main.c        **** /*******************************************************************************
+ 248:main.c        **** * Function Name: PlayTones( )
+ 249:main.c        **** ********************************************************************************
+ 250:main.c        **** *
+ 251:main.c        **** * Summary:
+ 252:main.c        **** * Generates the two tones required to dial the given key code. The valid
+ 253:main.c        **** * dial characters are "1 2 3 4 5 6 7 8 9 0 A B C D * #". Any invalid
+ 254:main.c        **** * character will generate a pause.
+ 255:main.c        **** *
+ 256:main.c        **** * Parameters:
+ 257:main.c        **** * char key: Keypad character to be dialed.
+ 258:main.c        **** *
+ 259:main.c        **** * Return:
+ 260:main.c        **** * void
+ 261:main.c        **** *
+ 262:main.c        **** *******************************************************************************/
+ 263:main.c        **** void PlayTones( char key )
+ 264:main.c        **** {
+ 489              		.loc 1 264 0
+ 490              		.cfi_startproc
+ 491              		@ args = 0, pretend = 0, frame = 16
+ 492              		@ frame_needed = 1, uses_anonymous_args = 0
+ 493 0000 80B5     		push	{r7, lr}
+ 494              		.cfi_def_cfa_offset 8
+ 495              		.cfi_offset 7, -8
+ 496              		.cfi_offset 14, -4
+ 497 0002 84B0     		sub	sp, sp, #16
+ 498              		.cfi_def_cfa_offset 24
+ 499 0004 00AF     		add	r7, sp, #0
+ 500              		.cfi_def_cfa_register 7
+ 501 0006 0346     		mov	r3, r0
+ 502 0008 FB71     		strb	r3, [r7, #7]
+ 265:main.c        ****     int8 idx;
+ 266:main.c        ****     uint8 row_div, col_div;
+ 267:main.c        **** 
+ 268:main.c        ****     idx = KeyIndex(keyCodes, key); /* Convert key to "keyCodes" array index */
+ 503              		.loc 1 268 0
+ 504 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 505 000c 1946     		mov	r1, r3
+ 506 000e 1B48     		ldr	r0, .L29
+ 507 0010 FFF7FEFF 		bl	KeyIndex
+ 508 0014 0346     		mov	r3, r0
+ 509 0016 FB73     		strb	r3, [r7, #15]
+ 269:main.c        ****     if (idx >= 0 ) /* Is key valid */
+ 510              		.loc 1 269 0
+ 511 0018 97F90F30 		ldrsb	r3, [r7, #15]
+ 512 001c 002B     		cmp	r3, #0
+ 513 001e 25DB     		blt	.L26
+ 270:main.c        ****     { /* Valid Key */
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 15
 
 
- 537 0036 05       		.uleb128 0x5
- 538 0037 16       		.uleb128 0x16
- 539 0038 00       		.byte	0
- 540 0039 03       		.uleb128 0x3
- 541 003a 0E       		.uleb128 0xe
- 542 003b 3A       		.uleb128 0x3a
- 543 003c 0B       		.uleb128 0xb
- 544 003d 3B       		.uleb128 0x3b
- 545 003e 05       		.uleb128 0x5
- 546 003f 49       		.uleb128 0x49
- 547 0040 13       		.uleb128 0x13
- 548 0041 00       		.byte	0
- 549 0042 00       		.byte	0
- 550 0043 06       		.uleb128 0x6
- 551 0044 2E       		.uleb128 0x2e
- 552 0045 00       		.byte	0
- 553 0046 3F       		.uleb128 0x3f
- 554 0047 19       		.uleb128 0x19
- 555 0048 03       		.uleb128 0x3
- 556 0049 0E       		.uleb128 0xe
- 557 004a 3A       		.uleb128 0x3a
- 558 004b 0B       		.uleb128 0xb
- 559 004c 3B       		.uleb128 0x3b
- 560 004d 0B       		.uleb128 0xb
- 561 004e 27       		.uleb128 0x27
- 562 004f 19       		.uleb128 0x19
- 563 0050 11       		.uleb128 0x11
- 564 0051 01       		.uleb128 0x1
- 565 0052 12       		.uleb128 0x12
- 566 0053 06       		.uleb128 0x6
- 567 0054 40       		.uleb128 0x40
- 568 0055 18       		.uleb128 0x18
- 569 0056 9642     		.uleb128 0x2116
- 570 0058 19       		.uleb128 0x19
- 571 0059 00       		.byte	0
- 572 005a 00       		.byte	0
- 573 005b 07       		.uleb128 0x7
- 574 005c 2E       		.uleb128 0x2e
- 575 005d 01       		.byte	0x1
- 576 005e 3F       		.uleb128 0x3f
- 577 005f 19       		.uleb128 0x19
- 578 0060 03       		.uleb128 0x3
- 579 0061 0E       		.uleb128 0xe
- 580 0062 3A       		.uleb128 0x3a
- 581 0063 0B       		.uleb128 0xb
- 582 0064 3B       		.uleb128 0x3b
- 583 0065 0B       		.uleb128 0xb
- 584 0066 49       		.uleb128 0x49
- 585 0067 13       		.uleb128 0x13
- 586 0068 11       		.uleb128 0x11
- 587 0069 01       		.uleb128 0x1
- 588 006a 12       		.uleb128 0x12
- 589 006b 06       		.uleb128 0x6
- 590 006c 40       		.uleb128 0x40
- 591 006d 18       		.uleb128 0x18
- 592 006e 9642     		.uleb128 0x2116
- 593 0070 19       		.uleb128 0x19
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 15
+ 271:main.c        ****         col_div = colDiv[(uint8)(idx & 0x03)]; /* Get divider for column tone */
+ 514              		.loc 1 271 0
+ 515 0020 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 516 0022 03F00303 		and	r3, r3, #3
+ 517 0026 164A     		ldr	r2, .L29+4
+ 518 0028 D35C     		ldrb	r3, [r2, r3]
+ 519 002a BB73     		strb	r3, [r7, #14]
+ 272:main.c        ****         row_div = rowDiv[(uint8)((idx >> 2)& 0x03)];/* Get divider for row tone */
+ 520              		.loc 1 272 0
+ 521 002c 97F90F30 		ldrsb	r3, [r7, #15]
+ 522 0030 9B10     		asrs	r3, r3, #2
+ 523 0032 5BB2     		sxtb	r3, r3
+ 524 0034 DBB2     		uxtb	r3, r3
+ 525 0036 03F00303 		and	r3, r3, #3
+ 526 003a 124A     		ldr	r2, .L29+8
+ 527 003c D35C     		ldrb	r3, [r2, r3]
+ 528 003e 7B73     		strb	r3, [r7, #13]
+ 273:main.c        **** 
+ 274:main.c        ****         Row_Divider_WritePeriod(row_div); /* Set both dividers */
+ 529              		.loc 1 274 0
+ 530 0040 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 531 0042 1846     		mov	r0, r3
+ 532 0044 FFF7FEFF 		bl	Row_Divider_WritePeriod
+ 275:main.c        ****         Col_Divider_WritePeriod(col_div);
+ 533              		.loc 1 275 0
+ 534 0048 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 535 004a 1846     		mov	r0, r3
+ 536 004c FFF7FEFF 		bl	Col_Divider_WritePeriod
+ 276:main.c        **** 
+ 277:main.c        ****         ToneClock_Start(); /* Turn on clock */
+ 537              		.loc 1 277 0
+ 538 0050 FFF7FEFF 		bl	ToneClock_Start
+ 278:main.c        ****         ContinuouslySendData = TRUE;
+ 539              		.loc 1 278 0
+ 540 0054 0C4B     		ldr	r3, .L29+12
+ 541 0056 0122     		movs	r2, #1
+ 542 0058 1A70     		strb	r2, [r3]
+ 279:main.c        ****         CyDelay(TONE_DURATION_MS); /* Wait for the tone duration */
+ 543              		.loc 1 279 0
+ 544 005a 5020     		movs	r0, #80
+ 545 005c FFF7FEFF 		bl	CyDelay
+ 280:main.c        ****         ToneClock_Stop(); /* Turn off clock */
+ 546              		.loc 1 280 0
+ 547 0060 FFF7FEFF 		bl	ToneClock_Stop
+ 281:main.c        ****         ContinuouslySendData = FALSE;
+ 548              		.loc 1 281 0
+ 549 0064 084B     		ldr	r3, .L29+12
+ 550 0066 0022     		movs	r2, #0
+ 551 0068 1A70     		strb	r2, [r3]
+ 282:main.c        ****     }
+ 283:main.c        ****     else /* Invalid key, just pause for set period of time. */
+ 284:main.c        ****     {
+ 285:main.c        ****         CyDelay(TONE_PAUSE_MS);
+ 286:main.c        ****     }
+ 287:main.c        **** }
+ 552              		.loc 1 287 0
+ 553 006a 02E0     		b	.L28
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 16
 
 
- 594 0071 01       		.uleb128 0x1
- 595 0072 13       		.uleb128 0x13
- 596 0073 00       		.byte	0
- 597 0074 00       		.byte	0
- 598 0075 08       		.uleb128 0x8
- 599 0076 34       		.uleb128 0x34
- 600 0077 00       		.byte	0
- 601 0078 03       		.uleb128 0x3
- 602 0079 08       		.uleb128 0x8
- 603 007a 3A       		.uleb128 0x3a
- 604 007b 0B       		.uleb128 0xb
- 605 007c 3B       		.uleb128 0x3b
- 606 007d 0B       		.uleb128 0xb
- 607 007e 49       		.uleb128 0x49
- 608 007f 13       		.uleb128 0x13
- 609 0080 02       		.uleb128 0x2
- 610 0081 18       		.uleb128 0x18
- 611 0082 00       		.byte	0
- 612 0083 00       		.byte	0
- 613 0084 09       		.uleb128 0x9
- 614 0085 34       		.uleb128 0x34
- 615 0086 00       		.byte	0
- 616 0087 03       		.uleb128 0x3
- 617 0088 0E       		.uleb128 0xe
- 618 0089 3A       		.uleb128 0x3a
- 619 008a 0B       		.uleb128 0xb
- 620 008b 3B       		.uleb128 0x3b
- 621 008c 05       		.uleb128 0x5
- 622 008d 49       		.uleb128 0x49
- 623 008e 13       		.uleb128 0x13
- 624 008f 3F       		.uleb128 0x3f
- 625 0090 19       		.uleb128 0x19
- 626 0091 3C       		.uleb128 0x3c
- 627 0092 19       		.uleb128 0x19
- 628 0093 00       		.byte	0
- 629 0094 00       		.byte	0
- 630 0095 0A       		.uleb128 0xa
- 631 0096 35       		.uleb128 0x35
- 632 0097 00       		.byte	0
- 633 0098 49       		.uleb128 0x49
- 634 0099 13       		.uleb128 0x13
- 635 009a 00       		.byte	0
- 636 009b 00       		.byte	0
- 637 009c 0B       		.uleb128 0xb
- 638 009d 34       		.uleb128 0x34
- 639 009e 00       		.byte	0
- 640 009f 03       		.uleb128 0x3
- 641 00a0 0E       		.uleb128 0xe
- 642 00a1 3A       		.uleb128 0x3a
- 643 00a2 0B       		.uleb128 0xb
- 644 00a3 3B       		.uleb128 0x3b
- 645 00a4 0B       		.uleb128 0xb
- 646 00a5 49       		.uleb128 0x49
- 647 00a6 13       		.uleb128 0x13
- 648 00a7 3F       		.uleb128 0x3f
- 649 00a8 19       		.uleb128 0x19
- 650 00a9 02       		.uleb128 0x2
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 16
+ 554              	.L26:
+ 285:main.c        ****     }
+ 555              		.loc 1 285 0
+ 556 006c 6420     		movs	r0, #100
+ 557 006e FFF7FEFF 		bl	CyDelay
+ 558              	.L28:
+ 559              		.loc 1 287 0
+ 560 0072 00BF     		nop
+ 561 0074 1037     		adds	r7, r7, #16
+ 562              		.cfi_def_cfa_offset 8
+ 563 0076 BD46     		mov	sp, r7
+ 564              		.cfi_def_cfa_register 13
+ 565              		@ sp needed
+ 566 0078 80BD     		pop	{r7, pc}
+ 567              	.L30:
+ 568 007a 00BF     		.align	2
+ 569              	.L29:
+ 570 007c 00000000 		.word	keyCodes
+ 571 0080 00000000 		.word	colDiv
+ 572 0084 00000000 		.word	rowDiv
+ 573 0088 00000000 		.word	ContinuouslySendData
+ 574              		.cfi_endproc
+ 575              	.LFE67:
+ 576              		.size	PlayTones, .-PlayTones
+ 577              		.section	.text.KeyIndex,"ax",%progbits
+ 578              		.align	2
+ 579              		.global	KeyIndex
+ 580              		.thumb
+ 581              		.thumb_func
+ 582              		.type	KeyIndex, %function
+ 583              	KeyIndex:
+ 584              	.LFB68:
+ 288:main.c        **** 
+ 289:main.c        **** /*******************************************************************************
+ 290:main.c        **** * Function Name: KeyIndex( )
+ 291:main.c        **** ********************************************************************************
+ 292:main.c        **** *
+ 293:main.c        **** * Summary:
+ 294:main.c        **** * This function finds the location of a character in a string and returns
+ 295:main.c        **** * the index. If the character is not found a -1 is returned.
+ 296:main.c        **** *
+ 297:main.c        **** * Parameters:
+ 298:main.c        **** * char * keyString: String to search through. This strings should be null
+ 299:main.c        **** * terminated and less than 255 characters in lenth.
+ 300:main.c        **** * char key: Character to find in "String".
+ 301:main.c        **** *
+ 302:main.c        **** * Return:
+ 303:main.c        **** * int8: Index of "key" in "keyString". If not found, return -1.
+ 304:main.c        **** *
+ 305:main.c        **** *******************************************************************************/
+ 306:main.c        **** int8 KeyIndex(char * keyString, char key)
+ 307:main.c        **** {
+ 585              		.loc 1 307 0
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 16
+ 588              		@ frame_needed = 1, uses_anonymous_args = 0
+ 589              		@ link register save eliminated.
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 17
 
 
- 651 00aa 18       		.uleb128 0x18
- 652 00ab 00       		.byte	0
- 653 00ac 00       		.byte	0
- 654 00ad 0C       		.uleb128 0xc
- 655 00ae 01       		.uleb128 0x1
- 656 00af 01       		.byte	0x1
- 657 00b0 49       		.uleb128 0x49
- 658 00b1 13       		.uleb128 0x13
- 659 00b2 01       		.uleb128 0x1
- 660 00b3 13       		.uleb128 0x13
- 661 00b4 00       		.byte	0
- 662 00b5 00       		.byte	0
- 663 00b6 0D       		.uleb128 0xd
- 664 00b7 21       		.uleb128 0x21
- 665 00b8 00       		.byte	0
- 666 00b9 49       		.uleb128 0x49
- 667 00ba 13       		.uleb128 0x13
- 668 00bb 2F       		.uleb128 0x2f
- 669 00bc 0B       		.uleb128 0xb
- 670 00bd 00       		.byte	0
- 671 00be 00       		.byte	0
- 672 00bf 00       		.byte	0
- 673              		.section	.debug_aranges,"",%progbits
- 674 0000 24000000 		.4byte	0x24
- 675 0004 0200     		.2byte	0x2
- 676 0006 00000000 		.4byte	.Ldebug_info0
- 677 000a 04       		.byte	0x4
- 678 000b 00       		.byte	0
- 679 000c 0000     		.2byte	0
- 680 000e 0000     		.2byte	0
- 681 0010 00000000 		.4byte	.LFB64
- 682 0014 9C000000 		.4byte	.LFE64-.LFB64
- 683 0018 00000000 		.4byte	.LFB65
- 684 001c C4000000 		.4byte	.LFE65-.LFB65
- 685 0020 00000000 		.4byte	0
- 686 0024 00000000 		.4byte	0
- 687              		.section	.debug_ranges,"",%progbits
- 688              	.Ldebug_ranges0:
- 689 0000 00000000 		.4byte	.LFB64
- 690 0004 9C000000 		.4byte	.LFE64
- 691 0008 00000000 		.4byte	.LFB65
- 692 000c C4000000 		.4byte	.LFE65
- 693 0010 00000000 		.4byte	0
- 694 0014 00000000 		.4byte	0
- 695              		.section	.debug_line,"",%progbits
- 696              	.Ldebug_line0:
- 697 0000 C2010000 		.section	.debug_str,"MS",%progbits,1
- 697      02004C01 
- 697      00000201 
- 697      FB0E0D00 
- 697      01010101 
- 698              	.LASF24:
- 699 0000 456D756C 		.ascii	"EmulatedData\000"
- 699      61746564 
- 699      44617461 
- 699      00
- 700              	.LASF25:
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 17
+ 590 0000 80B4     		push	{r7}
+ 591              		.cfi_def_cfa_offset 4
+ 592              		.cfi_offset 7, -4
+ 593 0002 85B0     		sub	sp, sp, #20
+ 594              		.cfi_def_cfa_offset 24
+ 595 0004 00AF     		add	r7, sp, #0
+ 596              		.cfi_def_cfa_register 7
+ 597 0006 7860     		str	r0, [r7, #4]
+ 598 0008 0B46     		mov	r3, r1
+ 599 000a FB70     		strb	r3, [r7, #3]
+ 308:main.c        ****     int8 i; /* String index */
+ 309:main.c        ****     int8 charLoc = -1; /* Location of character in string */
+ 600              		.loc 1 309 0
+ 601 000c FF23     		movs	r3, #255
+ 602 000e BB73     		strb	r3, [r7, #14]
+ 310:main.c        **** 
+ 311:main.c        ****     /* Search through string for character match */
+ 312:main.c        ****     for(i=0; (keyString[i] != 0); i++)
+ 603              		.loc 1 312 0
+ 604 0010 0023     		movs	r3, #0
+ 605 0012 FB73     		strb	r3, [r7, #15]
+ 606 0014 10E0     		b	.L32
+ 607              	.L35:
+ 313:main.c        ****     {
+ 314:main.c        ****         /* If character is found return index in string */
+ 315:main.c        ****         if (key == keyString[i])
+ 608              		.loc 1 315 0
+ 609 0016 97F90F30 		ldrsb	r3, [r7, #15]
+ 610 001a 7A68     		ldr	r2, [r7, #4]
+ 611 001c 1344     		add	r3, r3, r2
+ 612 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 613 0020 FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+ 614 0022 9A42     		cmp	r2, r3
+ 615 0024 02D1     		bne	.L33
+ 316:main.c        ****         {
+ 317:main.c        ****             charLoc = i;
+ 616              		.loc 1 317 0
+ 617 0026 FB7B     		ldrb	r3, [r7, #15]
+ 618 0028 BB73     		strb	r3, [r7, #14]
+ 318:main.c        ****             break;
+ 619              		.loc 1 318 0
+ 620 002a 0CE0     		b	.L34
+ 621              	.L33:
+ 312:main.c        ****     {
+ 622              		.loc 1 312 0 discriminator 2
+ 623 002c 97F90F30 		ldrsb	r3, [r7, #15]
+ 624 0030 DBB2     		uxtb	r3, r3
+ 625 0032 0133     		adds	r3, r3, #1
+ 626 0034 DBB2     		uxtb	r3, r3
+ 627 0036 FB73     		strb	r3, [r7, #15]
+ 628              	.L32:
+ 312:main.c        ****     {
+ 629              		.loc 1 312 0 is_stmt 0 discriminator 1
+ 630 0038 97F90F30 		ldrsb	r3, [r7, #15]
+ 631 003c 7A68     		ldr	r2, [r7, #4]
+ 632 003e 1344     		add	r3, r3, r2
+ 633 0040 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 18
 
 
- 701 000d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 701      43313120 
- 701      352E342E 
- 701      31203230 
- 701      31363036 
- 702 0040 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 702      20726576 
- 702      6973696F 
- 702      6E203233 
- 702      37373135 
- 703 0073 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 703      66756E63 
- 703      74696F6E 
- 703      2D736563 
- 703      74696F6E 
- 704              	.LASF9:
- 705 009b 5F5F696E 		.ascii	"__int32_t\000"
- 705      7433325F 
- 705      7400
- 706              	.LASF19:
- 707 00a5 4F757470 		.ascii	"Output\000"
- 707      757400
- 708              	.LASF20:
- 709 00ac 436F6E74 		.ascii	"ContinuouslySendData\000"
- 709      696E756F 
- 709      75736C79 
- 709      53656E64 
- 709      44617461 
- 710              	.LASF13:
- 711 00c1 666C6F61 		.ascii	"float\000"
- 711      7400
- 712              	.LASF27:
- 713 00c7 433A5C55 		.ascii	"C:\\Users\\Luis Alonso Murillo\\Documents\\GitHub\\"
- 713      73657273 
- 713      5C4C7569 
- 713      7320416C 
- 713      6F6E736F 
- 714 00f5 44544D46 		.ascii	"DTMF\\transmitter\\Encoder.cydsn\000"
- 714      5C747261 
- 714      6E736D69 
- 714      74746572 
- 714      5C456E63 
- 715              	.LASF1:
- 716 0114 756E7369 		.ascii	"unsigned char\000"
- 716      676E6564 
- 716      20636861 
- 716      7200
- 717              	.LASF5:
- 718 0122 6C6F6E67 		.ascii	"long unsigned int\000"
- 718      20756E73 
- 718      69676E65 
- 718      6420696E 
- 718      7400
- 719              	.LASF3:
- 720 0134 73686F72 		.ascii	"short unsigned int\000"
- 720      7420756E 
- 720      7369676E 
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 18
+ 634 0042 002B     		cmp	r3, #0
+ 635 0044 E7D1     		bne	.L35
+ 636              	.L34:
+ 319:main.c        ****         }
+ 320:main.c        ****     }
+ 321:main.c        ****     return charLoc;
+ 637              		.loc 1 321 0 is_stmt 1
+ 638 0046 97F90E30 		ldrsb	r3, [r7, #14]
+ 322:main.c        **** }
+ 639              		.loc 1 322 0
+ 640 004a 1846     		mov	r0, r3
+ 641 004c 1437     		adds	r7, r7, #20
+ 642              		.cfi_def_cfa_offset 4
+ 643 004e BD46     		mov	sp, r7
+ 644              		.cfi_def_cfa_register 13
+ 645              		@ sp needed
+ 646 0050 80BC     		pop	{r7}
+ 647              		.cfi_restore 7
+ 648              		.cfi_def_cfa_offset 0
+ 649 0052 7047     		bx	lr
+ 650              		.cfi_endproc
+ 651              	.LFE68:
+ 652              		.size	KeyIndex, .-KeyIndex
+ 653              		.text
+ 654              	.Letext0:
+ 655              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 656              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 657              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 658              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 659              		.section	.debug_info,"",%progbits
+ 660              	.Ldebug_info0:
+ 661 0000 B5020000 		.4byte	0x2b5
+ 662 0004 0400     		.2byte	0x4
+ 663 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 664 000a 04       		.byte	0x4
+ 665 000b 01       		.uleb128 0x1
+ 666 000c 0D000000 		.4byte	.LASF37
+ 667 0010 0C       		.byte	0xc
+ 668 0011 1C020000 		.4byte	.LASF38
+ 669 0015 E3000000 		.4byte	.LASF39
+ 670 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 671 001d 00000000 		.4byte	0
+ 672 0021 00000000 		.4byte	.Ldebug_line0
+ 673 0025 02       		.uleb128 0x2
+ 674 0026 01       		.byte	0x1
+ 675 0027 06       		.byte	0x6
+ 676 0028 5C020000 		.4byte	.LASF0
+ 677 002c 02       		.uleb128 0x2
+ 678 002d 01       		.byte	0x1
+ 679 002e 08       		.byte	0x8
+ 680 002f 30010000 		.4byte	.LASF1
+ 681 0033 02       		.uleb128 0x2
+ 682 0034 02       		.byte	0x2
+ 683 0035 05       		.byte	0x5
+ 684 0036 28020000 		.4byte	.LASF2
+ 685 003a 02       		.uleb128 0x2
+ 686 003b 02       		.byte	0x2
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 19
 
 
- 720      65642069 
- 720      6E7400
- 721              	.LASF18:
- 722 0147 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 722      52784275 
- 722      66666572 
- 722      00
- 723              	.LASF22:
- 724 0154 53656E64 		.ascii	"SendEmulatedData\000"
- 724      456D756C 
- 724      61746564 
- 724      44617461 
- 724      00
- 725              	.LASF14:
- 726 0165 646F7562 		.ascii	"double\000"
- 726      6C6500
- 727              	.LASF29:
- 728 016c 6D61696E 		.ascii	"main\000"
- 728      00
- 729              	.LASF12:
- 730 0171 75696E74 		.ascii	"uint16\000"
- 730      313600
- 731              	.LASF8:
- 732 0178 756E7369 		.ascii	"unsigned int\000"
- 732      676E6564 
- 732      20696E74 
- 732      00
- 733              	.LASF7:
- 734 0185 6C6F6E67 		.ascii	"long long unsigned int\000"
- 734      206C6F6E 
- 734      6720756E 
- 734      7369676E 
- 734      65642069 
- 735              	.LASF10:
- 736 019c 696E7433 		.ascii	"int32_t\000"
- 736      325F7400 
- 737              	.LASF28:
- 738 01a4 5472616E 		.ascii	"Transmit\000"
- 738      736D6974 
- 738      00
- 739              	.LASF17:
- 740 01ad 73697A65 		.ascii	"sizetype\000"
- 740      74797065 
- 740      00
- 741              	.LASF6:
- 742 01b6 6C6F6E67 		.ascii	"long long int\000"
- 742      206C6F6E 
- 742      6720696E 
- 742      7400
- 743              	.LASF26:
- 744 01c4 6D61696E 		.ascii	"main.c\000"
- 744      2E6300
- 745              	.LASF15:
- 746 01cb 63686172 		.ascii	"char\000"
- 746      00
- 747              	.LASF2:
- 748 01d0 73686F72 		.ascii	"short int\000"
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cclyBGQ2.s 			page 19
+ 687 003c 07       		.byte	0x7
+ 688 003d C7000000 		.4byte	.LASF3
+ 689 0041 03       		.uleb128 0x3
+ 690 0042 A1000000 		.4byte	.LASF9
+ 691 0046 02       		.byte	0x2
+ 692 0047 3F       		.byte	0x3f
+ 693 0048 4C000000 		.4byte	0x4c
+ 694 004c 02       		.uleb128 0x2
+ 695 004d 04       		.byte	0x4
+ 696 004e 05       		.byte	0x5
+ 697 004f 47020000 		.4byte	.LASF4
+ 698 0053 02       		.uleb128 0x2
+ 699 0054 04       		.byte	0x4
+ 700 0055 07       		.byte	0x7
+ 701 0056 4D010000 		.4byte	.LASF5
+ 702 005a 02       		.uleb128 0x2
+ 703 005b 08       		.byte	0x8
+ 704 005c 05       		.byte	0x5
+ 705 005d 04020000 		.4byte	.LASF6
+ 706 0061 02       		.uleb128 0x2
+ 707 0062 08       		.byte	0x8
+ 708 0063 07       		.byte	0x7
+ 709 0064 C2010000 		.4byte	.LASF7
+ 710 0068 04       		.uleb128 0x4
+ 711 0069 04       		.byte	0x4
+ 712 006a 05       		.byte	0x5
+ 713 006b 696E7400 		.ascii	"int\000"
+ 714 006f 02       		.uleb128 0x2
+ 715 0070 04       		.byte	0x4
+ 716 0071 07       		.byte	0x7
+ 717 0072 B5010000 		.4byte	.LASF8
+ 718 0076 03       		.uleb128 0x3
+ 719 0077 EA010000 		.4byte	.LASF10
+ 720 007b 03       		.byte	0x3
+ 721 007c 2C       		.byte	0x2c
+ 722 007d 41000000 		.4byte	0x41
+ 723 0081 05       		.uleb128 0x5
+ 724 0082 41020000 		.4byte	.LASF11
+ 725 0086 04       		.byte	0x4
+ 726 0087 9201     		.2byte	0x192
+ 727 0089 2C000000 		.4byte	0x2c
+ 728 008d 05       		.uleb128 0x5
+ 729 008e A4010000 		.4byte	.LASF12
+ 730 0092 04       		.byte	0x4
+ 731 0093 9301     		.2byte	0x193
+ 732 0095 3A000000 		.4byte	0x3a
+ 733 0099 05       		.uleb128 0x5
+ 734 009a AB010000 		.4byte	.LASF13
+ 735 009e 04       		.byte	0x4
+ 736 009f 9501     		.2byte	0x195
+ 737 00a1 25000000 		.4byte	0x25
+ 738 00a5 02       		.uleb128 0x2
+ 739 00a6 04       		.byte	0x4
+ 740 00a7 04       		.byte	0x4
+ 741 00a8 9B000000 		.4byte	.LASF14
+ 742 00ac 02       		.uleb128 0x2
+ 743 00ad 08       		.byte	0x8
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 20
 
 
- 748      7420696E 
- 748      7400
- 749              	.LASF23:
- 750 01da 5472616E 		.ascii	"TransmitBuffer\000"
- 750      736D6974 
- 750      42756666 
- 750      657200
- 751              	.LASF11:
- 752 01e9 75696E74 		.ascii	"uint8\000"
- 752      3800
- 753              	.LASF4:
- 754 01ef 6C6F6E67 		.ascii	"long int\000"
- 754      20696E74 
- 754      00
- 755              	.LASF16:
- 756 01f8 6C6F6E67 		.ascii	"long double\000"
- 756      20646F75 
- 756      626C6500 
- 757              	.LASF0:
- 758 0204 7369676E 		.ascii	"signed char\000"
- 758      65642063 
- 758      68617200 
- 759              	.LASF21:
- 760 0210 53656E64 		.ascii	"SendSingleByte\000"
- 760      53696E67 
- 760      6C654279 
- 760      746500
- 761              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 744 00ae 04       		.byte	0x4
+ 745 00af 84010000 		.4byte	.LASF15
+ 746 00b3 02       		.uleb128 0x2
+ 747 00b4 01       		.byte	0x1
+ 748 00b5 08       		.byte	0x8
+ 749 00b6 23020000 		.4byte	.LASF16
+ 750 00ba 02       		.uleb128 0x2
+ 751 00bb 08       		.byte	0x8
+ 752 00bc 04       		.byte	0x4
+ 753 00bd 50020000 		.4byte	.LASF17
+ 754 00c1 02       		.uleb128 0x2
+ 755 00c2 04       		.byte	0x4
+ 756 00c3 07       		.byte	0x7
+ 757 00c4 FB010000 		.4byte	.LASF18
+ 758 00c8 06       		.uleb128 0x6
+ 759 00c9 04       		.byte	0x4
+ 760 00ca B3000000 		.4byte	0xb3
+ 761 00ce 07       		.uleb128 0x7
+ 762 00cf F2010000 		.4byte	.LASF40
+ 763 00d3 01       		.byte	0x1
+ 764 00d4 51       		.byte	0x51
+ 765 00d5 00000000 		.4byte	.LFB64
+ 766 00d9 9C000000 		.4byte	.LFE64-.LFB64
+ 767 00dd 01       		.uleb128 0x1
+ 768 00de 9C       		.byte	0x9c
+ 769 00df 08       		.uleb128 0x8
+ 770 00e0 B0010000 		.4byte	.LASF19
+ 771 00e4 01       		.byte	0x1
+ 772 00e5 8D       		.byte	0x8d
+ 773 00e6 68000000 		.4byte	0x68
+ 774 00ea 00000000 		.4byte	.LFB65
+ 775 00ee 98020000 		.4byte	.LFE65-.LFB65
+ 776 00f2 01       		.uleb128 0x1
+ 777 00f3 9C       		.byte	0x9c
+ 778 00f4 06010000 		.4byte	0x106
+ 779 00f8 09       		.uleb128 0x9
+ 780 00f9 436800   		.ascii	"Ch\000"
+ 781 00fc 01       		.byte	0x1
+ 782 00fd 90       		.byte	0x90
+ 783 00fe 81000000 		.4byte	0x81
+ 784 0102 02       		.uleb128 0x2
+ 785 0103 91       		.byte	0x91
+ 786 0104 77       		.sleb128 -9
+ 787 0105 00       		.byte	0
+ 788 0106 0A       		.uleb128 0xa
+ 789 0107 68020000 		.4byte	.LASF20
+ 790 010b 01       		.byte	0x1
+ 791 010c EC       		.byte	0xec
+ 792 010d 00000000 		.4byte	.LFB66
+ 793 0111 3C000000 		.4byte	.LFE66-.LFB66
+ 794 0115 01       		.uleb128 0x1
+ 795 0116 9C       		.byte	0x9c
+ 796 0117 36010000 		.4byte	0x136
+ 797 011b 0B       		.uleb128 0xb
+ 798 011c E3010000 		.4byte	.LASF22
+ 799 0120 01       		.byte	0x1
+ 800 0121 EC       		.byte	0xec
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 21
+
+
+ 801 0122 C8000000 		.4byte	0xc8
+ 802 0126 02       		.uleb128 0x2
+ 803 0127 91       		.byte	0x91
+ 804 0128 6C       		.sleb128 -20
+ 805 0129 09       		.uleb128 0x9
+ 806 012a 6300     		.ascii	"c\000"
+ 807 012c 01       		.byte	0x1
+ 808 012d EE       		.byte	0xee
+ 809 012e 81000000 		.4byte	0x81
+ 810 0132 02       		.uleb128 0x2
+ 811 0133 91       		.byte	0x91
+ 812 0134 77       		.sleb128 -9
+ 813 0135 00       		.byte	0
+ 814 0136 0C       		.uleb128 0xc
+ 815 0137 D9010000 		.4byte	.LASF21
+ 816 013b 01       		.byte	0x1
+ 817 013c 0701     		.2byte	0x107
+ 818 013e 00000000 		.4byte	.LFB67
+ 819 0142 8C000000 		.4byte	.LFE67-.LFB67
+ 820 0146 01       		.uleb128 0x1
+ 821 0147 9C       		.byte	0x9c
+ 822 0148 89010000 		.4byte	0x189
+ 823 014c 0D       		.uleb128 0xd
+ 824 014d 6B657900 		.ascii	"key\000"
+ 825 0151 01       		.byte	0x1
+ 826 0152 0701     		.2byte	0x107
+ 827 0154 B3000000 		.4byte	0xb3
+ 828 0158 02       		.uleb128 0x2
+ 829 0159 91       		.byte	0x91
+ 830 015a 6F       		.sleb128 -17
+ 831 015b 0E       		.uleb128 0xe
+ 832 015c 69647800 		.ascii	"idx\000"
+ 833 0160 01       		.byte	0x1
+ 834 0161 0901     		.2byte	0x109
+ 835 0163 99000000 		.4byte	0x99
+ 836 0167 02       		.uleb128 0x2
+ 837 0168 91       		.byte	0x91
+ 838 0169 77       		.sleb128 -9
+ 839 016a 0F       		.uleb128 0xf
+ 840 016b 8B010000 		.4byte	.LASF23
+ 841 016f 01       		.byte	0x1
+ 842 0170 0A01     		.2byte	0x10a
+ 843 0172 81000000 		.4byte	0x81
+ 844 0176 02       		.uleb128 0x2
+ 845 0177 91       		.byte	0x91
+ 846 0178 75       		.sleb128 -11
+ 847 0179 0F       		.uleb128 0xf
+ 848 017a 9C010000 		.4byte	.LASF24
+ 849 017e 01       		.byte	0x1
+ 850 017f 0A01     		.2byte	0x10a
+ 851 0181 81000000 		.4byte	0x81
+ 852 0185 02       		.uleb128 0x2
+ 853 0186 91       		.byte	0x91
+ 854 0187 76       		.sleb128 -10
+ 855 0188 00       		.byte	0
+ 856 0189 10       		.uleb128 0x10
+ 857 018a 93010000 		.4byte	.LASF41
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 22
+
+
+ 858 018e 01       		.byte	0x1
+ 859 018f 3201     		.2byte	0x132
+ 860 0191 99000000 		.4byte	0x99
+ 861 0195 00000000 		.4byte	.LFB68
+ 862 0199 54000000 		.4byte	.LFE68-.LFB68
+ 863 019d 01       		.uleb128 0x1
+ 864 019e 9C       		.byte	0x9c
+ 865 019f DE010000 		.4byte	0x1de
+ 866 01a3 11       		.uleb128 0x11
+ 867 01a4 12020000 		.4byte	.LASF25
+ 868 01a8 01       		.byte	0x1
+ 869 01a9 3201     		.2byte	0x132
+ 870 01ab C8000000 		.4byte	0xc8
+ 871 01af 02       		.uleb128 0x2
+ 872 01b0 91       		.byte	0x91
+ 873 01b1 6C       		.sleb128 -20
+ 874 01b2 0D       		.uleb128 0xd
+ 875 01b3 6B657900 		.ascii	"key\000"
+ 876 01b7 01       		.byte	0x1
+ 877 01b8 3201     		.2byte	0x132
+ 878 01ba B3000000 		.4byte	0xb3
+ 879 01be 02       		.uleb128 0x2
+ 880 01bf 91       		.byte	0x91
+ 881 01c0 6B       		.sleb128 -21
+ 882 01c1 0E       		.uleb128 0xe
+ 883 01c2 6900     		.ascii	"i\000"
+ 884 01c4 01       		.byte	0x1
+ 885 01c5 3401     		.2byte	0x134
+ 886 01c7 99000000 		.4byte	0x99
+ 887 01cb 02       		.uleb128 0x2
+ 888 01cc 91       		.byte	0x91
+ 889 01cd 77       		.sleb128 -9
+ 890 01ce 0F       		.uleb128 0xf
+ 891 01cf 3E010000 		.4byte	.LASF26
+ 892 01d3 01       		.byte	0x1
+ 893 01d4 3501     		.2byte	0x135
+ 894 01d6 99000000 		.4byte	0x99
+ 895 01da 02       		.uleb128 0x2
+ 896 01db 91       		.byte	0x91
+ 897 01dc 76       		.sleb128 -10
+ 898 01dd 00       		.byte	0
+ 899 01de 12       		.uleb128 0x12
+ 900 01df 66010000 		.4byte	.LASF27
+ 901 01e3 05       		.byte	0x5
+ 902 01e4 1207     		.2byte	0x712
+ 903 01e6 EA010000 		.4byte	0x1ea
+ 904 01ea 13       		.uleb128 0x13
+ 905 01eb 76000000 		.4byte	0x76
+ 906 01ef 14       		.uleb128 0x14
+ 907 01f0 B3000000 		.4byte	0xb3
+ 908 01f4 FF010000 		.4byte	0x1ff
+ 909 01f8 15       		.uleb128 0x15
+ 910 01f9 C1000000 		.4byte	0xc1
+ 911 01fd 10       		.byte	0x10
+ 912 01fe 00       		.byte	0
+ 913 01ff 16       		.uleb128 0x16
+ 914 0200 DA000000 		.4byte	.LASF28
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 23
+
+
+ 915 0204 01       		.byte	0x1
+ 916 0205 3A       		.byte	0x3a
+ 917 0206 EF010000 		.4byte	0x1ef
+ 918 020a 05       		.uleb128 0x5
+ 919 020b 03       		.byte	0x3
+ 920 020c 00000000 		.4byte	keyCodes
+ 921 0210 14       		.uleb128 0x14
+ 922 0211 81000000 		.4byte	0x81
+ 923 0215 20020000 		.4byte	0x220
+ 924 0219 15       		.uleb128 0x15
+ 925 021a C1000000 		.4byte	0xc1
+ 926 021e 03       		.byte	0x3
+ 927 021f 00       		.byte	0
+ 928 0220 16       		.uleb128 0x16
+ 929 0221 5F010000 		.4byte	.LASF29
+ 930 0225 01       		.byte	0x1
+ 931 0226 3F       		.byte	0x3f
+ 932 0227 10020000 		.4byte	0x210
+ 933 022b 05       		.uleb128 0x5
+ 934 022c 03       		.byte	0x3
+ 935 022d 00000000 		.4byte	rowDiv
+ 936 0231 16       		.uleb128 0x16
+ 937 0232 46010000 		.4byte	.LASF30
+ 938 0236 01       		.byte	0x1
+ 939 0237 41       		.byte	0x41
+ 940 0238 10020000 		.4byte	0x210
+ 941 023c 05       		.uleb128 0x5
+ 942 023d 03       		.byte	0x3
+ 943 023e 00000000 		.4byte	colDiv
+ 944 0242 16       		.uleb128 0x16
+ 945 0243 AB000000 		.4byte	.LASF31
+ 946 0247 01       		.byte	0x1
+ 947 0248 44       		.byte	0x44
+ 948 0249 8D000000 		.4byte	0x8d
+ 949 024d 05       		.uleb128 0x5
+ 950 024e 03       		.byte	0x3
+ 951 024f 00000000 		.4byte	Output
+ 952 0253 16       		.uleb128 0x16
+ 953 0254 B2000000 		.4byte	.LASF32
+ 954 0258 01       		.byte	0x1
+ 955 0259 46       		.byte	0x46
+ 956 025a 81000000 		.4byte	0x81
+ 957 025e 05       		.uleb128 0x5
+ 958 025f 03       		.byte	0x3
+ 959 0260 00000000 		.4byte	ContinuouslySendData
+ 960 0264 16       		.uleb128 0x16
+ 961 0265 73020000 		.4byte	.LASF33
+ 962 0269 01       		.byte	0x1
+ 963 026a 47       		.byte	0x47
+ 964 026b 81000000 		.4byte	0x81
+ 965 026f 05       		.uleb128 0x5
+ 966 0270 03       		.byte	0x3
+ 967 0271 00000000 		.4byte	SendSingleByte
+ 968 0275 16       		.uleb128 0x16
+ 969 0276 73010000 		.4byte	.LASF34
+ 970 027a 01       		.byte	0x1
+ 971 027b 48       		.byte	0x48
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 24
+
+
+ 972 027c 81000000 		.4byte	0x81
+ 973 0280 05       		.uleb128 0x5
+ 974 0281 03       		.byte	0x3
+ 975 0282 00000000 		.4byte	SendEmulatedData
+ 976 0286 14       		.uleb128 0x14
+ 977 0287 B3000000 		.4byte	0xb3
+ 978 028b 96020000 		.4byte	0x296
+ 979 028f 15       		.uleb128 0x15
+ 980 0290 C1000000 		.4byte	0xc1
+ 981 0294 0F       		.byte	0xf
+ 982 0295 00       		.byte	0
+ 983 0296 16       		.uleb128 0x16
+ 984 0297 32020000 		.4byte	.LASF35
+ 985 029b 01       		.byte	0x1
+ 986 029c 4A       		.byte	0x4a
+ 987 029d 86020000 		.4byte	0x286
+ 988 02a1 05       		.uleb128 0x5
+ 989 02a2 03       		.byte	0x3
+ 990 02a3 00000000 		.4byte	TransmitBuffer
+ 991 02a7 16       		.uleb128 0x16
+ 992 02a8 00000000 		.4byte	.LASF36
+ 993 02ac 01       		.byte	0x1
+ 994 02ad 4C       		.byte	0x4c
+ 995 02ae 81000000 		.4byte	0x81
+ 996 02b2 05       		.uleb128 0x5
+ 997 02b3 03       		.byte	0x3
+ 998 02b4 00000000 		.4byte	EmulatedData
+ 999 02b8 00       		.byte	0
+ 1000              		.section	.debug_abbrev,"",%progbits
+ 1001              	.Ldebug_abbrev0:
+ 1002 0000 01       		.uleb128 0x1
+ 1003 0001 11       		.uleb128 0x11
+ 1004 0002 01       		.byte	0x1
+ 1005 0003 25       		.uleb128 0x25
+ 1006 0004 0E       		.uleb128 0xe
+ 1007 0005 13       		.uleb128 0x13
+ 1008 0006 0B       		.uleb128 0xb
+ 1009 0007 03       		.uleb128 0x3
+ 1010 0008 0E       		.uleb128 0xe
+ 1011 0009 1B       		.uleb128 0x1b
+ 1012 000a 0E       		.uleb128 0xe
+ 1013 000b 55       		.uleb128 0x55
+ 1014 000c 17       		.uleb128 0x17
+ 1015 000d 11       		.uleb128 0x11
+ 1016 000e 01       		.uleb128 0x1
+ 1017 000f 10       		.uleb128 0x10
+ 1018 0010 17       		.uleb128 0x17
+ 1019 0011 00       		.byte	0
+ 1020 0012 00       		.byte	0
+ 1021 0013 02       		.uleb128 0x2
+ 1022 0014 24       		.uleb128 0x24
+ 1023 0015 00       		.byte	0
+ 1024 0016 0B       		.uleb128 0xb
+ 1025 0017 0B       		.uleb128 0xb
+ 1026 0018 3E       		.uleb128 0x3e
+ 1027 0019 0B       		.uleb128 0xb
+ 1028 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 25
+
+
+ 1029 001b 0E       		.uleb128 0xe
+ 1030 001c 00       		.byte	0
+ 1031 001d 00       		.byte	0
+ 1032 001e 03       		.uleb128 0x3
+ 1033 001f 16       		.uleb128 0x16
+ 1034 0020 00       		.byte	0
+ 1035 0021 03       		.uleb128 0x3
+ 1036 0022 0E       		.uleb128 0xe
+ 1037 0023 3A       		.uleb128 0x3a
+ 1038 0024 0B       		.uleb128 0xb
+ 1039 0025 3B       		.uleb128 0x3b
+ 1040 0026 0B       		.uleb128 0xb
+ 1041 0027 49       		.uleb128 0x49
+ 1042 0028 13       		.uleb128 0x13
+ 1043 0029 00       		.byte	0
+ 1044 002a 00       		.byte	0
+ 1045 002b 04       		.uleb128 0x4
+ 1046 002c 24       		.uleb128 0x24
+ 1047 002d 00       		.byte	0
+ 1048 002e 0B       		.uleb128 0xb
+ 1049 002f 0B       		.uleb128 0xb
+ 1050 0030 3E       		.uleb128 0x3e
+ 1051 0031 0B       		.uleb128 0xb
+ 1052 0032 03       		.uleb128 0x3
+ 1053 0033 08       		.uleb128 0x8
+ 1054 0034 00       		.byte	0
+ 1055 0035 00       		.byte	0
+ 1056 0036 05       		.uleb128 0x5
+ 1057 0037 16       		.uleb128 0x16
+ 1058 0038 00       		.byte	0
+ 1059 0039 03       		.uleb128 0x3
+ 1060 003a 0E       		.uleb128 0xe
+ 1061 003b 3A       		.uleb128 0x3a
+ 1062 003c 0B       		.uleb128 0xb
+ 1063 003d 3B       		.uleb128 0x3b
+ 1064 003e 05       		.uleb128 0x5
+ 1065 003f 49       		.uleb128 0x49
+ 1066 0040 13       		.uleb128 0x13
+ 1067 0041 00       		.byte	0
+ 1068 0042 00       		.byte	0
+ 1069 0043 06       		.uleb128 0x6
+ 1070 0044 0F       		.uleb128 0xf
+ 1071 0045 00       		.byte	0
+ 1072 0046 0B       		.uleb128 0xb
+ 1073 0047 0B       		.uleb128 0xb
+ 1074 0048 49       		.uleb128 0x49
+ 1075 0049 13       		.uleb128 0x13
+ 1076 004a 00       		.byte	0
+ 1077 004b 00       		.byte	0
+ 1078 004c 07       		.uleb128 0x7
+ 1079 004d 2E       		.uleb128 0x2e
+ 1080 004e 00       		.byte	0
+ 1081 004f 3F       		.uleb128 0x3f
+ 1082 0050 19       		.uleb128 0x19
+ 1083 0051 03       		.uleb128 0x3
+ 1084 0052 0E       		.uleb128 0xe
+ 1085 0053 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 26
+
+
+ 1086 0054 0B       		.uleb128 0xb
+ 1087 0055 3B       		.uleb128 0x3b
+ 1088 0056 0B       		.uleb128 0xb
+ 1089 0057 27       		.uleb128 0x27
+ 1090 0058 19       		.uleb128 0x19
+ 1091 0059 11       		.uleb128 0x11
+ 1092 005a 01       		.uleb128 0x1
+ 1093 005b 12       		.uleb128 0x12
+ 1094 005c 06       		.uleb128 0x6
+ 1095 005d 40       		.uleb128 0x40
+ 1096 005e 18       		.uleb128 0x18
+ 1097 005f 9642     		.uleb128 0x2116
+ 1098 0061 19       		.uleb128 0x19
+ 1099 0062 00       		.byte	0
+ 1100 0063 00       		.byte	0
+ 1101 0064 08       		.uleb128 0x8
+ 1102 0065 2E       		.uleb128 0x2e
+ 1103 0066 01       		.byte	0x1
+ 1104 0067 3F       		.uleb128 0x3f
+ 1105 0068 19       		.uleb128 0x19
+ 1106 0069 03       		.uleb128 0x3
+ 1107 006a 0E       		.uleb128 0xe
+ 1108 006b 3A       		.uleb128 0x3a
+ 1109 006c 0B       		.uleb128 0xb
+ 1110 006d 3B       		.uleb128 0x3b
+ 1111 006e 0B       		.uleb128 0xb
+ 1112 006f 49       		.uleb128 0x49
+ 1113 0070 13       		.uleb128 0x13
+ 1114 0071 11       		.uleb128 0x11
+ 1115 0072 01       		.uleb128 0x1
+ 1116 0073 12       		.uleb128 0x12
+ 1117 0074 06       		.uleb128 0x6
+ 1118 0075 40       		.uleb128 0x40
+ 1119 0076 18       		.uleb128 0x18
+ 1120 0077 9642     		.uleb128 0x2116
+ 1121 0079 19       		.uleb128 0x19
+ 1122 007a 01       		.uleb128 0x1
+ 1123 007b 13       		.uleb128 0x13
+ 1124 007c 00       		.byte	0
+ 1125 007d 00       		.byte	0
+ 1126 007e 09       		.uleb128 0x9
+ 1127 007f 34       		.uleb128 0x34
+ 1128 0080 00       		.byte	0
+ 1129 0081 03       		.uleb128 0x3
+ 1130 0082 08       		.uleb128 0x8
+ 1131 0083 3A       		.uleb128 0x3a
+ 1132 0084 0B       		.uleb128 0xb
+ 1133 0085 3B       		.uleb128 0x3b
+ 1134 0086 0B       		.uleb128 0xb
+ 1135 0087 49       		.uleb128 0x49
+ 1136 0088 13       		.uleb128 0x13
+ 1137 0089 02       		.uleb128 0x2
+ 1138 008a 18       		.uleb128 0x18
+ 1139 008b 00       		.byte	0
+ 1140 008c 00       		.byte	0
+ 1141 008d 0A       		.uleb128 0xa
+ 1142 008e 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 27
+
+
+ 1143 008f 01       		.byte	0x1
+ 1144 0090 3F       		.uleb128 0x3f
+ 1145 0091 19       		.uleb128 0x19
+ 1146 0092 03       		.uleb128 0x3
+ 1147 0093 0E       		.uleb128 0xe
+ 1148 0094 3A       		.uleb128 0x3a
+ 1149 0095 0B       		.uleb128 0xb
+ 1150 0096 3B       		.uleb128 0x3b
+ 1151 0097 0B       		.uleb128 0xb
+ 1152 0098 27       		.uleb128 0x27
+ 1153 0099 19       		.uleb128 0x19
+ 1154 009a 11       		.uleb128 0x11
+ 1155 009b 01       		.uleb128 0x1
+ 1156 009c 12       		.uleb128 0x12
+ 1157 009d 06       		.uleb128 0x6
+ 1158 009e 40       		.uleb128 0x40
+ 1159 009f 18       		.uleb128 0x18
+ 1160 00a0 9642     		.uleb128 0x2116
+ 1161 00a2 19       		.uleb128 0x19
+ 1162 00a3 01       		.uleb128 0x1
+ 1163 00a4 13       		.uleb128 0x13
+ 1164 00a5 00       		.byte	0
+ 1165 00a6 00       		.byte	0
+ 1166 00a7 0B       		.uleb128 0xb
+ 1167 00a8 05       		.uleb128 0x5
+ 1168 00a9 00       		.byte	0
+ 1169 00aa 03       		.uleb128 0x3
+ 1170 00ab 0E       		.uleb128 0xe
+ 1171 00ac 3A       		.uleb128 0x3a
+ 1172 00ad 0B       		.uleb128 0xb
+ 1173 00ae 3B       		.uleb128 0x3b
+ 1174 00af 0B       		.uleb128 0xb
+ 1175 00b0 49       		.uleb128 0x49
+ 1176 00b1 13       		.uleb128 0x13
+ 1177 00b2 02       		.uleb128 0x2
+ 1178 00b3 18       		.uleb128 0x18
+ 1179 00b4 00       		.byte	0
+ 1180 00b5 00       		.byte	0
+ 1181 00b6 0C       		.uleb128 0xc
+ 1182 00b7 2E       		.uleb128 0x2e
+ 1183 00b8 01       		.byte	0x1
+ 1184 00b9 3F       		.uleb128 0x3f
+ 1185 00ba 19       		.uleb128 0x19
+ 1186 00bb 03       		.uleb128 0x3
+ 1187 00bc 0E       		.uleb128 0xe
+ 1188 00bd 3A       		.uleb128 0x3a
+ 1189 00be 0B       		.uleb128 0xb
+ 1190 00bf 3B       		.uleb128 0x3b
+ 1191 00c0 05       		.uleb128 0x5
+ 1192 00c1 27       		.uleb128 0x27
+ 1193 00c2 19       		.uleb128 0x19
+ 1194 00c3 11       		.uleb128 0x11
+ 1195 00c4 01       		.uleb128 0x1
+ 1196 00c5 12       		.uleb128 0x12
+ 1197 00c6 06       		.uleb128 0x6
+ 1198 00c7 40       		.uleb128 0x40
+ 1199 00c8 18       		.uleb128 0x18
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 28
+
+
+ 1200 00c9 9642     		.uleb128 0x2116
+ 1201 00cb 19       		.uleb128 0x19
+ 1202 00cc 01       		.uleb128 0x1
+ 1203 00cd 13       		.uleb128 0x13
+ 1204 00ce 00       		.byte	0
+ 1205 00cf 00       		.byte	0
+ 1206 00d0 0D       		.uleb128 0xd
+ 1207 00d1 05       		.uleb128 0x5
+ 1208 00d2 00       		.byte	0
+ 1209 00d3 03       		.uleb128 0x3
+ 1210 00d4 08       		.uleb128 0x8
+ 1211 00d5 3A       		.uleb128 0x3a
+ 1212 00d6 0B       		.uleb128 0xb
+ 1213 00d7 3B       		.uleb128 0x3b
+ 1214 00d8 05       		.uleb128 0x5
+ 1215 00d9 49       		.uleb128 0x49
+ 1216 00da 13       		.uleb128 0x13
+ 1217 00db 02       		.uleb128 0x2
+ 1218 00dc 18       		.uleb128 0x18
+ 1219 00dd 00       		.byte	0
+ 1220 00de 00       		.byte	0
+ 1221 00df 0E       		.uleb128 0xe
+ 1222 00e0 34       		.uleb128 0x34
+ 1223 00e1 00       		.byte	0
+ 1224 00e2 03       		.uleb128 0x3
+ 1225 00e3 08       		.uleb128 0x8
+ 1226 00e4 3A       		.uleb128 0x3a
+ 1227 00e5 0B       		.uleb128 0xb
+ 1228 00e6 3B       		.uleb128 0x3b
+ 1229 00e7 05       		.uleb128 0x5
+ 1230 00e8 49       		.uleb128 0x49
+ 1231 00e9 13       		.uleb128 0x13
+ 1232 00ea 02       		.uleb128 0x2
+ 1233 00eb 18       		.uleb128 0x18
+ 1234 00ec 00       		.byte	0
+ 1235 00ed 00       		.byte	0
+ 1236 00ee 0F       		.uleb128 0xf
+ 1237 00ef 34       		.uleb128 0x34
+ 1238 00f0 00       		.byte	0
+ 1239 00f1 03       		.uleb128 0x3
+ 1240 00f2 0E       		.uleb128 0xe
+ 1241 00f3 3A       		.uleb128 0x3a
+ 1242 00f4 0B       		.uleb128 0xb
+ 1243 00f5 3B       		.uleb128 0x3b
+ 1244 00f6 05       		.uleb128 0x5
+ 1245 00f7 49       		.uleb128 0x49
+ 1246 00f8 13       		.uleb128 0x13
+ 1247 00f9 02       		.uleb128 0x2
+ 1248 00fa 18       		.uleb128 0x18
+ 1249 00fb 00       		.byte	0
+ 1250 00fc 00       		.byte	0
+ 1251 00fd 10       		.uleb128 0x10
+ 1252 00fe 2E       		.uleb128 0x2e
+ 1253 00ff 01       		.byte	0x1
+ 1254 0100 3F       		.uleb128 0x3f
+ 1255 0101 19       		.uleb128 0x19
+ 1256 0102 03       		.uleb128 0x3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 29
+
+
+ 1257 0103 0E       		.uleb128 0xe
+ 1258 0104 3A       		.uleb128 0x3a
+ 1259 0105 0B       		.uleb128 0xb
+ 1260 0106 3B       		.uleb128 0x3b
+ 1261 0107 05       		.uleb128 0x5
+ 1262 0108 27       		.uleb128 0x27
+ 1263 0109 19       		.uleb128 0x19
+ 1264 010a 49       		.uleb128 0x49
+ 1265 010b 13       		.uleb128 0x13
+ 1266 010c 11       		.uleb128 0x11
+ 1267 010d 01       		.uleb128 0x1
+ 1268 010e 12       		.uleb128 0x12
+ 1269 010f 06       		.uleb128 0x6
+ 1270 0110 40       		.uleb128 0x40
+ 1271 0111 18       		.uleb128 0x18
+ 1272 0112 9742     		.uleb128 0x2117
+ 1273 0114 19       		.uleb128 0x19
+ 1274 0115 01       		.uleb128 0x1
+ 1275 0116 13       		.uleb128 0x13
+ 1276 0117 00       		.byte	0
+ 1277 0118 00       		.byte	0
+ 1278 0119 11       		.uleb128 0x11
+ 1279 011a 05       		.uleb128 0x5
+ 1280 011b 00       		.byte	0
+ 1281 011c 03       		.uleb128 0x3
+ 1282 011d 0E       		.uleb128 0xe
+ 1283 011e 3A       		.uleb128 0x3a
+ 1284 011f 0B       		.uleb128 0xb
+ 1285 0120 3B       		.uleb128 0x3b
+ 1286 0121 05       		.uleb128 0x5
+ 1287 0122 49       		.uleb128 0x49
+ 1288 0123 13       		.uleb128 0x13
+ 1289 0124 02       		.uleb128 0x2
+ 1290 0125 18       		.uleb128 0x18
+ 1291 0126 00       		.byte	0
+ 1292 0127 00       		.byte	0
+ 1293 0128 12       		.uleb128 0x12
+ 1294 0129 34       		.uleb128 0x34
+ 1295 012a 00       		.byte	0
+ 1296 012b 03       		.uleb128 0x3
+ 1297 012c 0E       		.uleb128 0xe
+ 1298 012d 3A       		.uleb128 0x3a
+ 1299 012e 0B       		.uleb128 0xb
+ 1300 012f 3B       		.uleb128 0x3b
+ 1301 0130 05       		.uleb128 0x5
+ 1302 0131 49       		.uleb128 0x49
+ 1303 0132 13       		.uleb128 0x13
+ 1304 0133 3F       		.uleb128 0x3f
+ 1305 0134 19       		.uleb128 0x19
+ 1306 0135 3C       		.uleb128 0x3c
+ 1307 0136 19       		.uleb128 0x19
+ 1308 0137 00       		.byte	0
+ 1309 0138 00       		.byte	0
+ 1310 0139 13       		.uleb128 0x13
+ 1311 013a 35       		.uleb128 0x35
+ 1312 013b 00       		.byte	0
+ 1313 013c 49       		.uleb128 0x49
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 30
+
+
+ 1314 013d 13       		.uleb128 0x13
+ 1315 013e 00       		.byte	0
+ 1316 013f 00       		.byte	0
+ 1317 0140 14       		.uleb128 0x14
+ 1318 0141 01       		.uleb128 0x1
+ 1319 0142 01       		.byte	0x1
+ 1320 0143 49       		.uleb128 0x49
+ 1321 0144 13       		.uleb128 0x13
+ 1322 0145 01       		.uleb128 0x1
+ 1323 0146 13       		.uleb128 0x13
+ 1324 0147 00       		.byte	0
+ 1325 0148 00       		.byte	0
+ 1326 0149 15       		.uleb128 0x15
+ 1327 014a 21       		.uleb128 0x21
+ 1328 014b 00       		.byte	0
+ 1329 014c 49       		.uleb128 0x49
+ 1330 014d 13       		.uleb128 0x13
+ 1331 014e 2F       		.uleb128 0x2f
+ 1332 014f 0B       		.uleb128 0xb
+ 1333 0150 00       		.byte	0
+ 1334 0151 00       		.byte	0
+ 1335 0152 16       		.uleb128 0x16
+ 1336 0153 34       		.uleb128 0x34
+ 1337 0154 00       		.byte	0
+ 1338 0155 03       		.uleb128 0x3
+ 1339 0156 0E       		.uleb128 0xe
+ 1340 0157 3A       		.uleb128 0x3a
+ 1341 0158 0B       		.uleb128 0xb
+ 1342 0159 3B       		.uleb128 0x3b
+ 1343 015a 0B       		.uleb128 0xb
+ 1344 015b 49       		.uleb128 0x49
+ 1345 015c 13       		.uleb128 0x13
+ 1346 015d 3F       		.uleb128 0x3f
+ 1347 015e 19       		.uleb128 0x19
+ 1348 015f 02       		.uleb128 0x2
+ 1349 0160 18       		.uleb128 0x18
+ 1350 0161 00       		.byte	0
+ 1351 0162 00       		.byte	0
+ 1352 0163 00       		.byte	0
+ 1353              		.section	.debug_aranges,"",%progbits
+ 1354 0000 3C000000 		.4byte	0x3c
+ 1355 0004 0200     		.2byte	0x2
+ 1356 0006 00000000 		.4byte	.Ldebug_info0
+ 1357 000a 04       		.byte	0x4
+ 1358 000b 00       		.byte	0
+ 1359 000c 0000     		.2byte	0
+ 1360 000e 0000     		.2byte	0
+ 1361 0010 00000000 		.4byte	.LFB64
+ 1362 0014 9C000000 		.4byte	.LFE64-.LFB64
+ 1363 0018 00000000 		.4byte	.LFB65
+ 1364 001c 98020000 		.4byte	.LFE65-.LFB65
+ 1365 0020 00000000 		.4byte	.LFB66
+ 1366 0024 3C000000 		.4byte	.LFE66-.LFB66
+ 1367 0028 00000000 		.4byte	.LFB67
+ 1368 002c 8C000000 		.4byte	.LFE67-.LFB67
+ 1369 0030 00000000 		.4byte	.LFB68
+ 1370 0034 54000000 		.4byte	.LFE68-.LFB68
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 31
+
+
+ 1371 0038 00000000 		.4byte	0
+ 1372 003c 00000000 		.4byte	0
+ 1373              		.section	.debug_ranges,"",%progbits
+ 1374              	.Ldebug_ranges0:
+ 1375 0000 00000000 		.4byte	.LFB64
+ 1376 0004 9C000000 		.4byte	.LFE64
+ 1377 0008 00000000 		.4byte	.LFB65
+ 1378 000c 98020000 		.4byte	.LFE65
+ 1379 0010 00000000 		.4byte	.LFB66
+ 1380 0014 3C000000 		.4byte	.LFE66
+ 1381 0018 00000000 		.4byte	.LFB67
+ 1382 001c 8C000000 		.4byte	.LFE67
+ 1383 0020 00000000 		.4byte	.LFB68
+ 1384 0024 54000000 		.4byte	.LFE68
+ 1385 0028 00000000 		.4byte	0
+ 1386 002c 00000000 		.4byte	0
+ 1387              		.section	.debug_line,"",%progbits
+ 1388              	.Ldebug_line0:
+ 1389 0000 0E020000 		.section	.debug_str,"MS",%progbits,1
+ 1389      02004C01 
+ 1389      00000201 
+ 1389      FB0E0D00 
+ 1389      01010101 
+ 1390              	.LASF36:
+ 1391 0000 456D756C 		.ascii	"EmulatedData\000"
+ 1391      61746564 
+ 1391      44617461 
+ 1391      00
+ 1392              	.LASF37:
+ 1393 000d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1393      43313120 
+ 1393      352E342E 
+ 1393      31203230 
+ 1393      31363036 
+ 1394 0040 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1394      20726576 
+ 1394      6973696F 
+ 1394      6E203233 
+ 1394      37373135 
+ 1395 0073 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1395      66756E63 
+ 1395      74696F6E 
+ 1395      2D736563 
+ 1395      74696F6E 
+ 1396              	.LASF14:
+ 1397 009b 666C6F61 		.ascii	"float\000"
+ 1397      7400
+ 1398              	.LASF9:
+ 1399 00a1 5F5F696E 		.ascii	"__int32_t\000"
+ 1399      7433325F 
+ 1399      7400
+ 1400              	.LASF31:
+ 1401 00ab 4F757470 		.ascii	"Output\000"
+ 1401      757400
+ 1402              	.LASF32:
+ 1403 00b2 436F6E74 		.ascii	"ContinuouslySendData\000"
+ 1403      696E756F 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 32
+
+
+ 1403      75736C79 
+ 1403      53656E64 
+ 1403      44617461 
+ 1404              	.LASF3:
+ 1405 00c7 73686F72 		.ascii	"short unsigned int\000"
+ 1405      7420756E 
+ 1405      7369676E 
+ 1405      65642069 
+ 1405      6E7400
+ 1406              	.LASF28:
+ 1407 00da 6B657943 		.ascii	"keyCodes\000"
+ 1407      6F646573 
+ 1407      00
+ 1408              	.LASF39:
+ 1409 00e3 433A5C55 		.ascii	"C:\\Users\\Luis Alonso Murillo\\Documents\\GitHub\\"
+ 1409      73657273 
+ 1409      5C4C7569 
+ 1409      7320416C 
+ 1409      6F6E736F 
+ 1410 0111 44544D46 		.ascii	"DTMF\\transmitter\\Encoder.cydsn\000"
+ 1410      5C747261 
+ 1410      6E736D69 
+ 1410      74746572 
+ 1410      5C456E63 
+ 1411              	.LASF1:
+ 1412 0130 756E7369 		.ascii	"unsigned char\000"
+ 1412      676E6564 
+ 1412      20636861 
+ 1412      7200
+ 1413              	.LASF26:
+ 1414 013e 63686172 		.ascii	"charLoc\000"
+ 1414      4C6F6300 
+ 1415              	.LASF30:
+ 1416 0146 636F6C44 		.ascii	"colDiv\000"
+ 1416      697600
+ 1417              	.LASF5:
+ 1418 014d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1418      20756E73 
+ 1418      69676E65 
+ 1418      6420696E 
+ 1418      7400
+ 1419              	.LASF29:
+ 1420 015f 726F7744 		.ascii	"rowDiv\000"
+ 1420      697600
+ 1421              	.LASF27:
+ 1422 0166 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1422      52784275 
+ 1422      66666572 
+ 1422      00
+ 1423              	.LASF34:
+ 1424 0173 53656E64 		.ascii	"SendEmulatedData\000"
+ 1424      456D756C 
+ 1424      61746564 
+ 1424      44617461 
+ 1424      00
+ 1425              	.LASF15:
+ 1426 0184 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 33
+
+
+ 1426      6C6500
+ 1427              	.LASF23:
+ 1428 018b 726F775F 		.ascii	"row_div\000"
+ 1428      64697600 
+ 1429              	.LASF41:
+ 1430 0193 4B657949 		.ascii	"KeyIndex\000"
+ 1430      6E646578 
+ 1430      00
+ 1431              	.LASF24:
+ 1432 019c 636F6C5F 		.ascii	"col_div\000"
+ 1432      64697600 
+ 1433              	.LASF12:
+ 1434 01a4 75696E74 		.ascii	"uint16\000"
+ 1434      313600
+ 1435              	.LASF13:
+ 1436 01ab 696E7438 		.ascii	"int8\000"
+ 1436      00
+ 1437              	.LASF19:
+ 1438 01b0 6D61696E 		.ascii	"main\000"
+ 1438      00
+ 1439              	.LASF8:
+ 1440 01b5 756E7369 		.ascii	"unsigned int\000"
+ 1440      676E6564 
+ 1440      20696E74 
+ 1440      00
+ 1441              	.LASF7:
+ 1442 01c2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1442      206C6F6E 
+ 1442      6720756E 
+ 1442      7369676E 
+ 1442      65642069 
+ 1443              	.LASF21:
+ 1444 01d9 506C6179 		.ascii	"PlayTones\000"
+ 1444      546F6E65 
+ 1444      7300
+ 1445              	.LASF22:
+ 1446 01e3 6E756D62 		.ascii	"number\000"
+ 1446      657200
+ 1447              	.LASF10:
+ 1448 01ea 696E7433 		.ascii	"int32_t\000"
+ 1448      325F7400 
+ 1449              	.LASF40:
+ 1450 01f2 5472616E 		.ascii	"Transmit\000"
+ 1450      736D6974 
+ 1450      00
+ 1451              	.LASF18:
+ 1452 01fb 73697A65 		.ascii	"sizetype\000"
+ 1452      74797065 
+ 1452      00
+ 1453              	.LASF6:
+ 1454 0204 6C6F6E67 		.ascii	"long long int\000"
+ 1454      206C6F6E 
+ 1454      6720696E 
+ 1454      7400
+ 1455              	.LASF25:
+ 1456 0212 6B657953 		.ascii	"keyString\000"
+ 1456      7472696E 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccBcIV6w.s 			page 34
+
+
+ 1456      6700
+ 1457              	.LASF38:
+ 1458 021c 6D61696E 		.ascii	"main.c\000"
+ 1458      2E6300
+ 1459              	.LASF16:
+ 1460 0223 63686172 		.ascii	"char\000"
+ 1460      00
+ 1461              	.LASF2:
+ 1462 0228 73686F72 		.ascii	"short int\000"
+ 1462      7420696E 
+ 1462      7400
+ 1463              	.LASF35:
+ 1464 0232 5472616E 		.ascii	"TransmitBuffer\000"
+ 1464      736D6974 
+ 1464      42756666 
+ 1464      657200
+ 1465              	.LASF11:
+ 1466 0241 75696E74 		.ascii	"uint8\000"
+ 1466      3800
+ 1467              	.LASF4:
+ 1468 0247 6C6F6E67 		.ascii	"long int\000"
+ 1468      20696E74 
+ 1468      00
+ 1469              	.LASF17:
+ 1470 0250 6C6F6E67 		.ascii	"long double\000"
+ 1470      20646F75 
+ 1470      626C6500 
+ 1471              	.LASF0:
+ 1472 025c 7369676E 		.ascii	"signed char\000"
+ 1472      65642063 
+ 1472      68617200 
+ 1473              	.LASF20:
+ 1474 0268 4469616C 		.ascii	"DialNumber\000"
+ 1474      4E756D62 
+ 1474      657200
+ 1475              	.LASF33:
+ 1476 0273 53656E64 		.ascii	"SendSingleByte\000"
+ 1476      53696E67 
+ 1476      6C654279 
+ 1476      746500
+ 1477              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

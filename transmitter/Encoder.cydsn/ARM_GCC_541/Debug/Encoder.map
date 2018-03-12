@@ -24,6 +24,14 @@ Archive member included to satisfy reference by file (symbol)
                               .\ARM_GCC_541\Debug\main.o (Timer_Start)
 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
                               .\ARM_GCC_541\Debug\main.o (isr_StartEx)
+.\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                              .\ARM_GCC_541\Debug\main.o (Row_Divider_Start)
+.\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                              .\ARM_GCC_541\Debug\main.o (Col_Divider_Start)
+.\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+                              .\ARM_GCC_541\Debug\main.o (ToneClock_Start)
+.\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+                              .\ARM_GCC_541\Debug\main.o (DTMF_Buffer_Start)
 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
                               .\ARM_GCC_541\Debug\main.o (Col_Tone_Start)
 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
@@ -120,7 +128,6 @@ Discarded input sections
  .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
  .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
  .text          0x00000000        0x0 .\ARM_GCC_541\Debug\main.o
- .data          0x00000000        0x0 .\ARM_GCC_541\Debug\main.o
  .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\main.o
  .text          0x00000000        0x0 .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .data          0x00000000        0x0 .\ARM_GCC_541\Debug\cyfitter_cfg.o
@@ -335,7 +342,6 @@ Discarded input sections
                 0x00000000       0x38 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
  .text.CySoftwareReset
                 0x00000000       0x20 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
- .text.CyDelay  0x00000000       0x44 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
  .text.CyDelayFreq
                 0x00000000       0x7c .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
  .text.CyWdtStart
@@ -548,6 +554,63 @@ Discarded input sections
                 0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
  .text.isr_ClearPending
                 0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text.Row_Divider_Stop
+                0x00000000       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text.Row_Divider_ReadCounter
+                0x00000000       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text.Row_Divider_ReadControlRegister
+                0x00000000       0x1c .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text.Row_Divider_WriteControlRegister
+                0x00000000       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text.Row_Divider_ReadCompare1
+                0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text.Row_Divider_ReadCompare2
+                0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text.Row_Divider_ReadPeriod
+                0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text.Col_Divider_Stop
+                0x00000000       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text.Col_Divider_ReadCounter
+                0x00000000       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text.Col_Divider_ReadControlRegister
+                0x00000000       0x1c .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text.Col_Divider_WriteControlRegister
+                0x00000000       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text.Col_Divider_ReadCompare1
+                0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text.Col_Divider_ReadCompare2
+                0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text.Col_Divider_ReadPeriod
+                0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_StopBlock
+                0x00000000       0xb0 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_StandbyPower
+                0x00000000       0x40 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_SetDividerRegister
+                0x00000000      0x164 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_GetDividerRegister
+                0x00000000       0x18 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_SetModeRegister
+                0x00000000       0x34 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_ClearModeRegister
+                0x00000000       0x34 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_GetModeRegister
+                0x00000000       0x1c .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_SetSourceRegister
+                0x00000000       0xc4 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text.ToneClock_GetSourceRegister
+                0x00000000       0x1c .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+ .text.DTMF_Buffer_Stop
+                0x00000000       0x54 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
  .text          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
  .data          0x00000000        0x0 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
  .text.Col_Tone_StartEx
@@ -798,7 +861,7 @@ END GROUP
                 0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
                 [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
 
-.text           0x00000000     0x2b94
+.text           0x00000000     0x334c
  CREATE_OBJECT_SYMBOLS
                 0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -818,423 +881,517 @@ END GROUP
  .text.Transmit
                 0x00000084       0x9c .\ARM_GCC_541\Debug\main.o
                 0x00000084                Transmit
- .text.main     0x00000120       0xc4 .\ARM_GCC_541\Debug\main.o
+ .text.main     0x00000120      0x298 .\ARM_GCC_541\Debug\main.o
                 0x00000120                main
+ .text.DialNumber
+                0x000003b8       0x3c .\ARM_GCC_541\Debug\main.o
+                0x000003b8                DialNumber
+ .text.PlayTones
+                0x000003f4       0x8c .\ARM_GCC_541\Debug\main.o
+                0x000003f4                PlayTones
+ .text.KeyIndex
+                0x00000480       0x54 .\ARM_GCC_541\Debug\main.o
+                0x00000480                KeyIndex
  .text.CYMEMZERO
-                0x000001e4       0x1c .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000004d4       0x1c .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYCONFIGCPY
-                0x00000200       0x20 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000004f0       0x20 .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CyClockStartupError
-                0x00000220        0xc .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000510        0xc .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cfg_write_bytes32
-                0x0000022c       0x74 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000051c       0x74 .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.ClockSetup
-                0x000002a0      0x180 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000590      0x180 .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.AnalogSetDefault
-                0x00000420       0x80 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000710       0x80 .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.ADC_DelSig_1_AMux_Set
-                0x000004a0       0x40 .\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x000004a0                ADC_DelSig_1_AMux_Set
+                0x00000790       0x40 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000790                ADC_DelSig_1_AMux_Set
  .text.ADC_DelSig_1_AMux_Unset
-                0x000004e0       0x44 .\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x000004e0                ADC_DelSig_1_AMux_Unset
+                0x000007d0       0x44 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000007d0                ADC_DelSig_1_AMux_Unset
  .text.cyfitter_cfg
-                0x00000524      0x15c .\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00000524                cyfitter_cfg
+                0x00000814      0x15c .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000814                cyfitter_cfg
  .text.IntDefaultHandler
-                0x00000680       0x14 .\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000680                IntDefaultHandler
- .text._sbrk    0x00000694       0x50 .\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000694                _sbrk
- .text.Start_c  0x000006e4       0x98 .\ARM_GCC_541\Debug\Cm3Start.o
-                0x000006e4                Start_c
+                0x00000970       0x14 .\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000970                IntDefaultHandler
+ .text._sbrk    0x00000984       0x50 .\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000984                _sbrk
+ .text.Start_c  0x000009d4       0x98 .\ARM_GCC_541\Debug\Cm3Start.o
+                0x000009d4                Start_c
  .text.initialize_psoc
-                0x0000077c       0x94 .\ARM_GCC_541\Debug\Cm3Start.o
-                0x0000077c                initialize_psoc
+                0x00000a6c       0x94 .\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000a6c                initialize_psoc
  .text.ADC_DelSig_1_Init
-                0x00000810      0x11c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x00000810                ADC_DelSig_1_Init
+                0x00000b00      0x11c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000b00                ADC_DelSig_1_Init
  .text.ADC_DelSig_1_Enable
-                0x0000092c      0x158 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x0000092c                ADC_DelSig_1_Enable
+                0x00000c1c      0x158 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000c1c                ADC_DelSig_1_Enable
  .text.ADC_DelSig_1_Start
-                0x00000a84       0x30 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x00000a84                ADC_DelSig_1_Start
+                0x00000d74       0x30 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000d74                ADC_DelSig_1_Start
  .text.ADC_DelSig_1_StartConvert
-                0x00000ab4       0x20 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x00000ab4                ADC_DelSig_1_StartConvert
+                0x00000da4       0x20 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000da4                ADC_DelSig_1_StartConvert
  .text.ADC_DelSig_1_IsEndConversion
-                0x00000ad4       0x4c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x00000ad4                ADC_DelSig_1_IsEndConversion
+                0x00000dc4       0x4c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000dc4                ADC_DelSig_1_IsEndConversion
  .text.ADC_DelSig_1_GetResult16
-                0x00000b20       0x7c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x00000b20                ADC_DelSig_1_GetResult16
+                0x00000e10       0x7c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000e10                ADC_DelSig_1_GetResult16
  .text.ADC_DelSig_1_InitConfig
-                0x00000b9c      0x164 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000e8c      0x164 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
  .text.ADC_DelSig_1_GainCompensation
-                0x00000d00      0x170 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000ff0      0x170 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
  .text.ADC_DelSig_1_SetDSMRef0Reg
-                0x00000e70       0x7c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00001160       0x7c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
  .text.ADC_DelSig_1_ISR1
-                0x00000eec        0xc .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
-                0x00000eec                ADC_DelSig_1_ISR1
+                0x000011dc        0xc .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+                0x000011dc                ADC_DelSig_1_ISR1
  .text.ADC_DelSig_1_AMux_Start
-                0x00000ef8       0x34 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
-                0x00000ef8                ADC_DelSig_1_AMux_Start
+                0x000011e8       0x34 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+                0x000011e8                ADC_DelSig_1_AMux_Start
  .text.ADC_DelSig_1_AMux_Select
-                0x00000f2c       0x28 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
-                0x00000f2c                ADC_DelSig_1_AMux_Select
+                0x0000121c       0x28 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+                0x0000121c                ADC_DelSig_1_AMux_Select
  .text.ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister
-                0x00000f54      0x164 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
-                0x00000f54                ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister
+                0x00001244      0x164 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x00001244                ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister
  .text.ADC_DelSig_1_Ext_CP_Clk_GetDividerRegister
-                0x000010b8       0x18 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
-                0x000010b8                ADC_DelSig_1_Ext_CP_Clk_GetDividerRegister
+                0x000013a8       0x18 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x000013a8                ADC_DelSig_1_Ext_CP_Clk_GetDividerRegister
  .text.ADC_DelSig_1_Ext_CP_Clk_SetModeRegister
-                0x000010d0       0x34 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
-                0x000010d0                ADC_DelSig_1_Ext_CP_Clk_SetModeRegister
+                0x000013c0       0x34 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x000013c0                ADC_DelSig_1_Ext_CP_Clk_SetModeRegister
  .text.ADC_DelSig_1_Ext_CP_Clk_GetSourceRegister
-                0x00001104       0x1c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
-                0x00001104                ADC_DelSig_1_Ext_CP_Clk_GetSourceRegister
+                0x000013f4       0x1c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x000013f4                ADC_DelSig_1_Ext_CP_Clk_GetSourceRegister
  .text.ADC_DelSig_1_theACLK_SetDividerRegister
-                0x00001120      0x164 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
-                0x00001120                ADC_DelSig_1_theACLK_SetDividerRegister
+                0x00001410      0x164 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+                0x00001410                ADC_DelSig_1_theACLK_SetDividerRegister
  .text.ADC_DelSig_1_theACLK_GetDividerRegister
-                0x00001284       0x18 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
-                0x00001284                ADC_DelSig_1_theACLK_GetDividerRegister
+                0x00001574       0x18 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+                0x00001574                ADC_DelSig_1_theACLK_GetDividerRegister
  .text.ADC_DelSig_1_theACLK_SetModeRegister
-                0x0000129c       0x34 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
-                0x0000129c                ADC_DelSig_1_theACLK_SetModeRegister
+                0x0000158c       0x34 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+                0x0000158c                ADC_DelSig_1_theACLK_SetModeRegister
  .text.ADC_DelSig_1_theACLK_GetSourceRegister
-                0x000012d0       0x1c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
-                0x000012d0                ADC_DelSig_1_theACLK_GetSourceRegister
+                0x000015c0       0x1c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+                0x000015c0                ADC_DelSig_1_theACLK_GetSourceRegister
  .text.CyDmacConfigure
-                0x000012ec       0x5c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x000012ec                CyDmacConfigure
+                0x000015dc       0x5c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x000015dc                CyDmacConfigure
  .text.CyDmaChEnable
-                0x00001348       0x8c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x00001348                CyDmaChEnable
+                0x00001638       0x8c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x00001638                CyDmaChEnable
  .text.CyDmaChPriority
-                0x000013d4       0x64 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x000013d4                CyDmaChPriority
+                0x000016c4       0x64 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x000016c4                CyDmaChPriority
  .text.CyDmaChSetExtendedAddress
-                0x00001438       0x78 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x00001438                CyDmaChSetExtendedAddress
+                0x00001728       0x78 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x00001728                CyDmaChSetExtendedAddress
  .text.CyDmaChSetInitialTd
-                0x000014b0       0x3c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x000014b0                CyDmaChSetInitialTd
+                0x000017a0       0x3c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x000017a0                CyDmaChSetInitialTd
  .text.CyDmaChSetConfiguration
-                0x000014ec       0xa0 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x000014ec                CyDmaChSetConfiguration
+                0x000017dc       0xa0 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x000017dc                CyDmaChSetConfiguration
  .text.CyDmaTdAllocate
-                0x0000158c       0x5c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x0000158c                CyDmaTdAllocate
+                0x0000187c       0x5c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x0000187c                CyDmaTdAllocate
  .text.CyDmaTdSetConfiguration
-                0x000015e8       0x80 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x000015e8                CyDmaTdSetConfiguration
+                0x000018d8       0x80 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x000018d8                CyDmaTdSetConfiguration
  .text.CyDmaTdSetAddress
-                0x00001668       0x5c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
-                0x00001668                CyDmaTdSetAddress
- .text.CyHalt   0x000016c4       0x18 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
-                0x000016c4                CyHalt
+                0x00001958       0x5c .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x00001958                CyDmaTdSetAddress
+ .text.CyHalt   0x000019b4       0x18 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+                0x000019b4                CyHalt
+ .text.CyDelay  0x000019cc       0x44 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+                0x000019cc                CyDelay
  .text.CyDelayUs
-                0x000016dc       0x28 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
-                0x000016dc                CyDelayUs
+                0x00001a10       0x28 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+                0x00001a10                CyDelayUs
  .text.CyIntSetVector
-                0x00001704       0x50 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
-                0x00001704                CyIntSetVector
+                0x00001a38       0x50 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+                0x00001a38                CyIntSetVector
  .text.CyIntSetPriority
-                0x00001754       0x48 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
-                0x00001754                CyIntSetPriority
+                0x00001a88       0x48 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+                0x00001a88                CyIntSetPriority
  .text.UART_1_Start
-                0x0000179c       0x24 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
-                0x0000179c                UART_1_Start
+                0x00001ad0       0x24 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x00001ad0                UART_1_Start
  .text.UART_1_Init
-                0x000017c0       0x40 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
-                0x000017c0                UART_1_Init
+                0x00001af4       0x40 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x00001af4                UART_1_Init
  .text.UART_1_Enable
-                0x00001800       0x60 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
-                0x00001800                UART_1_Enable
+                0x00001b34       0x60 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x00001b34                UART_1_Enable
  .text.UART_1_GetChar
-                0x00001860       0x44 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
-                0x00001860                UART_1_GetChar
+                0x00001b94       0x44 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x00001b94                UART_1_GetChar
  .text.UART_1_PutChar
-                0x000018a4       0x34 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
-                0x000018a4                UART_1_PutChar
+                0x00001bd8       0x34 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x00001bd8                UART_1_PutChar
  .text.UART_1_PutString
-                0x000018d8       0x44 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
-                0x000018d8                UART_1_PutString
+                0x00001c0c       0x44 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x00001c0c                UART_1_PutString
  .text.UART_1_IntClock_Start
-                0x0000191c       0x34 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
-                0x0000191c                UART_1_IntClock_Start
+                0x00001c50       0x34 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+                0x00001c50                UART_1_IntClock_Start
  .text.Timer_Init
-                0x00001950       0xa0 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
-                0x00001950                Timer_Init
+                0x00001c84       0xa0 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x00001c84                Timer_Init
  .text.Timer_Enable
-                0x000019f0       0x48 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
-                0x000019f0                Timer_Enable
+                0x00001d24       0x48 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x00001d24                Timer_Enable
  .text.Timer_Start
-                0x00001a38       0x24 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
-                0x00001a38                Timer_Start
+                0x00001d6c       0x24 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x00001d6c                Timer_Start
  .text.Timer_SetInterruptMode
-                0x00001a5c       0x20 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
-                0x00001a5c                Timer_SetInterruptMode
+                0x00001d90       0x20 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x00001d90                Timer_SetInterruptMode
  .text.Timer_WritePeriod
-                0x00001a7c       0x24 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
-                0x00001a7c                Timer_WritePeriod
+                0x00001db0       0x24 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x00001db0                Timer_WritePeriod
  .text.Timer_WriteCounter
-                0x00001aa0       0x20 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
-                0x00001aa0                Timer_WriteCounter
+                0x00001dd4       0x20 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x00001dd4                Timer_WriteCounter
  .text.isr_StartEx
-                0x00001ac0       0x24 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
-                0x00001ac0                isr_StartEx
+                0x00001df4       0x24 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+                0x00001df4                isr_StartEx
  .text.isr_SetVector
-                0x00001ae4       0x24 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
-                0x00001ae4                isr_SetVector
+                0x00001e18       0x24 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+                0x00001e18                isr_SetVector
  .text.isr_SetPriority
-                0x00001b08       0x24 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
-                0x00001b08                isr_SetPriority
+                0x00001e3c       0x24 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+                0x00001e3c                isr_SetPriority
  .text.isr_Enable
-                0x00001b2c       0x18 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
-                0x00001b2c                isr_Enable
+                0x00001e60       0x18 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+                0x00001e60                isr_Enable
  .text.isr_Disable
-                0x00001b44       0x18 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
-                0x00001b44                isr_Disable
+                0x00001e78       0x18 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+                0x00001e78                isr_Disable
+ .text.Row_Divider_Start
+                0x00001e90       0x24 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001e90                Row_Divider_Start
+ .text.Row_Divider_Init
+                0x00001eb4       0x80 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001eb4                Row_Divider_Init
+ .text.Row_Divider_Enable
+                0x00001f34       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001f34                Row_Divider_Enable
+ .text.Row_Divider_WriteCounter
+                0x00001f54       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001f54                Row_Divider_WriteCounter
+ .text.Row_Divider_ClearFIFO
+                0x00001f74       0x1c .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001f74                Row_Divider_ClearFIFO
+ .text.Row_Divider_WritePeriod
+                0x00001f90       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001f90                Row_Divider_WritePeriod
+ .text.Row_Divider_WriteCompare1
+                0x00001fb0       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001fb0                Row_Divider_WriteCompare1
+ .text.Row_Divider_WriteCompare2
+                0x00001fd0       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001fd0                Row_Divider_WriteCompare2
+ .text.Row_Divider_SetInterruptMode
+                0x00001ff0       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00001ff0                Row_Divider_SetInterruptMode
+ .text.Row_Divider_ReadStatusRegister
+                0x00002010       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00002010                Row_Divider_ReadStatusRegister
+ .text.Row_Divider_ReadCapture
+                0x00002028       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x00002028                Row_Divider_ReadCapture
+ .text.Col_Divider_Start
+                0x00002040       0x24 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x00002040                Col_Divider_Start
+ .text.Col_Divider_Init
+                0x00002064       0x80 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x00002064                Col_Divider_Init
+ .text.Col_Divider_Enable
+                0x000020e4       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x000020e4                Col_Divider_Enable
+ .text.Col_Divider_WriteCounter
+                0x00002104       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x00002104                Col_Divider_WriteCounter
+ .text.Col_Divider_ClearFIFO
+                0x00002124       0x1c .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x00002124                Col_Divider_ClearFIFO
+ .text.Col_Divider_WritePeriod
+                0x00002140       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x00002140                Col_Divider_WritePeriod
+ .text.Col_Divider_WriteCompare1
+                0x00002160       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x00002160                Col_Divider_WriteCompare1
+ .text.Col_Divider_WriteCompare2
+                0x00002180       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x00002180                Col_Divider_WriteCompare2
+ .text.Col_Divider_SetInterruptMode
+                0x000021a0       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x000021a0                Col_Divider_SetInterruptMode
+ .text.Col_Divider_ReadStatusRegister
+                0x000021c0       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x000021c0                Col_Divider_ReadStatusRegister
+ .text.Col_Divider_ReadCapture
+                0x000021d8       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x000021d8                Col_Divider_ReadCapture
+ .text.ToneClock_Start
+                0x000021f0       0x34 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+                0x000021f0                ToneClock_Start
+ .text.ToneClock_Stop
+                0x00002224       0x34 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+                0x00002224                ToneClock_Stop
+ .text.DTMF_Buffer_Init
+                0x00002258       0x10 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+                0x00002258                DTMF_Buffer_Init
+ .text.DTMF_Buffer_Enable
+                0x00002268       0x48 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+                0x00002268                DTMF_Buffer_Enable
+ .text.DTMF_Buffer_Start
+                0x000022b0       0x24 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+                0x000022b0                DTMF_Buffer_Start
+ .text.DTMF_Buffer_SetPower
+                0x000022d4       0x40 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+                0x000022d4                DTMF_Buffer_SetPower
  .text.Col_Tone_Init
-                0x00001b5c       0x50 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
-                0x00001b5c                Col_Tone_Init
+                0x00002314       0x50 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x00002314                Col_Tone_Init
  .text.Col_Tone_Enable
-                0x00001bac       0x34 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
-                0x00001bac                Col_Tone_Enable
+                0x00002364       0x34 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x00002364                Col_Tone_Enable
  .text.Col_Tone_Start
-                0x00001be0       0x24 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
-                0x00001be0                Col_Tone_Start
+                0x00002398       0x24 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x00002398                Col_Tone_Start
  .text.Col_Tone_Wave1Setup
-                0x00001c04       0x68 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
-                0x00001c04                Col_Tone_Wave1Setup
+                0x000023bc       0x68 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x000023bc                Col_Tone_Wave1Setup
  .text.Col_Tone_Wave2Setup
-                0x00001c6c       0x68 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
-                0x00001c6c                Col_Tone_Wave2Setup
+                0x00002424       0x68 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x00002424                Col_Tone_Wave2Setup
  .text.Col_Tone_Wave1_DMA_DmaInitialize
-                0x00001cd4       0x64 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
-                0x00001cd4                Col_Tone_Wave1_DMA_DmaInitialize
+                0x0000248c       0x64 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+                0x0000248c                Col_Tone_Wave1_DMA_DmaInitialize
  .text.Col_Tone_Wave2_DMA_DmaInitialize
-                0x00001d38       0x64 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
-                0x00001d38                Col_Tone_Wave2_DMA_DmaInitialize
+                0x000024f0       0x64 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+                0x000024f0                Col_Tone_Wave2_DMA_DmaInitialize
  .text.Col_Tone_VDAC8_Init
-                0x00001d9c       0x3c .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
-                0x00001d9c                Col_Tone_VDAC8_Init
+                0x00002554       0x3c .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x00002554                Col_Tone_VDAC8_Init
  .text.Col_Tone_VDAC8_Enable
-                0x00001dd8       0x34 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
-                0x00001dd8                Col_Tone_VDAC8_Enable
+                0x00002590       0x34 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x00002590                Col_Tone_VDAC8_Enable
  .text.Col_Tone_VDAC8_SetSpeed
-                0x00001e0c       0x40 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
-                0x00001e0c                Col_Tone_VDAC8_SetSpeed
+                0x000025c4       0x40 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x000025c4                Col_Tone_VDAC8_SetSpeed
  .text.Col_Tone_VDAC8_SetRange
-                0x00001e4c       0x40 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
-                0x00001e4c                Col_Tone_VDAC8_SetRange
+                0x00002604       0x40 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x00002604                Col_Tone_VDAC8_SetRange
  .text.Col_Tone_VDAC8_SetValue
-                0x00001e8c       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
-                0x00001e8c                Col_Tone_VDAC8_SetValue
+                0x00002644       0x20 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x00002644                Col_Tone_VDAC8_SetValue
  .text.Col_Tone_VDAC8_DacTrim
-                0x00001eac       0x3c .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
-                0x00001eac                Col_Tone_VDAC8_DacTrim
+                0x00002664       0x3c .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x00002664                Col_Tone_VDAC8_DacTrim
  .text.Row_Tone_Init
-                0x00001ee8       0x50 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
-                0x00001ee8                Row_Tone_Init
+                0x000026a0       0x50 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x000026a0                Row_Tone_Init
  .text.Row_Tone_Enable
-                0x00001f38       0x34 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
-                0x00001f38                Row_Tone_Enable
+                0x000026f0       0x34 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x000026f0                Row_Tone_Enable
  .text.Row_Tone_Start
-                0x00001f6c       0x24 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
-                0x00001f6c                Row_Tone_Start
+                0x00002724       0x24 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x00002724                Row_Tone_Start
  .text.Row_Tone_Wave1Setup
-                0x00001f90       0x68 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
-                0x00001f90                Row_Tone_Wave1Setup
+                0x00002748       0x68 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x00002748                Row_Tone_Wave1Setup
  .text.Row_Tone_Wave2Setup
-                0x00001ff8       0x68 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
-                0x00001ff8                Row_Tone_Wave2Setup
+                0x000027b0       0x68 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x000027b0                Row_Tone_Wave2Setup
  .text.Row_Tone_Wave1_DMA_DmaInitialize
-                0x00002060       0x64 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
-                0x00002060                Row_Tone_Wave1_DMA_DmaInitialize
+                0x00002818       0x64 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+                0x00002818                Row_Tone_Wave1_DMA_DmaInitialize
  .text.Row_Tone_Wave2_DMA_DmaInitialize
-                0x000020c4       0x64 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
-                0x000020c4                Row_Tone_Wave2_DMA_DmaInitialize
+                0x0000287c       0x64 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+                0x0000287c                Row_Tone_Wave2_DMA_DmaInitialize
  .text.Row_Tone_VDAC8_Init
-                0x00002128       0x3c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
-                0x00002128                Row_Tone_VDAC8_Init
+                0x000028e0       0x3c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x000028e0                Row_Tone_VDAC8_Init
  .text.Row_Tone_VDAC8_Enable
-                0x00002164       0x34 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
-                0x00002164                Row_Tone_VDAC8_Enable
+                0x0000291c       0x34 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x0000291c                Row_Tone_VDAC8_Enable
  .text.Row_Tone_VDAC8_SetSpeed
-                0x00002198       0x40 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
-                0x00002198                Row_Tone_VDAC8_SetSpeed
+                0x00002950       0x40 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x00002950                Row_Tone_VDAC8_SetSpeed
  .text.Row_Tone_VDAC8_SetRange
-                0x000021d8       0x40 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
-                0x000021d8                Row_Tone_VDAC8_SetRange
+                0x00002990       0x40 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x00002990                Row_Tone_VDAC8_SetRange
  .text.Row_Tone_VDAC8_SetValue
-                0x00002218       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
-                0x00002218                Row_Tone_VDAC8_SetValue
+                0x000029d0       0x20 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x000029d0                Row_Tone_VDAC8_SetValue
  .text.Row_Tone_VDAC8_DacTrim
-                0x00002238       0x3c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
-                0x00002238                Row_Tone_VDAC8_DacTrim
- *fill*         0x00002274        0x4 
- .text          0x00002278       0x54 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
-                0x00002278                CyDelayCycles
-                0x000022b6                CyEnterCriticalSection
-                0x000022be                CyExitCriticalSection
- .text.__errno  0x000022cc        0xc c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
-                0x000022cc                __errno
+                0x000029f0       0x3c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x000029f0                Row_Tone_VDAC8_DacTrim
+ *fill*         0x00002a2c        0x4 
+ .text          0x00002a30       0x54 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
+                0x00002a30                CyDelayCycles
+                0x00002a6e                CyEnterCriticalSection
+                0x00002a76                CyExitCriticalSection
+ .text.__errno  0x00002a84        0xc c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x00002a84                __errno
  .text.__libc_init_array
-                0x000022d8       0x4c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
-                0x000022d8                __libc_init_array
- .text.memcpy   0x00002324       0x16 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x00002324                memcpy
- .text.memset   0x0000233a       0x10 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
-                0x0000233a                memset
- *fill*         0x0000234a        0x2 
- .text.sprintf  0x0000234c       0x48 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sprintf.o)
-                0x0000234c                siprintf
-                0x0000234c                sprintf
+                0x00002a90       0x4c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x00002a90                __libc_init_array
+ .text.memcpy   0x00002adc       0x16 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00002adc                memcpy
+ .text.memset   0x00002af2       0x10 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00002af2                memset
+ *fill*         0x00002b02        0x2 
+ .text.sprintf  0x00002b04       0x48 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sprintf.o)
+                0x00002b04                siprintf
+                0x00002b04                sprintf
  .text.__ssputs_r
-                0x00002394       0xb2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00002394                __ssputs_r
- *fill*         0x00002446        0x2 
+                0x00002b4c       0xb2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00002b4c                __ssputs_r
+ *fill*         0x00002bfe        0x2 
  .text._svfprintf_r
-                0x00002448      0x1e8 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00002448                _svfiprintf_r
-                0x00002448                _svfprintf_r
+                0x00002c00      0x1e8 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00002c00                _svfiprintf_r
+                0x00002c00                _svfprintf_r
  .text._printf_common
-                0x00002630       0xec c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00002630                _printf_common
+                0x00002de8       0xec c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00002de8                _printf_common
  .text._printf_i
-                0x0000271c      0x24c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000271c                _printf_i
- .text.memchr   0x00002968       0x1c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
-                0x00002968                memchr
- .text.memmove  0x00002984       0x36 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
-                0x00002984                memmove
- *fill*         0x000029ba        0x2 
- .text._free_r  0x000029bc       0x98 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
-                0x000029bc                _free_r
+                0x00002ed4      0x24c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00002ed4                _printf_i
+ .text.memchr   0x00003120       0x1c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x00003120                memchr
+ .text.memmove  0x0000313c       0x36 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                0x0000313c                memmove
+ *fill*         0x00003172        0x2 
+ .text._free_r  0x00003174       0x98 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+                0x00003174                _free_r
  .text._malloc_r
-                0x00002a54       0xbc c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x00002a54                _malloc_r
+                0x0000320c       0xbc c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0000320c                _malloc_r
  .text._realloc_r
-                0x00002b10       0x4c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
-                0x00002b10                _realloc_r
- .text._sbrk_r  0x00002b5c       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
-                0x00002b5c                _sbrk_r
+                0x000032c8       0x4c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x000032c8                _realloc_r
+ .text._sbrk_r  0x00003314       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+                0x00003314                _sbrk_r
  .text.__malloc_lock
-                0x00002b7c        0x2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
-                0x00002b7c                __malloc_lock
+                0x00003334        0x2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x00003334                __malloc_lock
  .text.__malloc_unlock
-                0x00002b7e        0x2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
-                0x00002b7e                __malloc_unlock
+                0x00003336        0x2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x00003336                __malloc_unlock
  .text._malloc_usable_size_r
-                0x00002b80       0x14 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
-                0x00002b80                _malloc_usable_size_r
+                0x00003338       0x14 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x00003338                _malloc_usable_size_r
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x00002b94        0x0 linker stubs
+ .glue_7t       0x0000334c        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00002b94        0x0 linker stubs
+ .glue_7        0x0000334c        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x00002b94        0x0 linker stubs
+ .vfp11_veneer  0x0000334c        0x0 linker stubs
  *(.bootloader)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x00002b94        0x0
- .v4_bx         0x00002b94        0x0 linker stubs
+.v4_bx          0x0000334c        0x0
+ .v4_bx         0x0000334c        0x0 linker stubs
 
-.iplt           0x00002b94        0x0
- .iplt          0x00002b94        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.iplt           0x0000334c        0x0
+ .iplt          0x0000334c        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x00002b94        0x4
+.eh_frame       0x0000334c        0x4
  *(.eh_frame)
- .eh_frame      0x00002b94        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .eh_frame      0x00002b94        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .eh_frame      0x0000334c        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x0000334c        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
                 [!provide]                PROVIDE (__exidx_start, .)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00002b98                __exidx_end = .
+                0x00003350                __exidx_end = .
 
-.rodata         0x00002b98      0x268
+.rodata         0x00003350      0x268
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00002b98       0x1e .\ARM_GCC_541\Debug\main.o
- *fill*         0x00002bb6        0x2 
- .rodata        0x00002bb8       0x48 .\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00002bb8                ADC_DelSig_1_AMux__addrTable
-                0x00002bc0                ADC_DelSig_1_AMux__maskTable
- .rodata        0x00002c00       0xc8 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
-                0x00002c00                Col_Tone_wave1
-                0x00002c64                Col_Tone_wave2
- .rodata        0x00002cc8       0xc8 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
-                0x00002cc8                Row_Tone_wave1
-                0x00002d2c                Row_Tone_wave2
+ .rodata        0x00003350       0x20 .\ARM_GCC_541\Debug\main.o
+ .rodata        0x00003370       0x48 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00003370                ADC_DelSig_1_AMux__addrTable
+                0x00003378                ADC_DelSig_1_AMux__maskTable
+ .rodata        0x000033b8       0xc8 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x000033b8                Col_Tone_wave1
+                0x0000341c                Col_Tone_wave2
+ .rodata        0x00003480       0xc8 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x00003480                Row_Tone_wave1
+                0x000034e4                Row_Tone_wave2
  .rodata.str1.1
-                0x00002d90        0x2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x00003548        0x2 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .rodata.str1.1
-                0x00002d92       0x11 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0000354a       0x11 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata.str1.1
-                0x00002da3       0x22 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00002dc8                . = ALIGN (0x4)
- *fill*         0x00002dc5        0x3 
+                0x0000355b       0x22 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00003580                . = ALIGN (0x4)
+ *fill*         0x0000357d        0x3 
  *(.init)
- .init          0x00002dc8        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x00002dc8                _init
- .init          0x00002dcc        0x8 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00002dd4                . = ALIGN (0x4)
-                0x00002dd4                __preinit_array_start = .
+ .init          0x00003580        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00003580                _init
+ .init          0x00003584        0x8 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x0000358c                . = ALIGN (0x4)
+                0x0000358c                __preinit_array_start = .
  *(.preinit_array)
-                0x00002dd4                __preinit_array_end = .
-                0x00002dd4                . = ALIGN (0x4)
-                0x00002dd4                __init_array_start = .
+                0x0000358c                __preinit_array_end = .
+                0x0000358c                . = ALIGN (0x4)
+                0x0000358c                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00002dd4        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .init_array    0x00002dd8        0x4 .\ARM_GCC_541\Debug\Cm3Start.o
-                0x00002ddc                __init_array_end = .
-                0x00002ddc                . = ALIGN (0x4)
+ .init_array    0x0000358c        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x00003590        0x4 .\ARM_GCC_541\Debug\Cm3Start.o
+                0x00003594                __init_array_end = .
+                0x00003594                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00002ddc        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x00002ddc                _fini
- .fini          0x00002de0        0x8 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00002de8                . = ALIGN (0x4)
-                0x00002de8                __fini_array_start = .
+ .fini          0x00003594        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00003594                _fini
+ .fini          0x00003598        0x8 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x000035a0                . = ALIGN (0x4)
+                0x000035a0                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00002de8        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .fini_array    0x000035a0        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00002dec                __fini_array_end = .
-                0x00002dec                . = ALIGN (0x4)
+                0x000035a4                __fini_array_end = .
+                0x000035a4                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00002dec                . = ALIGN (0x4)
+                0x000035a4                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00002dec                . = ALIGN (0x4)
-                0x00002dec                __cy_regions = .
-                0x00002dec        0x4 LONG 0x2e00 __cy_region_init_ram
-                0x00002df0        0x4 LONG 0x1fff80c8 __cy_region_start_data
-                0x00002df4        0x4 LONG 0x90 __cy_region_init_size_ram
-                0x00002df8        0x4 LONG 0x60 __cy_region_zero_size_ram
-                0x00002dfc                __cy_regions_end = .
-                0x00002e00                . = ALIGN (0x8)
- *fill*         0x00002dfc        0x4 
-                0x00002e00                _etext = .
+                0x000035a4                . = ALIGN (0x4)
+                0x000035a4                __cy_regions = .
+                0x000035a4        0x4 LONG 0x35b8 __cy_region_init_ram
+                0x000035a8        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x000035ac        0x4 LONG 0xa8 __cy_region_init_size_ram
+                0x000035b0        0x4 LONG 0x60 __cy_region_zero_size_ram
+                0x000035b4                __cy_regions_end = .
+                0x000035b8                . = ALIGN (0x8)
+ *fill*         0x000035b4        0x4 
+                0x000035b8                _etext = .
 
 .cy_checksum_exclude
-                0x00002e00        0x0
+                0x000035b8        0x0
  *(.cy_checksum_exclude)
 
 .ramvectors     0x1fff8000       0xc0
@@ -1249,7 +1406,7 @@ END GROUP
  .noinit        0x1fff80c4        0x1 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
                 0x1fff80c4                CyResetStatus
 
-.data           0x1fff80c8       0x90 load address 0x00002e00
+.data           0x1fff80c8       0xa8 load address 0x000035b8
                 0x1fff80c8                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x1fff80c8        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
@@ -1258,92 +1415,100 @@ END GROUP
  *(.got)
  *(.shdata)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x1fff80cc        0x4 .\ARM_GCC_541\Debug\Cm3Start.o
- .data          0x1fff80d0        0x1 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x1fff80d0                ADC_DelSig_1_Config
- .data          0x1fff80d1        0x1 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
- *fill*         0x1fff80d2        0x2 
- .data          0x1fff80d4        0x8 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
- .data          0x1fff80dc       0x10 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
-                0x1fff80dc                cydelay_freq_hz
-                0x1fff80e0                cydelay_freq_khz
-                0x1fff80e4                cydelay_freq_mhz
-                0x1fff80e8                cydelay_32k_ms
- .data          0x1fff80ec        0x1 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
-                0x1fff80ec                Col_Tone_Wave1_DMA_DmaHandle
- .data          0x1fff80ed        0x1 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
-                0x1fff80ed                Col_Tone_Wave2_DMA_DmaHandle
- .data          0x1fff80ee        0x1 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
-                0x1fff80ee                Row_Tone_Wave1_DMA_DmaHandle
- .data          0x1fff80ef        0x1 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
-                0x1fff80ef                Row_Tone_Wave2_DMA_DmaHandle
+ .data          0x1fff80cc       0x1c .\ARM_GCC_541\Debug\main.o
+                0x1fff80cc                keyCodes
+                0x1fff80e0                rowDiv
+                0x1fff80e4                colDiv
+ .data          0x1fff80e8        0x4 .\ARM_GCC_541\Debug\Cm3Start.o
+ .data          0x1fff80ec        0x1 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x1fff80ec                ADC_DelSig_1_Config
+ .data          0x1fff80ed        0x1 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+ *fill*         0x1fff80ee        0x2 
+ .data          0x1fff80f0        0x8 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+ .data          0x1fff80f8       0x10 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+                0x1fff80f8                cydelay_freq_hz
+                0x1fff80fc                cydelay_freq_khz
+                0x1fff8100                cydelay_freq_mhz
+                0x1fff8104                cydelay_32k_ms
+ .data          0x1fff8108        0x1 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+                0x1fff8108                Col_Tone_Wave1_DMA_DmaHandle
+ .data          0x1fff8109        0x1 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+                0x1fff8109                Col_Tone_Wave2_DMA_DmaHandle
+ .data          0x1fff810a        0x1 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+                0x1fff810a                Row_Tone_Wave1_DMA_DmaHandle
+ .data          0x1fff810b        0x1 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+                0x1fff810b                Row_Tone_Wave2_DMA_DmaHandle
  .data.impure_data
-                0x1fff80f0       0x60 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x1fff810c       0x60 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .data._impure_ptr
-                0x1fff8150        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
-                0x1fff8150                _impure_ptr
-                0x1fff8158                . = ALIGN (0x8)
- *fill*         0x1fff8154        0x4 
+                0x1fff816c        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x1fff816c                _impure_ptr
+                0x1fff8170                . = ALIGN (0x8)
  *(.ram)
-                0x1fff8158                _edata = .
+                0x1fff8170                _edata = .
 
-.igot.plt       0x1fff8158        0x0 load address 0x00002e90
- .igot.plt      0x1fff8158        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.igot.plt       0x1fff8170        0x0 load address 0x00003660
+ .igot.plt      0x1fff8170        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
-.bss            0x1fff8158       0x60 load address 0x00002e90
-                0x1fff8158                PROVIDE (__bss_start__, .)
+.bss            0x1fff8170       0x60 load address 0x00003660
+                0x1fff8170                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x1fff8158       0x1c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .bss           0x1fff8174        0xc .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x1fff8174                ADC_DelSig_1_convDone
-                0x1fff8175                ADC_DelSig_1_stopConversion
-                0x1fff8176                ADC_DelSig_1_initVar
-                0x1fff8177                ADC_DelSig_1_started
-                0x1fff8178                ADC_DelSig_1_Offset
- .bss           0x1fff8180        0x2 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
-                0x1fff8180                UART_1_initVar
- .bss           0x1fff8182        0x1 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
-                0x1fff8182                Timer_initVar
- .bss           0x1fff8183        0x5 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
-                0x1fff8183                Col_Tone_initVar
- .bss           0x1fff8188        0x5 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
-                0x1fff8188                Row_Tone_initVar
- *fill*         0x1fff818d        0x3 
+ .bss           0x1fff8170       0x1c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .bss           0x1fff818c        0xc .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x1fff818c                ADC_DelSig_1_convDone
+                0x1fff818d                ADC_DelSig_1_stopConversion
+                0x1fff818e                ADC_DelSig_1_initVar
+                0x1fff818f                ADC_DelSig_1_started
+                0x1fff8190                ADC_DelSig_1_Offset
+ .bss           0x1fff8198        0x2 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x1fff8198                UART_1_initVar
+ .bss           0x1fff819a        0x1 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x1fff819a                Timer_initVar
+ .bss           0x1fff819b        0x1 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                0x1fff819b                Row_Divider_initVar
+ .bss           0x1fff819c        0x1 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                0x1fff819c                Col_Divider_initVar
+ .bss           0x1fff819d        0x1 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+                0x1fff819d                DTMF_Buffer_initVar
+ .bss           0x1fff819e        0x5 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x1fff819e                Col_Tone_initVar
+ .bss           0x1fff81a3        0x5 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x1fff81a3                Row_Tone_initVar
  .bss.__malloc_sbrk_start
-                0x1fff8190        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x1fff8190                __malloc_sbrk_start
+                0x1fff81a8        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x1fff81a8                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x1fff8194        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x1fff8194                __malloc_free_list
+                0x1fff81ac        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x1fff81ac                __malloc_free_list
  *(COMMON)
- COMMON         0x1fff8198       0x16 .\ARM_GCC_541\Debug\main.o
-                0x1fff8198                TransmitBuffer
-                0x1fff81a8                ContinuouslySendData
-                0x1fff81a9                SendEmulatedData
-                0x1fff81aa                Output
-                0x1fff81ac                SendSingleByte
-                0x1fff81ad                EmulatedData
- *fill*         0x1fff81ae        0x2 
- COMMON         0x1fff81b0        0x4 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
-                0x1fff81b0                ADC_DelSig_1_CountsPerVolt
- COMMON         0x1fff81b4        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-reent.o)
-                0x1fff81b4                errno
-                0x1fff81b8                . = ALIGN (0x8)
+ COMMON         0x1fff81b0       0x16 .\ARM_GCC_541\Debug\main.o
+                0x1fff81b0                TransmitBuffer
+                0x1fff81c0                ContinuouslySendData
+                0x1fff81c1                SendEmulatedData
+                0x1fff81c2                Output
+                0x1fff81c4                SendSingleByte
+                0x1fff81c5                EmulatedData
+ *fill*         0x1fff81c6        0x2 
+ COMMON         0x1fff81c8        0x4 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x1fff81c8                ADC_DelSig_1_CountsPerVolt
+ COMMON         0x1fff81cc        0x4 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-reent.o)
+                0x1fff81cc                errno
+                0x1fff81d0                . = ALIGN (0x8)
  *(.ram.b)
-                0x1fff81b8                _end = .
-                0x1fff81b8                __end = .
-                0x1fff81b8                PROVIDE (end, .)
-                0x1fff81b8                PROVIDE (__bss_end__, .)
-                0x00002e00                __cy_region_init_ram = LOADADDR (.data)
-                0x00000090                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x1fff81d0                _end = .
+                0x1fff81d0                __end = .
+                0x1fff81d0                PROVIDE (end, .)
+                0x1fff81d0                PROVIDE (__bss_end__, .)
+                0x000035b8                __cy_region_init_ram = LOADADDR (.data)
+                0x000000a8                __cy_region_init_size_ram = (_edata - ADDR (.data))
                 0x00000060                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x1fff81b8       0x80 load address 0x00002e90
-                0x1fff81b8                . = _end
-                0x1fff8238                . = (. + 0x80)
- *fill*         0x1fff81b8       0x80 
-                0x1fff8238                __cy_heap_limit = .
+.heap           0x1fff81d0       0x80 load address 0x00003660
+                0x1fff81d0                . = _end
+                0x1fff8250                . = (. + 0x80)
+ *fill*         0x1fff81d0       0x80 
+                0x1fff8250                __cy_heap_limit = .
 
 .stack          0x20007800      0x800
                 0x20007800                __cy_stack_limit = .
@@ -1390,8 +1555,8 @@ END GROUP
  .cymeta        0x90500000        0xc .\ARM_GCC_541\Debug\cymetadata.o
                 0x90500000                cy_metadata
 
-.rel.dyn        0x00002e90        0x0 load address 0x9050000c
- .rel.iplt      0x00002e90        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.rel.dyn        0x00003660        0x0 load address 0x9050000c
+ .rel.iplt      0x00003660        0x0 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .stab
  *(.stab)
@@ -1411,254 +1576,286 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0xcb8
+.debug_aranges  0x00000000      0xed0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x28 .\ARM_GCC_541\Debug\main.o
+                0x00000000       0x40 .\ARM_GCC_541\Debug\main.o
  .debug_aranges
-                0x00000028       0x70 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000040       0x70 .\ARM_GCC_541\Debug\cyfitter_cfg.o
  .debug_aranges
-                0x00000098       0x18 .\ARM_GCC_541\Debug\cymetadata.o
+                0x000000b0       0x18 .\ARM_GCC_541\Debug\cymetadata.o
  .debug_aranges
-                0x000000b0       0x48 .\ARM_GCC_541\Debug\Cm3Start.o
+                0x000000c8       0x48 .\ARM_GCC_541\Debug\Cm3Start.o
  .debug_aranges
-                0x000000f8       0xe8 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+                0x00000110       0xe8 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
  .debug_aranges
-                0x000001e0       0x38 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+                0x000001f8       0x38 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
  .debug_aranges
-                0x00000218       0x30 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+                0x00000230       0x30 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
  .debug_aranges
-                0x00000248       0x70 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x00000260       0x70 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
  .debug_aranges
-                0x000002b8       0x80 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+                0x000002d0       0x80 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
  .debug_aranges
-                0x00000338       0xd8 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+                0x00000350       0xd8 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
  .debug_aranges
-                0x00000410      0x2a0 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+                0x00000428      0x2a0 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
  .debug_aranges
-                0x000006b0       0x98 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
+                0x000006c8       0x98 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
  .debug_aranges
-                0x00000748       0xf0 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+                0x00000760       0xf0 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
  .debug_aranges
-                0x00000838       0x70 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+                0x00000850       0x70 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
  .debug_aranges
-                0x000008a8       0x88 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+                0x000008c0       0x88 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
  .debug_aranges
-                0x00000930       0x80 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+                0x00000948       0x80 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
  .debug_aranges
-                0x000009b0       0x50 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x000009c8       0xa8 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
  .debug_aranges
-                0x00000a00       0x28 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+                0x00000a70       0xa8 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
  .debug_aranges
-                0x00000a28       0x28 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+                0x00000b18       0x70 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
  .debug_aranges
-                0x00000a50       0x58 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x00000b88       0x40 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
  .debug_aranges
-                0x00000aa8       0x50 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x00000bc8       0x50 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
  .debug_aranges
-                0x00000af8       0x28 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+                0x00000c18       0x28 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
  .debug_aranges
-                0x00000b20       0x28 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+                0x00000c40       0x28 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
  .debug_aranges
-                0x00000b48       0x58 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x00000c68       0x58 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
  .debug_aranges
-                0x00000ba0       0x20 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
+                0x00000cc0       0x50 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
  .debug_aranges
-                0x00000bc0       0x80 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+                0x00000d10       0x28 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
  .debug_aranges
-                0x00000c40       0x78 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+                0x00000d38       0x28 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+ .debug_aranges
+                0x00000d60       0x58 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+ .debug_aranges
+                0x00000db8       0x20 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x00000dd8       0x80 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+ .debug_aranges
+                0x00000e58       0x78 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5509
+.debug_info     0x00000000     0x5f54
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x17c .\ARM_GCC_541\Debug\main.o
- .debug_info    0x0000017c      0x448 .\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_info    0x000005c4      0x137 .\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x000006fb      0x32b .\ARM_GCC_541\Debug\Cm3Start.o
- .debug_info    0x00000a26      0x72c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
- .debug_info    0x00001152       0xd3 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
- .debug_info    0x00001225      0x10a .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
- .debug_info    0x0000132f      0x25d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
- .debug_info    0x0000158c      0x299 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
- .debug_info    0x00001825      0x8c0 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
- .debug_info    0x000020e5      0xe51 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
- .debug_info    0x00002f36      0x57a .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
- .debug_info    0x000034b0      0x50a .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
- .debug_info    0x000039ba      0x25d .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
- .debug_info    0x00003c17      0x245 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
- .debug_info    0x00003e5c      0x241 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
- .debug_info    0x0000409d      0x248 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
- .debug_info    0x000042e5      0x11b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
- .debug_info    0x00004400      0x11b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
- .debug_info    0x0000451b      0x185 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
- .debug_info    0x000046a0      0x248 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
- .debug_info    0x000048e8      0x11b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
- .debug_info    0x00004a03      0x11b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
- .debug_info    0x00004b1e      0x185 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
- .debug_info    0x00004ca3       0x9b .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
- .debug_info    0x00004d3e      0x371 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
- .debug_info    0x000050af      0x45a .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+ .debug_info    0x00000000      0x2b9 .\ARM_GCC_541\Debug\main.o
+ .debug_info    0x000002b9      0x448 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x00000701      0x137 .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00000838      0x32b .\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_info    0x00000b63      0x72c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+ .debug_info    0x0000128f       0xd3 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+ .debug_info    0x00001362      0x10a .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+ .debug_info    0x0000146c      0x25d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_info    0x000016c9      0x299 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+ .debug_info    0x00001962      0x8c0 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+ .debug_info    0x00002222      0xe51 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+ .debug_info    0x00003073      0x57a .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
+ .debug_info    0x000035ed      0x50a .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+ .debug_info    0x00003af7      0x25d .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+ .debug_info    0x00003d54      0x245 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+ .debug_info    0x00003f99      0x241 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .debug_info    0x000041da      0x2c6 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .debug_info    0x000044a0      0x2c6 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .debug_info    0x00004766      0x25d .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .debug_info    0x000049c3      0x125 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+ .debug_info    0x00004ae8      0x248 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+ .debug_info    0x00004d30      0x11b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+ .debug_info    0x00004e4b      0x11b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+ .debug_info    0x00004f66      0x185 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+ .debug_info    0x000050eb      0x248 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+ .debug_info    0x00005333      0x11b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+ .debug_info    0x0000544e      0x11b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+ .debug_info    0x00005569      0x185 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+ .debug_info    0x000056ee       0x9b .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
+ .debug_info    0x00005789      0x371 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+ .debug_info    0x00005afa      0x45a .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
 
-.debug_abbrev   0x00000000     0x1bb0
+.debug_abbrev   0x00000000     0x2075
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0xc0 .\ARM_GCC_541\Debug\main.o
- .debug_abbrev  0x000000c0      0x1b0 .\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_abbrev  0x00000270       0x77 .\ARM_GCC_541\Debug\cymetadata.o
- .debug_abbrev  0x000002e7      0x1d6 .\ARM_GCC_541\Debug\Cm3Start.o
- .debug_abbrev  0x000004bd      0x19d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
- .debug_abbrev  0x0000065a       0x42 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
- .debug_abbrev  0x0000069c       0x6f .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
- .debug_abbrev  0x0000070b      0x11d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
- .debug_abbrev  0x00000828      0x11d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
- .debug_abbrev  0x00000945      0x194 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
- .debug_abbrev  0x00000ad9      0x217 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
- .debug_abbrev  0x00000cf0      0x161 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
- .debug_abbrev  0x00000e51      0x163 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
- .debug_abbrev  0x00000fb4      0x11d .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
- .debug_abbrev  0x000010d1       0xe9 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
- .debug_abbrev  0x000011ba      0x172 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
- .debug_abbrev  0x0000132c       0xe3 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
- .debug_abbrev  0x0000140f       0x8b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
- .debug_abbrev  0x0000149a       0x8b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
- .debug_abbrev  0x00001525       0xeb .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
- .debug_abbrev  0x00001610       0xe3 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
- .debug_abbrev  0x000016f3       0x8b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
- .debug_abbrev  0x0000177e       0x8b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
- .debug_abbrev  0x00001809       0xeb .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
- .debug_abbrev  0x000018f4       0x14 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
- .debug_abbrev  0x00001908      0x13c .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
- .debug_abbrev  0x00001a44      0x16c .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+ .debug_abbrev  0x00000000      0x164 .\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x00000164      0x1b0 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x00000314       0x77 .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x0000038b      0x1d6 .\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_abbrev  0x00000561      0x19d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+ .debug_abbrev  0x000006fe       0x42 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+ .debug_abbrev  0x00000740       0x6f .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+ .debug_abbrev  0x000007af      0x11d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_abbrev  0x000008cc      0x11d .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+ .debug_abbrev  0x000009e9      0x194 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+ .debug_abbrev  0x00000b7d      0x217 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+ .debug_abbrev  0x00000d94      0x161 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
+ .debug_abbrev  0x00000ef5      0x163 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+ .debug_abbrev  0x00001058      0x11d .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+ .debug_abbrev  0x00001175       0xe9 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+ .debug_abbrev  0x0000125e      0x172 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .debug_abbrev  0x000013d0      0x12e .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .debug_abbrev  0x000014fe      0x12e .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .debug_abbrev  0x0000162c      0x11d .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .debug_abbrev  0x00001749       0xa8 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+ .debug_abbrev  0x000017f1       0xe3 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+ .debug_abbrev  0x000018d4       0x8b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+ .debug_abbrev  0x0000195f       0x8b .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+ .debug_abbrev  0x000019ea       0xeb .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+ .debug_abbrev  0x00001ad5       0xe3 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+ .debug_abbrev  0x00001bb8       0x8b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+ .debug_abbrev  0x00001c43       0x8b .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+ .debug_abbrev  0x00001cce       0xeb .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+ .debug_abbrev  0x00001db9       0x14 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00001dcd      0x13c .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+ .debug_abbrev  0x00001f09      0x16c .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
 
-.debug_line     0x00000000     0x2fa2
+.debug_line     0x00000000     0x35a7
  *(.debug_line)
- .debug_line    0x00000000      0x1c6 .\ARM_GCC_541\Debug\main.o
- .debug_line    0x000001c6      0x22b .\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x000003f1      0x141 .\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00000532      0x1db .\ARM_GCC_541\Debug\Cm3Start.o
- .debug_line    0x0000070d      0x365 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
- .debug_line    0x00000a72       0x95 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
- .debug_line    0x00000b07       0xa6 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
- .debug_line    0x00000bad      0x1b6 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
- .debug_line    0x00000d63      0x1d7 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
- .debug_line    0x00000f3a      0x2b6 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
- .debug_line    0x000011f0      0x883 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
- .debug_line    0x00001a73      0x38e .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
- .debug_line    0x00001e01      0x2e4 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
- .debug_line    0x000020e5      0x1ae .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
- .debug_line    0x00002293      0x15d .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
- .debug_line    0x000023f0      0x13e .\ARM_GCC_541\Debug\Encoder.a(isr.o)
- .debug_line    0x0000252e       0xf0 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
- .debug_line    0x0000261e       0x85 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
- .debug_line    0x000026a3       0x85 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
- .debug_line    0x00002728       0xf6 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
- .debug_line    0x0000281e       0xf0 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
- .debug_line    0x0000290e       0x85 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
- .debug_line    0x00002993       0x85 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
- .debug_line    0x00002a18       0xf6 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
- .debug_line    0x00002b0e       0x7d .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
- .debug_line    0x00002b8b      0x205 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
- .debug_line    0x00002d90      0x212 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+ .debug_line    0x00000000      0x212 .\ARM_GCC_541\Debug\main.o
+ .debug_line    0x00000212      0x22b .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x0000043d      0x141 .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x0000057e      0x1db .\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x00000759      0x365 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+ .debug_line    0x00000abe       0x95 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+ .debug_line    0x00000b53       0xa6 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+ .debug_line    0x00000bf9      0x1b6 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_line    0x00000daf      0x1d7 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+ .debug_line    0x00000f86      0x2b6 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+ .debug_line    0x0000123c      0x883 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+ .debug_line    0x00001abf      0x38e .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
+ .debug_line    0x00001e4d      0x2e4 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+ .debug_line    0x00002131      0x1ae .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+ .debug_line    0x000022df      0x15d .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+ .debug_line    0x0000243c      0x13e .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .debug_line    0x0000257a      0x1af .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .debug_line    0x00002729      0x1af .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .debug_line    0x000028d8      0x1a8 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .debug_line    0x00002a80       0xb3 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+ .debug_line    0x00002b33       0xf0 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+ .debug_line    0x00002c23       0x85 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+ .debug_line    0x00002ca8       0x85 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+ .debug_line    0x00002d2d       0xf6 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+ .debug_line    0x00002e23       0xf0 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+ .debug_line    0x00002f13       0x85 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+ .debug_line    0x00002f98       0x85 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+ .debug_line    0x0000301d       0xf6 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+ .debug_line    0x00003113       0x7d .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
+ .debug_line    0x00003190      0x205 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+ .debug_line    0x00003395      0x212 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
 
-.debug_frame    0x00000000     0x3544
+.debug_frame    0x00000000     0x3d78
  *(.debug_frame)
- .debug_frame   0x00000000       0x4c .\ARM_GCC_541\Debug\main.o
- .debug_frame   0x0000004c      0x1bc .\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_frame   0x00000208       0xd8 .\ARM_GCC_541\Debug\Cm3Start.o
- .debug_frame   0x000002e0      0x40c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
- .debug_frame   0x000006ec       0xa0 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
- .debug_frame   0x0000078c       0x88 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
- .debug_frame   0x00000814      0x1b4 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
- .debug_frame   0x000009c8      0x200 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
- .debug_frame   0x00000bc8      0x3d0 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
- .debug_frame   0x00000f98      0xc0c .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
- .debug_frame   0x00001ba4      0x234 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
- .debug_frame   0x00001dd8      0x42c .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
- .debug_frame   0x00002204      0x1b4 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
- .debug_frame   0x000023b8      0x208 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
- .debug_frame   0x000025c0      0x1e8 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
- .debug_frame   0x000027a8       0xf8 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
- .debug_frame   0x000028a0       0x58 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
- .debug_frame   0x000028f8       0x58 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
- .debug_frame   0x00002950      0x130 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
- .debug_frame   0x00002a80       0xf8 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
- .debug_frame   0x00002b78       0x58 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
- .debug_frame   0x00002bd0       0x58 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
- .debug_frame   0x00002c28      0x130 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
- .debug_frame   0x00002d58      0x210 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
- .debug_frame   0x00002f68      0x1f8 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
- .debug_frame   0x00003160       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00003180       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x000031a8       0x2c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x000031d4       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x000031fc       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
- .debug_frame   0x0000321c       0x70 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sprintf.o)
- .debug_frame   0x0000328c       0x90 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x0000331c       0x60 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x0000337c       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
- .debug_frame   0x000033a4       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x000033cc       0x38 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00003404       0x2c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00003430       0x3c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x0000346c       0x2c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x00003498       0x30 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x000034c8       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
- .debug_frame   0x000034e8       0x5c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-reent.o)
+ .debug_frame   0x00000000       0xc4 .\ARM_GCC_541\Debug\main.o
+ .debug_frame   0x000000c4      0x1bc .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x00000280       0xd8 .\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_frame   0x00000358      0x40c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+ .debug_frame   0x00000764       0xa0 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+ .debug_frame   0x00000804       0x88 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+ .debug_frame   0x0000088c      0x1b4 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_frame   0x00000a40      0x200 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+ .debug_frame   0x00000c40      0x3d0 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+ .debug_frame   0x00001010      0xc0c .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+ .debug_frame   0x00001c1c      0x234 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
+ .debug_frame   0x00001e50      0x42c .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+ .debug_frame   0x0000227c      0x1b4 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+ .debug_frame   0x00002430      0x208 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+ .debug_frame   0x00002638      0x1e8 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .debug_frame   0x00002820      0x2a8 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .debug_frame   0x00002ac8      0x2a8 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .debug_frame   0x00002d70      0x1b4 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .debug_frame   0x00002f24       0xb8 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+ .debug_frame   0x00002fdc       0xf8 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+ .debug_frame   0x000030d4       0x58 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+ .debug_frame   0x0000312c       0x58 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+ .debug_frame   0x00003184      0x130 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+ .debug_frame   0x000032b4       0xf8 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+ .debug_frame   0x000033ac       0x58 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+ .debug_frame   0x00003404       0x58 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+ .debug_frame   0x0000345c      0x130 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+ .debug_frame   0x0000358c      0x210 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+ .debug_frame   0x0000379c      0x1f8 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+ .debug_frame   0x00003994       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x000039b4       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x000039dc       0x2c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00003a08       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00003a30       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00003a50       0x70 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sprintf.o)
+ .debug_frame   0x00003ac0       0x90 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x00003b50       0x60 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x00003bb0       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+ .debug_frame   0x00003bd8       0x28 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x00003c00       0x38 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00003c38       0x2c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00003c64       0x3c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x00003ca0       0x2c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x00003ccc       0x30 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x00003cfc       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x00003d1c       0x5c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-reent.o)
 
-.debug_str      0x00000000     0x2cc4
+.debug_str      0x00000000     0x32fb
  *(.debug_str)
- .debug_str     0x00000000      0x1ca .\ARM_GCC_541\Debug\main.o
-                                0x21f (size before relaxing)
- .debug_str     0x000001ca      0x1de .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_str     0x00000000      0x228 .\ARM_GCC_541\Debug\main.o
+                                0x282 (size before relaxing)
+ .debug_str     0x00000228      0x1de .\ARM_GCC_541\Debug\cyfitter_cfg.o
                                 0x37e (size before relaxing)
- .debug_str     0x000003a8       0x7f .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_str     0x00000406       0x7f .\ARM_GCC_541\Debug\cymetadata.o
                                 0x1ef (size before relaxing)
- .debug_str     0x00000427      0x123 .\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_str     0x00000485      0x123 .\ARM_GCC_541\Debug\Cm3Start.o
                                 0x2e2 (size before relaxing)
- .debug_str     0x0000054a      0x43e .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+ .debug_str     0x000005a8      0x43e .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
                                 0x62e (size before relaxing)
- .debug_str     0x00000988       0x72 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+ .debug_str     0x000009e6       0x72 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
                                 0x1f8 (size before relaxing)
- .debug_str     0x000009fa       0x9c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+ .debug_str     0x00000a58       0x9c .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
                                 0x21b (size before relaxing)
- .debug_str     0x00000a96      0x220 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_str     0x00000af4      0x220 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
                                 0x3b9 (size before relaxing)
- .debug_str     0x00000cb6      0x208 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+ .debug_str     0x00000d14      0x208 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
                                 0x3ea (size before relaxing)
- .debug_str     0x00000ebe      0x367 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+ .debug_str     0x00000f1c      0x358 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
                                 0x528 (size before relaxing)
- .debug_str     0x00001225      0x7de .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+ .debug_str     0x00001274      0x7d7 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
                                 0x9f5 (size before relaxing)
- .debug_str     0x00001a03      0x371 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
+ .debug_str     0x00001a4b      0x371 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
                                 0x54e (size before relaxing)
- .debug_str     0x00001d74      0x2a1 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+ .debug_str     0x00001dbc      0x2a1 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
                                 0x466 (size before relaxing)
- .debug_str     0x00002015      0x177 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+ .debug_str     0x0000205d      0x177 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
                                 0x359 (size before relaxing)
- .debug_str     0x0000218c      0x15a .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+ .debug_str     0x000021d4      0x15a .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
                                 0x300 (size before relaxing)
- .debug_str     0x000022e6       0xca .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .debug_str     0x0000232e       0xca .\ARM_GCC_541\Debug\Encoder.a(isr.o)
                                 0x295 (size before relaxing)
- .debug_str     0x000023b0      0x14a .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+ .debug_str     0x000023f8      0x219 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+                                0x3d6 (size before relaxing)
+ .debug_str     0x00002611      0x20c .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+                                0x3d6 (size before relaxing)
+ .debug_str     0x0000281d      0x12f .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+                                0x311 (size before relaxing)
+ .debug_str     0x0000294c       0x9b .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+                                0x22c (size before relaxing)
+ .debug_str     0x000029e7      0x14a .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
                                 0x2e4 (size before relaxing)
- .debug_str     0x000024fa       0xc7 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+ .debug_str     0x00002b31       0xc7 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
                                 0x25a (size before relaxing)
- .debug_str     0x000025c1       0x8c .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+ .debug_str     0x00002bf8       0x8c .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
                                 0x25a (size before relaxing)
- .debug_str     0x0000264d       0xfd .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+ .debug_str     0x00002c84       0xfd .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
                                 0x284 (size before relaxing)
- .debug_str     0x0000274a      0x10d .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+ .debug_str     0x00002d81      0x10d .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
                                 0x2e4 (size before relaxing)
- .debug_str     0x00002857       0x8c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+ .debug_str     0x00002e8e       0x8c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
                                 0x25a (size before relaxing)
- .debug_str     0x000028e3       0x8c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+ .debug_str     0x00002f1a       0x8c .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
                                 0x25a (size before relaxing)
- .debug_str     0x0000296f       0xf1 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+ .debug_str     0x00002fa6       0xf1 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
                                 0x284 (size before relaxing)
- .debug_str     0x00002a60      0x145 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+ .debug_str     0x00003097      0x145 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
                                 0x301 (size before relaxing)
- .debug_str     0x00002ba5      0x11f .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+ .debug_str     0x000031dc      0x11f .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
                                 0x2fe (size before relaxing)
 
 .debug_loc
@@ -1667,33 +1864,37 @@ END GROUP
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000      0xaf0
+.debug_ranges   0x00000000      0xcc8
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x18 .\ARM_GCC_541\Debug\main.o
- .debug_ranges  0x00000018       0x60 .\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_ranges  0x00000078       0x38 .\ARM_GCC_541\Debug\Cm3Start.o
- .debug_ranges  0x000000b0       0xd8 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
- .debug_ranges  0x00000188       0x28 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
- .debug_ranges  0x000001b0       0x20 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
- .debug_ranges  0x000001d0       0x60 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
- .debug_ranges  0x00000230       0x70 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
- .debug_ranges  0x000002a0       0xc8 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
- .debug_ranges  0x00000368      0x290 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
- .debug_ranges  0x000005f8       0x88 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
- .debug_ranges  0x00000680       0xe0 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
- .debug_ranges  0x00000760       0x60 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
- .debug_ranges  0x000007c0       0x78 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
- .debug_ranges  0x00000838       0x70 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
- .debug_ranges  0x000008a8       0x40 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
- .debug_ranges  0x000008e8       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
- .debug_ranges  0x00000900       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
- .debug_ranges  0x00000918       0x48 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
- .debug_ranges  0x00000960       0x40 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
- .debug_ranges  0x000009a0       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
- .debug_ranges  0x000009b8       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
- .debug_ranges  0x000009d0       0x48 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
- .debug_ranges  0x00000a18       0x70 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
- .debug_ranges  0x00000a88       0x68 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+ .debug_ranges  0x00000000       0x30 .\ARM_GCC_541\Debug\main.o
+ .debug_ranges  0x00000030       0x60 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_ranges  0x00000090       0x38 .\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_ranges  0x000000c8       0xd8 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1.o)
+ .debug_ranges  0x000001a0       0x28 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_INT.o)
+ .debug_ranges  0x000001c8       0x20 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_AMux.o)
+ .debug_ranges  0x000001e8       0x60 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_ranges  0x00000248       0x70 .\ARM_GCC_541\Debug\Encoder.a(ADC_DelSig_1_theACLK.o)
+ .debug_ranges  0x000002b8       0xc8 .\ARM_GCC_541\Debug\Encoder.a(CyDmac.o)
+ .debug_ranges  0x00000380      0x290 .\ARM_GCC_541\Debug\Encoder.a(CyLib.o)
+ .debug_ranges  0x00000610       0x88 .\ARM_GCC_541\Debug\Encoder.a(cyPm.o)
+ .debug_ranges  0x00000698       0xe0 .\ARM_GCC_541\Debug\Encoder.a(UART_1.o)
+ .debug_ranges  0x00000778       0x60 .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
+ .debug_ranges  0x000007d8       0x78 .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
+ .debug_ranges  0x00000850       0x70 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .debug_ranges  0x000008c0       0x98 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .debug_ranges  0x00000958       0x98 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .debug_ranges  0x000009f0       0x60 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .debug_ranges  0x00000a50       0x30 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
+ .debug_ranges  0x00000a80       0x40 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+ .debug_ranges  0x00000ac0       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+ .debug_ranges  0x00000ad8       0x18 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+ .debug_ranges  0x00000af0       0x48 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+ .debug_ranges  0x00000b38       0x40 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+ .debug_ranges  0x00000b78       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+ .debug_ranges  0x00000b90       0x18 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+ .debug_ranges  0x00000ba8       0x48 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+ .debug_ranges  0x00000bf0       0x70 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+ .debug_ranges  0x00000c60       0x68 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
 
 .comment        0x00000000       0x6e
  .comment       0x00000000       0x6e .\ARM_GCC_541\Debug\main.o
@@ -1713,6 +1914,10 @@ END GROUP
  .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(UART_1_IntClock.o)
  .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(Timer.o)
  .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(isr.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
  .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
  .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
  .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
@@ -1781,77 +1986,85 @@ END GROUP
  .ARM.attributes
                 0x00000362       0x33 .\ARM_GCC_541\Debug\Encoder.a(isr.o)
  .ARM.attributes
-                0x00000395       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
+                0x00000395       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Divider.o)
  .ARM.attributes
-                0x000003c8       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
+                0x000003c8       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Divider.o)
  .ARM.attributes
-                0x000003fb       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
+                0x000003fb       0x33 .\ARM_GCC_541\Debug\Encoder.a(ToneClock.o)
  .ARM.attributes
-                0x0000042e       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
+                0x0000042e       0x33 .\ARM_GCC_541\Debug\Encoder.a(DTMF_Buffer.o)
  .ARM.attributes
-                0x00000461       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
+                0x00000461       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone.o)
  .ARM.attributes
-                0x00000494       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
+                0x00000494       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave1_DMA_dma.o)
  .ARM.attributes
-                0x000004c7       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
+                0x000004c7       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_Wave2_DMA_dma.o)
  .ARM.attributes
-                0x000004fa       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
+                0x000004fa       0x33 .\ARM_GCC_541\Debug\Encoder.a(Col_Tone_VDAC8.o)
  .ARM.attributes
-                0x0000052d       0x21 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
+                0x0000052d       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone.o)
  .ARM.attributes
-                0x0000054e       0x33 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
+                0x00000560       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave1_DMA_dma.o)
  .ARM.attributes
-                0x00000581       0x33 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
+                0x00000593       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_Wave2_DMA_dma.o)
  .ARM.attributes
-                0x000005b4       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x000005c6       0x33 .\ARM_GCC_541\Debug\Encoder.a(Row_Tone_VDAC8.o)
  .ARM.attributes
-                0x000005d1       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+                0x000005f9       0x21 .\ARM_GCC_541\Debug\Encoder.a(CyBootAsmGnu.o)
  .ARM.attributes
-                0x000005ee       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                0x0000061a       0x33 .\ARM_GCC_541\Debug\Encoder.a(CyFlash.o)
  .ARM.attributes
-                0x0000060b       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                0x0000064d       0x33 .\ARM_GCC_541\Debug\Encoder.a(CySpc.o)
  .ARM.attributes
-                0x00000628       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                0x00000680       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000645       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x0000069d       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x00000672       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                0x000006ba       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x0000069f       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x000006d7       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x000006cc       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x000006f4       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
  .ARM.attributes
-                0x000006f9       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00000711       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000726       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x0000073e       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
  .ARM.attributes
-                0x00000753       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sprintf.o)
+                0x0000076b       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000780       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00000798       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x000007ad       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000007c5       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x000007da       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x000007f2       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000807       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                0x0000081f       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sprintf.o)
  .ARM.attributes
-                0x00000834       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+                0x0000084c       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .ARM.attributes
-                0x00000861       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x00000879       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x0000088e       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x000008a6       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
  .ARM.attributes
-                0x000008bb       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+                0x000008d3       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
  .ARM.attributes
-                0x000008e8       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x00000900       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x00000915       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x0000092d       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x00000942       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-reent.o)
+                0x0000095a       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
  .ARM.attributes
-                0x0000096f       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+                0x00000987       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x0000099c       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x000009b4       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x000009e1       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+ .ARM.attributes
+                0x00000a0e       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-reent.o)
+ .ARM.attributes
+                0x00000a3b       0x2d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .ARM.attributes
+                0x00000a68       0x1d c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
 
 /DISCARD/
  *(.note.GNU-stack)

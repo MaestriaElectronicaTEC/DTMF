@@ -1,6 +1,6 @@
 // ======================================================================
 // Encoder.v generated from TopDesign.cysch
-// 03/11/2018 at 17:25
+// 03/11/2018 at 19:45
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1239,17 +1239,17 @@ module top ;
           wire  Net_50;
           wire  Net_20;
           wire  Net_49;
-          wire  Net_1091;
-          wire  Net_1090;
-          wire  Net_1089;
-          wire  Net_1088;
-          wire  Net_1087;
-          wire  Net_1086;
-          wire  Net_1085;
-          wire  Net_1084;
-          wire  Net_1083;
-          wire  Net_1082;
-          wire  Net_1081;
+          wire  Net_1113;
+          wire  Net_1112;
+          wire  Net_1111;
+          wire  Net_1110;
+          wire  Net_1109;
+          wire  Net_1108;
+          wire  Net_1107;
+          wire  Net_1106;
+          wire  Net_1105;
+          wire  Net_1104;
+          wire  Net_1103;
           wire  Net_859;
           wire  Net_518;
           wire  Net_517;
@@ -1290,18 +1290,18 @@ module top ;
     PWM_v3_30_1 Col_Divider (
         .reset(Net_859),
         .clock(Net_641),
-        .tc(Net_1081),
+        .tc(Net_1103),
         .pwm1(Net_126),
-        .pwm2(Net_1082),
-        .interrupt(Net_1083),
+        .pwm2(Net_1104),
+        .interrupt(Net_1105),
         .capture(1'b0),
         .kill(1'b1),
         .enable(1'b1),
         .trigger(1'b0),
         .cmp_sel(1'b0),
-        .pwm(Net_1089),
-        .ph1(Net_1090),
-        .ph2(Net_1091));
+        .pwm(Net_1111),
+        .ph1(Net_1112),
+        .ph2(Net_1113));
     defparam Col_Divider.Resolution = 8;
 
     UART_v2_50_2 UART_1 (

@@ -2,7 +2,7 @@
 --	Conversion of Encoder.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Mar 11 17:25:03 2018
+--	Sun Mar 11 19:45:36 2018
 --
 
 USE cypress.cypress.all;
@@ -515,7 +515,7 @@ SIGNAL \Col_Divider:PWMUDB:tc_i_reg\ : bit;
 SIGNAL \Col_Divider:Net_101\ : bit;
 SIGNAL \Col_Divider:Net_96\ : bit;
 SIGNAL Net_126 : bit;
-SIGNAL Net_1082 : bit;
+SIGNAL Net_1104 : bit;
 SIGNAL \Col_Divider:PWMUDB:pwm_temp\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_2:b_31\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_2:b_30\ : bit;
@@ -713,9 +713,9 @@ SIGNAL \Col_Divider:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
-SIGNAL Net_1089 : bit;
-SIGNAL Net_1083 : bit;
-SIGNAL Net_1081 : bit;
+SIGNAL Net_1111 : bit;
+SIGNAL Net_1105 : bit;
+SIGNAL Net_1103 : bit;
 SIGNAL \Col_Divider:Net_113\ : bit;
 SIGNAL \Col_Divider:Net_107\ : bit;
 SIGNAL \Col_Divider:Net_114\ : bit;

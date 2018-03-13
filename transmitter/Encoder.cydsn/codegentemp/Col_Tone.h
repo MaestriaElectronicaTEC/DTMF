@@ -36,7 +36,7 @@
 #define Col_Tone_ARB_DRAW_WAVE  (10u) /* Arbitrary (draw) */
 #define Col_Tone_ARB_FILE_WAVE  (11u) /* Arbitrary (from file) */
 
-#define Col_Tone_WAVE1_LENGTH   (100u)   /* Length for wave1 */
+#define Col_Tone_WAVE1_LENGTH   (50u)   /* Length for wave1 */
 #define Col_Tone_WAVE2_LENGTH   (100u)   /* Length for wave2 */
 	
 #define Col_Tone_DEFAULT_RANGE    (0u) /* Default DAC range */

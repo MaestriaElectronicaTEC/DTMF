@@ -2,7 +2,7 @@
 --	Conversion of Encoder.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Mar 11 19:45:36 2018
+--	Mon Mar 12 17:33:38 2018
 --
 
 USE cypress.cypress.all;

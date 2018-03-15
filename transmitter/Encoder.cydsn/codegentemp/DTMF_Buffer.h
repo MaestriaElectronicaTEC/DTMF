@@ -73,7 +73,7 @@ void DTMF_Buffer_Enable(void)              ;
 /**************************************
 *           Parameter Defaults        
 **************************************/
-#define DTMF_Buffer_DEFAULT_POWER          (1u)
+#define DTMF_Buffer_DEFAULT_POWER          (3u)
 #define DTMF_Buffer_DEFAULT_MODE           (1u)
 
 

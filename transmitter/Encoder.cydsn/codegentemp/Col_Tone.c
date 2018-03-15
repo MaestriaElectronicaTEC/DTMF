@@ -17,8 +17,8 @@
 
 uint8  Col_Tone_initVar = 0u;
 
-const uint8 CYCODE Col_Tone_wave1[Col_Tone_WAVE1_LENGTH] = { 128u,143u,159u,174u,188u,201u,213u,224u,233u,241u,246u,250u,252u,252u,250u,246u,241u,233u,224u,213u,201u,188u,174u,159u,143u,128u,112u,96u,81u,67u,54u,42u,31u,22u,14u,9u,5u,3u,3u,5u,9u,14u,22u,31u,42u,54u,67u,81u,96u,112u };
-const uint8 CYCODE Col_Tone_wave2[Col_Tone_WAVE2_LENGTH] = { 128u,132u,138u,143u,148u,152u,158u,162u,168u,172u,178u,182u,188u,192u,198u,202u,208u,213u,218u,222u,228u,232u,238u,242u,248u,252u,248u,242u,238u,232u,228u,222u,218u,212u,208u,202u,198u,192u,188u,182u,178u,173u,168u,162u,158u,152u,148u,143u,138u,132u,128u,122u,118u,112u,107u,102u,97u,93u,88u,83u,78u,73u,68u,62u,57u,52u,47u,42u,37u,33u,28u,23u,18u,13u,8u,3u,8u,13u,18u,23u,28u,33u,37u,42u,47u,52u,57u,62u,68u,73u,78u,83u,88u,93u,97u,102u,107u,112u,118u,122u };
+const uint8 CYCODE Col_Tone_wave1[Col_Tone_WAVE1_LENGTH] = { 128u,143u,159u,174u,189u,202u,215u,226u,235u,243u,249u,253u,255u,255u,253u,249u,243u,235u,226u,215u,202u,189u,174u,159u,143u,128u,112u,96u,81u,66u,53u,40u,29u,20u,12u,6u,2u,0u,0u,2u,6u,12u,20u,29u,40u,53u,66u,81u,96u,112u };
+const uint8 CYCODE Col_Tone_wave2[Col_Tone_WAVE2_LENGTH] = { 128u,138u,148u,158u,168u,178u,189u,199u,209u,219u,230u,240u,250u,250u,240u,230u,219u,209u,199u,189u,178u,168u,158u,148u,138u,128u,117u,107u,97u,87u,77u,66u,56u,46u,36u,26u,15u,5u,5u,15u,26u,36u,46u,56u,66u,77u,87u,97u,107u,117u };
 
 static uint8  Col_Tone_Wave1Chan;
 static uint8  Col_Tone_Wave2Chan;

@@ -227,8 +227,8 @@ void Col_Divider_RestoreConfig(void) ;
 *         Initialization Values
 **************************************/
 #define Col_Divider_INIT_PERIOD_VALUE          (255u)
-#define Col_Divider_INIT_COMPARE_VALUE1        (127u)
-#define Col_Divider_INIT_COMPARE_VALUE2        (63u)
+#define Col_Divider_INIT_COMPARE_VALUE1        (4u)
+#define Col_Divider_INIT_COMPARE_VALUE2        (4u)
 #define Col_Divider_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(0u <<   \
                                                     Col_Divider_STATUS_TC_INT_EN_MASK_SHIFT)) | \
                                                     (uint8)((uint8)(0u <<  \

@@ -2,7 +2,7 @@
 --	Conversion of Encoder.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Mar 16 11:32:48 2018
+--	Fri Mar 16 13:02:31 2018
 --
 
 USE cypress.cypress.all;
@@ -565,7 +565,7 @@ SIGNAL \Col_Divider:PWMUDB:pwm2_i\ : bit;
 SIGNAL \Col_Divider:PWMUDB:tc_i_reg\ : bit;
 SIGNAL \Col_Divider:Net_101\ : bit;
 SIGNAL \Col_Divider:Net_96\ : bit;
-SIGNAL Net_1298 : bit;
+SIGNAL Net_2126 : bit;
 SIGNAL \Col_Divider:PWMUDB:pwm_temp\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_6:b_31\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_6:b_30\ : bit;
@@ -763,9 +763,9 @@ SIGNAL \Col_Divider:PWMUDB:MODULE_6:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_6:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_6:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \Col_Divider:PWMUDB:MODULE_6:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
-SIGNAL Net_1305 : bit;
-SIGNAL Net_1299 : bit;
-SIGNAL Net_1297 : bit;
+SIGNAL Net_2133 : bit;
+SIGNAL Net_2127 : bit;
+SIGNAL Net_2125 : bit;
 SIGNAL \Col_Divider:Net_113\ : bit;
 SIGNAL \Col_Divider:Net_107\ : bit;
 SIGNAL \Col_Divider:Net_114\ : bit;
@@ -915,7 +915,7 @@ SIGNAL \Row_Divider:PWMUDB:pwm2_i\ : bit;
 SIGNAL \Row_Divider:PWMUDB:tc_i_reg\ : bit;
 SIGNAL \Row_Divider:Net_101\ : bit;
 SIGNAL \Row_Divider:Net_96\ : bit;
-SIGNAL Net_1309 : bit;
+SIGNAL Net_2137 : bit;
 SIGNAL \Row_Divider:PWMUDB:pwm_temp\ : bit;
 SIGNAL \Row_Divider:PWMUDB:MODULE_7:b_31\ : bit;
 SIGNAL \Row_Divider:PWMUDB:MODULE_7:b_30\ : bit;
@@ -1113,9 +1113,9 @@ SIGNAL \Row_Divider:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \Row_Divider:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \Row_Divider:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \Row_Divider:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
-SIGNAL Net_1316 : bit;
-SIGNAL Net_1310 : bit;
-SIGNAL Net_1308 : bit;
+SIGNAL Net_2144 : bit;
+SIGNAL Net_2138 : bit;
+SIGNAL Net_2136 : bit;
 SIGNAL \Row_Divider:Net_113\ : bit;
 SIGNAL \Row_Divider:Net_107\ : bit;
 SIGNAL \Row_Divider:Net_114\ : bit;

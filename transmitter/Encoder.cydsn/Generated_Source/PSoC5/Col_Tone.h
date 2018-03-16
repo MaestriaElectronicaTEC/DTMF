@@ -39,7 +39,7 @@
 #define Col_Tone_WAVE1_LENGTH   (50u)   /* Length for wave1 */
 #define Col_Tone_WAVE2_LENGTH   (50u)   /* Length for wave2 */
 	
-#define Col_Tone_DEFAULT_RANGE    (0u) /* Default DAC range */
+#define Col_Tone_DEFAULT_RANGE    (1u) /* Default DAC range */
 #define Col_Tone_DAC_RANGE_1V     (0u)
 #define Col_Tone_DAC_RANGE_1V_BUF (16u)
 #define Col_Tone_DAC_RANGE_4V     (1u)
@@ -184,8 +184,8 @@ extern const uint8 CYCODE Col_Tone_wave2[Col_Tone_WAVE2_LENGTH];
 #define Col_Tone_RANGE_3        (0x0Cu)
 #define Col_Tone_IDIR_MASK      (0x04u)
 
-#define Col_Tone_DAC_RANGE      ((uint8)(0u << 2u) & Col_Tone_RANGE_MASK)
-#define Col_Tone_DAC_POL        ((uint8)(0u >> 1u) & Col_Tone_IDIR_MASK)
+#define Col_Tone_DAC_RANGE      ((uint8)(1u << 2u) & Col_Tone_RANGE_MASK)
+#define Col_Tone_DAC_POL        ((uint8)(1u >> 1u) & Col_Tone_IDIR_MASK)
 
 
 #endif /* CY_WaveDAC8_Col_Tone_H  */

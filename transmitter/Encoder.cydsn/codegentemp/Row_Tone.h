@@ -39,7 +39,7 @@
 #define Row_Tone_WAVE1_LENGTH   (80u)   /* Length for wave1 */
 #define Row_Tone_WAVE2_LENGTH   (50u)   /* Length for wave2 */
 	
-#define Row_Tone_DEFAULT_RANGE    (0u) /* Default DAC range */
+#define Row_Tone_DEFAULT_RANGE    (1u) /* Default DAC range */
 #define Row_Tone_DAC_RANGE_1V     (0u)
 #define Row_Tone_DAC_RANGE_1V_BUF (16u)
 #define Row_Tone_DAC_RANGE_4V     (1u)
@@ -184,8 +184,8 @@ extern const uint8 CYCODE Row_Tone_wave2[Row_Tone_WAVE2_LENGTH];
 #define Row_Tone_RANGE_3        (0x0Cu)
 #define Row_Tone_IDIR_MASK      (0x04u)
 
-#define Row_Tone_DAC_RANGE      ((uint8)(0u << 2u) & Row_Tone_RANGE_MASK)
-#define Row_Tone_DAC_POL        ((uint8)(0u >> 1u) & Row_Tone_IDIR_MASK)
+#define Row_Tone_DAC_RANGE      ((uint8)(1u << 2u) & Row_Tone_RANGE_MASK)
+#define Row_Tone_DAC_POL        ((uint8)(1u >> 1u) & Row_Tone_IDIR_MASK)
 
 
 #endif /* CY_WaveDAC8_Row_Tone_H  */

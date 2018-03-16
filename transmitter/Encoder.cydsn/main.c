@@ -46,7 +46,7 @@
 #define FALSE  0
 #define TRUE   1
 #define TRANSMIT_BUFFER_SIZE  16
-#define TONE_DURATION_MS 3000 /* Duration of tone in mSec */
+#define TONE_DURATION_MS 80 /* Duration of tone in mSec */
 #define TONE_SPACE_MS 65 /* Duration of space between tones in mSec */
 #define TONE_PAUSE_MS 100 /* Pause caused by invalid code */
 

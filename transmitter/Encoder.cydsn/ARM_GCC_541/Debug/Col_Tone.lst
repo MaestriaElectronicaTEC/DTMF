@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 1
 
 
    1              		.syntax unified
@@ -32,57 +32,57 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
   29              		.size	Col_Tone_wave1, 50
   30              	Col_Tone_wave1:
   31 0000 80       		.byte	-128
-  32 0001 90       		.byte	-112
+  32 0001 8F       		.byte	-113
   33 0002 9F       		.byte	-97
   34 0003 AE       		.byte	-82
-  35 0004 BC       		.byte	-68
+  35 0004 BD       		.byte	-67
   36 0005 CA       		.byte	-54
-  37 0006 D6       		.byte	-42
-  38 0007 E1       		.byte	-31
-  39 0008 EA       		.byte	-22
-  40 0009 F2       		.byte	-14
-  41 000a F7       		.byte	-9
-  42 000b FB       		.byte	-5
-  43 000c FD       		.byte	-3
-  44 000d FD       		.byte	-3
-  45 000e FB       		.byte	-5
-  46 000f F7       		.byte	-9
-  47 0010 F2       		.byte	-14
-  48 0011 EA       		.byte	-22
-  49 0012 E1       		.byte	-31
-  50 0013 D6       		.byte	-42
+  37 0006 D7       		.byte	-41
+  38 0007 E2       		.byte	-30
+  39 0008 EB       		.byte	-21
+  40 0009 F3       		.byte	-13
+  41 000a F9       		.byte	-7
+  42 000b FD       		.byte	-3
+  43 000c FF       		.byte	-1
+  44 000d FF       		.byte	-1
+  45 000e FD       		.byte	-3
+  46 000f F9       		.byte	-7
+  47 0010 F3       		.byte	-13
+  48 0011 EB       		.byte	-21
+  49 0012 E2       		.byte	-30
+  50 0013 D7       		.byte	-41
   51 0014 CA       		.byte	-54
-  52 0015 BC       		.byte	-68
+  52 0015 BD       		.byte	-67
   53 0016 AE       		.byte	-82
   54 0017 9F       		.byte	-97
-  55 0018 90       		.byte	-112
+  55 0018 8F       		.byte	-113
   56 0019 80       		.byte	-128
   57 001a 70       		.byte	112
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 2
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 2
 
 
-  58 001b 61       		.byte	97
-  59 001c 52       		.byte	82
-  60 001d 44       		.byte	68
-  61 001e 36       		.byte	54
-  62 001f 2A       		.byte	42
-  63 0020 1F       		.byte	31
-  64 0021 16       		.byte	22
-  65 0022 0E       		.byte	14
-  66 0023 09       		.byte	9
-  67 0024 05       		.byte	5
-  68 0025 03       		.byte	3
-  69 0026 03       		.byte	3
-  70 0027 05       		.byte	5
-  71 0028 09       		.byte	9
-  72 0029 0E       		.byte	14
-  73 002a 16       		.byte	22
-  74 002b 1F       		.byte	31
-  75 002c 2A       		.byte	42
-  76 002d 36       		.byte	54
-  77 002e 44       		.byte	68
-  78 002f 52       		.byte	82
-  79 0030 61       		.byte	97
+  58 001b 60       		.byte	96
+  59 001c 51       		.byte	81
+  60 001d 42       		.byte	66
+  61 001e 35       		.byte	53
+  62 001f 28       		.byte	40
+  63 0020 1D       		.byte	29
+  64 0021 14       		.byte	20
+  65 0022 0C       		.byte	12
+  66 0023 06       		.byte	6
+  67 0024 02       		.byte	2
+  68 0025 00       		.byte	0
+  69 0026 00       		.byte	0
+  70 0027 02       		.byte	2
+  71 0028 06       		.byte	6
+  72 0029 0C       		.byte	12
+  73 002a 14       		.byte	20
+  74 002b 1D       		.byte	29
+  75 002c 28       		.byte	40
+  76 002d 35       		.byte	53
+  77 002e 42       		.byte	66
+  78 002f 51       		.byte	81
+  79 0030 60       		.byte	96
   80 0031 70       		.byte	112
   81              		.global	Col_Tone_wave2
   82 0032 0000     		.align	2
@@ -95,53 +95,53 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
   89 0037 9E       		.byte	-98
   90 0038 A8       		.byte	-88
   91 0039 B2       		.byte	-78
-  92 003a BC       		.byte	-68
-  93 003b C6       		.byte	-58
-  94 003c D0       		.byte	-48
-  95 003d DA       		.byte	-38
-  96 003e E4       		.byte	-28
-  97 003f EE       		.byte	-18
-  98 0040 F8       		.byte	-8
-  99 0041 EE       		.byte	-18
- 100 0042 E4       		.byte	-28
- 101 0043 DA       		.byte	-38
- 102 0044 D0       		.byte	-48
- 103 0045 C6       		.byte	-58
- 104 0046 BC       		.byte	-68
- 105 0047 B2       		.byte	-78
- 106 0048 A8       		.byte	-88
- 107 0049 9E       		.byte	-98
- 108 004a 94       		.byte	-108
- 109 004b 8A       		.byte	-118
- 110 004c 80       		.byte	-128
- 111 004d 76       		.byte	118
- 112 004e 6C       		.byte	108
- 113 004f 62       		.byte	98
- 114 0050 58       		.byte	88
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 3
+  92 003a BD       		.byte	-67
+  93 003b C7       		.byte	-57
+  94 003c D1       		.byte	-47
+  95 003d DB       		.byte	-37
+  96 003e E6       		.byte	-26
+  97 003f F0       		.byte	-16
+  98 0040 FA       		.byte	-6
+  99 0041 FA       		.byte	-6
+ 100 0042 F0       		.byte	-16
+ 101 0043 E6       		.byte	-26
+ 102 0044 DB       		.byte	-37
+ 103 0045 D1       		.byte	-47
+ 104 0046 C7       		.byte	-57
+ 105 0047 BD       		.byte	-67
+ 106 0048 B2       		.byte	-78
+ 107 0049 A8       		.byte	-88
+ 108 004a 9E       		.byte	-98
+ 109 004b 94       		.byte	-108
+ 110 004c 8A       		.byte	-118
+ 111 004d 80       		.byte	-128
+ 112 004e 75       		.byte	117
+ 113 004f 6B       		.byte	107
+ 114 0050 61       		.byte	97
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 3
 
 
- 115 0051 4E       		.byte	78
- 116 0052 44       		.byte	68
- 117 0053 3A       		.byte	58
- 118 0054 30       		.byte	48
- 119 0055 26       		.byte	38
- 120 0056 1C       		.byte	28
- 121 0057 12       		.byte	18
- 122 0058 08       		.byte	8
- 123 0059 00       		.byte	0
- 124 005a 08       		.byte	8
- 125 005b 12       		.byte	18
- 126 005c 1C       		.byte	28
- 127 005d 26       		.byte	38
- 128 005e 30       		.byte	48
- 129 005f 3A       		.byte	58
- 130 0060 44       		.byte	68
- 131 0061 4E       		.byte	78
- 132 0062 58       		.byte	88
- 133 0063 62       		.byte	98
- 134 0064 6C       		.byte	108
- 135 0065 76       		.byte	118
+ 115 0051 57       		.byte	87
+ 116 0052 4D       		.byte	77
+ 117 0053 42       		.byte	66
+ 118 0054 38       		.byte	56
+ 119 0055 2E       		.byte	46
+ 120 0056 24       		.byte	36
+ 121 0057 1A       		.byte	26
+ 122 0058 0F       		.byte	15
+ 123 0059 05       		.byte	5
+ 124 005a 05       		.byte	5
+ 125 005b 0F       		.byte	15
+ 126 005c 1A       		.byte	26
+ 127 005d 24       		.byte	36
+ 128 005e 2E       		.byte	46
+ 129 005f 38       		.byte	56
+ 130 0060 42       		.byte	66
+ 131 0061 4D       		.byte	77
+ 132 0062 57       		.byte	87
+ 133 0063 61       		.byte	97
+ 134 0064 6B       		.byte	107
+ 135 0065 75       		.byte	117
  136              		.bss
  137              	Col_Tone_Wave1Chan:
  138 0001 00       		.space	1
@@ -178,12 +178,12 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
   16:Generated_Source\PSoC5/Col_Tone.c **** #include "Col_Tone.h"
   17:Generated_Source\PSoC5/Col_Tone.c **** 
   18:Generated_Source\PSoC5/Col_Tone.c **** uint8  Col_Tone_initVar = 0u;
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 4
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 4
 
 
   19:Generated_Source\PSoC5/Col_Tone.c **** 
-  20:Generated_Source\PSoC5/Col_Tone.c **** const uint8 CYCODE Col_Tone_wave1[Col_Tone_WAVE1_LENGTH] = { 128,144,159,174,188,202,214,225,234,24
-  21:Generated_Source\PSoC5/Col_Tone.c **** const uint8 CYCODE Col_Tone_wave2[Col_Tone_WAVE2_LENGTH] = { 128,138,148,158,168,178,188,198,208,21
+  20:Generated_Source\PSoC5/Col_Tone.c **** const uint8 CYCODE Col_Tone_wave1[Col_Tone_WAVE1_LENGTH] = { 128u,143u,159u,174u,189u,202u,215u,226
+  21:Generated_Source\PSoC5/Col_Tone.c **** const uint8 CYCODE Col_Tone_wave2[Col_Tone_WAVE2_LENGTH] = { 128u,138u,148u,158u,168u,178u,189u,199
   22:Generated_Source\PSoC5/Col_Tone.c **** 
   23:Generated_Source\PSoC5/Col_Tone.c **** static uint8  Col_Tone_Wave1Chan;
   24:Generated_Source\PSoC5/Col_Tone.c **** static uint8  Col_Tone_Wave2Chan;
@@ -226,7 +226,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  168 000a FFF7FEFF 		bl	Col_Tone_VDAC8_SetSpeed
   47:Generated_Source\PSoC5/Col_Tone.c **** 	Col_Tone_VDAC8_SetRange(Col_Tone_DAC_RANGE);
  169              		.loc 1 47 0
- 170 000e 0020     		movs	r0, #0
+ 170 000e 0420     		movs	r0, #4
  171 0010 FFF7FEFF 		bl	Col_Tone_VDAC8_SetRange
   48:Generated_Source\PSoC5/Col_Tone.c **** 
   49:Generated_Source\PSoC5/Col_Tone.c **** 	#if(Col_Tone_DAC_MODE == Col_Tone_CURRENT_MODE)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
   55:Generated_Source\PSoC5/Col_Tone.c **** 	#endif /* Col_Tone_OUT_MODE == Col_Tone_BUFFER_MODE */
   56:Generated_Source\PSoC5/Col_Tone.c **** 
   57:Generated_Source\PSoC5/Col_Tone.c **** 	/* Get the TD Number for the DMA channel 1 and 2   */
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 5
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 5
 
 
   58:Generated_Source\PSoC5/Col_Tone.c **** 	Col_Tone_Wave1TD = CyDmaTdAllocate();
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
   71:Generated_Source\PSoC5/Col_Tone.c **** 
   72:Generated_Source\PSoC5/Col_Tone.c **** /*******************************************************************************
   73:Generated_Source\PSoC5/Col_Tone.c **** * Function Name: Col_Tone_Enable
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 6
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 6
 
 
   74:Generated_Source\PSoC5/Col_Tone.c **** ********************************************************************************
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  238 0020 0020     		movs	r0, #0
  239 0022 FFF7FEFF 		bl	Col_Tone_VDAC8_SetValue
  103:Generated_Source\PSoC5/Col_Tone.c **** 	
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 7
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 7
 
 
  104:Generated_Source\PSoC5/Col_Tone.c **** 	#if(Col_Tone_CLOCK_SRC == Col_Tone_CLOCK_INT)  	
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  267 0002 00AF     		add	r7, sp, #0
  268              		.cfi_def_cfa_register 7
  131:Generated_Source\PSoC5/Col_Tone.c **** 	/* If not Initialized then initialize all required hardware and software */
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 8
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 8
 
 
  132:Generated_Source\PSoC5/Col_Tone.c **** 	if(Col_Tone_initVar == 0u)
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  154:Generated_Source\PSoC5/Col_Tone.c **** *   uint16  sampleSize2:  The amount of samples in the waveform 2.
  155:Generated_Source\PSoC5/Col_Tone.c **** *
  156:Generated_Source\PSoC5/Col_Tone.c **** * Return: 
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 9
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 9
 
 
  157:Generated_Source\PSoC5/Col_Tone.c **** *  None
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  342              		.size	Col_Tone_StartEx, .-Col_Tone_StartEx
  343              		.section	.text.Col_Tone_Stop,"ax",%progbits
  344              		.align	2
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 10
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 10
 
 
  345              		.global	Col_Tone_Stop
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  198:Generated_Source\PSoC5/Col_Tone.c **** 	/* Disable power to DAC */
  199:Generated_Source\PSoC5/Col_Tone.c **** 	Col_Tone_VDAC8_Stop();
  371              		.loc 1 199 0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 11
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 11
 
 
  372 0018 FFF7FEFF 		bl	Col_Tone_VDAC8_Stop
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  405 0008 0B46     		mov	r3, r1
  406 000a 7B80     		strh	r3, [r7, #2]	@ movhi
  221:Generated_Source\PSoC5/Col_Tone.c **** 	#if (CY_PSOC3)
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 12
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 12
 
 
  222:Generated_Source\PSoC5/Col_Tone.c **** 		uint16 memoryType; /* determining the source memory type */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  436              		.loc 1 245 0
  437 0048 054B     		ldr	r3, .L16
  438 004a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 13
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 13
 
 
  439 004c 054B     		ldr	r3, .L16+4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  472 0000 80B5     		push	{r7, lr}
  473              		.cfi_def_cfa_offset 8
  474              		.cfi_offset 7, -8
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 14
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 14
 
 
  475              		.cfi_offset 14, -4
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  506 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  507 003a 7A68     		ldr	r2, [r7, #4]
  508 003c 91B2     		uxth	r1, r2
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 15
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 15
 
 
  509 003e 45F68232 		movw	r2, #23426
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  559 002e 08       		.byte	0x8
  560 002f 9A010000 		.4byte	.LASF1
  561 0033 02       		.uleb128 0x2
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 16
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 16
 
 
  562 0034 02       		.byte	0x2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  616 009d 02       		.uleb128 0x2
  617 009e 01       		.byte	0x1
  618 009f 08       		.byte	0x8
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 17
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 17
 
 
  619 00a0 60020000 		.4byte	.LASF14
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  673 010f 77000000 		.4byte	0x77
  674 0113 02       		.uleb128 0x2
  675 0114 91       		.byte	0x91
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 18
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 18
 
 
  676 0115 72       		.sleb128 -14
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  730 017e 91       		.byte	0x91
  731 017f 72       		.sleb128 -14
  732 0180 00       		.byte	0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 19
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 19
 
 
  733 0181 0A       		.uleb128 0xa
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  787 01f0 6B000000 		.4byte	0x6b
  788 01f4 05       		.uleb128 0x5
  789 01f5 03       		.byte	0x3
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 20
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 20
 
 
  790 01f6 04000000 		.4byte	Col_Tone_Wave2TD
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  844 000f 10       		.uleb128 0x10
  845 0010 17       		.uleb128 0x17
  846 0011 00       		.byte	0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 21
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 21
 
 
  847 0012 00       		.byte	0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  901 0048 18       		.uleb128 0x18
  902 0049 9642     		.uleb128 0x2116
  903 004b 19       		.uleb128 0x19
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 22
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 22
 
 
  904 004c 00       		.byte	0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  958 0083 49       		.uleb128 0x49
  959 0084 13       		.uleb128 0x13
  960 0085 00       		.byte	0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 23
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 23
 
 
  961 0086 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  1015 00bd 00       		.byte	0
  1016 00be 00       		.byte	0
  1017 00bf 0D       		.uleb128 0xd
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 24
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 24
 
 
  1018 00c0 34       		.uleb128 0x34
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  1072 003c 68000000 		.4byte	.LFE5-.LFB5
  1073 0040 00000000 		.4byte	.LFB6
  1074 0044 68000000 		.4byte	.LFE6-.LFB6
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 25
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 25
 
 
  1075 0048 00000000 		.4byte	0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  1106              	.LASF20:
  1107 00af 77617665 		.ascii	"wavePtr1\000"
  1107      50747231 
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 26
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 26
 
 
  1107      00
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  1129              	.LASF27:
  1130 017a 77617665 		.ascii	"wavePtr\000"
  1130      50747200 
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 27
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 27
 
 
  1131              	.LASF21:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  1154      65325365 
  1154      74757000 
  1155              	.LASF16:
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 28
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 28
 
 
  1156 0227 73697A65 		.ascii	"sizetype\000"
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 1
  1178 02cc 6C6F6E67 		.ascii	"long double\000"
  1178      20646F75 
  1178      626C6500 
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cc5eoSMg.s 			page 29
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccLm6NZ0.s 			page 29
 
 
  1179              	.LASF0:

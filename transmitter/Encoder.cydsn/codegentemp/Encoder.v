@@ -1,6 +1,6 @@
 // ======================================================================
 // Encoder.v generated from TopDesign.cysch
-// 03/16/2018 at 11:32
+// 03/16/2018 at 13:02
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -399,7 +399,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v"
 `endif
 
-// WaveDAC8_v2_10(Clock_SRC=0, DAC_Range=0, DacModeReplString=VDAC8, Sample_Clock_Freq=100000, Wave1_Amplitude=1.02, Wave1_Data=128,144,159,174,188,202,214,225,234,242,247,251,253,253,251,247,242,234,225,214,202,188,174,159,144,128,112,97,82,68,54,42,31,22,14,9,5,3,3,5,9,14,22,31,42,54,68,82,97,112, Wave1_DCOffset=0.512, Wave1_Length=50, Wave1_PhaseShift=0, Wave1_Type=0, Wave2_Amplitude=1.02, Wave2_Data=128,138,148,158,168,178,188,198,208,218,228,238,248,238,228,218,208,198,188,178,168,158,148,138,128,118,108,98,88,78,68,58,48,38,28,18,8,0,8,18,28,38,48,58,68,78,88,98,108,118, Wave2_DCOffset=0.512, Wave2_Length=50, Wave2_PhaseShift=0, Wave2_Type=2, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=WaveDAC8_v2_10, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Col_Tone, CY_INSTANCE_SHORT_NAME=Col_Tone, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=Col_Tone, )
+// WaveDAC8_v2_10(Clock_SRC=0, DAC_Range=1, DacModeReplString=VDAC8, Sample_Clock_Freq=100000, Wave1_Amplitude=4.08, Wave1_Data=128u,143u,159u,174u,189u,202u,215u,226u,235u,243u,249u,253u,255u,255u,253u,249u,243u,235u,226u,215u,202u,189u,174u,159u,143u,128u,112u,96u,81u,66u,53u,40u,29u,20u,12u,6u,2u,0u,0u,2u,6u,12u,20u,29u,40u,53u,66u,81u,96u,112u, Wave1_DCOffset=2.04, Wave1_Length=50, Wave1_PhaseShift=0, Wave1_Type=0, Wave2_Amplitude=4.08, Wave2_Data=128u,138u,148u,158u,168u,178u,189u,199u,209u,219u,230u,240u,250u,250u,240u,230u,219u,209u,199u,189u,178u,168u,158u,148u,138u,128u,117u,107u,97u,87u,77u,66u,56u,46u,36u,26u,15u,5u,5u,15u,26u,36u,46u,56u,66u,77u,87u,97u,107u,117u, Wave2_DCOffset=2.04, Wave2_Length=50, Wave2_PhaseShift=0, Wave2_Type=2, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=WaveDAC8_v2_10, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Col_Tone, CY_INSTANCE_SHORT_NAME=Col_Tone, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=Col_Tone, )
 module WaveDAC8_v2_10_3 (
     Wave,
     ws,
@@ -574,7 +574,7 @@ module VDAC8_v1_90_4 (
 
 endmodule
 
-// WaveDAC8_v2_10(Clock_SRC=0, DAC_Range=0, DacModeReplString=VDAC8, Sample_Clock_Freq=100000, Wave1_Amplitude=1, Wave1_Data= 128,138,148,157,167,176,185,193,201,209,216,223,229,235,239,243,247,250,251,253,253,253,251,250,247,243,239,235,229,223,216,209,201,193,185,176,167,157,148,138,128,118,108,99,89,80,71,63,55,47,40,33,27,21,17,13,9,6,5,3,3,3,5,6,9,13,17,21,27,33,40,47,55,63,71,80,89,99,108,118, Wave1_DCOffset=0.512, Wave1_Length=80, Wave1_PhaseShift=0, Wave1_Type=0, Wave2_Amplitude=1, Wave2_Data= 128,138,148,158,168,178,188,198,208,218,228,238,248,248,238,228,218,208,198,188,178,168,158,148,138,128,118,108,98,88,78,68,58,48,38,28,18,8,8,18,28,38,48,58,68,78,88,98,108,118, Wave2_DCOffset=0.512, Wave2_Length=50, Wave2_PhaseShift=0, Wave2_Type=2, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=WaveDAC8_v2_10, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Row_Tone, CY_INSTANCE_SHORT_NAME=Row_Tone, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=Row_Tone, )
+// WaveDAC8_v2_10(Clock_SRC=0, DAC_Range=1, DacModeReplString=VDAC8, Sample_Clock_Freq=100000, Wave1_Amplitude=4.08, Wave1_Data=128u,138u,147u,157u,167u,176u,185u,194u,202u,210u,218u,224u,231u,236u,241u,245u,249u,251u,253u,255u,255u,255u,253u,251u,249u,245u,241u,236u,231u,224u,218u,210u,202u,194u,185u,176u,167u,157u,147u,138u,128u,117u,108u,98u,88u,79u,70u,61u,53u,45u,37u,31u,24u,19u,14u,10u,6u,4u,2u,0u,0u,0u,2u,4u,6u,10u,14u,19u,24u,31u,37u,45u,53u,61u,70u,79u,88u,98u,108u,117u, Wave1_DCOffset=2.04, Wave1_Length=80, Wave1_PhaseShift=0, Wave1_Type=0, Wave2_Amplitude=4.08, Wave2_Data=128u,138u,148u,158u,168u,178u,189u,199u,209u,219u,230u,240u,250u,250u,240u,230u,219u,209u,199u,189u,178u,168u,158u,148u,138u,128u,117u,107u,97u,87u,77u,66u,56u,46u,36u,26u,15u,5u,5u,15u,26u,36u,46u,56u,66u,77u,87u,97u,107u,117u, Wave2_DCOffset=2.04, Wave2_Length=50, Wave2_PhaseShift=0, Wave2_Type=2, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=WaveDAC8_v2_10, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Row_Tone, CY_INSTANCE_SHORT_NAME=Row_Tone, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.1 Update 1, INSTANCE_NAME=Row_Tone, )
 module WaveDAC8_v2_10_5 (
     Wave,
     ws,
@@ -919,28 +919,28 @@ endmodule
 // top
 module top ;
 
-          wire  Net_1318;
-          wire  Net_1317;
-          wire  Net_1316;
-          wire  Net_1315;
-          wire  Net_1314;
-          wire  Net_1313;
-          wire  Net_1312;
-          wire  Net_1311;
-          wire  Net_1310;
-          wire  Net_1309;
-          wire  Net_1308;
-          wire  Net_1307;
-          wire  Net_1306;
-          wire  Net_1305;
-          wire  Net_1304;
-          wire  Net_1303;
-          wire  Net_1302;
-          wire  Net_1301;
-          wire  Net_1300;
-          wire  Net_1299;
-          wire  Net_1298;
-          wire  Net_1297;
+          wire  Net_2146;
+          wire  Net_2145;
+          wire  Net_2144;
+          wire  Net_2143;
+          wire  Net_2142;
+          wire  Net_2141;
+          wire  Net_2140;
+          wire  Net_2139;
+          wire  Net_2138;
+          wire  Net_2137;
+          wire  Net_2136;
+          wire  Net_2135;
+          wire  Net_2134;
+          wire  Net_2133;
+          wire  Net_2132;
+          wire  Net_2131;
+          wire  Net_2130;
+          wire  Net_2129;
+          wire  Net_2128;
+          wire  Net_2127;
+          wire  Net_2126;
+          wire  Net_2125;
           wire  Net_1185;
           wire  Net_1184;
           wire  Net_1179;
@@ -1271,35 +1271,35 @@ module top ;
     PWM_v3_30_6 Col_Divider (
         .reset(Net_1178),
         .clock(Net_297),
-        .tc(Net_1297),
+        .tc(Net_2125),
         .pwm1(Net_15),
-        .pwm2(Net_1298),
-        .interrupt(Net_1299),
+        .pwm2(Net_2126),
+        .interrupt(Net_2127),
         .capture(1'b0),
         .kill(1'b1),
         .enable(1'b1),
         .trigger(1'b0),
         .cmp_sel(1'b0),
-        .pwm(Net_1305),
-        .ph1(Net_1306),
-        .ph2(Net_1307));
+        .pwm(Net_2133),
+        .ph1(Net_2134),
+        .ph2(Net_2135));
     defparam Col_Divider.Resolution = 8;
 
     PWM_v3_30_7 Row_Divider (
         .reset(Net_1179),
         .clock(Net_297),
-        .tc(Net_1308),
+        .tc(Net_2136),
         .pwm1(Net_309),
-        .pwm2(Net_1309),
-        .interrupt(Net_1310),
+        .pwm2(Net_2137),
+        .interrupt(Net_2138),
         .capture(1'b0),
         .kill(1'b1),
         .enable(1'b1),
         .trigger(1'b0),
         .cmp_sel(1'b0),
-        .pwm(Net_1316),
-        .ph1(Net_1317),
-        .ph2(Net_1318));
+        .pwm(Net_2144),
+        .ph1(Net_2145),
+        .ph2(Net_2146));
     defparam Row_Divider.Resolution = 8;
 
 

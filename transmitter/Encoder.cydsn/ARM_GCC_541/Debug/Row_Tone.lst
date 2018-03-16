@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 1
 
 
    1              		.syntax unified
@@ -33,92 +33,92 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
   30              	Row_Tone_wave1:
   31 0000 80       		.byte	-128
   32 0001 8A       		.byte	-118
-  33 0002 94       		.byte	-108
+  33 0002 93       		.byte	-109
   34 0003 9D       		.byte	-99
   35 0004 A7       		.byte	-89
   36 0005 B0       		.byte	-80
   37 0006 B9       		.byte	-71
-  38 0007 C1       		.byte	-63
-  39 0008 C9       		.byte	-55
-  40 0009 D1       		.byte	-47
-  41 000a D8       		.byte	-40
-  42 000b DF       		.byte	-33
-  43 000c E5       		.byte	-27
-  44 000d EB       		.byte	-21
-  45 000e EF       		.byte	-17
-  46 000f F3       		.byte	-13
-  47 0010 F7       		.byte	-9
-  48 0011 FA       		.byte	-6
-  49 0012 FB       		.byte	-5
-  50 0013 FD       		.byte	-3
-  51 0014 FD       		.byte	-3
-  52 0015 FD       		.byte	-3
-  53 0016 FB       		.byte	-5
-  54 0017 FA       		.byte	-6
-  55 0018 F7       		.byte	-9
-  56 0019 F3       		.byte	-13
-  57 001a EF       		.byte	-17
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 2
+  38 0007 C2       		.byte	-62
+  39 0008 CA       		.byte	-54
+  40 0009 D2       		.byte	-46
+  41 000a DA       		.byte	-38
+  42 000b E0       		.byte	-32
+  43 000c E7       		.byte	-25
+  44 000d EC       		.byte	-20
+  45 000e F1       		.byte	-15
+  46 000f F5       		.byte	-11
+  47 0010 F9       		.byte	-7
+  48 0011 FB       		.byte	-5
+  49 0012 FD       		.byte	-3
+  50 0013 FF       		.byte	-1
+  51 0014 FF       		.byte	-1
+  52 0015 FF       		.byte	-1
+  53 0016 FD       		.byte	-3
+  54 0017 FB       		.byte	-5
+  55 0018 F9       		.byte	-7
+  56 0019 F5       		.byte	-11
+  57 001a F1       		.byte	-15
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 2
 
 
-  58 001b EB       		.byte	-21
-  59 001c E5       		.byte	-27
-  60 001d DF       		.byte	-33
-  61 001e D8       		.byte	-40
-  62 001f D1       		.byte	-47
-  63 0020 C9       		.byte	-55
-  64 0021 C1       		.byte	-63
+  58 001b EC       		.byte	-20
+  59 001c E7       		.byte	-25
+  60 001d E0       		.byte	-32
+  61 001e DA       		.byte	-38
+  62 001f D2       		.byte	-46
+  63 0020 CA       		.byte	-54
+  64 0021 C2       		.byte	-62
   65 0022 B9       		.byte	-71
   66 0023 B0       		.byte	-80
   67 0024 A7       		.byte	-89
   68 0025 9D       		.byte	-99
-  69 0026 94       		.byte	-108
+  69 0026 93       		.byte	-109
   70 0027 8A       		.byte	-118
   71 0028 80       		.byte	-128
-  72 0029 76       		.byte	118
+  72 0029 75       		.byte	117
   73 002a 6C       		.byte	108
-  74 002b 63       		.byte	99
-  75 002c 59       		.byte	89
-  76 002d 50       		.byte	80
-  77 002e 47       		.byte	71
-  78 002f 3F       		.byte	63
-  79 0030 37       		.byte	55
-  80 0031 2F       		.byte	47
-  81 0032 28       		.byte	40
-  82 0033 21       		.byte	33
-  83 0034 1B       		.byte	27
-  84 0035 15       		.byte	21
-  85 0036 11       		.byte	17
-  86 0037 0D       		.byte	13
-  87 0038 09       		.byte	9
-  88 0039 06       		.byte	6
-  89 003a 05       		.byte	5
-  90 003b 03       		.byte	3
-  91 003c 03       		.byte	3
-  92 003d 03       		.byte	3
-  93 003e 05       		.byte	5
-  94 003f 06       		.byte	6
-  95 0040 09       		.byte	9
-  96 0041 0D       		.byte	13
-  97 0042 11       		.byte	17
-  98 0043 15       		.byte	21
-  99 0044 1B       		.byte	27
- 100 0045 21       		.byte	33
- 101 0046 28       		.byte	40
- 102 0047 2F       		.byte	47
- 103 0048 37       		.byte	55
- 104 0049 3F       		.byte	63
- 105 004a 47       		.byte	71
- 106 004b 50       		.byte	80
- 107 004c 59       		.byte	89
- 108 004d 63       		.byte	99
+  74 002b 62       		.byte	98
+  75 002c 58       		.byte	88
+  76 002d 4F       		.byte	79
+  77 002e 46       		.byte	70
+  78 002f 3D       		.byte	61
+  79 0030 35       		.byte	53
+  80 0031 2D       		.byte	45
+  81 0032 25       		.byte	37
+  82 0033 1F       		.byte	31
+  83 0034 18       		.byte	24
+  84 0035 13       		.byte	19
+  85 0036 0E       		.byte	14
+  86 0037 0A       		.byte	10
+  87 0038 06       		.byte	6
+  88 0039 04       		.byte	4
+  89 003a 02       		.byte	2
+  90 003b 00       		.byte	0
+  91 003c 00       		.byte	0
+  92 003d 00       		.byte	0
+  93 003e 02       		.byte	2
+  94 003f 04       		.byte	4
+  95 0040 06       		.byte	6
+  96 0041 0A       		.byte	10
+  97 0042 0E       		.byte	14
+  98 0043 13       		.byte	19
+  99 0044 18       		.byte	24
+ 100 0045 1F       		.byte	31
+ 101 0046 25       		.byte	37
+ 102 0047 2D       		.byte	45
+ 103 0048 35       		.byte	53
+ 104 0049 3D       		.byte	61
+ 105 004a 46       		.byte	70
+ 106 004b 4F       		.byte	79
+ 107 004c 58       		.byte	88
+ 108 004d 62       		.byte	98
  109 004e 6C       		.byte	108
- 110 004f 76       		.byte	118
+ 110 004f 75       		.byte	117
  111              		.global	Row_Tone_wave2
  112              		.align	2
  113              		.type	Row_Tone_wave2, %object
  114              		.size	Row_Tone_wave2, 50
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 3
 
 
  115              	Row_Tone_wave2:
@@ -128,57 +128,57 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  119 0053 9E       		.byte	-98
  120 0054 A8       		.byte	-88
  121 0055 B2       		.byte	-78
- 122 0056 BC       		.byte	-68
- 123 0057 C6       		.byte	-58
- 124 0058 D0       		.byte	-48
- 125 0059 DA       		.byte	-38
- 126 005a E4       		.byte	-28
- 127 005b EE       		.byte	-18
- 128 005c F8       		.byte	-8
- 129 005d F8       		.byte	-8
- 130 005e EE       		.byte	-18
- 131 005f E4       		.byte	-28
- 132 0060 DA       		.byte	-38
- 133 0061 D0       		.byte	-48
- 134 0062 C6       		.byte	-58
- 135 0063 BC       		.byte	-68
+ 122 0056 BD       		.byte	-67
+ 123 0057 C7       		.byte	-57
+ 124 0058 D1       		.byte	-47
+ 125 0059 DB       		.byte	-37
+ 126 005a E6       		.byte	-26
+ 127 005b F0       		.byte	-16
+ 128 005c FA       		.byte	-6
+ 129 005d FA       		.byte	-6
+ 130 005e F0       		.byte	-16
+ 131 005f E6       		.byte	-26
+ 132 0060 DB       		.byte	-37
+ 133 0061 D1       		.byte	-47
+ 134 0062 C7       		.byte	-57
+ 135 0063 BD       		.byte	-67
  136 0064 B2       		.byte	-78
  137 0065 A8       		.byte	-88
  138 0066 9E       		.byte	-98
  139 0067 94       		.byte	-108
  140 0068 8A       		.byte	-118
  141 0069 80       		.byte	-128
- 142 006a 76       		.byte	118
- 143 006b 6C       		.byte	108
- 144 006c 62       		.byte	98
- 145 006d 58       		.byte	88
- 146 006e 4E       		.byte	78
- 147 006f 44       		.byte	68
- 148 0070 3A       		.byte	58
- 149 0071 30       		.byte	48
- 150 0072 26       		.byte	38
- 151 0073 1C       		.byte	28
- 152 0074 12       		.byte	18
- 153 0075 08       		.byte	8
- 154 0076 08       		.byte	8
- 155 0077 12       		.byte	18
- 156 0078 1C       		.byte	28
- 157 0079 26       		.byte	38
- 158 007a 30       		.byte	48
- 159 007b 3A       		.byte	58
- 160 007c 44       		.byte	68
- 161 007d 4E       		.byte	78
- 162 007e 58       		.byte	88
- 163 007f 62       		.byte	98
- 164 0080 6C       		.byte	108
- 165 0081 76       		.byte	118
+ 142 006a 75       		.byte	117
+ 143 006b 6B       		.byte	107
+ 144 006c 61       		.byte	97
+ 145 006d 57       		.byte	87
+ 146 006e 4D       		.byte	77
+ 147 006f 42       		.byte	66
+ 148 0070 38       		.byte	56
+ 149 0071 2E       		.byte	46
+ 150 0072 24       		.byte	36
+ 151 0073 1A       		.byte	26
+ 152 0074 0F       		.byte	15
+ 153 0075 05       		.byte	5
+ 154 0076 05       		.byte	5
+ 155 0077 0F       		.byte	15
+ 156 0078 1A       		.byte	26
+ 157 0079 24       		.byte	36
+ 158 007a 2E       		.byte	46
+ 159 007b 38       		.byte	56
+ 160 007c 42       		.byte	66
+ 161 007d 4D       		.byte	77
+ 162 007e 57       		.byte	87
+ 163 007f 61       		.byte	97
+ 164 0080 6B       		.byte	107
+ 165 0081 75       		.byte	117
  166              		.bss
  167              	Row_Tone_Wave1Chan:
  168 0001 00       		.space	1
  169              	Row_Tone_Wave2Chan:
  170 0002 00       		.space	1
  171              	Row_Tone_Wave1TD:
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 4
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 4
 
 
  172 0003 00       		.space	1
@@ -212,8 +212,8 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
   17:Generated_Source\PSoC5/Row_Tone.c **** 
   18:Generated_Source\PSoC5/Row_Tone.c **** uint8  Row_Tone_initVar = 0u;
   19:Generated_Source\PSoC5/Row_Tone.c **** 
-  20:Generated_Source\PSoC5/Row_Tone.c **** const uint8 CYCODE Row_Tone_wave1[Row_Tone_WAVE1_LENGTH] = {  128,138,148,157,167,176,185,193,201,2
-  21:Generated_Source\PSoC5/Row_Tone.c **** const uint8 CYCODE Row_Tone_wave2[Row_Tone_WAVE2_LENGTH] = {  128,138,148,158,168,178,188,198,208,2
+  20:Generated_Source\PSoC5/Row_Tone.c **** const uint8 CYCODE Row_Tone_wave1[Row_Tone_WAVE1_LENGTH] = { 128u,138u,147u,157u,167u,176u,185u,194
+  21:Generated_Source\PSoC5/Row_Tone.c **** const uint8 CYCODE Row_Tone_wave2[Row_Tone_WAVE2_LENGTH] = { 128u,138u,148u,158u,168u,178u,189u,199
   22:Generated_Source\PSoC5/Row_Tone.c **** 
   23:Generated_Source\PSoC5/Row_Tone.c **** static uint8  Row_Tone_Wave1Chan;
   24:Generated_Source\PSoC5/Row_Tone.c **** static uint8  Row_Tone_Wave2Chan;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
   43:Generated_Source\PSoC5/Row_Tone.c **** void Row_Tone_Init(void) 
   44:Generated_Source\PSoC5/Row_Tone.c **** {
  184              		.loc 1 44 0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 5
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 5
 
 
  185              		.cfi_startproc
@@ -259,7 +259,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  198 000a FFF7FEFF 		bl	Row_Tone_VDAC8_SetSpeed
   47:Generated_Source\PSoC5/Row_Tone.c **** 	Row_Tone_VDAC8_SetRange(Row_Tone_DAC_RANGE);
  199              		.loc 1 47 0
- 200 000e 0020     		movs	r0, #0
+ 200 000e 0420     		movs	r0, #4
  201 0010 FFF7FEFF 		bl	Row_Tone_VDAC8_SetRange
   48:Generated_Source\PSoC5/Row_Tone.c **** 
   49:Generated_Source\PSoC5/Row_Tone.c **** 	#if(Row_Tone_DAC_MODE == Row_Tone_CURRENT_MODE)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  220 0036 0548     		ldr	r0, .L2+12
  221 0038 FFF7FEFF 		bl	Row_Tone_Wave2Setup
   64:Generated_Source\PSoC5/Row_Tone.c **** 	
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 6
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 6
 
 
   65:Generated_Source\PSoC5/Row_Tone.c **** 	/* Initialize the internal clock if one present  */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
   88:Generated_Source\PSoC5/Row_Tone.c **** 	Row_Tone_VDAC8_Enable();
  253              		.loc 1 88 0
  254 0004 FFF7FEFF 		bl	Row_Tone_VDAC8_Enable
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 7
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 7
 
 
   89:Generated_Source\PSoC5/Row_Tone.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  109:Generated_Source\PSoC5/Row_Tone.c **** 
  110:Generated_Source\PSoC5/Row_Tone.c **** /*******************************************************************************
  111:Generated_Source\PSoC5/Row_Tone.c **** * Function Name: Row_Tone_Start
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 8
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 8
 
 
  112:Generated_Source\PSoC5/Row_Tone.c **** ********************************************************************************
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  315 001c 80BD     		pop	{r7, pc}
  316              	.L10:
  317 001e 00BF     		.align	2
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 9
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 9
 
 
  318              	.L9:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  346 000c 0B46     		mov	r3, r1	@ movhi
  347 000e 7B81     		strh	r3, [r7, #10]	@ movhi
  348 0010 1346     		mov	r3, r2	@ movhi
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 10
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 10
 
 
  349 0012 3B81     		strh	r3, [r7, #8]	@ movhi
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  188:Generated_Source\PSoC5/Row_Tone.c **** {
  381              		.loc 1 188 0
  382              		.cfi_startproc
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 11
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 11
 
 
  383              		@ args = 0, pretend = 0, frame = 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  204:Generated_Source\PSoC5/Row_Tone.c **** * Function Name: Row_Tone_Wave1Setup
  205:Generated_Source\PSoC5/Row_Tone.c **** ********************************************************************************
  206:Generated_Source\PSoC5/Row_Tone.c **** *
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 12
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 12
 
 
  207:Generated_Source\PSoC5/Row_Tone.c **** * Summary:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  232:Generated_Source\PSoC5/Row_Tone.c **** 	#endif /* CY_PSOC3 */
  233:Generated_Source\PSoC5/Row_Tone.c **** 	
  234:Generated_Source\PSoC5/Row_Tone.c **** 	/*
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 13
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 13
 
 
  235:Generated_Source\PSoC5/Row_Tone.c **** 	* TD is looping on itself. 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  492              		.global	Row_Tone_Wave2Setup
  493              		.thumb
  494              		.thumb_func
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 14
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 14
 
 
  495              		.type	Row_Tone_Wave2Setup, %function
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  517 0010 9AB2     		uxth	r2, r3
  518 0012 4FF48043 		mov	r3, #16384
  519 0016 0121     		movs	r1, #1
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 15
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 15
 
 
  520 0018 0120     		movs	r0, #1
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  559              		.align	2
  560              	.L19:
  561 0060 02000000 		.word	Row_Tone_Wave2Chan
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 16
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 16
 
 
  562 0064 04000000 		.word	Row_Tone_Wave2TD
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  616 005e 04       		.byte	0x4
  617 005f 05       		.byte	0x5
  618 0060 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 17
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 17
 
 
  619 0064 02       		.uleb128 0x2
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  673 00d3 9C       		.byte	0x9c
  674 00d4 05       		.uleb128 0x5
  675 00d5 4C020000 		.4byte	.LASF19
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 18
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 18
 
 
  676 00d9 01       		.byte	0x1
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  730 013f B1000000 		.4byte	.LASF24
  731 0143 01       		.byte	0x1
  732 0144 BB       		.byte	0xbb
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 19
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 19
 
 
  733 0145 00000000 		.4byte	.LFB4
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  787 01b4 72       		.sleb128 -14
  788 01b5 00       		.byte	0
  789 01b6 0C       		.uleb128 0xc
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 20
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 20
 
 
  790 01b7 87010000 		.4byte	.LASF30
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  844 022c 09       		.uleb128 0x9
  845 022d 0B020000 		.4byte	0x20b
  846 0231 0E       		.uleb128 0xe
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 21
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 21
 
 
  847 0232 39010000 		.4byte	0x139
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  901 0023 3E       		.uleb128 0x3e
  902 0024 0B       		.uleb128 0xb
  903 0025 03       		.uleb128 0x3
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 22
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 22
 
 
  904 0026 08       		.uleb128 0x8
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  958 005d 12       		.uleb128 0x12
  959 005e 06       		.uleb128 0x6
  960 005f 40       		.uleb128 0x40
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 23
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 23
 
 
  961 0060 18       		.uleb128 0x18
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  1015 0097 06       		.uleb128 0x6
  1016 0098 40       		.uleb128 0x40
  1017 0099 18       		.uleb128 0x18
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 24
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 24
 
 
  1018 009a 9642     		.uleb128 0x2116
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  1072 00d1 01       		.uleb128 0x1
  1073 00d2 01       		.byte	0x1
  1074 00d3 49       		.uleb128 0x49
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 25
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 25
 
 
  1075 00d4 13       		.uleb128 0x13
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  1129 0034 68000000 		.4byte	.LFE6
  1130 0038 00000000 		.4byte	0
  1131 003c 00000000 		.4byte	0
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 26
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 26
 
 
  1132              		.section	.debug_line,"",%progbits
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  1152 00e4 526F775F 		.ascii	"Row_Tone_Wave2Setup\000"
  1152      546F6E65 
  1152      5F576176 
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 27
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 27
 
 
  1152      65325365 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  1173      3800
  1174              	.LASF21:
  1175 01ba 73616D70 		.ascii	"sampleSize1\000"
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 28
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 28
 
 
  1175      6C655369 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 1
  1199      206C6F6E 
  1199      6720696E 
  1199      7400
-ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccyBfI8n.s 			page 29
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccEesRCi.s 			page 29
 
 
  1200              	.LASF14:

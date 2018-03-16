@@ -1,0 +1,697 @@
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	keyPadBuffer,16,4
+  20              		.comm	keyPadOutput,1,1
+  21              		.section	.rodata
+  22              		.align	2
+  23              	.LC0:
+  24 0000 434F4D20 		.ascii	"COM Port Open\000"
+  24      506F7274 
+  24      204F7065 
+  24      6E00
+  25 000e 0000     		.align	2
+  26              	.LC1:
+  27 0010 25640D0A 		.ascii	"%d\015\012\000"
+  27      00
+  28              		.section	.text.main,"ax",%progbits
+  29              		.align	2
+  30              		.global	main
+  31              		.thumb
+  32              		.thumb_func
+  33              		.type	main, %function
+  34              	main:
+  35              	.LFB64:
+  36              		.file 1 "main.c"
+   1:main.c        **** /*****************************************************************************
+   2:main.c        **** * File Name: main.c
+   3:main.c        **** *
+   4:main.c        **** * Version: 1.0
+   5:main.c        **** *
+   6:main.c        **** * Description:
+   7:main.c        **** * In this project, custom ISR is created for the GPIO interrupt. The file -  
+   8:main.c        **** * "InterruptRoutine.c" contains user ISR for the interrupt. Pin P0[0] is  
+   9:main.c        **** * configured with rising edge interrupt and P0[1] is configured with falling 
+  10:main.c        **** * edge interrupt. In the ISR, Logic 0  is written at LED pin (port P0[2]) on 
+  11:main.c        **** * the rising edge interrupt and Logic 1 is written on falling edge interrupt. 
+  12:main.c        **** * For testing purposes, both the interrupt pins - P0[0] and P0[1] can be shorted 
+  13:main.c        **** * externally and driven with the same signal.
+  14:main.c        **** *
+  15:main.c        **** * Related Document: Code example CE210558
+  16:main.c        **** *
+  17:main.c        **** * Hardware Dependency: See code example CE210558
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 2
+
+
+  18:main.c        **** *
+  19:main.c        **** ******************************************************************************
+  20:main.c        **** * Copyright (2015), Cypress Semiconductor Corporation.
+  21:main.c        **** ******************************************************************************
+  22:main.c        **** * This software is owned by Cypress Semiconductor Corporation (Cypress) and is
+  23:main.c        **** * protected by and subject to worldwide patent protection (United States and
+  24:main.c        **** * foreign), United States copyright laws and international treaty provisions.
+  25:main.c        **** * Cypress hereby grants to licensee a personal, non-exclusive, non-transferable
+  26:main.c        **** * license to copy, use, modify, create derivative works of, and compile the
+  27:main.c        **** * Cypress Source Code and derivative works for the sole purpose of creating
+  28:main.c        **** * custom software in support of licensee product to be used only in conjunction
+  29:main.c        **** * with a Cypress integrated circuit as specified in the applicable agreement.
+  30:main.c        **** * Any reproduction, modification, translation, compilation, or representation of
+  31:main.c        **** * this software except as specified above is prohibited without the express
+  32:main.c        **** * written permission of Cypress.
+  33:main.c        **** *
+  34:main.c        **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH
+  35:main.c        **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  36:main.c        **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  37:main.c        **** * Cypress reserves the right to make changes without further notice to the
+  38:main.c        **** * materials described herein. Cypress does not assume any liability arising out
+  39:main.c        **** * of the application or use of any product or circuit described herein. Cypress
+  40:main.c        **** * does not authorize its products for use as critical components in life-support
+  41:main.c        **** * systems where a malfunction or failure may reasonably be expected to result in
+  42:main.c        **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  43:main.c        **** * support systems application implies that the manufacturer assumes all risk of
+  44:main.c        **** * such use and in doing so indemnifies Cypress against all charges. Use may be
+  45:main.c        **** * limited by and subject to the applicable Cypress software license agreement.
+  46:main.c        **** *****************************************************************************/
+  47:main.c        **** 
+  48:main.c        **** #include <project.h>
+  49:main.c        **** #include <stdio.h>
+  50:main.c        **** 
+  51:main.c        **** /* Project Defines */
+  52:main.c        **** #define TRANSMIT_BUFFER_SIZE  16
+  53:main.c        **** 
+  54:main.c        ****     /* Transmit Buffers */
+  55:main.c        ****     /*char rowsBuffer[TRANSMIT_BUFFER_SIZE];
+  56:main.c        ****     char columnsBuffer[TRANSMIT_BUFFER_SIZE];*/
+  57:main.c        ****     char keyPadBuffer[TRANSMIT_BUFFER_SIZE];
+  58:main.c        ****     /* Variables for output data */
+  59:main.c        ****     /*uint8 rowsOutput;
+  60:main.c        ****     uint8 columnsOutput;*/
+  61:main.c        ****     uint8 keyPadOutput;
+  62:main.c        **** 
+  63:main.c        **** //UART transmit interrupt for rows and columns
+  64:main.c        **** /*CY_ISR_PROTO(Transmit_Rows);
+  65:main.c        **** CY_ISR_PROTO(Transmit_Columns);*/
+  66:main.c        **** /*CY_ISR_PROTO(Transmit_KeyPad);
+  67:main.c        **** 
+  68:main.c        **** CY_ISR_PROTO(Transmit_KeyPad)
+  69:main.c        **** {
+  70:main.c        ****     CyDelay(50);
+  71:main.c        ****     keyPadOutput = KeyPad_Read();
+  72:main.c        ****     
+  73:main.c        ****     if (keyPadOutput > 0)
+  74:main.c        ****     {
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 3
+
+
+  75:main.c        ****         sprintf(keyPadBuffer, "%d\r\n", keyPadOutput);
+  76:main.c        ****         UART_1_PutString(keyPadBuffer);
+  77:main.c        ****     }
+  78:main.c        **** }*/
+  79:main.c        **** 
+  80:main.c        **** /*CY_ISR_PROTO(Transmit_Rows)
+  81:main.c        **** {
+  82:main.c        ****     CyDelay(50);
+  83:main.c        ****     rowsOutput = Rows_Read();
+  84:main.c        ****     
+  85:main.c        ****     if (rowsOutput > 0)
+  86:main.c        ****     {
+  87:main.c        ****         sprintf(rowsBuffer, "%d\r\n", rowsOutput);
+  88:main.c        ****         UART_1_PutString(rowsBuffer);
+  89:main.c        ****     }
+  90:main.c        **** }
+  91:main.c        **** 
+  92:main.c        **** CY_ISR_PROTO(Transmit_Columns)
+  93:main.c        **** {
+  94:main.c        ****     CyDelay(50);
+  95:main.c        ****     columnsOutput = Columns_Read();
+  96:main.c        ****     
+  97:main.c        ****     if (columnsOutput > 0)
+  98:main.c        ****     {
+  99:main.c        ****         sprintf(columnsBuffer, "%d\r\n", columnsOutput);
+ 100:main.c        ****         UART_1_PutString(columnsBuffer);
+ 101:main.c        ****     }
+ 102:main.c        **** }*/
+ 103:main.c        **** 
+ 104:main.c        **** 
+ 105:main.c        **** int main()
+ 106:main.c        **** {	
+  37              		.loc 1 106 0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41 0000 80B5     		push	{r7, lr}
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 7, -8
+  44              		.cfi_offset 14, -4
+  45 0002 00AF     		add	r7, sp, #0
+  46              		.cfi_def_cfa_register 7
+ 107:main.c        ****     /* Disable global interrupt */
+ 108:main.c        ****     //CyGlobalIntDisable;
+ 109:main.c        ****     
+ 110:main.c        ****     /* Start all components used on schematic */
+ 111:main.c        ****     /*isr_rows_StartEx(Transmit_Rows);
+ 112:main.c        ****     isr_columns_StartEx(Transmit_Columns);
+ 113:main.c        ****     isr_keypad_StartEx(Transmit_KeyPad);*/
+ 114:main.c        ****     UART_1_Start();
+  47              		.loc 1 114 0
+  48 0004 FFF7FEFF 		bl	UART_1_Start
+ 115:main.c        ****     
+ 116:main.c        ****     /* Send message to verify COM port is connected properly */
+ 117:main.c        ****     UART_1_PutString("COM Port Open");
+  49              		.loc 1 117 0
+  50 0008 0E48     		ldr	r0, .L4
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 4
+
+
+  51 000a FFF7FEFF 		bl	UART_1_PutString
+ 118:main.c        **** 
+ 119:main.c        **** 	/* Enable global interrupt */
+ 120:main.c        ****     CyGlobalIntEnable;
+  52              		.loc 1 120 0
+  53              		.syntax unified
+  54              	@ 120 "main.c" 1
+  55 000e 62B6     		CPSIE   i
+  56              	@ 0 "" 2
+  57              		.thumb
+  58              		.syntax unified
+  59              	.L3:
+ 121:main.c        **** 
+ 122:main.c        ****     for(;;)
+ 123:main.c        ****     {
+ 124:main.c        **** 		/* wait here */
+ 125:main.c        ****         CyDelay(500);
+  60              		.loc 1 125 0
+  61 0010 4FF4FA70 		mov	r0, #500
+  62 0014 FFF7FEFF 		bl	CyDelay
+ 126:main.c        ****         keyPadOutput = KeyPad_Read();
+  63              		.loc 1 126 0
+  64 0018 FFF7FEFF 		bl	KeyPad_Read
+  65 001c 0346     		mov	r3, r0
+  66 001e 1A46     		mov	r2, r3
+  67 0020 094B     		ldr	r3, .L4+4
+  68 0022 1A70     		strb	r2, [r3]
+ 127:main.c        ****         if (keyPadOutput > 0)
+  69              		.loc 1 127 0
+  70 0024 084B     		ldr	r3, .L4+4
+  71 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  72 0028 002B     		cmp	r3, #0
+  73 002a F1D0     		beq	.L3
+ 128:main.c        ****         {
+ 129:main.c        ****             sprintf(keyPadBuffer, "%d\r\n", keyPadOutput);
+  74              		.loc 1 129 0
+  75 002c 064B     		ldr	r3, .L4+4
+  76 002e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  77 0030 1A46     		mov	r2, r3
+  78 0032 0649     		ldr	r1, .L4+8
+  79 0034 0648     		ldr	r0, .L4+12
+  80 0036 FFF7FEFF 		bl	sprintf
+ 130:main.c        ****             UART_1_PutString(keyPadBuffer);
+  81              		.loc 1 130 0
+  82 003a 0548     		ldr	r0, .L4+12
+  83 003c FFF7FEFF 		bl	UART_1_PutString
+ 131:main.c        ****         }  
+ 132:main.c        ****     }
+  84              		.loc 1 132 0
+  85 0040 E6E7     		b	.L3
+  86              	.L5:
+  87 0042 00BF     		.align	2
+  88              	.L4:
+  89 0044 00000000 		.word	.LC0
+  90 0048 00000000 		.word	keyPadOutput
+  91 004c 10000000 		.word	.LC1
+  92 0050 00000000 		.word	keyPadBuffer
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 5
+
+
+  93              		.cfi_endproc
+  94              	.LFE64:
+  95              		.size	main, .-main
+  96              		.text
+  97              	.Letext0:
+  98              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  99              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 100              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 101              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 102              		.section	.debug_info,"",%progbits
+ 103              	.Ldebug_info0:
+ 104 0000 05010000 		.4byte	0x105
+ 105 0004 0400     		.2byte	0x4
+ 106 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 107 000a 04       		.byte	0x4
+ 108 000b 01       		.uleb128 0x1
+ 109 000c 64000000 		.4byte	.LASF20
+ 110 0010 0C       		.byte	0xc
+ 111 0011 2E000000 		.4byte	.LASF21
+ 112 0015 F2000000 		.4byte	.LASF22
+ 113 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 114 001d 00000000 		.4byte	0
+ 115 0021 00000000 		.4byte	.Ldebug_line0
+ 116 0025 02       		.uleb128 0x2
+ 117 0026 01       		.byte	0x1
+ 118 0027 06       		.byte	0x6
+ 119 0028 69010000 		.4byte	.LASF0
+ 120 002c 02       		.uleb128 0x2
+ 121 002d 01       		.byte	0x1
+ 122 002e 08       		.byte	0x8
+ 123 002f 27010000 		.4byte	.LASF1
+ 124 0033 02       		.uleb128 0x2
+ 125 0034 02       		.byte	0x2
+ 126 0035 05       		.byte	0x5
+ 127 0036 9E010000 		.4byte	.LASF2
+ 128 003a 02       		.uleb128 0x2
+ 129 003b 02       		.byte	0x2
+ 130 003c 07       		.byte	0x7
+ 131 003d 0E000000 		.4byte	.LASF3
+ 132 0041 03       		.uleb128 0x3
+ 133 0042 81010000 		.4byte	.LASF9
+ 134 0046 02       		.byte	0x2
+ 135 0047 3F       		.byte	0x3f
+ 136 0048 4C000000 		.4byte	0x4c
+ 137 004c 02       		.uleb128 0x2
+ 138 004d 04       		.byte	0x4
+ 139 004e 05       		.byte	0x5
+ 140 004f 3A010000 		.4byte	.LASF4
+ 141 0053 02       		.uleb128 0x2
+ 142 0054 04       		.byte	0x4
+ 143 0055 07       		.byte	0x7
+ 144 0056 43010000 		.4byte	.LASF5
+ 145 005a 02       		.uleb128 0x2
+ 146 005b 08       		.byte	0x8
+ 147 005c 05       		.byte	0x5
+ 148 005d 00000000 		.4byte	.LASF6
+ 149 0061 02       		.uleb128 0x2
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 6
+
+
+ 150 0062 08       		.byte	0x8
+ 151 0063 07       		.byte	0x7
+ 152 0064 4D000000 		.4byte	.LASF7
+ 153 0068 04       		.uleb128 0x4
+ 154 0069 04       		.byte	0x4
+ 155 006a 05       		.byte	0x5
+ 156 006b 696E7400 		.ascii	"int\000"
+ 157 006f 02       		.uleb128 0x2
+ 158 0070 04       		.byte	0x4
+ 159 0071 07       		.byte	0x7
+ 160 0072 21000000 		.4byte	.LASF8
+ 161 0076 03       		.uleb128 0x3
+ 162 0077 A8010000 		.4byte	.LASF10
+ 163 007b 03       		.byte	0x3
+ 164 007c 2C       		.byte	0x2c
+ 165 007d 41000000 		.4byte	0x41
+ 166 0081 05       		.uleb128 0x5
+ 167 0082 3A000000 		.4byte	.LASF11
+ 168 0086 04       		.byte	0x4
+ 169 0087 3801     		.2byte	0x138
+ 170 0089 2C000000 		.4byte	0x2c
+ 171 008d 02       		.uleb128 0x2
+ 172 008e 04       		.byte	0x4
+ 173 008f 04       		.byte	0x4
+ 174 0090 98010000 		.4byte	.LASF12
+ 175 0094 02       		.uleb128 0x2
+ 176 0095 08       		.byte	0x8
+ 177 0096 04       		.byte	0x4
+ 178 0097 55010000 		.4byte	.LASF13
+ 179 009b 02       		.uleb128 0x2
+ 180 009c 01       		.byte	0x1
+ 181 009d 08       		.byte	0x8
+ 182 009e 35010000 		.4byte	.LASF14
+ 183 00a2 02       		.uleb128 0x2
+ 184 00a3 08       		.byte	0x8
+ 185 00a4 04       		.byte	0x4
+ 186 00a5 75010000 		.4byte	.LASF15
+ 187 00a9 02       		.uleb128 0x2
+ 188 00aa 04       		.byte	0x4
+ 189 00ab 07       		.byte	0x7
+ 190 00ac B0010000 		.4byte	.LASF16
+ 191 00b0 06       		.uleb128 0x6
+ 192 00b1 35000000 		.4byte	.LASF23
+ 193 00b5 01       		.byte	0x1
+ 194 00b6 69       		.byte	0x69
+ 195 00b7 68000000 		.4byte	0x68
+ 196 00bb 00000000 		.4byte	.LFB64
+ 197 00bf 54000000 		.4byte	.LFE64-.LFB64
+ 198 00c3 01       		.uleb128 0x1
+ 199 00c4 9C       		.byte	0x9c
+ 200 00c5 07       		.uleb128 0x7
+ 201 00c6 5C010000 		.4byte	.LASF17
+ 202 00ca 05       		.byte	0x5
+ 203 00cb 5506     		.2byte	0x655
+ 204 00cd D1000000 		.4byte	0xd1
+ 205 00d1 08       		.uleb128 0x8
+ 206 00d2 76000000 		.4byte	0x76
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 7
+
+
+ 207 00d6 09       		.uleb128 0x9
+ 208 00d7 9B000000 		.4byte	0x9b
+ 209 00db E6000000 		.4byte	0xe6
+ 210 00df 0A       		.uleb128 0xa
+ 211 00e0 A9000000 		.4byte	0xa9
+ 212 00e4 0F       		.byte	0xf
+ 213 00e5 00       		.byte	0
+ 214 00e6 0B       		.uleb128 0xb
+ 215 00e7 40000000 		.4byte	.LASF18
+ 216 00eb 01       		.byte	0x1
+ 217 00ec 39       		.byte	0x39
+ 218 00ed D6000000 		.4byte	0xd6
+ 219 00f1 05       		.uleb128 0x5
+ 220 00f2 03       		.byte	0x3
+ 221 00f3 00000000 		.4byte	keyPadBuffer
+ 222 00f7 0B       		.uleb128 0xb
+ 223 00f8 8B010000 		.4byte	.LASF19
+ 224 00fc 01       		.byte	0x1
+ 225 00fd 3D       		.byte	0x3d
+ 226 00fe 81000000 		.4byte	0x81
+ 227 0102 05       		.uleb128 0x5
+ 228 0103 03       		.byte	0x3
+ 229 0104 00000000 		.4byte	keyPadOutput
+ 230 0108 00       		.byte	0
+ 231              		.section	.debug_abbrev,"",%progbits
+ 232              	.Ldebug_abbrev0:
+ 233 0000 01       		.uleb128 0x1
+ 234 0001 11       		.uleb128 0x11
+ 235 0002 01       		.byte	0x1
+ 236 0003 25       		.uleb128 0x25
+ 237 0004 0E       		.uleb128 0xe
+ 238 0005 13       		.uleb128 0x13
+ 239 0006 0B       		.uleb128 0xb
+ 240 0007 03       		.uleb128 0x3
+ 241 0008 0E       		.uleb128 0xe
+ 242 0009 1B       		.uleb128 0x1b
+ 243 000a 0E       		.uleb128 0xe
+ 244 000b 55       		.uleb128 0x55
+ 245 000c 17       		.uleb128 0x17
+ 246 000d 11       		.uleb128 0x11
+ 247 000e 01       		.uleb128 0x1
+ 248 000f 10       		.uleb128 0x10
+ 249 0010 17       		.uleb128 0x17
+ 250 0011 00       		.byte	0
+ 251 0012 00       		.byte	0
+ 252 0013 02       		.uleb128 0x2
+ 253 0014 24       		.uleb128 0x24
+ 254 0015 00       		.byte	0
+ 255 0016 0B       		.uleb128 0xb
+ 256 0017 0B       		.uleb128 0xb
+ 257 0018 3E       		.uleb128 0x3e
+ 258 0019 0B       		.uleb128 0xb
+ 259 001a 03       		.uleb128 0x3
+ 260 001b 0E       		.uleb128 0xe
+ 261 001c 00       		.byte	0
+ 262 001d 00       		.byte	0
+ 263 001e 03       		.uleb128 0x3
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 8
+
+
+ 264 001f 16       		.uleb128 0x16
+ 265 0020 00       		.byte	0
+ 266 0021 03       		.uleb128 0x3
+ 267 0022 0E       		.uleb128 0xe
+ 268 0023 3A       		.uleb128 0x3a
+ 269 0024 0B       		.uleb128 0xb
+ 270 0025 3B       		.uleb128 0x3b
+ 271 0026 0B       		.uleb128 0xb
+ 272 0027 49       		.uleb128 0x49
+ 273 0028 13       		.uleb128 0x13
+ 274 0029 00       		.byte	0
+ 275 002a 00       		.byte	0
+ 276 002b 04       		.uleb128 0x4
+ 277 002c 24       		.uleb128 0x24
+ 278 002d 00       		.byte	0
+ 279 002e 0B       		.uleb128 0xb
+ 280 002f 0B       		.uleb128 0xb
+ 281 0030 3E       		.uleb128 0x3e
+ 282 0031 0B       		.uleb128 0xb
+ 283 0032 03       		.uleb128 0x3
+ 284 0033 08       		.uleb128 0x8
+ 285 0034 00       		.byte	0
+ 286 0035 00       		.byte	0
+ 287 0036 05       		.uleb128 0x5
+ 288 0037 16       		.uleb128 0x16
+ 289 0038 00       		.byte	0
+ 290 0039 03       		.uleb128 0x3
+ 291 003a 0E       		.uleb128 0xe
+ 292 003b 3A       		.uleb128 0x3a
+ 293 003c 0B       		.uleb128 0xb
+ 294 003d 3B       		.uleb128 0x3b
+ 295 003e 05       		.uleb128 0x5
+ 296 003f 49       		.uleb128 0x49
+ 297 0040 13       		.uleb128 0x13
+ 298 0041 00       		.byte	0
+ 299 0042 00       		.byte	0
+ 300 0043 06       		.uleb128 0x6
+ 301 0044 2E       		.uleb128 0x2e
+ 302 0045 00       		.byte	0
+ 303 0046 3F       		.uleb128 0x3f
+ 304 0047 19       		.uleb128 0x19
+ 305 0048 03       		.uleb128 0x3
+ 306 0049 0E       		.uleb128 0xe
+ 307 004a 3A       		.uleb128 0x3a
+ 308 004b 0B       		.uleb128 0xb
+ 309 004c 3B       		.uleb128 0x3b
+ 310 004d 0B       		.uleb128 0xb
+ 311 004e 49       		.uleb128 0x49
+ 312 004f 13       		.uleb128 0x13
+ 313 0050 11       		.uleb128 0x11
+ 314 0051 01       		.uleb128 0x1
+ 315 0052 12       		.uleb128 0x12
+ 316 0053 06       		.uleb128 0x6
+ 317 0054 40       		.uleb128 0x40
+ 318 0055 18       		.uleb128 0x18
+ 319 0056 9642     		.uleb128 0x2116
+ 320 0058 19       		.uleb128 0x19
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 9
+
+
+ 321 0059 00       		.byte	0
+ 322 005a 00       		.byte	0
+ 323 005b 07       		.uleb128 0x7
+ 324 005c 34       		.uleb128 0x34
+ 325 005d 00       		.byte	0
+ 326 005e 03       		.uleb128 0x3
+ 327 005f 0E       		.uleb128 0xe
+ 328 0060 3A       		.uleb128 0x3a
+ 329 0061 0B       		.uleb128 0xb
+ 330 0062 3B       		.uleb128 0x3b
+ 331 0063 05       		.uleb128 0x5
+ 332 0064 49       		.uleb128 0x49
+ 333 0065 13       		.uleb128 0x13
+ 334 0066 3F       		.uleb128 0x3f
+ 335 0067 19       		.uleb128 0x19
+ 336 0068 3C       		.uleb128 0x3c
+ 337 0069 19       		.uleb128 0x19
+ 338 006a 00       		.byte	0
+ 339 006b 00       		.byte	0
+ 340 006c 08       		.uleb128 0x8
+ 341 006d 35       		.uleb128 0x35
+ 342 006e 00       		.byte	0
+ 343 006f 49       		.uleb128 0x49
+ 344 0070 13       		.uleb128 0x13
+ 345 0071 00       		.byte	0
+ 346 0072 00       		.byte	0
+ 347 0073 09       		.uleb128 0x9
+ 348 0074 01       		.uleb128 0x1
+ 349 0075 01       		.byte	0x1
+ 350 0076 49       		.uleb128 0x49
+ 351 0077 13       		.uleb128 0x13
+ 352 0078 01       		.uleb128 0x1
+ 353 0079 13       		.uleb128 0x13
+ 354 007a 00       		.byte	0
+ 355 007b 00       		.byte	0
+ 356 007c 0A       		.uleb128 0xa
+ 357 007d 21       		.uleb128 0x21
+ 358 007e 00       		.byte	0
+ 359 007f 49       		.uleb128 0x49
+ 360 0080 13       		.uleb128 0x13
+ 361 0081 2F       		.uleb128 0x2f
+ 362 0082 0B       		.uleb128 0xb
+ 363 0083 00       		.byte	0
+ 364 0084 00       		.byte	0
+ 365 0085 0B       		.uleb128 0xb
+ 366 0086 34       		.uleb128 0x34
+ 367 0087 00       		.byte	0
+ 368 0088 03       		.uleb128 0x3
+ 369 0089 0E       		.uleb128 0xe
+ 370 008a 3A       		.uleb128 0x3a
+ 371 008b 0B       		.uleb128 0xb
+ 372 008c 3B       		.uleb128 0x3b
+ 373 008d 0B       		.uleb128 0xb
+ 374 008e 49       		.uleb128 0x49
+ 375 008f 13       		.uleb128 0x13
+ 376 0090 3F       		.uleb128 0x3f
+ 377 0091 19       		.uleb128 0x19
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 10
+
+
+ 378 0092 02       		.uleb128 0x2
+ 379 0093 18       		.uleb128 0x18
+ 380 0094 00       		.byte	0
+ 381 0095 00       		.byte	0
+ 382 0096 00       		.byte	0
+ 383              		.section	.debug_aranges,"",%progbits
+ 384 0000 1C000000 		.4byte	0x1c
+ 385 0004 0200     		.2byte	0x2
+ 386 0006 00000000 		.4byte	.Ldebug_info0
+ 387 000a 04       		.byte	0x4
+ 388 000b 00       		.byte	0
+ 389 000c 0000     		.2byte	0
+ 390 000e 0000     		.2byte	0
+ 391 0010 00000000 		.4byte	.LFB64
+ 392 0014 54000000 		.4byte	.LFE64-.LFB64
+ 393 0018 00000000 		.4byte	0
+ 394 001c 00000000 		.4byte	0
+ 395              		.section	.debug_ranges,"",%progbits
+ 396              	.Ldebug_ranges0:
+ 397 0000 00000000 		.4byte	.LFB64
+ 398 0004 54000000 		.4byte	.LFE64
+ 399 0008 00000000 		.4byte	0
+ 400 000c 00000000 		.4byte	0
+ 401              		.section	.debug_line,"",%progbits
+ 402              	.Ldebug_line0:
+ 403 0000 6B010000 		.section	.debug_str,"MS",%progbits,1
+ 403      02004C01 
+ 403      00000201 
+ 403      FB0E0D00 
+ 403      01010101 
+ 404              	.LASF6:
+ 405 0000 6C6F6E67 		.ascii	"long long int\000"
+ 405      206C6F6E 
+ 405      6720696E 
+ 405      7400
+ 406              	.LASF3:
+ 407 000e 73686F72 		.ascii	"short unsigned int\000"
+ 407      7420756E 
+ 407      7369676E 
+ 407      65642069 
+ 407      6E7400
+ 408              	.LASF8:
+ 409 0021 756E7369 		.ascii	"unsigned int\000"
+ 409      676E6564 
+ 409      20696E74 
+ 409      00
+ 410              	.LASF21:
+ 411 002e 6D61696E 		.ascii	"main.c\000"
+ 411      2E6300
+ 412              	.LASF23:
+ 413 0035 6D61696E 		.ascii	"main\000"
+ 413      00
+ 414              	.LASF11:
+ 415 003a 75696E74 		.ascii	"uint8\000"
+ 415      3800
+ 416              	.LASF18:
+ 417 0040 6B657950 		.ascii	"keyPadBuffer\000"
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 11
+
+
+ 417      61644275 
+ 417      66666572 
+ 417      00
+ 418              	.LASF7:
+ 419 004d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 419      206C6F6E 
+ 419      6720756E 
+ 419      7369676E 
+ 419      65642069 
+ 420              	.LASF20:
+ 421 0064 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 421      43313120 
+ 421      352E342E 
+ 421      31203230 
+ 421      31363036 
+ 422 0097 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 422      20726576 
+ 422      6973696F 
+ 422      6E203233 
+ 422      37373135 
+ 423 00ca 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 423      66756E63 
+ 423      74696F6E 
+ 423      2D736563 
+ 423      74696F6E 
+ 424              	.LASF22:
+ 425 00f2 433A5C55 		.ascii	"C:\\Users\\fabis\\Desktop\\CE210558_GPIO_Interrupt."
+ 425      73657273 
+ 425      5C666162 
+ 425      69735C44 
+ 425      65736B74 
+ 426 0121 63796473 		.ascii	"cydsn\000"
+ 426      6E00
+ 427              	.LASF1:
+ 428 0127 756E7369 		.ascii	"unsigned char\000"
+ 428      676E6564 
+ 428      20636861 
+ 428      7200
+ 429              	.LASF14:
+ 430 0135 63686172 		.ascii	"char\000"
+ 430      00
+ 431              	.LASF4:
+ 432 013a 6C6F6E67 		.ascii	"long int\000"
+ 432      20696E74 
+ 432      00
+ 433              	.LASF5:
+ 434 0143 6C6F6E67 		.ascii	"long unsigned int\000"
+ 434      20756E73 
+ 434      69676E65 
+ 434      6420696E 
+ 434      7400
+ 435              	.LASF13:
+ 436 0155 646F7562 		.ascii	"double\000"
+ 436      6C6500
+ 437              	.LASF17:
+ 438 015c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 438      52784275 
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccYVygCy.s 			page 12
+
+
+ 438      66666572 
+ 438      00
+ 439              	.LASF0:
+ 440 0169 7369676E 		.ascii	"signed char\000"
+ 440      65642063 
+ 440      68617200 
+ 441              	.LASF15:
+ 442 0175 6C6F6E67 		.ascii	"long double\000"
+ 442      20646F75 
+ 442      626C6500 
+ 443              	.LASF9:
+ 444 0181 5F5F696E 		.ascii	"__int32_t\000"
+ 444      7433325F 
+ 444      7400
+ 445              	.LASF19:
+ 446 018b 6B657950 		.ascii	"keyPadOutput\000"
+ 446      61644F75 
+ 446      74707574 
+ 446      00
+ 447              	.LASF12:
+ 448 0198 666C6F61 		.ascii	"float\000"
+ 448      7400
+ 449              	.LASF2:
+ 450 019e 73686F72 		.ascii	"short int\000"
+ 450      7420696E 
+ 450      7400
+ 451              	.LASF10:
+ 452 01a8 696E7433 		.ascii	"int32_t\000"
+ 452      325F7400 
+ 453              	.LASF16:
+ 454 01b0 73697A65 		.ascii	"sizetype\000"
+ 454      74797065 
+ 454      00
+ 455              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

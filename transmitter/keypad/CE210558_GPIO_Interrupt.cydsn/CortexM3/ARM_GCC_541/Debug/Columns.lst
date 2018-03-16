@@ -1,0 +1,1204 @@
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Columns.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Columns_Write,"ax",%progbits
+  20              		.align	2
+  21              		.global	Columns_Write
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Columns_Write, %function
+  25              	Columns_Write:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\Columns.c"
+   1:Generated_Source\PSoC5/Columns.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Columns.c **** * File Name: Columns.c  
+   3:Generated_Source\PSoC5/Columns.c **** * Version 2.20
+   4:Generated_Source\PSoC5/Columns.c **** *
+   5:Generated_Source\PSoC5/Columns.c **** * Description:
+   6:Generated_Source\PSoC5/Columns.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC5/Columns.c **** *
+   8:Generated_Source\PSoC5/Columns.c **** * Note:
+   9:Generated_Source\PSoC5/Columns.c **** *
+  10:Generated_Source\PSoC5/Columns.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/Columns.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/Columns.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC5/Columns.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC5/Columns.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/Columns.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/Columns.c **** 
+  17:Generated_Source\PSoC5/Columns.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC5/Columns.c **** #include "Columns.h"
+  19:Generated_Source\PSoC5/Columns.c **** 
+  20:Generated_Source\PSoC5/Columns.c **** /* APIs are not generated for P15[7:6] on PSoC 5 */
+  21:Generated_Source\PSoC5/Columns.c **** #if !(CY_PSOC5A &&\
+  22:Generated_Source\PSoC5/Columns.c **** 	 Columns__PORT == 15 && ((Columns__MASK & 0xC0) != 0))
+  23:Generated_Source\PSoC5/Columns.c **** 
+  24:Generated_Source\PSoC5/Columns.c **** 
+  25:Generated_Source\PSoC5/Columns.c **** /*******************************************************************************
+  26:Generated_Source\PSoC5/Columns.c **** * Function Name: Columns_Write
+  27:Generated_Source\PSoC5/Columns.c **** ****************************************************************************//**
+  28:Generated_Source\PSoC5/Columns.c **** *
+  29:Generated_Source\PSoC5/Columns.c **** * \brief Writes the value to the physical port (data output register), masking
+  30:Generated_Source\PSoC5/Columns.c **** *  and shifting the bits appropriately. 
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 2
+
+
+  31:Generated_Source\PSoC5/Columns.c **** *
+  32:Generated_Source\PSoC5/Columns.c **** * The data output register controls the signal applied to the physical pin in 
+  33:Generated_Source\PSoC5/Columns.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  34:Generated_Source\PSoC5/Columns.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  35:Generated_Source\PSoC5/Columns.c **** * bit banding).
+  36:Generated_Source\PSoC5/Columns.c **** *
+  37:Generated_Source\PSoC5/Columns.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  38:Generated_Source\PSoC5/Columns.c **** * as it is driven by the hardware signal attached to it.
+  39:Generated_Source\PSoC5/Columns.c **** *
+  40:Generated_Source\PSoC5/Columns.c **** * \param value
+  41:Generated_Source\PSoC5/Columns.c **** *  Value to write to the component instance.
+  42:Generated_Source\PSoC5/Columns.c **** *
+  43:Generated_Source\PSoC5/Columns.c **** * \return 
+  44:Generated_Source\PSoC5/Columns.c **** *  None 
+  45:Generated_Source\PSoC5/Columns.c **** *
+  46:Generated_Source\PSoC5/Columns.c **** * \sideeffect
+  47:Generated_Source\PSoC5/Columns.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+  48:Generated_Source\PSoC5/Columns.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+  49:Generated_Source\PSoC5/Columns.c **** *  interrupts this function and performs writes to the Pins component data 
+  50:Generated_Source\PSoC5/Columns.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+  51:Generated_Source\PSoC5/Columns.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+  52:Generated_Source\PSoC5/Columns.c **** *  this function.
+  53:Generated_Source\PSoC5/Columns.c **** *
+  54:Generated_Source\PSoC5/Columns.c **** * \funcusage
+  55:Generated_Source\PSoC5/Columns.c **** *  \snippet Columns_SUT.c usage_Columns_Write
+  56:Generated_Source\PSoC5/Columns.c **** *******************************************************************************/
+  57:Generated_Source\PSoC5/Columns.c **** void Columns_Write(uint8 value)
+  58:Generated_Source\PSoC5/Columns.c **** {
+  28              		.loc 1 58 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 80B4     		push	{r7}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 85B0     		sub	sp, sp, #20
+  37              		.cfi_def_cfa_offset 24
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 0346     		mov	r3, r0
+  41 0008 FB71     		strb	r3, [r7, #7]
+  59:Generated_Source\PSoC5/Columns.c ****     uint8 staticBits = (Columns_DR & (uint8)(~Columns_MASK));
+  42              		.loc 1 59 0
+  43 000a 0B4B     		ldr	r3, .L2
+  44 000c 1B78     		ldrb	r3, [r3]
+  45 000e DBB2     		uxtb	r3, r3
+  46 0010 23F03C03 		bic	r3, r3, #60
+  47 0014 FB73     		strb	r3, [r7, #15]
+  60:Generated_Source\PSoC5/Columns.c ****     Columns_DR = staticBits | ((uint8)(value << Columns_SHIFT) & Columns_MASK);
+  48              		.loc 1 60 0
+  49 0016 0849     		ldr	r1, .L2
+  50 0018 FB79     		ldrb	r3, [r7, #7]
+  51 001a 9B00     		lsls	r3, r3, #2
+  52 001c DBB2     		uxtb	r3, r3
+  53 001e 03F03C03 		and	r3, r3, #60
+  54 0022 DAB2     		uxtb	r2, r3
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 3
+
+
+  55 0024 FB7B     		ldrb	r3, [r7, #15]
+  56 0026 1343     		orrs	r3, r3, r2
+  57 0028 DBB2     		uxtb	r3, r3
+  58 002a 0B70     		strb	r3, [r1]
+  61:Generated_Source\PSoC5/Columns.c **** }
+  59              		.loc 1 61 0
+  60 002c 00BF     		nop
+  61 002e 1437     		adds	r7, r7, #20
+  62              		.cfi_def_cfa_offset 4
+  63 0030 BD46     		mov	sp, r7
+  64              		.cfi_def_cfa_register 13
+  65              		@ sp needed
+  66 0032 80BC     		pop	{r7}
+  67              		.cfi_restore 7
+  68              		.cfi_def_cfa_offset 0
+  69 0034 7047     		bx	lr
+  70              	.L3:
+  71 0036 00BF     		.align	2
+  72              	.L2:
+  73 0038 10510040 		.word	1073762576
+  74              		.cfi_endproc
+  75              	.LFE0:
+  76              		.size	Columns_Write, .-Columns_Write
+  77              		.section	.text.Columns_SetDriveMode,"ax",%progbits
+  78              		.align	2
+  79              		.global	Columns_SetDriveMode
+  80              		.thumb
+  81              		.thumb_func
+  82              		.type	Columns_SetDriveMode, %function
+  83              	Columns_SetDriveMode:
+  84              	.LFB1:
+  62:Generated_Source\PSoC5/Columns.c **** 
+  63:Generated_Source\PSoC5/Columns.c **** 
+  64:Generated_Source\PSoC5/Columns.c **** /*******************************************************************************
+  65:Generated_Source\PSoC5/Columns.c **** * Function Name: Columns_SetDriveMode
+  66:Generated_Source\PSoC5/Columns.c **** ****************************************************************************//**
+  67:Generated_Source\PSoC5/Columns.c **** *
+  68:Generated_Source\PSoC5/Columns.c **** * \brief Sets the drive mode for each of the Pins component's pins.
+  69:Generated_Source\PSoC5/Columns.c **** * 
+  70:Generated_Source\PSoC5/Columns.c **** * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  71:Generated_Source\PSoC5/Columns.c **** * Per-Pin APIs if you wish to control individual pin's drive modes.
+  72:Generated_Source\PSoC5/Columns.c **** *
+  73:Generated_Source\PSoC5/Columns.c **** * \param mode
+  74:Generated_Source\PSoC5/Columns.c **** *  Mode for the selected signals. Valid options are documented in 
+  75:Generated_Source\PSoC5/Columns.c **** *  \ref driveMode.
+  76:Generated_Source\PSoC5/Columns.c **** *
+  77:Generated_Source\PSoC5/Columns.c **** * \return
+  78:Generated_Source\PSoC5/Columns.c **** *  None
+  79:Generated_Source\PSoC5/Columns.c **** *
+  80:Generated_Source\PSoC5/Columns.c **** * \sideeffect
+  81:Generated_Source\PSoC5/Columns.c **** *  If you use read-modify-write operations that are not atomic, the ISR can
+  82:Generated_Source\PSoC5/Columns.c **** *  cause corruption of this function. An ISR that interrupts this function 
+  83:Generated_Source\PSoC5/Columns.c **** *  and performs writes to the Pins component Drive Mode registers can cause 
+  84:Generated_Source\PSoC5/Columns.c **** *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  85:Generated_Source\PSoC5/Columns.c **** *  APIs (primary method) or disable interrupts around this function.
+  86:Generated_Source\PSoC5/Columns.c **** *
+  87:Generated_Source\PSoC5/Columns.c **** * \funcusage
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 4
+
+
+  88:Generated_Source\PSoC5/Columns.c **** *  \snippet Columns_SUT.c usage_Columns_SetDriveMode
+  89:Generated_Source\PSoC5/Columns.c **** *******************************************************************************/
+  90:Generated_Source\PSoC5/Columns.c **** void Columns_SetDriveMode(uint8 mode)
+  91:Generated_Source\PSoC5/Columns.c **** {
+  85              		.loc 1 91 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 8
+  88              		@ frame_needed = 1, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+  90 0000 80B4     		push	{r7}
+  91              		.cfi_def_cfa_offset 4
+  92              		.cfi_offset 7, -4
+  93 0002 83B0     		sub	sp, sp, #12
+  94              		.cfi_def_cfa_offset 16
+  95 0004 00AF     		add	r7, sp, #0
+  96              		.cfi_def_cfa_register 7
+  97 0006 0346     		mov	r3, r0
+  98 0008 FB71     		strb	r3, [r7, #7]
+  92:Generated_Source\PSoC5/Columns.c **** 	CyPins_SetPinDriveMode(Columns_0, mode);
+  99              		.loc 1 92 0
+ 100 000a 2449     		ldr	r1, .L5
+ 101 000c 234B     		ldr	r3, .L5
+ 102 000e 1B78     		ldrb	r3, [r3]
+ 103 0010 DBB2     		uxtb	r3, r3
+ 104 0012 5BB2     		sxtb	r3, r3
+ 105 0014 23F00E03 		bic	r3, r3, #14
+ 106 0018 5AB2     		sxtb	r2, r3
+ 107 001a 97F90730 		ldrsb	r3, [r7, #7]
+ 108 001e 03F00E03 		and	r3, r3, #14
+ 109 0022 5BB2     		sxtb	r3, r3
+ 110 0024 1343     		orrs	r3, r3, r2
+ 111 0026 5BB2     		sxtb	r3, r3
+ 112 0028 DBB2     		uxtb	r3, r3
+ 113 002a 0B70     		strb	r3, [r1]
+  93:Generated_Source\PSoC5/Columns.c **** 	CyPins_SetPinDriveMode(Columns_1, mode);
+ 114              		.loc 1 93 0
+ 115 002c 1C49     		ldr	r1, .L5+4
+ 116 002e 1C4B     		ldr	r3, .L5+4
+ 117 0030 1B78     		ldrb	r3, [r3]
+ 118 0032 DBB2     		uxtb	r3, r3
+ 119 0034 5BB2     		sxtb	r3, r3
+ 120 0036 23F00E03 		bic	r3, r3, #14
+ 121 003a 5AB2     		sxtb	r2, r3
+ 122 003c 97F90730 		ldrsb	r3, [r7, #7]
+ 123 0040 03F00E03 		and	r3, r3, #14
+ 124 0044 5BB2     		sxtb	r3, r3
+ 125 0046 1343     		orrs	r3, r3, r2
+ 126 0048 5BB2     		sxtb	r3, r3
+ 127 004a DBB2     		uxtb	r3, r3
+ 128 004c 0B70     		strb	r3, [r1]
+  94:Generated_Source\PSoC5/Columns.c **** 	CyPins_SetPinDriveMode(Columns_2, mode);
+ 129              		.loc 1 94 0
+ 130 004e 1549     		ldr	r1, .L5+8
+ 131 0050 144B     		ldr	r3, .L5+8
+ 132 0052 1B78     		ldrb	r3, [r3]
+ 133 0054 DBB2     		uxtb	r3, r3
+ 134 0056 5BB2     		sxtb	r3, r3
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 5
+
+
+ 135 0058 23F00E03 		bic	r3, r3, #14
+ 136 005c 5AB2     		sxtb	r2, r3
+ 137 005e 97F90730 		ldrsb	r3, [r7, #7]
+ 138 0062 03F00E03 		and	r3, r3, #14
+ 139 0066 5BB2     		sxtb	r3, r3
+ 140 0068 1343     		orrs	r3, r3, r2
+ 141 006a 5BB2     		sxtb	r3, r3
+ 142 006c DBB2     		uxtb	r3, r3
+ 143 006e 0B70     		strb	r3, [r1]
+  95:Generated_Source\PSoC5/Columns.c **** 	CyPins_SetPinDriveMode(Columns_3, mode);
+ 144              		.loc 1 95 0
+ 145 0070 0D49     		ldr	r1, .L5+12
+ 146 0072 0D4B     		ldr	r3, .L5+12
+ 147 0074 1B78     		ldrb	r3, [r3]
+ 148 0076 DBB2     		uxtb	r3, r3
+ 149 0078 5BB2     		sxtb	r3, r3
+ 150 007a 23F00E03 		bic	r3, r3, #14
+ 151 007e 5AB2     		sxtb	r2, r3
+ 152 0080 97F90730 		ldrsb	r3, [r7, #7]
+ 153 0084 03F00E03 		and	r3, r3, #14
+ 154 0088 5BB2     		sxtb	r3, r3
+ 155 008a 1343     		orrs	r3, r3, r2
+ 156 008c 5BB2     		sxtb	r3, r3
+ 157 008e DBB2     		uxtb	r3, r3
+ 158 0090 0B70     		strb	r3, [r1]
+  96:Generated_Source\PSoC5/Columns.c **** }
+ 159              		.loc 1 96 0
+ 160 0092 00BF     		nop
+ 161 0094 0C37     		adds	r7, r7, #12
+ 162              		.cfi_def_cfa_offset 4
+ 163 0096 BD46     		mov	sp, r7
+ 164              		.cfi_def_cfa_register 13
+ 165              		@ sp needed
+ 166 0098 80BC     		pop	{r7}
+ 167              		.cfi_restore 7
+ 168              		.cfi_def_cfa_offset 0
+ 169 009a 7047     		bx	lr
+ 170              	.L6:
+ 171              		.align	2
+ 172              	.L5:
+ 173 009c 0A500040 		.word	1073762314
+ 174 00a0 0B500040 		.word	1073762315
+ 175 00a4 0C500040 		.word	1073762316
+ 176 00a8 0D500040 		.word	1073762317
+ 177              		.cfi_endproc
+ 178              	.LFE1:
+ 179              		.size	Columns_SetDriveMode, .-Columns_SetDriveMode
+ 180              		.section	.text.Columns_Read,"ax",%progbits
+ 181              		.align	2
+ 182              		.global	Columns_Read
+ 183              		.thumb
+ 184              		.thumb_func
+ 185              		.type	Columns_Read, %function
+ 186              	Columns_Read:
+ 187              	.LFB2:
+  97:Generated_Source\PSoC5/Columns.c **** 
+  98:Generated_Source\PSoC5/Columns.c **** 
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 6
+
+
+  99:Generated_Source\PSoC5/Columns.c **** /*******************************************************************************
+ 100:Generated_Source\PSoC5/Columns.c **** * Function Name: Columns_Read
+ 101:Generated_Source\PSoC5/Columns.c **** ****************************************************************************//**
+ 102:Generated_Source\PSoC5/Columns.c **** *
+ 103:Generated_Source\PSoC5/Columns.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 104:Generated_Source\PSoC5/Columns.c **** *  the required bits according to the width and bit position of the component
+ 105:Generated_Source\PSoC5/Columns.c **** *  instance. 
+ 106:Generated_Source\PSoC5/Columns.c **** *
+ 107:Generated_Source\PSoC5/Columns.c **** * The pin's status register returns the current logic level present on the 
+ 108:Generated_Source\PSoC5/Columns.c **** * physical pin.
+ 109:Generated_Source\PSoC5/Columns.c **** *
+ 110:Generated_Source\PSoC5/Columns.c **** * \return 
+ 111:Generated_Source\PSoC5/Columns.c **** *  The current value for the pins in the component as a right justified number.
+ 112:Generated_Source\PSoC5/Columns.c **** *
+ 113:Generated_Source\PSoC5/Columns.c **** * \funcusage
+ 114:Generated_Source\PSoC5/Columns.c **** *  \snippet Columns_SUT.c usage_Columns_Read  
+ 115:Generated_Source\PSoC5/Columns.c **** *******************************************************************************/
+ 116:Generated_Source\PSoC5/Columns.c **** uint8 Columns_Read(void)
+ 117:Generated_Source\PSoC5/Columns.c **** {
+ 188              		.loc 1 117 0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 1, uses_anonymous_args = 0
+ 192              		@ link register save eliminated.
+ 193 0000 80B4     		push	{r7}
+ 194              		.cfi_def_cfa_offset 4
+ 195              		.cfi_offset 7, -4
+ 196 0002 00AF     		add	r7, sp, #0
+ 197              		.cfi_def_cfa_register 7
+ 118:Generated_Source\PSoC5/Columns.c ****     return (Columns_PS & Columns_MASK) >> Columns_SHIFT;
+ 198              		.loc 1 118 0
+ 199 0004 054B     		ldr	r3, .L9
+ 200 0006 1B78     		ldrb	r3, [r3]
+ 201 0008 DBB2     		uxtb	r3, r3
+ 202 000a 03F03C03 		and	r3, r3, #60
+ 203 000e 9B08     		lsrs	r3, r3, #2
+ 204 0010 DBB2     		uxtb	r3, r3
+ 119:Generated_Source\PSoC5/Columns.c **** }
+ 205              		.loc 1 119 0
+ 206 0012 1846     		mov	r0, r3
+ 207 0014 BD46     		mov	sp, r7
+ 208              		.cfi_def_cfa_register 13
+ 209              		@ sp needed
+ 210 0016 80BC     		pop	{r7}
+ 211              		.cfi_restore 7
+ 212              		.cfi_def_cfa_offset 0
+ 213 0018 7047     		bx	lr
+ 214              	.L10:
+ 215 001a 00BF     		.align	2
+ 216              	.L9:
+ 217 001c 11510040 		.word	1073762577
+ 218              		.cfi_endproc
+ 219              	.LFE2:
+ 220              		.size	Columns_Read, .-Columns_Read
+ 221              		.section	.text.Columns_ReadDataReg,"ax",%progbits
+ 222              		.align	2
+ 223              		.global	Columns_ReadDataReg
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 7
+
+
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.type	Columns_ReadDataReg, %function
+ 227              	Columns_ReadDataReg:
+ 228              	.LFB3:
+ 120:Generated_Source\PSoC5/Columns.c **** 
+ 121:Generated_Source\PSoC5/Columns.c **** 
+ 122:Generated_Source\PSoC5/Columns.c **** /*******************************************************************************
+ 123:Generated_Source\PSoC5/Columns.c **** * Function Name: Columns_ReadDataReg
+ 124:Generated_Source\PSoC5/Columns.c **** ****************************************************************************//**
+ 125:Generated_Source\PSoC5/Columns.c **** *
+ 126:Generated_Source\PSoC5/Columns.c **** * \brief Reads the associated physical port's data output register and masks 
+ 127:Generated_Source\PSoC5/Columns.c **** *  the correct bits according to the width and bit position of the component 
+ 128:Generated_Source\PSoC5/Columns.c **** *  instance. 
+ 129:Generated_Source\PSoC5/Columns.c **** *
+ 130:Generated_Source\PSoC5/Columns.c **** * The data output register controls the signal applied to the physical pin in 
+ 131:Generated_Source\PSoC5/Columns.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 132:Generated_Source\PSoC5/Columns.c **** * preferred Columns_Read() API because the 
+ 133:Generated_Source\PSoC5/Columns.c **** * Columns_ReadDataReg() reads the data register instead of the status 
+ 134:Generated_Source\PSoC5/Columns.c **** * register. For output pins this is a useful function to determine the value 
+ 135:Generated_Source\PSoC5/Columns.c **** * just written to the pin.
+ 136:Generated_Source\PSoC5/Columns.c **** *
+ 137:Generated_Source\PSoC5/Columns.c **** * \return 
+ 138:Generated_Source\PSoC5/Columns.c **** *  The current value of the data register masked and shifted into a right 
+ 139:Generated_Source\PSoC5/Columns.c **** *  justified number for the component instance.
+ 140:Generated_Source\PSoC5/Columns.c **** *
+ 141:Generated_Source\PSoC5/Columns.c **** * \funcusage
+ 142:Generated_Source\PSoC5/Columns.c **** *  \snippet Columns_SUT.c usage_Columns_ReadDataReg 
+ 143:Generated_Source\PSoC5/Columns.c **** *******************************************************************************/
+ 144:Generated_Source\PSoC5/Columns.c **** uint8 Columns_ReadDataReg(void)
+ 145:Generated_Source\PSoC5/Columns.c **** {
+ 229              		.loc 1 145 0
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 1, uses_anonymous_args = 0
+ 233              		@ link register save eliminated.
+ 234 0000 80B4     		push	{r7}
+ 235              		.cfi_def_cfa_offset 4
+ 236              		.cfi_offset 7, -4
+ 237 0002 00AF     		add	r7, sp, #0
+ 238              		.cfi_def_cfa_register 7
+ 146:Generated_Source\PSoC5/Columns.c ****     return (Columns_DR & Columns_MASK) >> Columns_SHIFT;
+ 239              		.loc 1 146 0
+ 240 0004 054B     		ldr	r3, .L13
+ 241 0006 1B78     		ldrb	r3, [r3]
+ 242 0008 DBB2     		uxtb	r3, r3
+ 243 000a 03F03C03 		and	r3, r3, #60
+ 244 000e 9B08     		lsrs	r3, r3, #2
+ 245 0010 DBB2     		uxtb	r3, r3
+ 147:Generated_Source\PSoC5/Columns.c **** }
+ 246              		.loc 1 147 0
+ 247 0012 1846     		mov	r0, r3
+ 248 0014 BD46     		mov	sp, r7
+ 249              		.cfi_def_cfa_register 13
+ 250              		@ sp needed
+ 251 0016 80BC     		pop	{r7}
+ 252              		.cfi_restore 7
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 8
+
+
+ 253              		.cfi_def_cfa_offset 0
+ 254 0018 7047     		bx	lr
+ 255              	.L14:
+ 256 001a 00BF     		.align	2
+ 257              	.L13:
+ 258 001c 10510040 		.word	1073762576
+ 259              		.cfi_endproc
+ 260              	.LFE3:
+ 261              		.size	Columns_ReadDataReg, .-Columns_ReadDataReg
+ 262              		.section	.text.Columns_SetInterruptMode,"ax",%progbits
+ 263              		.align	2
+ 264              		.global	Columns_SetInterruptMode
+ 265              		.thumb
+ 266              		.thumb_func
+ 267              		.type	Columns_SetInterruptMode, %function
+ 268              	Columns_SetInterruptMode:
+ 269              	.LFB4:
+ 148:Generated_Source\PSoC5/Columns.c **** 
+ 149:Generated_Source\PSoC5/Columns.c **** 
+ 150:Generated_Source\PSoC5/Columns.c **** /* If interrupt is connected for this Pins component */ 
+ 151:Generated_Source\PSoC5/Columns.c **** #if defined(Columns_INTSTAT) 
+ 152:Generated_Source\PSoC5/Columns.c **** 
+ 153:Generated_Source\PSoC5/Columns.c ****     /*******************************************************************************
+ 154:Generated_Source\PSoC5/Columns.c ****     * Function Name: Columns_SetInterruptMode
+ 155:Generated_Source\PSoC5/Columns.c ****     ****************************************************************************//**
+ 156:Generated_Source\PSoC5/Columns.c ****     *
+ 157:Generated_Source\PSoC5/Columns.c ****     * \brief Configures the interrupt mode for each of the Pins component's
+ 158:Generated_Source\PSoC5/Columns.c ****     *  pins. Alternatively you may set the interrupt mode for all the pins
+ 159:Generated_Source\PSoC5/Columns.c ****     *  specified in the Pins component.
+ 160:Generated_Source\PSoC5/Columns.c ****     *
+ 161:Generated_Source\PSoC5/Columns.c ****     *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+ 162:Generated_Source\PSoC5/Columns.c ****     *  interrupt may trigger it.
+ 163:Generated_Source\PSoC5/Columns.c ****     *
+ 164:Generated_Source\PSoC5/Columns.c ****     * \param position
+ 165:Generated_Source\PSoC5/Columns.c ****     *  The pin position as listed in the Pins component. You may OR these to be 
+ 166:Generated_Source\PSoC5/Columns.c ****     *  able to configure the interrupt mode of multiple pins within a Pins 
+ 167:Generated_Source\PSoC5/Columns.c ****     *  component. Or you may use Columns_INTR_ALL to configure the
+ 168:Generated_Source\PSoC5/Columns.c ****     *  interrupt mode of all the pins in the Pins component.       
+ 169:Generated_Source\PSoC5/Columns.c ****     *  - Columns_0_INTR       (First pin in the list)
+ 170:Generated_Source\PSoC5/Columns.c ****     *  - Columns_1_INTR       (Second pin in the list)
+ 171:Generated_Source\PSoC5/Columns.c ****     *  - ...
+ 172:Generated_Source\PSoC5/Columns.c ****     *  - Columns_INTR_ALL     (All pins in Pins component)
+ 173:Generated_Source\PSoC5/Columns.c ****     *
+ 174:Generated_Source\PSoC5/Columns.c ****     * \param mode
+ 175:Generated_Source\PSoC5/Columns.c ****     *  Interrupt mode for the selected pins. Valid options are documented in
+ 176:Generated_Source\PSoC5/Columns.c ****     *  \ref intrMode.
+ 177:Generated_Source\PSoC5/Columns.c ****     *
+ 178:Generated_Source\PSoC5/Columns.c ****     * \return 
+ 179:Generated_Source\PSoC5/Columns.c ****     *  None
+ 180:Generated_Source\PSoC5/Columns.c ****     *  
+ 181:Generated_Source\PSoC5/Columns.c ****     * \sideeffect
+ 182:Generated_Source\PSoC5/Columns.c ****     *  It is recommended that the interrupt be disabled before calling this 
+ 183:Generated_Source\PSoC5/Columns.c ****     *  function to avoid unintended interrupt requests. Note that the interrupt
+ 184:Generated_Source\PSoC5/Columns.c ****     *  type is port wide, and therefore will trigger for any enabled pin on the 
+ 185:Generated_Source\PSoC5/Columns.c ****     *  port.
+ 186:Generated_Source\PSoC5/Columns.c ****     *
+ 187:Generated_Source\PSoC5/Columns.c ****     * \funcusage
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 9
+
+
+ 188:Generated_Source\PSoC5/Columns.c ****     *  \snippet Columns_SUT.c usage_Columns_SetInterruptMode
+ 189:Generated_Source\PSoC5/Columns.c ****     *******************************************************************************/
+ 190:Generated_Source\PSoC5/Columns.c ****     void Columns_SetInterruptMode(uint16 position, uint16 mode)
+ 191:Generated_Source\PSoC5/Columns.c ****     {
+ 270              		.loc 1 191 0
+ 271              		.cfi_startproc
+ 272              		@ args = 0, pretend = 0, frame = 8
+ 273              		@ frame_needed = 1, uses_anonymous_args = 0
+ 274              		@ link register save eliminated.
+ 275 0000 80B4     		push	{r7}
+ 276              		.cfi_def_cfa_offset 4
+ 277              		.cfi_offset 7, -4
+ 278 0002 83B0     		sub	sp, sp, #12
+ 279              		.cfi_def_cfa_offset 16
+ 280 0004 00AF     		add	r7, sp, #0
+ 281              		.cfi_def_cfa_register 7
+ 282 0006 0346     		mov	r3, r0
+ 283 0008 0A46     		mov	r2, r1
+ 284 000a FB80     		strh	r3, [r7, #6]	@ movhi
+ 285 000c 1346     		mov	r3, r2	@ movhi
+ 286 000e BB80     		strh	r3, [r7, #4]	@ movhi
+ 192:Generated_Source\PSoC5/Columns.c **** 		if((position & Columns_0_INTR) != 0u) 
+ 287              		.loc 1 192 0
+ 288 0010 FB88     		ldrh	r3, [r7, #6]
+ 289 0012 03F00403 		and	r3, r3, #4
+ 290 0016 002B     		cmp	r3, #0
+ 291 0018 03D0     		beq	.L16
+ 193:Generated_Source\PSoC5/Columns.c **** 		{ 
+ 194:Generated_Source\PSoC5/Columns.c **** 			 Columns_0_INTTYPE_REG = (uint8)mode; 
+ 292              		.loc 1 194 0
+ 293 001a 124B     		ldr	r3, .L21
+ 294 001c BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 295 001e D2B2     		uxtb	r2, r2
+ 296 0020 1A70     		strb	r2, [r3]
+ 297              	.L16:
+ 195:Generated_Source\PSoC5/Columns.c **** 		} 
+ 196:Generated_Source\PSoC5/Columns.c **** 		if((position & Columns_1_INTR) != 0u) 
+ 298              		.loc 1 196 0
+ 299 0022 FB88     		ldrh	r3, [r7, #6]
+ 300 0024 03F00803 		and	r3, r3, #8
+ 301 0028 002B     		cmp	r3, #0
+ 302 002a 03D0     		beq	.L17
+ 197:Generated_Source\PSoC5/Columns.c **** 		{ 
+ 198:Generated_Source\PSoC5/Columns.c **** 			 Columns_1_INTTYPE_REG = (uint8)mode; 
+ 303              		.loc 1 198 0
+ 304 002c 0E4B     		ldr	r3, .L21+4
+ 305 002e BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 306 0030 D2B2     		uxtb	r2, r2
+ 307 0032 1A70     		strb	r2, [r3]
+ 308              	.L17:
+ 199:Generated_Source\PSoC5/Columns.c **** 		} 
+ 200:Generated_Source\PSoC5/Columns.c **** 		if((position & Columns_2_INTR) != 0u) 
+ 309              		.loc 1 200 0
+ 310 0034 FB88     		ldrh	r3, [r7, #6]
+ 311 0036 03F01003 		and	r3, r3, #16
+ 312 003a 002B     		cmp	r3, #0
+ 313 003c 03D0     		beq	.L18
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 10
+
+
+ 201:Generated_Source\PSoC5/Columns.c **** 		{ 
+ 202:Generated_Source\PSoC5/Columns.c **** 			 Columns_2_INTTYPE_REG = (uint8)mode; 
+ 314              		.loc 1 202 0
+ 315 003e 0B4B     		ldr	r3, .L21+8
+ 316 0040 BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 317 0042 D2B2     		uxtb	r2, r2
+ 318 0044 1A70     		strb	r2, [r3]
+ 319              	.L18:
+ 203:Generated_Source\PSoC5/Columns.c **** 		} 
+ 204:Generated_Source\PSoC5/Columns.c **** 		if((position & Columns_3_INTR) != 0u) 
+ 320              		.loc 1 204 0
+ 321 0046 FB88     		ldrh	r3, [r7, #6]
+ 322 0048 03F02003 		and	r3, r3, #32
+ 323 004c 002B     		cmp	r3, #0
+ 324 004e 03D0     		beq	.L20
+ 205:Generated_Source\PSoC5/Columns.c **** 		{ 
+ 206:Generated_Source\PSoC5/Columns.c **** 			 Columns_3_INTTYPE_REG = (uint8)mode; 
+ 325              		.loc 1 206 0
+ 326 0050 074B     		ldr	r3, .L21+12
+ 327 0052 BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 328 0054 D2B2     		uxtb	r2, r2
+ 329 0056 1A70     		strb	r2, [r3]
+ 330              	.L20:
+ 207:Generated_Source\PSoC5/Columns.c **** 		}
+ 208:Generated_Source\PSoC5/Columns.c ****     }
+ 331              		.loc 1 208 0
+ 332 0058 00BF     		nop
+ 333 005a 0C37     		adds	r7, r7, #12
+ 334              		.cfi_def_cfa_offset 4
+ 335 005c BD46     		mov	sp, r7
+ 336              		.cfi_def_cfa_register 13
+ 337              		@ sp needed
+ 338 005e 80BC     		pop	{r7}
+ 339              		.cfi_restore 7
+ 340              		.cfi_def_cfa_offset 0
+ 341 0060 7047     		bx	lr
+ 342              	.L22:
+ 343 0062 00BF     		.align	2
+ 344              	.L21:
+ 345 0064 0A450040 		.word	1073759498
+ 346 0068 0B450040 		.word	1073759499
+ 347 006c 0C450040 		.word	1073759500
+ 348 0070 0D450040 		.word	1073759501
+ 349              		.cfi_endproc
+ 350              	.LFE4:
+ 351              		.size	Columns_SetInterruptMode, .-Columns_SetInterruptMode
+ 352              		.section	.text.Columns_ClearInterrupt,"ax",%progbits
+ 353              		.align	2
+ 354              		.global	Columns_ClearInterrupt
+ 355              		.thumb
+ 356              		.thumb_func
+ 357              		.type	Columns_ClearInterrupt, %function
+ 358              	Columns_ClearInterrupt:
+ 359              	.LFB5:
+ 209:Generated_Source\PSoC5/Columns.c ****     
+ 210:Generated_Source\PSoC5/Columns.c ****     
+ 211:Generated_Source\PSoC5/Columns.c ****     /*******************************************************************************
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 11
+
+
+ 212:Generated_Source\PSoC5/Columns.c ****     * Function Name: Columns_ClearInterrupt
+ 213:Generated_Source\PSoC5/Columns.c ****     ****************************************************************************//**
+ 214:Generated_Source\PSoC5/Columns.c ****     *
+ 215:Generated_Source\PSoC5/Columns.c ****     * \brief Clears any active interrupts attached with the component and returns 
+ 216:Generated_Source\PSoC5/Columns.c ****     *  the value of the interrupt status register allowing determination of which
+ 217:Generated_Source\PSoC5/Columns.c ****     *  pins generated an interrupt event.
+ 218:Generated_Source\PSoC5/Columns.c ****     *
+ 219:Generated_Source\PSoC5/Columns.c ****     * \return 
+ 220:Generated_Source\PSoC5/Columns.c ****     *  The right-shifted current value of the interrupt status register. Each pin 
+ 221:Generated_Source\PSoC5/Columns.c ****     *  has one bit set if it generated an interrupt event. For example, bit 0 is 
+ 222:Generated_Source\PSoC5/Columns.c ****     *  for pin 0 and bit 1 is for pin 1 of the Pins component.
+ 223:Generated_Source\PSoC5/Columns.c ****     *  
+ 224:Generated_Source\PSoC5/Columns.c ****     * \sideeffect
+ 225:Generated_Source\PSoC5/Columns.c ****     *  Clears all bits of the physical port's interrupt status register, not just
+ 226:Generated_Source\PSoC5/Columns.c ****     *  those associated with the Pins component.
+ 227:Generated_Source\PSoC5/Columns.c ****     *
+ 228:Generated_Source\PSoC5/Columns.c ****     * \funcusage
+ 229:Generated_Source\PSoC5/Columns.c ****     *  \snippet Columns_SUT.c usage_Columns_ClearInterrupt
+ 230:Generated_Source\PSoC5/Columns.c ****     *******************************************************************************/
+ 231:Generated_Source\PSoC5/Columns.c ****     uint8 Columns_ClearInterrupt(void)
+ 232:Generated_Source\PSoC5/Columns.c ****     {
+ 360              		.loc 1 232 0
+ 361              		.cfi_startproc
+ 362              		@ args = 0, pretend = 0, frame = 0
+ 363              		@ frame_needed = 1, uses_anonymous_args = 0
+ 364              		@ link register save eliminated.
+ 365 0000 80B4     		push	{r7}
+ 366              		.cfi_def_cfa_offset 4
+ 367              		.cfi_offset 7, -4
+ 368 0002 00AF     		add	r7, sp, #0
+ 369              		.cfi_def_cfa_register 7
+ 233:Generated_Source\PSoC5/Columns.c ****         return (Columns_INTSTAT & Columns_MASK) >> Columns_SHIFT;
+ 370              		.loc 1 233 0
+ 371 0004 054B     		ldr	r3, .L25
+ 372 0006 1B78     		ldrb	r3, [r3]
+ 373 0008 DBB2     		uxtb	r3, r3
+ 374 000a 03F03C03 		and	r3, r3, #60
+ 375 000e 9B08     		lsrs	r3, r3, #2
+ 376 0010 DBB2     		uxtb	r3, r3
+ 234:Generated_Source\PSoC5/Columns.c ****     }
+ 377              		.loc 1 234 0
+ 378 0012 1846     		mov	r0, r3
+ 379 0014 BD46     		mov	sp, r7
+ 380              		.cfi_def_cfa_register 13
+ 381              		@ sp needed
+ 382 0016 80BC     		pop	{r7}
+ 383              		.cfi_restore 7
+ 384              		.cfi_def_cfa_offset 0
+ 385 0018 7047     		bx	lr
+ 386              	.L26:
+ 387 001a 00BF     		.align	2
+ 388              	.L25:
+ 389 001c 81450040 		.word	1073759617
+ 390              		.cfi_endproc
+ 391              	.LFE5:
+ 392              		.size	Columns_ClearInterrupt, .-Columns_ClearInterrupt
+ 393              		.text
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 12
+
+
+ 394              	.Letext0:
+ 395              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 396              		.section	.debug_info,"",%progbits
+ 397              	.Ldebug_info0:
+ 398 0000 6D010000 		.4byte	0x16d
+ 399 0004 0400     		.2byte	0x4
+ 400 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 401 000a 04       		.byte	0x4
+ 402 000b 01       		.uleb128 0x1
+ 403 000c 00000000 		.4byte	.LASF24
+ 404 0010 0C       		.byte	0xc
+ 405 0011 B5010000 		.4byte	.LASF25
+ 406 0015 80010000 		.4byte	.LASF26
+ 407 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 408 001d 00000000 		.4byte	0
+ 409 0021 00000000 		.4byte	.Ldebug_line0
+ 410 0025 02       		.uleb128 0x2
+ 411 0026 01       		.byte	0x1
+ 412 0027 06       		.byte	0x6
+ 413 0028 F8010000 		.4byte	.LASF0
+ 414 002c 02       		.uleb128 0x2
+ 415 002d 01       		.byte	0x1
+ 416 002e 08       		.byte	0x8
+ 417 002f BA000000 		.4byte	.LASF1
+ 418 0033 02       		.uleb128 0x2
+ 419 0034 02       		.byte	0x2
+ 420 0035 05       		.byte	0x5
+ 421 0036 70010000 		.4byte	.LASF2
+ 422 003a 02       		.uleb128 0x2
+ 423 003b 02       		.byte	0x2
+ 424 003c 07       		.byte	0x7
+ 425 003d DF000000 		.4byte	.LASF3
+ 426 0041 02       		.uleb128 0x2
+ 427 0042 04       		.byte	0x4
+ 428 0043 05       		.byte	0x5
+ 429 0044 D6010000 		.4byte	.LASF4
+ 430 0048 02       		.uleb128 0x2
+ 431 0049 04       		.byte	0x4
+ 432 004a 07       		.byte	0x7
+ 433 004b CD000000 		.4byte	.LASF5
+ 434 004f 02       		.uleb128 0x2
+ 435 0050 08       		.byte	0x8
+ 436 0051 05       		.byte	0x5
+ 437 0052 5D010000 		.4byte	.LASF6
+ 438 0056 02       		.uleb128 0x2
+ 439 0057 08       		.byte	0x8
+ 440 0058 07       		.byte	0x7
+ 441 0059 2A010000 		.4byte	.LASF7
+ 442 005d 03       		.uleb128 0x3
+ 443 005e 04       		.byte	0x4
+ 444 005f 05       		.byte	0x5
+ 445 0060 696E7400 		.ascii	"int\000"
+ 446 0064 02       		.uleb128 0x2
+ 447 0065 04       		.byte	0x4
+ 448 0066 07       		.byte	0x7
+ 449 0067 09010000 		.4byte	.LASF8
+ 450 006b 04       		.uleb128 0x4
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 13
+
+
+ 451 006c 7A010000 		.4byte	.LASF9
+ 452 0070 02       		.byte	0x2
+ 453 0071 3801     		.2byte	0x138
+ 454 0073 2C000000 		.4byte	0x2c
+ 455 0077 04       		.uleb128 0x4
+ 456 0078 F9000000 		.4byte	.LASF10
+ 457 007c 02       		.byte	0x2
+ 458 007d 3901     		.2byte	0x139
+ 459 007f 3A000000 		.4byte	0x3a
+ 460 0083 02       		.uleb128 0x2
+ 461 0084 04       		.byte	0x4
+ 462 0085 04       		.byte	0x4
+ 463 0086 B4000000 		.4byte	.LASF11
+ 464 008a 02       		.uleb128 0x2
+ 465 008b 08       		.byte	0x8
+ 466 008c 04       		.byte	0x4
+ 467 008d F2000000 		.4byte	.LASF12
+ 468 0091 02       		.uleb128 0x2
+ 469 0092 01       		.byte	0x1
+ 470 0093 08       		.byte	0x8
+ 471 0094 6B010000 		.4byte	.LASF13
+ 472 0098 04       		.uleb128 0x4
+ 473 0099 C8000000 		.4byte	.LASF14
+ 474 009d 02       		.byte	0x2
+ 475 009e E201     		.2byte	0x1e2
+ 476 00a0 A4000000 		.4byte	0xa4
+ 477 00a4 05       		.uleb128 0x5
+ 478 00a5 6B000000 		.4byte	0x6b
+ 479 00a9 06       		.uleb128 0x6
+ 480 00aa 11020000 		.4byte	.LASF15
+ 481 00ae 01       		.byte	0x1
+ 482 00af 39       		.byte	0x39
+ 483 00b0 00000000 		.4byte	.LFB0
+ 484 00b4 3C000000 		.4byte	.LFE0-.LFB0
+ 485 00b8 01       		.uleb128 0x1
+ 486 00b9 9C       		.byte	0x9c
+ 487 00ba DB000000 		.4byte	0xdb
+ 488 00be 07       		.uleb128 0x7
+ 489 00bf A3000000 		.4byte	.LASF17
+ 490 00c3 01       		.byte	0x1
+ 491 00c4 39       		.byte	0x39
+ 492 00c5 6B000000 		.4byte	0x6b
+ 493 00c9 02       		.uleb128 0x2
+ 494 00ca 91       		.byte	0x91
+ 495 00cb 6F       		.sleb128 -17
+ 496 00cc 08       		.uleb128 0x8
+ 497 00cd A9000000 		.4byte	.LASF27
+ 498 00d1 01       		.byte	0x1
+ 499 00d2 3B       		.byte	0x3b
+ 500 00d3 6B000000 		.4byte	0x6b
+ 501 00d7 02       		.uleb128 0x2
+ 502 00d8 91       		.byte	0x91
+ 503 00d9 77       		.sleb128 -9
+ 504 00da 00       		.byte	0
+ 505 00db 06       		.uleb128 0x6
+ 506 00dc 8E000000 		.4byte	.LASF16
+ 507 00e0 01       		.byte	0x1
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 14
+
+
+ 508 00e1 5A       		.byte	0x5a
+ 509 00e2 00000000 		.4byte	.LFB1
+ 510 00e6 AC000000 		.4byte	.LFE1-.LFB1
+ 511 00ea 01       		.uleb128 0x1
+ 512 00eb 9C       		.byte	0x9c
+ 513 00ec FF000000 		.4byte	0xff
+ 514 00f0 07       		.uleb128 0x7
+ 515 00f1 58010000 		.4byte	.LASF18
+ 516 00f5 01       		.byte	0x1
+ 517 00f6 5A       		.byte	0x5a
+ 518 00f7 6B000000 		.4byte	0x6b
+ 519 00fb 02       		.uleb128 0x2
+ 520 00fc 91       		.byte	0x91
+ 521 00fd 77       		.sleb128 -9
+ 522 00fe 00       		.byte	0
+ 523 00ff 09       		.uleb128 0x9
+ 524 0100 04020000 		.4byte	.LASF19
+ 525 0104 01       		.byte	0x1
+ 526 0105 74       		.byte	0x74
+ 527 0106 6B000000 		.4byte	0x6b
+ 528 010a 00000000 		.4byte	.LFB2
+ 529 010e 20000000 		.4byte	.LFE2-.LFB2
+ 530 0112 01       		.uleb128 0x1
+ 531 0113 9C       		.byte	0x9c
+ 532 0114 09       		.uleb128 0x9
+ 533 0115 16010000 		.4byte	.LASF20
+ 534 0119 01       		.byte	0x1
+ 535 011a 90       		.byte	0x90
+ 536 011b 6B000000 		.4byte	0x6b
+ 537 011f 00000000 		.4byte	.LFB3
+ 538 0123 20000000 		.4byte	.LFE3-.LFB3
+ 539 0127 01       		.uleb128 0x1
+ 540 0128 9C       		.byte	0x9c
+ 541 0129 06       		.uleb128 0x6
+ 542 012a DF010000 		.4byte	.LASF21
+ 543 012e 01       		.byte	0x1
+ 544 012f BE       		.byte	0xbe
+ 545 0130 00000000 		.4byte	.LFB4
+ 546 0134 74000000 		.4byte	.LFE4-.LFB4
+ 547 0138 01       		.uleb128 0x1
+ 548 0139 9C       		.byte	0x9c
+ 549 013a 5B010000 		.4byte	0x15b
+ 550 013e 07       		.uleb128 0x7
+ 551 013f 00010000 		.4byte	.LASF22
+ 552 0143 01       		.byte	0x1
+ 553 0144 BE       		.byte	0xbe
+ 554 0145 77000000 		.4byte	0x77
+ 555 0149 02       		.uleb128 0x2
+ 556 014a 91       		.byte	0x91
+ 557 014b 76       		.sleb128 -10
+ 558 014c 07       		.uleb128 0x7
+ 559 014d 58010000 		.4byte	.LASF18
+ 560 0151 01       		.byte	0x1
+ 561 0152 BE       		.byte	0xbe
+ 562 0153 77000000 		.4byte	0x77
+ 563 0157 02       		.uleb128 0x2
+ 564 0158 91       		.byte	0x91
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 15
+
+
+ 565 0159 74       		.sleb128 -12
+ 566 015a 00       		.byte	0
+ 567 015b 09       		.uleb128 0x9
+ 568 015c 41010000 		.4byte	.LASF23
+ 569 0160 01       		.byte	0x1
+ 570 0161 E7       		.byte	0xe7
+ 571 0162 6B000000 		.4byte	0x6b
+ 572 0166 00000000 		.4byte	.LFB5
+ 573 016a 20000000 		.4byte	.LFE5-.LFB5
+ 574 016e 01       		.uleb128 0x1
+ 575 016f 9C       		.byte	0x9c
+ 576 0170 00       		.byte	0
+ 577              		.section	.debug_abbrev,"",%progbits
+ 578              	.Ldebug_abbrev0:
+ 579 0000 01       		.uleb128 0x1
+ 580 0001 11       		.uleb128 0x11
+ 581 0002 01       		.byte	0x1
+ 582 0003 25       		.uleb128 0x25
+ 583 0004 0E       		.uleb128 0xe
+ 584 0005 13       		.uleb128 0x13
+ 585 0006 0B       		.uleb128 0xb
+ 586 0007 03       		.uleb128 0x3
+ 587 0008 0E       		.uleb128 0xe
+ 588 0009 1B       		.uleb128 0x1b
+ 589 000a 0E       		.uleb128 0xe
+ 590 000b 55       		.uleb128 0x55
+ 591 000c 17       		.uleb128 0x17
+ 592 000d 11       		.uleb128 0x11
+ 593 000e 01       		.uleb128 0x1
+ 594 000f 10       		.uleb128 0x10
+ 595 0010 17       		.uleb128 0x17
+ 596 0011 00       		.byte	0
+ 597 0012 00       		.byte	0
+ 598 0013 02       		.uleb128 0x2
+ 599 0014 24       		.uleb128 0x24
+ 600 0015 00       		.byte	0
+ 601 0016 0B       		.uleb128 0xb
+ 602 0017 0B       		.uleb128 0xb
+ 603 0018 3E       		.uleb128 0x3e
+ 604 0019 0B       		.uleb128 0xb
+ 605 001a 03       		.uleb128 0x3
+ 606 001b 0E       		.uleb128 0xe
+ 607 001c 00       		.byte	0
+ 608 001d 00       		.byte	0
+ 609 001e 03       		.uleb128 0x3
+ 610 001f 24       		.uleb128 0x24
+ 611 0020 00       		.byte	0
+ 612 0021 0B       		.uleb128 0xb
+ 613 0022 0B       		.uleb128 0xb
+ 614 0023 3E       		.uleb128 0x3e
+ 615 0024 0B       		.uleb128 0xb
+ 616 0025 03       		.uleb128 0x3
+ 617 0026 08       		.uleb128 0x8
+ 618 0027 00       		.byte	0
+ 619 0028 00       		.byte	0
+ 620 0029 04       		.uleb128 0x4
+ 621 002a 16       		.uleb128 0x16
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 16
+
+
+ 622 002b 00       		.byte	0
+ 623 002c 03       		.uleb128 0x3
+ 624 002d 0E       		.uleb128 0xe
+ 625 002e 3A       		.uleb128 0x3a
+ 626 002f 0B       		.uleb128 0xb
+ 627 0030 3B       		.uleb128 0x3b
+ 628 0031 05       		.uleb128 0x5
+ 629 0032 49       		.uleb128 0x49
+ 630 0033 13       		.uleb128 0x13
+ 631 0034 00       		.byte	0
+ 632 0035 00       		.byte	0
+ 633 0036 05       		.uleb128 0x5
+ 634 0037 35       		.uleb128 0x35
+ 635 0038 00       		.byte	0
+ 636 0039 49       		.uleb128 0x49
+ 637 003a 13       		.uleb128 0x13
+ 638 003b 00       		.byte	0
+ 639 003c 00       		.byte	0
+ 640 003d 06       		.uleb128 0x6
+ 641 003e 2E       		.uleb128 0x2e
+ 642 003f 01       		.byte	0x1
+ 643 0040 3F       		.uleb128 0x3f
+ 644 0041 19       		.uleb128 0x19
+ 645 0042 03       		.uleb128 0x3
+ 646 0043 0E       		.uleb128 0xe
+ 647 0044 3A       		.uleb128 0x3a
+ 648 0045 0B       		.uleb128 0xb
+ 649 0046 3B       		.uleb128 0x3b
+ 650 0047 0B       		.uleb128 0xb
+ 651 0048 27       		.uleb128 0x27
+ 652 0049 19       		.uleb128 0x19
+ 653 004a 11       		.uleb128 0x11
+ 654 004b 01       		.uleb128 0x1
+ 655 004c 12       		.uleb128 0x12
+ 656 004d 06       		.uleb128 0x6
+ 657 004e 40       		.uleb128 0x40
+ 658 004f 18       		.uleb128 0x18
+ 659 0050 9742     		.uleb128 0x2117
+ 660 0052 19       		.uleb128 0x19
+ 661 0053 01       		.uleb128 0x1
+ 662 0054 13       		.uleb128 0x13
+ 663 0055 00       		.byte	0
+ 664 0056 00       		.byte	0
+ 665 0057 07       		.uleb128 0x7
+ 666 0058 05       		.uleb128 0x5
+ 667 0059 00       		.byte	0
+ 668 005a 03       		.uleb128 0x3
+ 669 005b 0E       		.uleb128 0xe
+ 670 005c 3A       		.uleb128 0x3a
+ 671 005d 0B       		.uleb128 0xb
+ 672 005e 3B       		.uleb128 0x3b
+ 673 005f 0B       		.uleb128 0xb
+ 674 0060 49       		.uleb128 0x49
+ 675 0061 13       		.uleb128 0x13
+ 676 0062 02       		.uleb128 0x2
+ 677 0063 18       		.uleb128 0x18
+ 678 0064 00       		.byte	0
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 17
+
+
+ 679 0065 00       		.byte	0
+ 680 0066 08       		.uleb128 0x8
+ 681 0067 34       		.uleb128 0x34
+ 682 0068 00       		.byte	0
+ 683 0069 03       		.uleb128 0x3
+ 684 006a 0E       		.uleb128 0xe
+ 685 006b 3A       		.uleb128 0x3a
+ 686 006c 0B       		.uleb128 0xb
+ 687 006d 3B       		.uleb128 0x3b
+ 688 006e 0B       		.uleb128 0xb
+ 689 006f 49       		.uleb128 0x49
+ 690 0070 13       		.uleb128 0x13
+ 691 0071 02       		.uleb128 0x2
+ 692 0072 18       		.uleb128 0x18
+ 693 0073 00       		.byte	0
+ 694 0074 00       		.byte	0
+ 695 0075 09       		.uleb128 0x9
+ 696 0076 2E       		.uleb128 0x2e
+ 697 0077 00       		.byte	0
+ 698 0078 3F       		.uleb128 0x3f
+ 699 0079 19       		.uleb128 0x19
+ 700 007a 03       		.uleb128 0x3
+ 701 007b 0E       		.uleb128 0xe
+ 702 007c 3A       		.uleb128 0x3a
+ 703 007d 0B       		.uleb128 0xb
+ 704 007e 3B       		.uleb128 0x3b
+ 705 007f 0B       		.uleb128 0xb
+ 706 0080 27       		.uleb128 0x27
+ 707 0081 19       		.uleb128 0x19
+ 708 0082 49       		.uleb128 0x49
+ 709 0083 13       		.uleb128 0x13
+ 710 0084 11       		.uleb128 0x11
+ 711 0085 01       		.uleb128 0x1
+ 712 0086 12       		.uleb128 0x12
+ 713 0087 06       		.uleb128 0x6
+ 714 0088 40       		.uleb128 0x40
+ 715 0089 18       		.uleb128 0x18
+ 716 008a 9742     		.uleb128 0x2117
+ 717 008c 19       		.uleb128 0x19
+ 718 008d 00       		.byte	0
+ 719 008e 00       		.byte	0
+ 720 008f 00       		.byte	0
+ 721              		.section	.debug_aranges,"",%progbits
+ 722 0000 44000000 		.4byte	0x44
+ 723 0004 0200     		.2byte	0x2
+ 724 0006 00000000 		.4byte	.Ldebug_info0
+ 725 000a 04       		.byte	0x4
+ 726 000b 00       		.byte	0
+ 727 000c 0000     		.2byte	0
+ 728 000e 0000     		.2byte	0
+ 729 0010 00000000 		.4byte	.LFB0
+ 730 0014 3C000000 		.4byte	.LFE0-.LFB0
+ 731 0018 00000000 		.4byte	.LFB1
+ 732 001c AC000000 		.4byte	.LFE1-.LFB1
+ 733 0020 00000000 		.4byte	.LFB2
+ 734 0024 20000000 		.4byte	.LFE2-.LFB2
+ 735 0028 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 18
+
+
+ 736 002c 20000000 		.4byte	.LFE3-.LFB3
+ 737 0030 00000000 		.4byte	.LFB4
+ 738 0034 74000000 		.4byte	.LFE4-.LFB4
+ 739 0038 00000000 		.4byte	.LFB5
+ 740 003c 20000000 		.4byte	.LFE5-.LFB5
+ 741 0040 00000000 		.4byte	0
+ 742 0044 00000000 		.4byte	0
+ 743              		.section	.debug_ranges,"",%progbits
+ 744              	.Ldebug_ranges0:
+ 745 0000 00000000 		.4byte	.LFB0
+ 746 0004 3C000000 		.4byte	.LFE0
+ 747 0008 00000000 		.4byte	.LFB1
+ 748 000c AC000000 		.4byte	.LFE1
+ 749 0010 00000000 		.4byte	.LFB2
+ 750 0014 20000000 		.4byte	.LFE2
+ 751 0018 00000000 		.4byte	.LFB3
+ 752 001c 20000000 		.4byte	.LFE3
+ 753 0020 00000000 		.4byte	.LFB4
+ 754 0024 74000000 		.4byte	.LFE4
+ 755 0028 00000000 		.4byte	.LFB5
+ 756 002c 20000000 		.4byte	.LFE5
+ 757 0030 00000000 		.4byte	0
+ 758 0034 00000000 		.4byte	0
+ 759              		.section	.debug_line,"",%progbits
+ 760              	.Ldebug_line0:
+ 761 0000 C4000000 		.section	.debug_str,"MS",%progbits,1
+ 761      02004400 
+ 761      00000201 
+ 761      FB0E0D00 
+ 761      01010101 
+ 762              	.LASF24:
+ 763 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 763      43313120 
+ 763      352E342E 
+ 763      31203230 
+ 763      31363036 
+ 764 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 764      20726576 
+ 764      6973696F 
+ 764      6E203233 
+ 764      37373135 
+ 765 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 765      66756E63 
+ 765      74696F6E 
+ 765      2D736563 
+ 765      74696F6E 
+ 766              	.LASF16:
+ 767 008e 436F6C75 		.ascii	"Columns_SetDriveMode\000"
+ 767      6D6E735F 
+ 767      53657444 
+ 767      72697665 
+ 767      4D6F6465 
+ 768              	.LASF17:
+ 769 00a3 76616C75 		.ascii	"value\000"
+ 769      6500
+ 770              	.LASF27:
+ 771 00a9 73746174 		.ascii	"staticBits\000"
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 19
+
+
+ 771      69634269 
+ 771      747300
+ 772              	.LASF11:
+ 773 00b4 666C6F61 		.ascii	"float\000"
+ 773      7400
+ 774              	.LASF1:
+ 775 00ba 756E7369 		.ascii	"unsigned char\000"
+ 775      676E6564 
+ 775      20636861 
+ 775      7200
+ 776              	.LASF14:
+ 777 00c8 72656738 		.ascii	"reg8\000"
+ 777      00
+ 778              	.LASF5:
+ 779 00cd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 779      20756E73 
+ 779      69676E65 
+ 779      6420696E 
+ 779      7400
+ 780              	.LASF3:
+ 781 00df 73686F72 		.ascii	"short unsigned int\000"
+ 781      7420756E 
+ 781      7369676E 
+ 781      65642069 
+ 781      6E7400
+ 782              	.LASF12:
+ 783 00f2 646F7562 		.ascii	"double\000"
+ 783      6C6500
+ 784              	.LASF10:
+ 785 00f9 75696E74 		.ascii	"uint16\000"
+ 785      313600
+ 786              	.LASF22:
+ 787 0100 706F7369 		.ascii	"position\000"
+ 787      74696F6E 
+ 787      00
+ 788              	.LASF8:
+ 789 0109 756E7369 		.ascii	"unsigned int\000"
+ 789      676E6564 
+ 789      20696E74 
+ 789      00
+ 790              	.LASF20:
+ 791 0116 436F6C75 		.ascii	"Columns_ReadDataReg\000"
+ 791      6D6E735F 
+ 791      52656164 
+ 791      44617461 
+ 791      52656700 
+ 792              	.LASF7:
+ 793 012a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 793      206C6F6E 
+ 793      6720756E 
+ 793      7369676E 
+ 793      65642069 
+ 794              	.LASF23:
+ 795 0141 436F6C75 		.ascii	"Columns_ClearInterrupt\000"
+ 795      6D6E735F 
+ 795      436C6561 
+ 795      72496E74 
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 20
+
+
+ 795      65727275 
+ 796              	.LASF18:
+ 797 0158 6D6F6465 		.ascii	"mode\000"
+ 797      00
+ 798              	.LASF6:
+ 799 015d 6C6F6E67 		.ascii	"long long int\000"
+ 799      206C6F6E 
+ 799      6720696E 
+ 799      7400
+ 800              	.LASF13:
+ 801 016b 63686172 		.ascii	"char\000"
+ 801      00
+ 802              	.LASF2:
+ 803 0170 73686F72 		.ascii	"short int\000"
+ 803      7420696E 
+ 803      7400
+ 804              	.LASF9:
+ 805 017a 75696E74 		.ascii	"uint8\000"
+ 805      3800
+ 806              	.LASF26:
+ 807 0180 433A5C55 		.ascii	"C:\\Users\\fabis\\Desktop\\CE210558_GPIO_Interrupt."
+ 807      73657273 
+ 807      5C666162 
+ 807      69735C44 
+ 807      65736B74 
+ 808 01af 63796473 		.ascii	"cydsn\000"
+ 808      6E00
+ 809              	.LASF25:
+ 810 01b5 47656E65 		.ascii	"Generated_Source\\PSoC5\\Columns.c\000"
+ 810      72617465 
+ 810      645F536F 
+ 810      75726365 
+ 810      5C50536F 
+ 811              	.LASF4:
+ 812 01d6 6C6F6E67 		.ascii	"long int\000"
+ 812      20696E74 
+ 812      00
+ 813              	.LASF21:
+ 814 01df 436F6C75 		.ascii	"Columns_SetInterruptMode\000"
+ 814      6D6E735F 
+ 814      53657449 
+ 814      6E746572 
+ 814      72757074 
+ 815              	.LASF0:
+ 816 01f8 7369676E 		.ascii	"signed char\000"
+ 816      65642063 
+ 816      68617200 
+ 817              	.LASF19:
+ 818 0204 436F6C75 		.ascii	"Columns_Read\000"
+ 818      6D6E735F 
+ 818      52656164 
+ 818      00
+ 819              	.LASF15:
+ 820 0211 436F6C75 		.ascii	"Columns_Write\000"
+ 820      6D6E735F 
+ 820      57726974 
+ 820      6500
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\ccFjTd0h.s 			page 21
+
+
+ 821              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

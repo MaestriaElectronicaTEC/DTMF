@@ -1,0 +1,1 @@
+'C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\main.c' -o .o -T SOURCE_C__ARM_GCC_GENERIC -I 'C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn' -I 'C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\Generated_Source\PSoC5' -f 'C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\CortexM3\ARM_GCC_541\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.d'

@@ -1,0 +1,55 @@
+--------------- Rebuild Started: 03/15/2018 23:54:43 Project: CE210558_GPIO_Interrupt, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\CE210558_GPIO_Interrupt.rpt"
+cydsfit.exe -.appdatapath "C:\Users\fabis\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\CE210558_GPIO_Interrupt.cyprj -d CY8C5888LTI-LP097 -s C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 9 pin(s) will be assigned a location by the fitter: Columns(0), Columns(1), Columns(2), Columns(3), Notification(0), Rows(0), Rows(1), Rows(2), Rows(3)
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/InterruptRoutine.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c InterruptRoutine.c -o .\CortexM3\ARM_GCC_541\Debug\InterruptRoutine.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyScBoostClk.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\CyScBoostClk.c -o .\CortexM3\ARM_GCC_541\Debug\CyScBoostClk.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Rows.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\Rows.c -o .\CortexM3\ARM_GCC_541\Debug\Rows.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_rows.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\isr_rows.c -o .\CortexM3\ARM_GCC_541\Debug\isr_rows.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Notification.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\Notification.c -o .\CortexM3\ARM_GCC_541\Debug\Notification.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/isr_columns.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\isr_columns.c -o .\CortexM3\ARM_GCC_541\Debug\isr_columns.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Columns.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\Columns.c -o .\CortexM3\ARM_GCC_541\Debug\Columns.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Cm3Start.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyDmac.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_541\Debug\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_541\Debug\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CySpc.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_541\Debug\CySpc.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_541\Debug\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cy_em_eeprom.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\cy_em_eeprom.c -o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\UART_1.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_PM.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\UART_1_PM.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_INT.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\UART_1_INT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_BOOT.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\UART_1_BOOT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_IntClock.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\UART_1_IntClock.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/KeyPad.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC5\KeyPad.c -o .\CortexM3\ARM_GCC_541\Debug\KeyPad.o
+arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\CE210558_GPIO_Interrupt.a .\CortexM3\ARM_GCC_541\Debug\CyScBoostClk.o .\CortexM3\ARM_GCC_541\Debug\Rows.o .\CortexM3\ARM_GCC_541\Debug\isr_rows.o .\CortexM3\ARM_GCC_541\Debug\Notification.o .\CortexM3\ARM_GCC_541\Debug\isr_columns.o .\CortexM3\ARM_GCC_541\Debug\Columns.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\UART_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\KeyPad.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\CE210558_GPIO_Interrupt.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\CortexM3\ARM_GCC_541\Debug\CE210558_GPIO_Interrupt.elf .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\InterruptRoutine.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\CE210558_GPIO_Interrupt.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/CE210558_GPIO_Interrupt.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -O0 -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\CortexM3\ARM_GCC_541\Debug\CE210558_GPIO_Interrupt.elf --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\CortexM3\ARM_GCC_541\Debug\CE210558_GPIO_Interrupt.elf
+Flash used: 4584 of 262144 bytes (1.7%).
+SRAM used: 1541 of 65536 bytes (2.4%). Stack: 1024 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 03/15/2018 23:55:26 ---------------

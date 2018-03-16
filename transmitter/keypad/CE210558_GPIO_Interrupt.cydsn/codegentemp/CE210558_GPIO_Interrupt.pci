@@ -1,0 +1,17 @@
+# CE210558_GPIO_Interrupt
+# 2018-03-16 05:54:51Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+set_io "Rx_12_6(0)" iocell 12 6
+set_io "KeyPad(0)" iocell 0 0
+set_io "KeyPad(1)" iocell 0 1
+set_io "KeyPad(2)" iocell 0 2
+set_io "KeyPad(3)" iocell 0 3
+set_io "KeyPad(4)" iocell 0 4
+set_io "KeyPad(5)" iocell 0 5
+set_io "KeyPad(6)" iocell 0 6
+set_io "KeyPad(7)" iocell 0 7
+set_io "Tx_12_7(0)" iocell 12 7

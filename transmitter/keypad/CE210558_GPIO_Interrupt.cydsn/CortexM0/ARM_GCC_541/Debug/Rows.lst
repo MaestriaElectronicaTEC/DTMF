@@ -1,0 +1,1225 @@
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Rows.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Rows_SetDriveMode,"ax",%progbits
+  20              		.align	2
+  21              		.global	Rows_SetDriveMode
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	Rows_SetDriveMode, %function
+  25              	Rows_SetDriveMode:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\Rows.c"
+   1:Generated_Source\PSoC4/Rows.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/Rows.c **** * File Name: Rows.c  
+   3:Generated_Source\PSoC4/Rows.c **** * Version 2.20
+   4:Generated_Source\PSoC4/Rows.c **** *
+   5:Generated_Source\PSoC4/Rows.c **** * Description:
+   6:Generated_Source\PSoC4/Rows.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC4/Rows.c **** *
+   8:Generated_Source\PSoC4/Rows.c **** ********************************************************************************
+   9:Generated_Source\PSoC4/Rows.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  10:Generated_Source\PSoC4/Rows.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  11:Generated_Source\PSoC4/Rows.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  12:Generated_Source\PSoC4/Rows.c **** * the software package with which this file was provided.
+  13:Generated_Source\PSoC4/Rows.c **** *******************************************************************************/
+  14:Generated_Source\PSoC4/Rows.c **** 
+  15:Generated_Source\PSoC4/Rows.c **** #include "cytypes.h"
+  16:Generated_Source\PSoC4/Rows.c **** #include "Rows.h"
+  17:Generated_Source\PSoC4/Rows.c **** 
+  18:Generated_Source\PSoC4/Rows.c **** 
+  19:Generated_Source\PSoC4/Rows.c **** #if defined(Rows__PC)
+  20:Generated_Source\PSoC4/Rows.c ****     #define Rows_SetP4PinDriveMode(shift, mode)  \
+  21:Generated_Source\PSoC4/Rows.c ****     do { \
+  22:Generated_Source\PSoC4/Rows.c ****         Rows_PC =   (Rows_PC & \
+  23:Generated_Source\PSoC4/Rows.c ****                                 (uint32)(~(uint32)(Rows_DRIVE_MODE_IND_MASK << \
+  24:Generated_Source\PSoC4/Rows.c ****                                 (Rows_DRIVE_MODE_BITS * (shift))))) | \
+  25:Generated_Source\PSoC4/Rows.c ****                                 (uint32)((uint32)(mode) << \
+  26:Generated_Source\PSoC4/Rows.c ****                                 (Rows_DRIVE_MODE_BITS * (shift))); \
+  27:Generated_Source\PSoC4/Rows.c ****     } while (0)
+  28:Generated_Source\PSoC4/Rows.c **** #else
+  29:Generated_Source\PSoC4/Rows.c ****     #if (CY_PSOC4_4200L)
+  30:Generated_Source\PSoC4/Rows.c ****         #define Rows_SetP4PinDriveMode(shift, mode)  \
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 2
+
+
+  31:Generated_Source\PSoC4/Rows.c ****         do { \
+  32:Generated_Source\PSoC4/Rows.c ****             Rows_USBIO_CTRL_REG = (Rows_USBIO_CTRL_REG & \
+  33:Generated_Source\PSoC4/Rows.c ****                                     (uint32)(~(uint32)(Rows_DRIVE_MODE_IND_MASK << \
+  34:Generated_Source\PSoC4/Rows.c ****                                     (Rows_DRIVE_MODE_BITS * (shift))))) | \
+  35:Generated_Source\PSoC4/Rows.c ****                                     (uint32)((uint32)(mode) << \
+  36:Generated_Source\PSoC4/Rows.c ****                                     (Rows_DRIVE_MODE_BITS * (shift))); \
+  37:Generated_Source\PSoC4/Rows.c ****         } while (0)
+  38:Generated_Source\PSoC4/Rows.c ****     #endif
+  39:Generated_Source\PSoC4/Rows.c **** #endif
+  40:Generated_Source\PSoC4/Rows.c ****   
+  41:Generated_Source\PSoC4/Rows.c **** 
+  42:Generated_Source\PSoC4/Rows.c **** #if defined(Rows__PC) || (CY_PSOC4_4200L) 
+  43:Generated_Source\PSoC4/Rows.c ****     /*******************************************************************************
+  44:Generated_Source\PSoC4/Rows.c ****     * Function Name: Rows_SetDriveMode
+  45:Generated_Source\PSoC4/Rows.c ****     ****************************************************************************//**
+  46:Generated_Source\PSoC4/Rows.c ****     *
+  47:Generated_Source\PSoC4/Rows.c ****     * \brief Sets the drive mode for each of the Pins component's pins.
+  48:Generated_Source\PSoC4/Rows.c ****     * 
+  49:Generated_Source\PSoC4/Rows.c ****     * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  50:Generated_Source\PSoC4/Rows.c ****     * Per-Pin APIs if you wish to control individual pin's drive modes.
+  51:Generated_Source\PSoC4/Rows.c ****     *
+  52:Generated_Source\PSoC4/Rows.c ****     * <b>Note</b> USBIOs have limited drive functionality. Refer to the Drive Mode
+  53:Generated_Source\PSoC4/Rows.c ****     * parameter for more information.
+  54:Generated_Source\PSoC4/Rows.c ****     *
+  55:Generated_Source\PSoC4/Rows.c ****     * \param mode
+  56:Generated_Source\PSoC4/Rows.c ****     *  Mode for the selected signals. Valid options are documented in 
+  57:Generated_Source\PSoC4/Rows.c ****     *  \ref driveMode.
+  58:Generated_Source\PSoC4/Rows.c ****     *
+  59:Generated_Source\PSoC4/Rows.c ****     * \return
+  60:Generated_Source\PSoC4/Rows.c ****     *  None
+  61:Generated_Source\PSoC4/Rows.c ****     *
+  62:Generated_Source\PSoC4/Rows.c ****     * \sideeffect
+  63:Generated_Source\PSoC4/Rows.c ****     *  If you use read-modify-write operations that are not atomic, the ISR can
+  64:Generated_Source\PSoC4/Rows.c ****     *  cause corruption of this function. An ISR that interrupts this function 
+  65:Generated_Source\PSoC4/Rows.c ****     *  and performs writes to the Pins component Drive Mode registers can cause 
+  66:Generated_Source\PSoC4/Rows.c ****     *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  67:Generated_Source\PSoC4/Rows.c ****     *  APIs (primary method) or disable interrupts around this function.
+  68:Generated_Source\PSoC4/Rows.c ****     *
+  69:Generated_Source\PSoC4/Rows.c ****     * \funcusage
+  70:Generated_Source\PSoC4/Rows.c ****     *  \snippet Rows_SUT.c usage_Rows_SetDriveMode
+  71:Generated_Source\PSoC4/Rows.c ****     *******************************************************************************/
+  72:Generated_Source\PSoC4/Rows.c ****     void Rows_SetDriveMode(uint8 mode)
+  73:Generated_Source\PSoC4/Rows.c ****     {
+  28              		.loc 1 73 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 82B0     		sub	sp, sp, #8
+  37              		.cfi_def_cfa_offset 16
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 0200     		movs	r2, r0
+  41 0008 FB1D     		adds	r3, r7, #7
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 3
+
+
+  42 000a 1A70     		strb	r2, [r3]
+  74:Generated_Source\PSoC4/Rows.c **** 		Rows_SetP4PinDriveMode(Rows__0__SHIFT, mode);
+  43              		.loc 1 74 0
+  44 000c 164B     		ldr	r3, .L2
+  45 000e 164A     		ldr	r2, .L2
+  46 0010 1268     		ldr	r2, [r2]
+  47 0012 0721     		movs	r1, #7
+  48 0014 8A43     		bics	r2, r1
+  49 0016 1100     		movs	r1, r2
+  50 0018 FA1D     		adds	r2, r7, #7
+  51 001a 1278     		ldrb	r2, [r2]
+  52 001c 0A43     		orrs	r2, r1
+  53 001e 1A60     		str	r2, [r3]
+  75:Generated_Source\PSoC4/Rows.c **** 		Rows_SetP4PinDriveMode(Rows__1__SHIFT, mode);
+  54              		.loc 1 75 0
+  55 0020 114B     		ldr	r3, .L2
+  56 0022 114A     		ldr	r2, .L2
+  57 0024 1268     		ldr	r2, [r2]
+  58 0026 3821     		movs	r1, #56
+  59 0028 8A43     		bics	r2, r1
+  60 002a 1100     		movs	r1, r2
+  61 002c FA1D     		adds	r2, r7, #7
+  62 002e 1278     		ldrb	r2, [r2]
+  63 0030 D200     		lsls	r2, r2, #3
+  64 0032 0A43     		orrs	r2, r1
+  65 0034 1A60     		str	r2, [r3]
+  76:Generated_Source\PSoC4/Rows.c **** 		Rows_SetP4PinDriveMode(Rows__2__SHIFT, mode);
+  66              		.loc 1 76 0
+  67 0036 0C4B     		ldr	r3, .L2
+  68 0038 0B4A     		ldr	r2, .L2
+  69 003a 1268     		ldr	r2, [r2]
+  70 003c 0B49     		ldr	r1, .L2+4
+  71 003e 1140     		ands	r1, r2
+  72 0040 FA1D     		adds	r2, r7, #7
+  73 0042 1278     		ldrb	r2, [r2]
+  74 0044 9201     		lsls	r2, r2, #6
+  75 0046 0A43     		orrs	r2, r1
+  76 0048 1A60     		str	r2, [r3]
+  77:Generated_Source\PSoC4/Rows.c **** 		Rows_SetP4PinDriveMode(Rows__3__SHIFT, mode);
+  77              		.loc 1 77 0
+  78 004a 074B     		ldr	r3, .L2
+  79 004c 064A     		ldr	r2, .L2
+  80 004e 1268     		ldr	r2, [r2]
+  81 0050 0749     		ldr	r1, .L2+8
+  82 0052 1140     		ands	r1, r2
+  83 0054 FA1D     		adds	r2, r7, #7
+  84 0056 1278     		ldrb	r2, [r2]
+  85 0058 5202     		lsls	r2, r2, #9
+  86 005a 0A43     		orrs	r2, r1
+  87 005c 1A60     		str	r2, [r3]
+  78:Generated_Source\PSoC4/Rows.c ****     }
+  88              		.loc 1 78 0
+  89 005e C046     		nop
+  90 0060 BD46     		mov	sp, r7
+  91 0062 02B0     		add	sp, sp, #8
+  92              		@ sp needed
+  93 0064 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 4
+
+
+  94              	.L3:
+  95 0066 C046     		.align	2
+  96              	.L2:
+  97 0068 08000440 		.word	1074003976
+  98 006c 3FFEFFFF 		.word	-449
+  99 0070 FFF1FFFF 		.word	-3585
+ 100              		.cfi_endproc
+ 101              	.LFE0:
+ 102              		.size	Rows_SetDriveMode, .-Rows_SetDriveMode
+ 103              		.section	.text.Rows_Write,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	Rows_Write
+ 106              		.code	16
+ 107              		.thumb_func
+ 108              		.type	Rows_Write, %function
+ 109              	Rows_Write:
+ 110              	.LFB1:
+  79:Generated_Source\PSoC4/Rows.c **** #endif
+  80:Generated_Source\PSoC4/Rows.c **** 
+  81:Generated_Source\PSoC4/Rows.c **** 
+  82:Generated_Source\PSoC4/Rows.c **** /*******************************************************************************
+  83:Generated_Source\PSoC4/Rows.c **** * Function Name: Rows_Write
+  84:Generated_Source\PSoC4/Rows.c **** ****************************************************************************//**
+  85:Generated_Source\PSoC4/Rows.c **** *
+  86:Generated_Source\PSoC4/Rows.c **** * \brief Writes the value to the physical port (data output register), masking
+  87:Generated_Source\PSoC4/Rows.c **** *  and shifting the bits appropriately. 
+  88:Generated_Source\PSoC4/Rows.c **** *
+  89:Generated_Source\PSoC4/Rows.c **** * The data output register controls the signal applied to the physical pin in 
+  90:Generated_Source\PSoC4/Rows.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  91:Generated_Source\PSoC4/Rows.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  92:Generated_Source\PSoC4/Rows.c **** * bit banding).
+  93:Generated_Source\PSoC4/Rows.c **** *
+  94:Generated_Source\PSoC4/Rows.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  95:Generated_Source\PSoC4/Rows.c **** * as it is driven by the hardware signal attached to it.
+  96:Generated_Source\PSoC4/Rows.c **** *
+  97:Generated_Source\PSoC4/Rows.c **** * \param value
+  98:Generated_Source\PSoC4/Rows.c **** *  Value to write to the component instance.
+  99:Generated_Source\PSoC4/Rows.c **** *
+ 100:Generated_Source\PSoC4/Rows.c **** * \return 
+ 101:Generated_Source\PSoC4/Rows.c **** *  None 
+ 102:Generated_Source\PSoC4/Rows.c **** *
+ 103:Generated_Source\PSoC4/Rows.c **** * \sideeffect
+ 104:Generated_Source\PSoC4/Rows.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+ 105:Generated_Source\PSoC4/Rows.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+ 106:Generated_Source\PSoC4/Rows.c **** *  interrupts this function and performs writes to the Pins component data 
+ 107:Generated_Source\PSoC4/Rows.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+ 108:Generated_Source\PSoC4/Rows.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+ 109:Generated_Source\PSoC4/Rows.c **** *  this function.
+ 110:Generated_Source\PSoC4/Rows.c **** *
+ 111:Generated_Source\PSoC4/Rows.c **** * \funcusage
+ 112:Generated_Source\PSoC4/Rows.c **** *  \snippet Rows_SUT.c usage_Rows_Write
+ 113:Generated_Source\PSoC4/Rows.c **** *******************************************************************************/
+ 114:Generated_Source\PSoC4/Rows.c **** void Rows_Write(uint8 value)
+ 115:Generated_Source\PSoC4/Rows.c **** {
+ 111              		.loc 1 115 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 5
+
+
+ 114              		@ frame_needed = 1, uses_anonymous_args = 0
+ 115 0000 80B5     		push	{r7, lr}
+ 116              		.cfi_def_cfa_offset 8
+ 117              		.cfi_offset 7, -8
+ 118              		.cfi_offset 14, -4
+ 119 0002 84B0     		sub	sp, sp, #16
+ 120              		.cfi_def_cfa_offset 24
+ 121 0004 00AF     		add	r7, sp, #0
+ 122              		.cfi_def_cfa_register 7
+ 123 0006 0200     		movs	r2, r0
+ 124 0008 FB1D     		adds	r3, r7, #7
+ 125 000a 1A70     		strb	r2, [r3]
+ 116:Generated_Source\PSoC4/Rows.c ****     uint8 drVal = (uint8)(Rows_DR & (uint8)(~Rows_MASK));
+ 126              		.loc 1 116 0
+ 127 000c 0E4B     		ldr	r3, .L5
+ 128 000e 1B68     		ldr	r3, [r3]
+ 129 0010 DAB2     		uxtb	r2, r3
+ 130 0012 0F23     		movs	r3, #15
+ 131 0014 FB18     		adds	r3, r7, r3
+ 132 0016 0F21     		movs	r1, #15
+ 133 0018 8A43     		bics	r2, r1
+ 134 001a 1A70     		strb	r2, [r3]
+ 117:Generated_Source\PSoC4/Rows.c ****     drVal = (drVal | ((uint8)(value << Rows_SHIFT) & Rows_MASK));
+ 135              		.loc 1 117 0
+ 136 001c FB1D     		adds	r3, r7, #7
+ 137 001e 1B78     		ldrb	r3, [r3]
+ 138 0020 0F22     		movs	r2, #15
+ 139 0022 1340     		ands	r3, r2
+ 140 0024 D9B2     		uxtb	r1, r3
+ 141 0026 0F23     		movs	r3, #15
+ 142 0028 FB18     		adds	r3, r7, r3
+ 143 002a 0F22     		movs	r2, #15
+ 144 002c BA18     		adds	r2, r7, r2
+ 145 002e 1278     		ldrb	r2, [r2]
+ 146 0030 0A43     		orrs	r2, r1
+ 147 0032 1A70     		strb	r2, [r3]
+ 118:Generated_Source\PSoC4/Rows.c ****     Rows_DR = (uint32)drVal;
+ 148              		.loc 1 118 0
+ 149 0034 044B     		ldr	r3, .L5
+ 150 0036 0F22     		movs	r2, #15
+ 151 0038 BA18     		adds	r2, r7, r2
+ 152 003a 1278     		ldrb	r2, [r2]
+ 153 003c 1A60     		str	r2, [r3]
+ 119:Generated_Source\PSoC4/Rows.c **** }
+ 154              		.loc 1 119 0
+ 155 003e C046     		nop
+ 156 0040 BD46     		mov	sp, r7
+ 157 0042 04B0     		add	sp, sp, #16
+ 158              		@ sp needed
+ 159 0044 80BD     		pop	{r7, pc}
+ 160              	.L6:
+ 161 0046 C046     		.align	2
+ 162              	.L5:
+ 163 0048 00000440 		.word	1074003968
+ 164              		.cfi_endproc
+ 165              	.LFE1:
+ 166              		.size	Rows_Write, .-Rows_Write
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 6
+
+
+ 167              		.section	.text.Rows_Read,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	Rows_Read
+ 170              		.code	16
+ 171              		.thumb_func
+ 172              		.type	Rows_Read, %function
+ 173              	Rows_Read:
+ 174              	.LFB2:
+ 120:Generated_Source\PSoC4/Rows.c **** 
+ 121:Generated_Source\PSoC4/Rows.c **** 
+ 122:Generated_Source\PSoC4/Rows.c **** /*******************************************************************************
+ 123:Generated_Source\PSoC4/Rows.c **** * Function Name: Rows_Read
+ 124:Generated_Source\PSoC4/Rows.c **** ****************************************************************************//**
+ 125:Generated_Source\PSoC4/Rows.c **** *
+ 126:Generated_Source\PSoC4/Rows.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 127:Generated_Source\PSoC4/Rows.c **** *  the required bits according to the width and bit position of the component
+ 128:Generated_Source\PSoC4/Rows.c **** *  instance. 
+ 129:Generated_Source\PSoC4/Rows.c **** *
+ 130:Generated_Source\PSoC4/Rows.c **** * The pin's status register returns the current logic level present on the 
+ 131:Generated_Source\PSoC4/Rows.c **** * physical pin.
+ 132:Generated_Source\PSoC4/Rows.c **** *
+ 133:Generated_Source\PSoC4/Rows.c **** * \return 
+ 134:Generated_Source\PSoC4/Rows.c **** *  The current value for the pins in the component as a right justified number.
+ 135:Generated_Source\PSoC4/Rows.c **** *
+ 136:Generated_Source\PSoC4/Rows.c **** * \funcusage
+ 137:Generated_Source\PSoC4/Rows.c **** *  \snippet Rows_SUT.c usage_Rows_Read  
+ 138:Generated_Source\PSoC4/Rows.c **** *******************************************************************************/
+ 139:Generated_Source\PSoC4/Rows.c **** uint8 Rows_Read(void)
+ 140:Generated_Source\PSoC4/Rows.c **** {
+ 175              		.loc 1 140 0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 1, uses_anonymous_args = 0
+ 179 0000 80B5     		push	{r7, lr}
+ 180              		.cfi_def_cfa_offset 8
+ 181              		.cfi_offset 7, -8
+ 182              		.cfi_offset 14, -4
+ 183 0002 00AF     		add	r7, sp, #0
+ 184              		.cfi_def_cfa_register 7
+ 141:Generated_Source\PSoC4/Rows.c ****     return (uint8)((Rows_PS & Rows_MASK) >> Rows_SHIFT);
+ 185              		.loc 1 141 0
+ 186 0004 044B     		ldr	r3, .L9
+ 187 0006 1B68     		ldr	r3, [r3]
+ 188 0008 DBB2     		uxtb	r3, r3
+ 189 000a 0F22     		movs	r2, #15
+ 190 000c 1340     		ands	r3, r2
+ 191 000e DBB2     		uxtb	r3, r3
+ 142:Generated_Source\PSoC4/Rows.c **** }
+ 192              		.loc 1 142 0
+ 193 0010 1800     		movs	r0, r3
+ 194 0012 BD46     		mov	sp, r7
+ 195              		@ sp needed
+ 196 0014 80BD     		pop	{r7, pc}
+ 197              	.L10:
+ 198 0016 C046     		.align	2
+ 199              	.L9:
+ 200 0018 04000440 		.word	1074003972
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 7
+
+
+ 201              		.cfi_endproc
+ 202              	.LFE2:
+ 203              		.size	Rows_Read, .-Rows_Read
+ 204              		.section	.text.Rows_ReadDataReg,"ax",%progbits
+ 205              		.align	2
+ 206              		.global	Rows_ReadDataReg
+ 207              		.code	16
+ 208              		.thumb_func
+ 209              		.type	Rows_ReadDataReg, %function
+ 210              	Rows_ReadDataReg:
+ 211              	.LFB3:
+ 143:Generated_Source\PSoC4/Rows.c **** 
+ 144:Generated_Source\PSoC4/Rows.c **** 
+ 145:Generated_Source\PSoC4/Rows.c **** /*******************************************************************************
+ 146:Generated_Source\PSoC4/Rows.c **** * Function Name: Rows_ReadDataReg
+ 147:Generated_Source\PSoC4/Rows.c **** ****************************************************************************//**
+ 148:Generated_Source\PSoC4/Rows.c **** *
+ 149:Generated_Source\PSoC4/Rows.c **** * \brief Reads the associated physical port's data output register and masks 
+ 150:Generated_Source\PSoC4/Rows.c **** *  the correct bits according to the width and bit position of the component 
+ 151:Generated_Source\PSoC4/Rows.c **** *  instance. 
+ 152:Generated_Source\PSoC4/Rows.c **** *
+ 153:Generated_Source\PSoC4/Rows.c **** * The data output register controls the signal applied to the physical pin in 
+ 154:Generated_Source\PSoC4/Rows.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 155:Generated_Source\PSoC4/Rows.c **** * preferred Rows_Read() API because the 
+ 156:Generated_Source\PSoC4/Rows.c **** * Rows_ReadDataReg() reads the data register instead of the status 
+ 157:Generated_Source\PSoC4/Rows.c **** * register. For output pins this is a useful function to determine the value 
+ 158:Generated_Source\PSoC4/Rows.c **** * just written to the pin.
+ 159:Generated_Source\PSoC4/Rows.c **** *
+ 160:Generated_Source\PSoC4/Rows.c **** * \return 
+ 161:Generated_Source\PSoC4/Rows.c **** *  The current value of the data register masked and shifted into a right 
+ 162:Generated_Source\PSoC4/Rows.c **** *  justified number for the component instance.
+ 163:Generated_Source\PSoC4/Rows.c **** *
+ 164:Generated_Source\PSoC4/Rows.c **** * \funcusage
+ 165:Generated_Source\PSoC4/Rows.c **** *  \snippet Rows_SUT.c usage_Rows_ReadDataReg 
+ 166:Generated_Source\PSoC4/Rows.c **** *******************************************************************************/
+ 167:Generated_Source\PSoC4/Rows.c **** uint8 Rows_ReadDataReg(void)
+ 168:Generated_Source\PSoC4/Rows.c **** {
+ 212              		.loc 1 168 0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 1, uses_anonymous_args = 0
+ 216 0000 80B5     		push	{r7, lr}
+ 217              		.cfi_def_cfa_offset 8
+ 218              		.cfi_offset 7, -8
+ 219              		.cfi_offset 14, -4
+ 220 0002 00AF     		add	r7, sp, #0
+ 221              		.cfi_def_cfa_register 7
+ 169:Generated_Source\PSoC4/Rows.c ****     return (uint8)((Rows_DR & Rows_MASK) >> Rows_SHIFT);
+ 222              		.loc 1 169 0
+ 223 0004 044B     		ldr	r3, .L13
+ 224 0006 1B68     		ldr	r3, [r3]
+ 225 0008 DBB2     		uxtb	r3, r3
+ 226 000a 0F22     		movs	r2, #15
+ 227 000c 1340     		ands	r3, r2
+ 228 000e DBB2     		uxtb	r3, r3
+ 170:Generated_Source\PSoC4/Rows.c **** }
+ 229              		.loc 1 170 0
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 8
+
+
+ 230 0010 1800     		movs	r0, r3
+ 231 0012 BD46     		mov	sp, r7
+ 232              		@ sp needed
+ 233 0014 80BD     		pop	{r7, pc}
+ 234              	.L14:
+ 235 0016 C046     		.align	2
+ 236              	.L13:
+ 237 0018 00000440 		.word	1074003968
+ 238              		.cfi_endproc
+ 239              	.LFE3:
+ 240              		.size	Rows_ReadDataReg, .-Rows_ReadDataReg
+ 241              		.section	.text.Rows_SetInterruptMode,"ax",%progbits
+ 242              		.align	2
+ 243              		.global	Rows_SetInterruptMode
+ 244              		.code	16
+ 245              		.thumb_func
+ 246              		.type	Rows_SetInterruptMode, %function
+ 247              	Rows_SetInterruptMode:
+ 248              	.LFB4:
+ 171:Generated_Source\PSoC4/Rows.c **** 
+ 172:Generated_Source\PSoC4/Rows.c **** 
+ 173:Generated_Source\PSoC4/Rows.c **** /*******************************************************************************
+ 174:Generated_Source\PSoC4/Rows.c **** * Function Name: Rows_SetInterruptMode
+ 175:Generated_Source\PSoC4/Rows.c **** ****************************************************************************//**
+ 176:Generated_Source\PSoC4/Rows.c **** *
+ 177:Generated_Source\PSoC4/Rows.c **** * \brief Configures the interrupt mode for each of the Pins component's
+ 178:Generated_Source\PSoC4/Rows.c **** *  pins. Alternatively you may set the interrupt mode for all the pins
+ 179:Generated_Source\PSoC4/Rows.c **** *  specified in the Pins component.
+ 180:Generated_Source\PSoC4/Rows.c **** *
+ 181:Generated_Source\PSoC4/Rows.c **** *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+ 182:Generated_Source\PSoC4/Rows.c **** *  interrupt may trigger it.
+ 183:Generated_Source\PSoC4/Rows.c **** *
+ 184:Generated_Source\PSoC4/Rows.c **** * \param position
+ 185:Generated_Source\PSoC4/Rows.c **** *  The pin position as listed in the Pins component. You may OR these to be 
+ 186:Generated_Source\PSoC4/Rows.c **** *  able to configure the interrupt mode of multiple pins within a Pins 
+ 187:Generated_Source\PSoC4/Rows.c **** *  component. Or you may use Rows_INTR_ALL to configure the
+ 188:Generated_Source\PSoC4/Rows.c **** *  interrupt mode of all the pins in the Pins component.       
+ 189:Generated_Source\PSoC4/Rows.c **** *  - Rows_0_INTR       (First pin in the list)
+ 190:Generated_Source\PSoC4/Rows.c **** *  - Rows_1_INTR       (Second pin in the list)
+ 191:Generated_Source\PSoC4/Rows.c **** *  - ...
+ 192:Generated_Source\PSoC4/Rows.c **** *  - Rows_INTR_ALL     (All pins in Pins component)
+ 193:Generated_Source\PSoC4/Rows.c **** *
+ 194:Generated_Source\PSoC4/Rows.c **** * \param mode
+ 195:Generated_Source\PSoC4/Rows.c **** *  Interrupt mode for the selected pins. Valid options are documented in
+ 196:Generated_Source\PSoC4/Rows.c **** *  \ref intrMode.
+ 197:Generated_Source\PSoC4/Rows.c **** *
+ 198:Generated_Source\PSoC4/Rows.c **** * \return 
+ 199:Generated_Source\PSoC4/Rows.c **** *  None
+ 200:Generated_Source\PSoC4/Rows.c **** *  
+ 201:Generated_Source\PSoC4/Rows.c **** * \sideeffect
+ 202:Generated_Source\PSoC4/Rows.c **** *  It is recommended that the interrupt be disabled before calling this 
+ 203:Generated_Source\PSoC4/Rows.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
+ 204:Generated_Source\PSoC4/Rows.c **** *  type is port wide, and therefore will trigger for any enabled pin on the 
+ 205:Generated_Source\PSoC4/Rows.c **** *  port.
+ 206:Generated_Source\PSoC4/Rows.c **** *
+ 207:Generated_Source\PSoC4/Rows.c **** * \funcusage
+ 208:Generated_Source\PSoC4/Rows.c **** *  \snippet Rows_SUT.c usage_Rows_SetInterruptMode
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 9
+
+
+ 209:Generated_Source\PSoC4/Rows.c **** *******************************************************************************/
+ 210:Generated_Source\PSoC4/Rows.c **** void Rows_SetInterruptMode(uint16 position, uint16 mode)
+ 211:Generated_Source\PSoC4/Rows.c **** {
+ 249              		.loc 1 211 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 16
+ 252              		@ frame_needed = 1, uses_anonymous_args = 0
+ 253 0000 80B5     		push	{r7, lr}
+ 254              		.cfi_def_cfa_offset 8
+ 255              		.cfi_offset 7, -8
+ 256              		.cfi_offset 14, -4
+ 257 0002 84B0     		sub	sp, sp, #16
+ 258              		.cfi_def_cfa_offset 24
+ 259 0004 00AF     		add	r7, sp, #0
+ 260              		.cfi_def_cfa_register 7
+ 261 0006 0200     		movs	r2, r0
+ 262 0008 BB1D     		adds	r3, r7, #6
+ 263 000a 1A80     		strh	r2, [r3]
+ 264 000c 3B1D     		adds	r3, r7, #4
+ 265 000e 0A1C     		adds	r2, r1, #0
+ 266 0010 1A80     		strh	r2, [r3]
+ 212:Generated_Source\PSoC4/Rows.c ****     uint32 intrCfg;
+ 213:Generated_Source\PSoC4/Rows.c ****     
+ 214:Generated_Source\PSoC4/Rows.c ****     intrCfg =  Rows_INTCFG & (uint32)(~(uint32)position);
+ 267              		.loc 1 214 0
+ 268 0012 0B4B     		ldr	r3, .L16
+ 269 0014 1B68     		ldr	r3, [r3]
+ 270 0016 BA1D     		adds	r2, r7, #6
+ 271 0018 1288     		ldrh	r2, [r2]
+ 272 001a D243     		mvns	r2, r2
+ 273 001c 1340     		ands	r3, r2
+ 274 001e FB60     		str	r3, [r7, #12]
+ 215:Generated_Source\PSoC4/Rows.c ****     Rows_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+ 275              		.loc 1 215 0
+ 276 0020 074B     		ldr	r3, .L16
+ 277 0022 BA1D     		adds	r2, r7, #6
+ 278 0024 391D     		adds	r1, r7, #4
+ 279 0026 1288     		ldrh	r2, [r2]
+ 280 0028 0988     		ldrh	r1, [r1]
+ 281 002a 0A40     		ands	r2, r1
+ 282 002c 92B2     		uxth	r2, r2
+ 283 002e 1100     		movs	r1, r2
+ 284 0030 FA68     		ldr	r2, [r7, #12]
+ 285 0032 0A43     		orrs	r2, r1
+ 286 0034 1A60     		str	r2, [r3]
+ 216:Generated_Source\PSoC4/Rows.c **** }
+ 287              		.loc 1 216 0
+ 288 0036 C046     		nop
+ 289 0038 BD46     		mov	sp, r7
+ 290 003a 04B0     		add	sp, sp, #16
+ 291              		@ sp needed
+ 292 003c 80BD     		pop	{r7, pc}
+ 293              	.L17:
+ 294 003e C046     		.align	2
+ 295              	.L16:
+ 296 0040 0C000440 		.word	1074003980
+ 297              		.cfi_endproc
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 10
+
+
+ 298              	.LFE4:
+ 299              		.size	Rows_SetInterruptMode, .-Rows_SetInterruptMode
+ 300              		.section	.text.Rows_ClearInterrupt,"ax",%progbits
+ 301              		.align	2
+ 302              		.global	Rows_ClearInterrupt
+ 303              		.code	16
+ 304              		.thumb_func
+ 305              		.type	Rows_ClearInterrupt, %function
+ 306              	Rows_ClearInterrupt:
+ 307              	.LFB5:
+ 217:Generated_Source\PSoC4/Rows.c **** 
+ 218:Generated_Source\PSoC4/Rows.c **** 
+ 219:Generated_Source\PSoC4/Rows.c **** /*******************************************************************************
+ 220:Generated_Source\PSoC4/Rows.c **** * Function Name: Rows_ClearInterrupt
+ 221:Generated_Source\PSoC4/Rows.c **** ****************************************************************************//**
+ 222:Generated_Source\PSoC4/Rows.c **** *
+ 223:Generated_Source\PSoC4/Rows.c **** * \brief Clears any active interrupts attached with the component and returns 
+ 224:Generated_Source\PSoC4/Rows.c **** *  the value of the interrupt status register allowing determination of which
+ 225:Generated_Source\PSoC4/Rows.c **** *  pins generated an interrupt event.
+ 226:Generated_Source\PSoC4/Rows.c **** *
+ 227:Generated_Source\PSoC4/Rows.c **** * \return 
+ 228:Generated_Source\PSoC4/Rows.c **** *  The right-shifted current value of the interrupt status register. Each pin 
+ 229:Generated_Source\PSoC4/Rows.c **** *  has one bit set if it generated an interrupt event. For example, bit 0 is 
+ 230:Generated_Source\PSoC4/Rows.c **** *  for pin 0 and bit 1 is for pin 1 of the Pins component.
+ 231:Generated_Source\PSoC4/Rows.c **** *  
+ 232:Generated_Source\PSoC4/Rows.c **** * \sideeffect
+ 233:Generated_Source\PSoC4/Rows.c **** *  Clears all bits of the physical port's interrupt status register, not just
+ 234:Generated_Source\PSoC4/Rows.c **** *  those associated with the Pins component.
+ 235:Generated_Source\PSoC4/Rows.c **** *
+ 236:Generated_Source\PSoC4/Rows.c **** * \funcusage
+ 237:Generated_Source\PSoC4/Rows.c **** *  \snippet Rows_SUT.c usage_Rows_ClearInterrupt
+ 238:Generated_Source\PSoC4/Rows.c **** *******************************************************************************/
+ 239:Generated_Source\PSoC4/Rows.c **** uint8 Rows_ClearInterrupt(void)
+ 240:Generated_Source\PSoC4/Rows.c **** {
+ 308              		.loc 1 240 0
+ 309              		.cfi_startproc
+ 310              		@ args = 0, pretend = 0, frame = 8
+ 311              		@ frame_needed = 1, uses_anonymous_args = 0
+ 312 0000 80B5     		push	{r7, lr}
+ 313              		.cfi_def_cfa_offset 8
+ 314              		.cfi_offset 7, -8
+ 315              		.cfi_offset 14, -4
+ 316 0002 82B0     		sub	sp, sp, #8
+ 317              		.cfi_def_cfa_offset 16
+ 318 0004 00AF     		add	r7, sp, #0
+ 319              		.cfi_def_cfa_register 7
+ 241:Generated_Source\PSoC4/Rows.c **** 	uint8 maskedStatus = (uint8)(Rows_INTSTAT & Rows_MASK);
+ 320              		.loc 1 241 0
+ 321 0006 084B     		ldr	r3, .L20
+ 322 0008 1B68     		ldr	r3, [r3]
+ 323 000a DAB2     		uxtb	r2, r3
+ 324 000c FB1D     		adds	r3, r7, #7
+ 325 000e 0F21     		movs	r1, #15
+ 326 0010 0A40     		ands	r2, r1
+ 327 0012 1A70     		strb	r2, [r3]
+ 242:Generated_Source\PSoC4/Rows.c **** 	Rows_INTSTAT = maskedStatus;
+ 328              		.loc 1 242 0
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 11
+
+
+ 329 0014 044B     		ldr	r3, .L20
+ 330 0016 FA1D     		adds	r2, r7, #7
+ 331 0018 1278     		ldrb	r2, [r2]
+ 332 001a 1A60     		str	r2, [r3]
+ 243:Generated_Source\PSoC4/Rows.c ****     return maskedStatus >> Rows_SHIFT;
+ 333              		.loc 1 243 0
+ 334 001c FB1D     		adds	r3, r7, #7
+ 335 001e 1B78     		ldrb	r3, [r3]
+ 244:Generated_Source\PSoC4/Rows.c **** }
+ 336              		.loc 1 244 0
+ 337 0020 1800     		movs	r0, r3
+ 338 0022 BD46     		mov	sp, r7
+ 339 0024 02B0     		add	sp, sp, #8
+ 340              		@ sp needed
+ 341 0026 80BD     		pop	{r7, pc}
+ 342              	.L21:
+ 343              		.align	2
+ 344              	.L20:
+ 345 0028 10000440 		.word	1074003984
+ 346              		.cfi_endproc
+ 347              	.LFE5:
+ 348              		.size	Rows_ClearInterrupt, .-Rows_ClearInterrupt
+ 349              		.text
+ 350              	.Letext0:
+ 351              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 352              		.section	.debug_info,"",%progbits
+ 353              	.Ldebug_info0:
+ 354 0000 96010000 		.4byte	0x196
+ 355 0004 0400     		.2byte	0x4
+ 356 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 357 000a 04       		.byte	0x4
+ 358 000b 01       		.uleb128 0x1
+ 359 000c 98000000 		.4byte	.LASF28
+ 360 0010 0C       		.byte	0xc
+ 361 0011 26010000 		.4byte	.LASF29
+ 362 0015 CE010000 		.4byte	.LASF30
+ 363 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 364 001d 00000000 		.4byte	0
+ 365 0021 00000000 		.4byte	.Ldebug_line0
+ 366 0025 02       		.uleb128 0x2
+ 367 0026 01       		.byte	0x1
+ 368 0027 06       		.byte	0x6
+ 369 0028 0C020000 		.4byte	.LASF0
+ 370 002c 02       		.uleb128 0x2
+ 371 002d 01       		.byte	0x1
+ 372 002e 08       		.byte	0x8
+ 373 002f 5F000000 		.4byte	.LASF1
+ 374 0033 02       		.uleb128 0x2
+ 375 0034 02       		.byte	0x2
+ 376 0035 05       		.byte	0x5
+ 377 0036 B3010000 		.4byte	.LASF2
+ 378 003a 02       		.uleb128 0x2
+ 379 003b 02       		.byte	0x2
+ 380 003c 07       		.byte	0x7
+ 381 003d 85000000 		.4byte	.LASF3
+ 382 0041 02       		.uleb128 0x2
+ 383 0042 04       		.byte	0x4
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 12
+
+
+ 384 0043 05       		.byte	0x5
+ 385 0044 03020000 		.4byte	.LASF4
+ 386 0048 02       		.uleb128 0x2
+ 387 0049 04       		.byte	0x4
+ 388 004a 07       		.byte	0x7
+ 389 004b 73000000 		.4byte	.LASF5
+ 390 004f 02       		.uleb128 0x2
+ 391 0050 08       		.byte	0x8
+ 392 0051 05       		.byte	0x5
+ 393 0052 93010000 		.4byte	.LASF6
+ 394 0056 02       		.uleb128 0x2
+ 395 0057 08       		.byte	0x8
+ 396 0058 07       		.byte	0x7
+ 397 0059 77010000 		.4byte	.LASF7
+ 398 005d 03       		.uleb128 0x3
+ 399 005e 04       		.byte	0x4
+ 400 005f 05       		.byte	0x5
+ 401 0060 696E7400 		.ascii	"int\000"
+ 402 0064 02       		.uleb128 0x2
+ 403 0065 04       		.byte	0x4
+ 404 0066 07       		.byte	0x7
+ 405 0067 6A010000 		.4byte	.LASF8
+ 406 006b 04       		.uleb128 0x4
+ 407 006c BD010000 		.4byte	.LASF9
+ 408 0070 02       		.byte	0x2
+ 409 0071 3801     		.2byte	0x138
+ 410 0073 2C000000 		.4byte	0x2c
+ 411 0077 04       		.uleb128 0x4
+ 412 0078 4B010000 		.4byte	.LASF10
+ 413 007c 02       		.byte	0x2
+ 414 007d 3901     		.2byte	0x139
+ 415 007f 3A000000 		.4byte	0x3a
+ 416 0083 04       		.uleb128 0x4
+ 417 0084 5B010000 		.4byte	.LASF11
+ 418 0088 02       		.byte	0x2
+ 419 0089 3A01     		.2byte	0x13a
+ 420 008b 48000000 		.4byte	0x48
+ 421 008f 02       		.uleb128 0x2
+ 422 0090 04       		.byte	0x4
+ 423 0091 04       		.byte	0x4
+ 424 0092 45000000 		.4byte	.LASF12
+ 425 0096 02       		.uleb128 0x2
+ 426 0097 08       		.byte	0x8
+ 427 0098 04       		.byte	0x4
+ 428 0099 44010000 		.4byte	.LASF13
+ 429 009d 02       		.uleb128 0x2
+ 430 009e 01       		.byte	0x1
+ 431 009f 08       		.byte	0x8
+ 432 00a0 AE010000 		.4byte	.LASF14
+ 433 00a4 04       		.uleb128 0x4
+ 434 00a5 16000000 		.4byte	.LASF15
+ 435 00a9 02       		.byte	0x2
+ 436 00aa E401     		.2byte	0x1e4
+ 437 00ac B0000000 		.4byte	0xb0
+ 438 00b0 05       		.uleb128 0x5
+ 439 00b1 83000000 		.4byte	0x83
+ 440 00b5 06       		.uleb128 0x6
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 13
+
+
+ 441 00b6 1C000000 		.4byte	.LASF16
+ 442 00ba 01       		.byte	0x1
+ 443 00bb 48       		.byte	0x48
+ 444 00bc 00000000 		.4byte	.LFB0
+ 445 00c0 74000000 		.4byte	.LFE0-.LFB0
+ 446 00c4 01       		.uleb128 0x1
+ 447 00c5 9C       		.byte	0x9c
+ 448 00c6 D9000000 		.4byte	0xd9
+ 449 00ca 07       		.uleb128 0x7
+ 450 00cb 8E010000 		.4byte	.LASF18
+ 451 00cf 01       		.byte	0x1
+ 452 00d0 48       		.byte	0x48
+ 453 00d1 6B000000 		.4byte	0x6b
+ 454 00d5 02       		.uleb128 0x2
+ 455 00d6 91       		.byte	0x91
+ 456 00d7 77       		.sleb128 -9
+ 457 00d8 00       		.byte	0
+ 458 00d9 06       		.uleb128 0x6
+ 459 00da C3010000 		.4byte	.LASF17
+ 460 00de 01       		.byte	0x1
+ 461 00df 72       		.byte	0x72
+ 462 00e0 00000000 		.4byte	.LFB1
+ 463 00e4 4C000000 		.4byte	.LFE1-.LFB1
+ 464 00e8 01       		.uleb128 0x1
+ 465 00e9 9C       		.byte	0x9c
+ 466 00ea 0B010000 		.4byte	0x10b
+ 467 00ee 07       		.uleb128 0x7
+ 468 00ef 3F000000 		.4byte	.LASF19
+ 469 00f3 01       		.byte	0x1
+ 470 00f4 72       		.byte	0x72
+ 471 00f5 6B000000 		.4byte	0x6b
+ 472 00f9 02       		.uleb128 0x2
+ 473 00fa 91       		.byte	0x91
+ 474 00fb 6F       		.sleb128 -17
+ 475 00fc 08       		.uleb128 0x8
+ 476 00fd 6D000000 		.4byte	.LASF24
+ 477 0101 01       		.byte	0x1
+ 478 0102 74       		.byte	0x74
+ 479 0103 6B000000 		.4byte	0x6b
+ 480 0107 02       		.uleb128 0x2
+ 481 0108 91       		.byte	0x91
+ 482 0109 77       		.sleb128 -9
+ 483 010a 00       		.byte	0
+ 484 010b 09       		.uleb128 0x9
+ 485 010c 18020000 		.4byte	.LASF20
+ 486 0110 01       		.byte	0x1
+ 487 0111 8B       		.byte	0x8b
+ 488 0112 6B000000 		.4byte	0x6b
+ 489 0116 00000000 		.4byte	.LFB2
+ 490 011a 1C000000 		.4byte	.LFE2-.LFB2
+ 491 011e 01       		.uleb128 0x1
+ 492 011f 9C       		.byte	0x9c
+ 493 0120 09       		.uleb128 0x9
+ 494 0121 2E000000 		.4byte	.LASF21
+ 495 0125 01       		.byte	0x1
+ 496 0126 A7       		.byte	0xa7
+ 497 0127 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 14
+
+
+ 498 012b 00000000 		.4byte	.LFB3
+ 499 012f 1C000000 		.4byte	.LFE3-.LFB3
+ 500 0133 01       		.uleb128 0x1
+ 501 0134 9C       		.byte	0x9c
+ 502 0135 06       		.uleb128 0x6
+ 503 0136 00000000 		.4byte	.LASF22
+ 504 013a 01       		.byte	0x1
+ 505 013b D2       		.byte	0xd2
+ 506 013c 00000000 		.4byte	.LFB4
+ 507 0140 44000000 		.4byte	.LFE4-.LFB4
+ 508 0144 01       		.uleb128 0x1
+ 509 0145 9C       		.byte	0x9c
+ 510 0146 75010000 		.4byte	0x175
+ 511 014a 07       		.uleb128 0x7
+ 512 014b 52010000 		.4byte	.LASF23
+ 513 014f 01       		.byte	0x1
+ 514 0150 D2       		.byte	0xd2
+ 515 0151 77000000 		.4byte	0x77
+ 516 0155 02       		.uleb128 0x2
+ 517 0156 91       		.byte	0x91
+ 518 0157 6E       		.sleb128 -18
+ 519 0158 07       		.uleb128 0x7
+ 520 0159 8E010000 		.4byte	.LASF18
+ 521 015d 01       		.byte	0x1
+ 522 015e D2       		.byte	0xd2
+ 523 015f 77000000 		.4byte	0x77
+ 524 0163 02       		.uleb128 0x2
+ 525 0164 91       		.byte	0x91
+ 526 0165 6C       		.sleb128 -20
+ 527 0166 08       		.uleb128 0x8
+ 528 0167 62010000 		.4byte	.LASF25
+ 529 016b 01       		.byte	0x1
+ 530 016c D4       		.byte	0xd4
+ 531 016d 83000000 		.4byte	0x83
+ 532 0171 02       		.uleb128 0x2
+ 533 0172 91       		.byte	0x91
+ 534 0173 74       		.sleb128 -12
+ 535 0174 00       		.byte	0
+ 536 0175 0A       		.uleb128 0xa
+ 537 0176 4B000000 		.4byte	.LASF26
+ 538 017a 01       		.byte	0x1
+ 539 017b EF       		.byte	0xef
+ 540 017c 6B000000 		.4byte	0x6b
+ 541 0180 00000000 		.4byte	.LFB5
+ 542 0184 2C000000 		.4byte	.LFE5-.LFB5
+ 543 0188 01       		.uleb128 0x1
+ 544 0189 9C       		.byte	0x9c
+ 545 018a 08       		.uleb128 0x8
+ 546 018b A1010000 		.4byte	.LASF27
+ 547 018f 01       		.byte	0x1
+ 548 0190 F1       		.byte	0xf1
+ 549 0191 6B000000 		.4byte	0x6b
+ 550 0195 02       		.uleb128 0x2
+ 551 0196 91       		.byte	0x91
+ 552 0197 77       		.sleb128 -9
+ 553 0198 00       		.byte	0
+ 554 0199 00       		.byte	0
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 15
+
+
+ 555              		.section	.debug_abbrev,"",%progbits
+ 556              	.Ldebug_abbrev0:
+ 557 0000 01       		.uleb128 0x1
+ 558 0001 11       		.uleb128 0x11
+ 559 0002 01       		.byte	0x1
+ 560 0003 25       		.uleb128 0x25
+ 561 0004 0E       		.uleb128 0xe
+ 562 0005 13       		.uleb128 0x13
+ 563 0006 0B       		.uleb128 0xb
+ 564 0007 03       		.uleb128 0x3
+ 565 0008 0E       		.uleb128 0xe
+ 566 0009 1B       		.uleb128 0x1b
+ 567 000a 0E       		.uleb128 0xe
+ 568 000b 55       		.uleb128 0x55
+ 569 000c 17       		.uleb128 0x17
+ 570 000d 11       		.uleb128 0x11
+ 571 000e 01       		.uleb128 0x1
+ 572 000f 10       		.uleb128 0x10
+ 573 0010 17       		.uleb128 0x17
+ 574 0011 00       		.byte	0
+ 575 0012 00       		.byte	0
+ 576 0013 02       		.uleb128 0x2
+ 577 0014 24       		.uleb128 0x24
+ 578 0015 00       		.byte	0
+ 579 0016 0B       		.uleb128 0xb
+ 580 0017 0B       		.uleb128 0xb
+ 581 0018 3E       		.uleb128 0x3e
+ 582 0019 0B       		.uleb128 0xb
+ 583 001a 03       		.uleb128 0x3
+ 584 001b 0E       		.uleb128 0xe
+ 585 001c 00       		.byte	0
+ 586 001d 00       		.byte	0
+ 587 001e 03       		.uleb128 0x3
+ 588 001f 24       		.uleb128 0x24
+ 589 0020 00       		.byte	0
+ 590 0021 0B       		.uleb128 0xb
+ 591 0022 0B       		.uleb128 0xb
+ 592 0023 3E       		.uleb128 0x3e
+ 593 0024 0B       		.uleb128 0xb
+ 594 0025 03       		.uleb128 0x3
+ 595 0026 08       		.uleb128 0x8
+ 596 0027 00       		.byte	0
+ 597 0028 00       		.byte	0
+ 598 0029 04       		.uleb128 0x4
+ 599 002a 16       		.uleb128 0x16
+ 600 002b 00       		.byte	0
+ 601 002c 03       		.uleb128 0x3
+ 602 002d 0E       		.uleb128 0xe
+ 603 002e 3A       		.uleb128 0x3a
+ 604 002f 0B       		.uleb128 0xb
+ 605 0030 3B       		.uleb128 0x3b
+ 606 0031 05       		.uleb128 0x5
+ 607 0032 49       		.uleb128 0x49
+ 608 0033 13       		.uleb128 0x13
+ 609 0034 00       		.byte	0
+ 610 0035 00       		.byte	0
+ 611 0036 05       		.uleb128 0x5
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 16
+
+
+ 612 0037 35       		.uleb128 0x35
+ 613 0038 00       		.byte	0
+ 614 0039 49       		.uleb128 0x49
+ 615 003a 13       		.uleb128 0x13
+ 616 003b 00       		.byte	0
+ 617 003c 00       		.byte	0
+ 618 003d 06       		.uleb128 0x6
+ 619 003e 2E       		.uleb128 0x2e
+ 620 003f 01       		.byte	0x1
+ 621 0040 3F       		.uleb128 0x3f
+ 622 0041 19       		.uleb128 0x19
+ 623 0042 03       		.uleb128 0x3
+ 624 0043 0E       		.uleb128 0xe
+ 625 0044 3A       		.uleb128 0x3a
+ 626 0045 0B       		.uleb128 0xb
+ 627 0046 3B       		.uleb128 0x3b
+ 628 0047 0B       		.uleb128 0xb
+ 629 0048 27       		.uleb128 0x27
+ 630 0049 19       		.uleb128 0x19
+ 631 004a 11       		.uleb128 0x11
+ 632 004b 01       		.uleb128 0x1
+ 633 004c 12       		.uleb128 0x12
+ 634 004d 06       		.uleb128 0x6
+ 635 004e 40       		.uleb128 0x40
+ 636 004f 18       		.uleb128 0x18
+ 637 0050 9742     		.uleb128 0x2117
+ 638 0052 19       		.uleb128 0x19
+ 639 0053 01       		.uleb128 0x1
+ 640 0054 13       		.uleb128 0x13
+ 641 0055 00       		.byte	0
+ 642 0056 00       		.byte	0
+ 643 0057 07       		.uleb128 0x7
+ 644 0058 05       		.uleb128 0x5
+ 645 0059 00       		.byte	0
+ 646 005a 03       		.uleb128 0x3
+ 647 005b 0E       		.uleb128 0xe
+ 648 005c 3A       		.uleb128 0x3a
+ 649 005d 0B       		.uleb128 0xb
+ 650 005e 3B       		.uleb128 0x3b
+ 651 005f 0B       		.uleb128 0xb
+ 652 0060 49       		.uleb128 0x49
+ 653 0061 13       		.uleb128 0x13
+ 654 0062 02       		.uleb128 0x2
+ 655 0063 18       		.uleb128 0x18
+ 656 0064 00       		.byte	0
+ 657 0065 00       		.byte	0
+ 658 0066 08       		.uleb128 0x8
+ 659 0067 34       		.uleb128 0x34
+ 660 0068 00       		.byte	0
+ 661 0069 03       		.uleb128 0x3
+ 662 006a 0E       		.uleb128 0xe
+ 663 006b 3A       		.uleb128 0x3a
+ 664 006c 0B       		.uleb128 0xb
+ 665 006d 3B       		.uleb128 0x3b
+ 666 006e 0B       		.uleb128 0xb
+ 667 006f 49       		.uleb128 0x49
+ 668 0070 13       		.uleb128 0x13
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 17
+
+
+ 669 0071 02       		.uleb128 0x2
+ 670 0072 18       		.uleb128 0x18
+ 671 0073 00       		.byte	0
+ 672 0074 00       		.byte	0
+ 673 0075 09       		.uleb128 0x9
+ 674 0076 2E       		.uleb128 0x2e
+ 675 0077 00       		.byte	0
+ 676 0078 3F       		.uleb128 0x3f
+ 677 0079 19       		.uleb128 0x19
+ 678 007a 03       		.uleb128 0x3
+ 679 007b 0E       		.uleb128 0xe
+ 680 007c 3A       		.uleb128 0x3a
+ 681 007d 0B       		.uleb128 0xb
+ 682 007e 3B       		.uleb128 0x3b
+ 683 007f 0B       		.uleb128 0xb
+ 684 0080 27       		.uleb128 0x27
+ 685 0081 19       		.uleb128 0x19
+ 686 0082 49       		.uleb128 0x49
+ 687 0083 13       		.uleb128 0x13
+ 688 0084 11       		.uleb128 0x11
+ 689 0085 01       		.uleb128 0x1
+ 690 0086 12       		.uleb128 0x12
+ 691 0087 06       		.uleb128 0x6
+ 692 0088 40       		.uleb128 0x40
+ 693 0089 18       		.uleb128 0x18
+ 694 008a 9742     		.uleb128 0x2117
+ 695 008c 19       		.uleb128 0x19
+ 696 008d 00       		.byte	0
+ 697 008e 00       		.byte	0
+ 698 008f 0A       		.uleb128 0xa
+ 699 0090 2E       		.uleb128 0x2e
+ 700 0091 01       		.byte	0x1
+ 701 0092 3F       		.uleb128 0x3f
+ 702 0093 19       		.uleb128 0x19
+ 703 0094 03       		.uleb128 0x3
+ 704 0095 0E       		.uleb128 0xe
+ 705 0096 3A       		.uleb128 0x3a
+ 706 0097 0B       		.uleb128 0xb
+ 707 0098 3B       		.uleb128 0x3b
+ 708 0099 0B       		.uleb128 0xb
+ 709 009a 27       		.uleb128 0x27
+ 710 009b 19       		.uleb128 0x19
+ 711 009c 49       		.uleb128 0x49
+ 712 009d 13       		.uleb128 0x13
+ 713 009e 11       		.uleb128 0x11
+ 714 009f 01       		.uleb128 0x1
+ 715 00a0 12       		.uleb128 0x12
+ 716 00a1 06       		.uleb128 0x6
+ 717 00a2 40       		.uleb128 0x40
+ 718 00a3 18       		.uleb128 0x18
+ 719 00a4 9742     		.uleb128 0x2117
+ 720 00a6 19       		.uleb128 0x19
+ 721 00a7 00       		.byte	0
+ 722 00a8 00       		.byte	0
+ 723 00a9 00       		.byte	0
+ 724              		.section	.debug_aranges,"",%progbits
+ 725 0000 44000000 		.4byte	0x44
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 18
+
+
+ 726 0004 0200     		.2byte	0x2
+ 727 0006 00000000 		.4byte	.Ldebug_info0
+ 728 000a 04       		.byte	0x4
+ 729 000b 00       		.byte	0
+ 730 000c 0000     		.2byte	0
+ 731 000e 0000     		.2byte	0
+ 732 0010 00000000 		.4byte	.LFB0
+ 733 0014 74000000 		.4byte	.LFE0-.LFB0
+ 734 0018 00000000 		.4byte	.LFB1
+ 735 001c 4C000000 		.4byte	.LFE1-.LFB1
+ 736 0020 00000000 		.4byte	.LFB2
+ 737 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 738 0028 00000000 		.4byte	.LFB3
+ 739 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 740 0030 00000000 		.4byte	.LFB4
+ 741 0034 44000000 		.4byte	.LFE4-.LFB4
+ 742 0038 00000000 		.4byte	.LFB5
+ 743 003c 2C000000 		.4byte	.LFE5-.LFB5
+ 744 0040 00000000 		.4byte	0
+ 745 0044 00000000 		.4byte	0
+ 746              		.section	.debug_ranges,"",%progbits
+ 747              	.Ldebug_ranges0:
+ 748 0000 00000000 		.4byte	.LFB0
+ 749 0004 74000000 		.4byte	.LFE0
+ 750 0008 00000000 		.4byte	.LFB1
+ 751 000c 4C000000 		.4byte	.LFE1
+ 752 0010 00000000 		.4byte	.LFB2
+ 753 0014 1C000000 		.4byte	.LFE2
+ 754 0018 00000000 		.4byte	.LFB3
+ 755 001c 1C000000 		.4byte	.LFE3
+ 756 0020 00000000 		.4byte	.LFB4
+ 757 0024 44000000 		.4byte	.LFE4
+ 758 0028 00000000 		.4byte	.LFB5
+ 759 002c 2C000000 		.4byte	.LFE5
+ 760 0030 00000000 		.4byte	0
+ 761 0034 00000000 		.4byte	0
+ 762              		.section	.debug_line,"",%progbits
+ 763              	.Ldebug_line0:
+ 764 0000 BB000000 		.section	.debug_str,"MS",%progbits,1
+ 764      02004100 
+ 764      00000201 
+ 764      FB0E0D00 
+ 764      01010101 
+ 765              	.LASF22:
+ 766 0000 526F7773 		.ascii	"Rows_SetInterruptMode\000"
+ 766      5F536574 
+ 766      496E7465 
+ 766      72727570 
+ 766      744D6F64 
+ 767              	.LASF15:
+ 768 0016 72656733 		.ascii	"reg32\000"
+ 768      3200
+ 769              	.LASF16:
+ 770 001c 526F7773 		.ascii	"Rows_SetDriveMode\000"
+ 770      5F536574 
+ 770      44726976 
+ 770      654D6F64 
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 19
+
+
+ 770      6500
+ 771              	.LASF21:
+ 772 002e 526F7773 		.ascii	"Rows_ReadDataReg\000"
+ 772      5F526561 
+ 772      64446174 
+ 772      61526567 
+ 772      00
+ 773              	.LASF19:
+ 774 003f 76616C75 		.ascii	"value\000"
+ 774      6500
+ 775              	.LASF12:
+ 776 0045 666C6F61 		.ascii	"float\000"
+ 776      7400
+ 777              	.LASF26:
+ 778 004b 526F7773 		.ascii	"Rows_ClearInterrupt\000"
+ 778      5F436C65 
+ 778      6172496E 
+ 778      74657272 
+ 778      75707400 
+ 779              	.LASF1:
+ 780 005f 756E7369 		.ascii	"unsigned char\000"
+ 780      676E6564 
+ 780      20636861 
+ 780      7200
+ 781              	.LASF24:
+ 782 006d 64725661 		.ascii	"drVal\000"
+ 782      6C00
+ 783              	.LASF5:
+ 784 0073 6C6F6E67 		.ascii	"long unsigned int\000"
+ 784      20756E73 
+ 784      69676E65 
+ 784      6420696E 
+ 784      7400
+ 785              	.LASF3:
+ 786 0085 73686F72 		.ascii	"short unsigned int\000"
+ 786      7420756E 
+ 786      7369676E 
+ 786      65642069 
+ 786      6E7400
+ 787              	.LASF28:
+ 788 0098 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 788      43313120 
+ 788      352E342E 
+ 788      31203230 
+ 788      31363036 
+ 789 00cb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 789      20726576 
+ 789      6973696F 
+ 789      6E203233 
+ 789      37373135 
+ 790 00fe 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 790      66756E63 
+ 790      74696F6E 
+ 790      2D736563 
+ 790      74696F6E 
+ 791              	.LASF29:
+ 792 0126 47656E65 		.ascii	"Generated_Source\\PSoC4\\Rows.c\000"
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 20
+
+
+ 792      72617465 
+ 792      645F536F 
+ 792      75726365 
+ 792      5C50536F 
+ 793              	.LASF13:
+ 794 0144 646F7562 		.ascii	"double\000"
+ 794      6C6500
+ 795              	.LASF10:
+ 796 014b 75696E74 		.ascii	"uint16\000"
+ 796      313600
+ 797              	.LASF23:
+ 798 0152 706F7369 		.ascii	"position\000"
+ 798      74696F6E 
+ 798      00
+ 799              	.LASF11:
+ 800 015b 75696E74 		.ascii	"uint32\000"
+ 800      333200
+ 801              	.LASF25:
+ 802 0162 696E7472 		.ascii	"intrCfg\000"
+ 802      43666700 
+ 803              	.LASF8:
+ 804 016a 756E7369 		.ascii	"unsigned int\000"
+ 804      676E6564 
+ 804      20696E74 
+ 804      00
+ 805              	.LASF7:
+ 806 0177 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 806      206C6F6E 
+ 806      6720756E 
+ 806      7369676E 
+ 806      65642069 
+ 807              	.LASF18:
+ 808 018e 6D6F6465 		.ascii	"mode\000"
+ 808      00
+ 809              	.LASF6:
+ 810 0193 6C6F6E67 		.ascii	"long long int\000"
+ 810      206C6F6E 
+ 810      6720696E 
+ 810      7400
+ 811              	.LASF27:
+ 812 01a1 6D61736B 		.ascii	"maskedStatus\000"
+ 812      65645374 
+ 812      61747573 
+ 812      00
+ 813              	.LASF14:
+ 814 01ae 63686172 		.ascii	"char\000"
+ 814      00
+ 815              	.LASF2:
+ 816 01b3 73686F72 		.ascii	"short int\000"
+ 816      7420696E 
+ 816      7400
+ 817              	.LASF9:
+ 818 01bd 75696E74 		.ascii	"uint8\000"
+ 818      3800
+ 819              	.LASF17:
+ 820 01c3 526F7773 		.ascii	"Rows_Write\000"
+ 820      5F577269 
+ARM GAS  C:\Users\fabis\AppData\Local\Temp\cc0zH9ct.s 			page 21
+
+
+ 820      746500
+ 821              	.LASF30:
+ 822 01ce 433A5C55 		.ascii	"C:\\Users\\fabis\\Desktop\\CE210558_GPIO_Interrupt."
+ 822      73657273 
+ 822      5C666162 
+ 822      69735C44 
+ 822      65736B74 
+ 823 01fd 63796473 		.ascii	"cydsn\000"
+ 823      6E00
+ 824              	.LASF4:
+ 825 0203 6C6F6E67 		.ascii	"long int\000"
+ 825      20696E74 
+ 825      00
+ 826              	.LASF0:
+ 827 020c 7369676E 		.ascii	"signed char\000"
+ 827      65642063 
+ 827      68617200 
+ 828              	.LASF20:
+ 829 0218 526F7773 		.ascii	"Rows_Read\000"
+ 829      5F526561 
+ 829      6400
+ 830              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

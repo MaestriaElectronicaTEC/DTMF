@@ -46,7 +46,7 @@
 #define FALSE  0
 #define TRUE   1
 #define TRANSMIT_BUFFER_SIZE  16
-#define TONE_DURATION_MS 80 /* Duration of tone in mSec */
+#define TONE_DURATION_MS 3000 /* Duration of tone in mSec */
 #define TONE_SPACE_MS 65 /* Duration of space between tones in mSec */
 #define TONE_PAUSE_MS 100 /* Pause caused by invalid code */
 
@@ -59,62 +59,15 @@ char keyCodes[] = "123A456B789C*0#D"; /* Valid character array */
 /* The tables below store the dividers loaded into */
 /* the counter period register to generate the row */
 /* and column tones. */
-/* Row Tones (Hz) 697 770 852 941 */
-uint8 rowDiv[] = {214, 194, 175, 158};
-/* Col Tones (Hz) 1209 1336 1477 1633 */
-uint8 colDiv[] = { 198, 179, 161, 146};
 
-/* Variable to store ADC result */
-uint16 Output;
-/* Flags used to store transmit data commands */
-uint8 ContinuouslySendData;
-uint8 SendSingleByte;
-uint8 SendEmulatedData;
+/* Row Tones (Hz) 697  770  852  941      */
+uint8 rowDiv[] = {214, 194, 175, 158};
+
+/* Col Tones (Hz) 1209  1336  1477  1633  */
+uint8 colDiv[] = { 198,  179,  161,  146};
+
 /* Transmit Buffer */
 char TransmitBuffer[TRANSMIT_BUFFER_SIZE];
-/* Variable used to send emulated data */
-uint8 EmulatedData;
-
-
-CY_ISR_PROTO(Transmit);
-
-CY_ISR(Transmit)
-{
-        /* Check to see if an ADC conversion has completed */
-        if(ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS))
-        {
-            /* Use the GetResult16 API to get an 8 bit unsigned result in
-             * single ended mode.  The API CountsTo_mVolts is then used
-             * to convert the ADC counts into mV before transmitting via
-             * the UART.  See the datasheet API description for more
-             * details */
-            //Output = ADC_DelSig_1_CountsTo_mVolts(ADC_DelSig_1_GetResult16());
-            Output = ADC_DelSig_1_GetResult16();
-            
-            /* Send data based on last UART command */
-            if(SendSingleByte || ContinuouslySendData)
-            {
-                /* Format ADC result for transmition */
-                //sprintf(TransmitBuffer, "Sample: %d mV\r\n", Output);
-                sprintf(TransmitBuffer, "%X\r\n", Output);
-                /* Send out the data */
-                UART_1_PutString(TransmitBuffer);
-                /* Reset the send once flag */
-                SendSingleByte = FALSE;
-            }
-            else if(SendEmulatedData)
-            {
-                /* Format ADC result for transmition */
-                sprintf(TransmitBuffer, "%x\r\n", EmulatedData);
-                /* Send out the data */
-                UART_1_PutString(TransmitBuffer);
-                EmulatedData++;
-                /* Reset the send once flag */
-                SendEmulatedData = FALSE;   
-            }
-        }    
-    
-}
 
 /*******************************************************************************
 * Function Name: main
@@ -144,30 +97,16 @@ int main()
     uint8 Ch;
     
     /* Start the components */
-    ADC_DelSig_1_Start();
     UART_1_Start();
     ToneClock_Stop();
-    Row_Divider_Start();
-    Col_Divider_Start();
-    Row_Tone_Start();
-    Col_Tone_Start();
-    DTMF_Buffer_Start();
-    
-    /* Initialize Variables */
-    ContinuouslySendData = FALSE;
-    SendSingleByte = FALSE;
-    SendEmulatedData = FALSE;
-    EmulatedData = 0;
-    
-    /* Start the ADC conversion */
-    ADC_DelSig_1_StartConvert();
+	Row_Divider_Start();
+	Col_Divider_Start();
+	Row_Tone_Start();
+	Col_Tone_Start();
+	DTMF_Buffer_Start();
     
     /* Send message to verify COM port is connected properly */
     UART_1_PutString("COM Port Open\r\n");
-    
-    Timer_Start();
-    isr_StartEx(Transmit);
-    CyGlobalIntEnable;
     
     for(;;)
     {        
@@ -192,23 +131,9 @@ int main()
             case '9':
             case '*':
             case '#':
+                sprintf(TransmitBuffer, "Key pressed: %s\r\n", (char*)&Ch);
+                UART_1_PutString(TransmitBuffer);
                 DialNumber((char*)&Ch);
-                break;
-            case 'C':
-            case 'c':
-                SendSingleByte = TRUE;
-                break;
-            case 'S':
-            case 's':
-                ContinuouslySendData = TRUE;
-                break;
-            case 'X':
-            case 'x':
-                ContinuouslySendData = FALSE;
-                break;
-            case 'E':
-            case 'e':
-                SendEmulatedData = TRUE;
                 break;
             default:
                 /* Place error handling code here */
@@ -271,14 +196,23 @@ void PlayTones( char key )
         col_div = colDiv[(uint8)(idx & 0x03)]; /* Get divider for column tone */
         row_div = rowDiv[(uint8)((idx >> 2)& 0x03)];/* Get divider for row tone */
 
-        Row_Divider_WritePeriod(row_div); /* Set both dividers */
+        Row_Divider_WritePeriod(row_div);             /* Set both dividers  */
         Col_Divider_WritePeriod(col_div);
+        
+        sprintf(TransmitBuffer, "Row divider: %d\r\n", row_div);
+        UART_1_PutString(TransmitBuffer);
+        
+        sprintf(TransmitBuffer, "Col divider: %d\r\n", col_div);
+        UART_1_PutString(TransmitBuffer);
 
-        ToneClock_Start(); /* Turn on clock */
-        ContinuouslySendData = TRUE;
-        CyDelay(TONE_DURATION_MS); /* Wait for the tone duration */
-        ToneClock_Stop(); /* Turn off clock */
-        ContinuouslySendData = FALSE;
+        ToneClock_Start();                            /* Turn on clock */
+        
+        UART_1_PutString("Startin tone... \r\n");
+                
+        CyDelay(TONE_DURATION_MS);                    /* Wait for the tone duration */
+        ToneClock_Stop();                             /* Turn off clock */
+        
+        UART_1_PutString("Stop tone \r\n");
     }
     else /* Invalid key, just pause for set period of time. */
     {

@@ -58,18 +58,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitteriar.inc</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cydisabledsheets.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_Ext_CP_Clk.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_Ext_CP_Clk.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_IRQ.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_IRQ.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_theACLK.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_theACLK.h</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">Generated_Source\PSoC5\cm3gcc.ld</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">Generated_Source\PSoC5\Cm3RealView.scat</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Cm3Start.c</File>
@@ -108,13 +96,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_BOOT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Row_Divider.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Row_Divider.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Row_Divider_PM.c</File>
@@ -146,6 +127,9 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Row_Tone_VDAC8.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Row_Tone_VDAC8.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Row_Tone_VDAC8_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\P00_Vout_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\P00_Vout.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\P00_Vout.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Luis Alonso Murillo\Documents\GitHub\DTMF\transmitter\Encoder.cydsn\Export\ARM_GCC_Generic">

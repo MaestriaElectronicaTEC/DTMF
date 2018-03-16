@@ -37,7 +37,7 @@
 #define Row_Tone_ARB_FILE_WAVE  (11u) /* Arbitrary (from file) */
 
 #define Row_Tone_WAVE1_LENGTH   (80u)   /* Length for wave1 */
-#define Row_Tone_WAVE2_LENGTH   (80u)   /* Length for wave2 */
+#define Row_Tone_WAVE2_LENGTH   (50u)   /* Length for wave2 */
 	
 #define Row_Tone_DEFAULT_RANGE    (0u) /* Default DAC range */
 #define Row_Tone_DAC_RANGE_1V     (0u)

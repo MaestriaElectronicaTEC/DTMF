@@ -13,6 +13,7 @@
       <Data key="89373ea0-d317-4130-bd17-5d3cefcdeec3/77253644-2d29-412d-87e5-52485cd7a6d7" value="LCD_LCDPort" />
       <Data key="89373ea0-d317-4130-bd17-5d3cefcdeec3/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_LCDPort" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_12_6" />
+      <Data key="c8965296-fadd-4477-b9c8-092817a11a7c" value="P00_Vout" />
       <Data key="cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada" value="Vin" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_P12_7" />
     </Group>
@@ -72,6 +73,11 @@
     <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">
       <Group key="0">
         <Data key="Port Format" value="12,6" />
+      </Group>
+    </Group>
+    <Group key="c8965296-fadd-4477-b9c8-092817a11a7c">
+      <Group key="0">
+        <Data key="Port Format" value="0,0" />
       </Group>
     </Group>
     <Group key="cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada">

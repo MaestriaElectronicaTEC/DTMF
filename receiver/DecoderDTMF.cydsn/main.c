@@ -16,6 +16,7 @@
 
 #include <project.h>
 #include <stdio.h>
+#include <math.h>
 
 /* Project Defines */
 #define FALSE  0
@@ -235,13 +236,42 @@ int main()
 uint16 goertezel_buffer;
 
 #define DTMF_679 679
+#define DTMF_770 770
+#define DTMF_852 852
+#define DTMF_941 941
+#define DTMF_1209 1209
+#define DTMF_1336 1336
+#define DTMF_1477 1477
 
+#define SAMPLE_FRECUENCY 10
 /**
 * Goertezel Algorithm
 *
 */
-uint16 goertzel_algorithm()
+uint16 goertzel_filter(double in_signal[], double frecuency_detect, int samples)
 {
+    double vk_1 = 0.0;
+    double vk_2 = 0.0;
+    double cos_coeff;
+    double k;
+    double power;
+    
+    double vk;
+  
+    int i;
+    
+    cos_coeff = 2*cos(2*M_PI*frecuency_detect/SAMPLE_FRECUENCY); 
+    
+    for (i = 0; i < samples; i++){
+        vk = cos_coeff * vk_1 - vk_2 + in_signal[i];
+        vk_2 = vk_1;
+        vk_1 = vk;
+    }
+    
+    power = (vk_1 * vk_1) + (vk_2 * vk_2) - (cos_coeff * vk_1 * vk_2);
+    
+    return power;
+    
     
 }
 

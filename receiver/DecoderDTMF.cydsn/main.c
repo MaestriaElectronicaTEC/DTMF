@@ -243,20 +243,22 @@ uint16 goertezel_buffer;
 #define DTMF_1336 1336
 #define DTMF_1477 1477
 
-#define SAMPLE_FRECUENCY 10
+#define SAMPLE_FRECUENCY 8000
+#define SAMPLES 8000
+
 /**
 * Goertezel Algorithm
-*
 */
-uint16 goertzel_filter(double in_signal[], double frecuency_detect, int samples)
+double goertzel_filter(double in_signal[], double frecuency_detect, uint16 samples);
+
+double goertzel_filter(double in_signal[], double frecuency_detect, uint16 samples)
 {
+    double vk;
     double vk_1 = 0.0;
     double vk_2 = 0.0;
     double cos_coeff;
     double k;
     double power;
-    
-    double vk;
   
     int i;
     
@@ -270,13 +272,110 @@ uint16 goertzel_filter(double in_signal[], double frecuency_detect, int samples)
     
     power = (vk_1 * vk_1) + (vk_2 * vk_2) - (cos_coeff * vk_1 * vk_2);
     
-    return power;
+    return power;    
+}
+
+/**
+* Goertezel Coefficient Axx
+*/
+double goertzel_coefficient(double xk, uint16 samples);
+
+double goertzel_coefficient(double xk, uint16 samples)
+{
+    double ak;
     
+    ak = (2/samples) * sqrt(xk);
     
+    return ak;     
+}
+
+/**
+* Goertzel Init
+*/
+void goertzel_init();
+
+// ToDo
+double a_signal[8000];
+
+void goertzel_compute()
+{
+    double h18, h20, h22, h24, h31, h34, h38;
+    double a18, a20, a22, a24, a31, a34, a38;
+    double thr;
+    
+    // each of the 7 filters with different frequencies to revise
+    h18 = goertzel_filter(a_signal, DTMF_679, SAMPLES);
+    h20 = goertzel_filter(a_signal, DTMF_770, SAMPLES);
+    h22 = goertzel_filter(a_signal, DTMF_852, SAMPLES);
+    h24 = goertzel_filter(a_signal, DTMF_941, SAMPLES);
+    h31 = goertzel_filter(a_signal, DTMF_1209, SAMPLES);
+    h34 = goertzel_filter(a_signal, DTMF_1336, SAMPLES);
+    h38 = goertzel_filter(a_signal, DTMF_1477, SAMPLES);
+    
+    // each of the coefficientes Axx to retrieve the single-sided amplituded spectrum 
+    a18 = goertzel_coefficient(h18, SAMPLES);
+    a20 = goertzel_coefficient(h20, SAMPLES);
+    a22 = goertzel_coefficient(h22, SAMPLES);
+    a24 = goertzel_coefficient(h24, SAMPLES);
+    a31 = goertzel_coefficient(h31, SAMPLES);
+    a34 = goertzel_coefficient(h34, SAMPLES);
+    a38 = goertzel_coefficient(h38, SAMPLES);
+    
+    // Threshold that needs to be overpassed to detect a tone
+    thr = (a18 + a20 + a22 + a24 + a31 + a34 + a38)/4;
+    
+    // If-else statements
+    
+    // First row
+    if (a18 > thr && a31 > thr) {
+        //ToDo: take action
+        printf("The key is 1\n");
+        
+    } else if (a18 > thr && a34 > thr) {
+        //ToDo: take action
+        printf("The key is 2\n");
+        
+    } else if (a18 > thr && a38 > thr) {
+        //ToDo: take action
+        printf("The key is 3\n");
+        
+        
+    // Second row
+    } else if (a20 > thr && a31 > thr) {
+        //ToDo: take action
+        printf("The key is 4\n");
+        
+    } else if (a20 > thr && a34 > thr) {
+        //ToDo: take action
+        printf("The key is 5\n");
+        
+    } else if (a20 > thr && a38 > thr) {
+        //ToDo: take action
+        printf("The key is 6\n");
+        
+      
+    // Third row
+    } else if (a22 > thr && a31 > thr) {
+        //ToDo: take action
+        printf("The key is 7\n");
+        
+    } else if (a22 > thr && a34 > thr) {
+        //ToDo: take action
+        printf("The key is 8\n");
+        
+    } else if (a22 > thr && a38 > thr) {
+        //ToDo: take action
+        printf("The key is 9\n");
+       
+        
+    // Fourth row    
+    } else if (a24 > thr && a34 > thr) {
+        //ToDo: take action
+        printf("The key is 0\n");
+    }
 }
 
 ///////////////////////////
-
 
 
 /*******************************************************************************

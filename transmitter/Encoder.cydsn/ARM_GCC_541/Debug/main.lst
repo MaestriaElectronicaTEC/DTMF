@@ -1,0 +1,1544 @@
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	keyCodes
+  20              		.data
+  21              		.align	2
+  22              		.type	keyCodes, %object
+  23              		.size	keyCodes, 17
+  24              	keyCodes:
+  25 0000 31323341 		.ascii	"123A456B789C*0#D\000"
+  25      34353642 
+  25      37383943 
+  25      2A302344 
+  25      00
+  26              		.global	rowDiv
+  27 0011 000000   		.align	2
+  28              		.type	rowDiv, %object
+  29              		.size	rowDiv, 4
+  30              	rowDiv:
+  31 0014 D6       		.byte	-42
+  32 0015 C2       		.byte	-62
+  33 0016 AF       		.byte	-81
+  34 0017 9E       		.byte	-98
+  35              		.global	colDiv
+  36              		.align	2
+  37              		.type	colDiv, %object
+  38              		.size	colDiv, 4
+  39              	colDiv:
+  40 0018 C6       		.byte	-58
+  41 0019 B3       		.byte	-77
+  42 001a A1       		.byte	-95
+  43 001b 92       		.byte	-110
+  44              		.comm	TransmitBuffer,16,4
+  45              		.section	.rodata
+  46              		.align	2
+  47              	.LC0:
+  48 0000 434F4D20 		.ascii	"COM Port Open\015\012\000"
+  48      506F7274 
+  48      204F7065 
+  48      6E0D0A00 
+  49              		.align	2
+  50              	.LC1:
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 2
+
+
+  51 0010 4B657920 		.ascii	"Key pressed: %s\015\012\000"
+  51      70726573 
+  51      7365643A 
+  51      2025730D 
+  51      0A00
+  52              		.section	.text.main,"ax",%progbits
+  53              		.align	2
+  54              		.global	main
+  55              		.thumb
+  56              		.thumb_func
+  57              		.type	main, %function
+  58              	main:
+  59              	.LFB64:
+  60              		.file 1 "main.c"
+   1:main.c        **** /******************************************************************************
+   2:main.c        **** * Project Name		: CE95277 ADC and UART
+   3:main.c        **** * File Name			: main.c
+   4:main.c        **** * Version 			: **
+   5:main.c        **** * Device Used		: CY8C5888LTI-LP097
+   6:main.c        **** * Software Used		: PSoC Creator 3.1 SP2
+   7:main.c        **** * Compiler    		: ARM GCC 4.8.4, ARM RVDS Generic, ARM MDK Generic
+   8:main.c        **** * Related Hardware	: CY8CKIT059 PSoC 5 LP Prototyping Kit 
+   9:main.c        **** * Owner				: KLMZ
+  10:main.c        **** *
+  11:main.c        **** ********************************************************************************
+  12:main.c        **** * Copyright (2015), Cypress Semiconductor Corporation. All Rights Reserved.
+  13:main.c        **** ********************************************************************************
+  14:main.c        **** * This software is owned by Cypress Semiconductor Corporation (Cypress)
+  15:main.c        **** * and is protected by and subject to worldwide patent protection (United
+  16:main.c        **** * States and foreign), United States copyright laws and international treaty
+  17:main.c        **** * provisions. Cypress hereby grants to licensee a personal, non-exclusive,
+  18:main.c        **** * non-transferable license to copy, use, modify, create derivative works of,
+  19:main.c        **** * and compile the Cypress Source Code and derivative works for the sole
+  20:main.c        **** * purpose of creating custom software in support of licensee product to be
+  21:main.c        **** * used only in conjunction with a Cypress integrated circuit as specified in
+  22:main.c        **** * the applicable agreement. Any reproduction, modification, translation,
+  23:main.c        **** * compilation, or representation of this software except as specified above 
+  24:main.c        **** * is prohibited without the express written permission of Cypress.
+  25:main.c        **** *
+  26:main.c        **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH 
+  27:main.c        **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  28:main.c        **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  29:main.c        **** * Cypress reserves the right to make changes without further notice to the 
+  30:main.c        **** * materials described herein. Cypress does not assume any liability arising out 
+  31:main.c        **** * of the application or use of any product or circuit described herein. Cypress 
+  32:main.c        **** * does not authorize its products for use as critical components in life-support 
+  33:main.c        **** * systems where a malfunction or failure may reasonably be expected to result in 
+  34:main.c        **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  35:main.c        **** * support systems application implies that the manufacturer assumes all risk of 
+  36:main.c        **** * such use and in doing so indemnifies Cypress against all charges. 
+  37:main.c        **** *
+  38:main.c        **** * Use of this Software may be limited by and subject to the applicable Cypress
+  39:main.c        **** * software license agreement. 
+  40:main.c        **** *******************************************************************************/
+  41:main.c        **** 
+  42:main.c        **** #include <device.h>
+  43:main.c        **** #include "stdio.h"
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 3
+
+
+  44:main.c        **** 
+  45:main.c        **** /* Project Defines */
+  46:main.c        **** #define FALSE  0
+  47:main.c        **** #define TRUE   1
+  48:main.c        **** #define TRANSMIT_BUFFER_SIZE  16
+  49:main.c        **** #define TONE_DURATION_MS 80 /* Duration of tone in mSec */
+  50:main.c        **** #define TONE_SPACE_MS 65 /* Duration of space between tones in mSec */
+  51:main.c        **** #define TONE_PAUSE_MS 100 /* Pause caused by invalid code */
+  52:main.c        **** 
+  53:main.c        **** /* Function prototypes */
+  54:main.c        **** void DialNumber( char * number );
+  55:main.c        **** void PlayTones( char key );
+  56:main.c        **** int8 KeyIndex(char * keyString, char key);
+  57:main.c        **** 
+  58:main.c        **** char keyCodes[] = "123A456B789C*0#D"; /* Valid character array */
+  59:main.c        **** /* The tables below store the dividers loaded into */
+  60:main.c        **** /* the counter period register to generate the row */
+  61:main.c        **** /* and column tones. */
+  62:main.c        **** 
+  63:main.c        **** /* Row Tones (Hz) 697  770  852  941      */
+  64:main.c        **** uint8 rowDiv[] = {214, 194, 175, 158};
+  65:main.c        **** 
+  66:main.c        **** /* Col Tones (Hz) 1209  1336  1477  1633  */
+  67:main.c        **** uint8 colDiv[] = { 198,  179,  161,  146};
+  68:main.c        **** 
+  69:main.c        **** /* Transmit Buffer */
+  70:main.c        **** char TransmitBuffer[TRANSMIT_BUFFER_SIZE];
+  71:main.c        **** 
+  72:main.c        **** /*******************************************************************************
+  73:main.c        **** * Function Name: main
+  74:main.c        **** ********************************************************************************
+  75:main.c        **** *
+  76:main.c        **** * Summary:
+  77:main.c        **** *  main() performs following functions:
+  78:main.c        **** *  1: Starts the ADC and UART components.
+  79:main.c        **** *  2: Checks for ADC end of conversion.  Stores latest result in output
+  80:main.c        **** *     if conversion complete.
+  81:main.c        **** *  3: Checks for UART input.
+  82:main.c        **** *     On 'C' or 'c' received: transmits the last sample via the UART.
+  83:main.c        **** *     On 'S' or 's' received: continuously transmits samples as they are completed.
+  84:main.c        **** *     On 'X' or 'x' received: stops continuously transmitting samples.
+  85:main.c        **** *     On 'E' or 'e' received: transmits a dummy byte of data.
+  86:main.c        **** *
+  87:main.c        **** * Parameters:
+  88:main.c        **** *  None.
+  89:main.c        **** *
+  90:main.c        **** * Return:
+  91:main.c        **** *  None.
+  92:main.c        **** *
+  93:main.c        **** *******************************************************************************/
+  94:main.c        **** int main()
+  95:main.c        **** {
+  61              		.loc 1 95 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 8
+  64              		@ frame_needed = 1, uses_anonymous_args = 0
+  65 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 4
+
+
+  66              		.cfi_def_cfa_offset 8
+  67              		.cfi_offset 7, -8
+  68              		.cfi_offset 14, -4
+  69 0002 82B0     		sub	sp, sp, #8
+  70              		.cfi_def_cfa_offset 16
+  71 0004 00AF     		add	r7, sp, #0
+  72              		.cfi_def_cfa_register 7
+  96:main.c        ****     /* Variable to store UART received character */
+  97:main.c        ****     uint8 Ch;
+  98:main.c        ****     
+  99:main.c        ****     /* Start the components */
+ 100:main.c        ****     UART_1_Start();
+  73              		.loc 1 100 0
+  74 0006 FFF7FEFF 		bl	UART_1_Start
+ 101:main.c        ****     ToneClock_Stop();
+  75              		.loc 1 101 0
+  76 000a FFF7FEFF 		bl	ToneClock_Stop
+ 102:main.c        **** 	Row_Divider_Start();
+  77              		.loc 1 102 0
+  78 000e FFF7FEFF 		bl	Row_Divider_Start
+ 103:main.c        **** 	Col_Divider_Start();
+  79              		.loc 1 103 0
+  80 0012 FFF7FEFF 		bl	Col_Divider_Start
+ 104:main.c        **** 	Row_Tone_Start();
+  81              		.loc 1 104 0
+  82 0016 FFF7FEFF 		bl	Row_Tone_Start
+ 105:main.c        **** 	Col_Tone_Start();
+  83              		.loc 1 105 0
+  84 001a FFF7FEFF 		bl	Col_Tone_Start
+ 106:main.c        **** 	DTMF_Buffer_Start();
+  85              		.loc 1 106 0
+  86 001e FFF7FEFF 		bl	DTMF_Buffer_Start
+ 107:main.c        ****     
+ 108:main.c        ****     /* Send message to verify COM port is connected properly */
+ 109:main.c        ****     UART_1_PutString("COM Port Open\r\n");
+  87              		.loc 1 109 0
+  88 0022 1348     		ldr	r0, .L10
+  89 0024 FFF7FEFF 		bl	UART_1_PutString
+  90              	.L7:
+ 110:main.c        ****     
+ 111:main.c        ****     for(;;)
+ 112:main.c        ****     {        
+ 113:main.c        ****         /* Non-blocking call to get the latest data recieved  */
+ 114:main.c        ****         Ch = UART_1_GetChar();
+  91              		.loc 1 114 0
+  92 0028 FFF7FEFF 		bl	UART_1_GetChar
+  93 002c 0346     		mov	r3, r0
+  94 002e FB71     		strb	r3, [r7, #7]
+ 115:main.c        ****         
+ 116:main.c        ****         /* Set flags based on UART command */
+ 117:main.c        ****         switch(Ch)
+  95              		.loc 1 117 0
+  96 0030 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  97 0032 2A2B     		cmp	r3, #42
+  98 0034 09D0     		beq	.L3
+  99 0036 2A2B     		cmp	r3, #42
+ 100 0038 04DC     		bgt	.L4
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 5
+
+
+ 101 003a 002B     		cmp	r3, #0
+ 102 003c 13D0     		beq	.L8
+ 103 003e 232B     		cmp	r3, #35
+ 104 0040 03D0     		beq	.L3
+ 118:main.c        ****         {
+ 119:main.c        ****             case 0:
+ 120:main.c        ****                 /* No new data was recieved */
+ 121:main.c        ****                 break;
+ 122:main.c        ****             case '0':
+ 123:main.c        ****             case '1':
+ 124:main.c        ****             case '2':
+ 125:main.c        ****             case '3':
+ 126:main.c        ****             case '4':
+ 127:main.c        ****             case '5':
+ 128:main.c        ****             case '6':
+ 129:main.c        ****             case '7':
+ 130:main.c        ****             case '8':
+ 131:main.c        ****             case '9':
+ 132:main.c        ****             case '*':
+ 133:main.c        ****             case '#':
+ 134:main.c        ****                 sprintf(TransmitBuffer, "Key pressed: %s\r\n", (char*)&Ch);
+ 135:main.c        ****                 UART_1_PutString(TransmitBuffer);
+ 136:main.c        ****                 DialNumber((char*)&Ch);
+ 137:main.c        ****                 break;
+ 138:main.c        ****             default:
+ 139:main.c        ****                 /* Place error handling code here */
+ 140:main.c        ****                 break;    
+ 105              		.loc 1 140 0
+ 106 0042 12E0     		b	.L9
+ 107              	.L4:
+ 117:main.c        ****         {
+ 108              		.loc 1 117 0
+ 109 0044 303B     		subs	r3, r3, #48
+ 110 0046 092B     		cmp	r3, #9
+ 111 0048 0FD8     		bhi	.L9
+ 112              	.L3:
+ 134:main.c        ****                 UART_1_PutString(TransmitBuffer);
+ 113              		.loc 1 134 0
+ 114 004a FB1D     		adds	r3, r7, #7
+ 115 004c 1A46     		mov	r2, r3
+ 116 004e 0949     		ldr	r1, .L10+4
+ 117 0050 0948     		ldr	r0, .L10+8
+ 118 0052 FFF7FEFF 		bl	sprintf
+ 135:main.c        ****                 DialNumber((char*)&Ch);
+ 119              		.loc 1 135 0
+ 120 0056 0848     		ldr	r0, .L10+8
+ 121 0058 FFF7FEFF 		bl	UART_1_PutString
+ 136:main.c        ****                 break;
+ 122              		.loc 1 136 0
+ 123 005c FB1D     		adds	r3, r7, #7
+ 124 005e 1846     		mov	r0, r3
+ 125 0060 FFF7FEFF 		bl	DialNumber
+ 137:main.c        ****             default:
+ 126              		.loc 1 137 0
+ 127 0064 02E0     		b	.L6
+ 128              	.L8:
+ 121:main.c        ****             case '0':
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 6
+
+
+ 129              		.loc 1 121 0
+ 130 0066 00BF     		nop
+ 131 0068 DEE7     		b	.L7
+ 132              	.L9:
+ 133              		.loc 1 140 0
+ 134 006a 00BF     		nop
+ 135              	.L6:
+ 141:main.c        ****         }
+ 142:main.c        ****         
+ 143:main.c        ****     }
+ 136              		.loc 1 143 0 discriminator 1
+ 137 006c DCE7     		b	.L7
+ 138              	.L11:
+ 139 006e 00BF     		.align	2
+ 140              	.L10:
+ 141 0070 00000000 		.word	.LC0
+ 142 0074 10000000 		.word	.LC1
+ 143 0078 00000000 		.word	TransmitBuffer
+ 144              		.cfi_endproc
+ 145              	.LFE64:
+ 146              		.size	main, .-main
+ 147              		.section	.text.DialNumber,"ax",%progbits
+ 148              		.align	2
+ 149              		.global	DialNumber
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.type	DialNumber, %function
+ 153              	DialNumber:
+ 154              	.LFB65:
+ 144:main.c        **** }
+ 145:main.c        **** 
+ 146:main.c        **** /*******************************************************************************
+ 147:main.c        **** * Function Name: DialNumber( char * number )
+ 148:main.c        **** ********************************************************************************
+ 149:main.c        **** *
+ 150:main.c        **** * Summary:
+ 151:main.c        **** * This function dials the number passed to it in a character string. After
+ 152:main.c        **** * the number has been dialed the funtions returns.
+ 153:main.c        **** *
+ 154:main.c        **** * Parameters:
+ 155:main.c        **** * char * number: Pointer to phone number string.
+ 156:main.c        **** *
+ 157:main.c        **** * Return:
+ 158:main.c        **** * void
+ 159:main.c        **** *
+ 160:main.c        **** *******************************************************************************/
+ 161:main.c        **** void DialNumber( char * number )
+ 162:main.c        **** {
+ 155              		.loc 1 162 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 16
+ 158              		@ frame_needed = 1, uses_anonymous_args = 0
+ 159 0000 80B5     		push	{r7, lr}
+ 160              		.cfi_def_cfa_offset 8
+ 161              		.cfi_offset 7, -8
+ 162              		.cfi_offset 14, -4
+ 163 0002 84B0     		sub	sp, sp, #16
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 7
+
+
+ 164              		.cfi_def_cfa_offset 24
+ 165 0004 00AF     		add	r7, sp, #0
+ 166              		.cfi_def_cfa_register 7
+ 167 0006 7860     		str	r0, [r7, #4]
+ 163:main.c        ****     uint8 c = 0;
+ 168              		.loc 1 163 0
+ 169 0008 0023     		movs	r3, #0
+ 170 000a FB73     		strb	r3, [r7, #15]
+ 164:main.c        ****     while( number[c] != 0 ) /* Step through the dial string */
+ 171              		.loc 1 164 0
+ 172 000c 0CE0     		b	.L13
+ 173              	.L14:
+ 165:main.c        ****     {
+ 166:main.c        ****         PlayTones( number[c] ); /* Play tone for each digit */
+ 174              		.loc 1 166 0
+ 175 000e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 176 0010 7A68     		ldr	r2, [r7, #4]
+ 177 0012 1344     		add	r3, r3, r2
+ 178 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 179 0016 1846     		mov	r0, r3
+ 180 0018 FFF7FEFF 		bl	PlayTones
+ 167:main.c        ****         CyDelay(TONE_SPACE_MS); /* Wait minimum space between tones */
+ 181              		.loc 1 167 0
+ 182 001c 4120     		movs	r0, #65
+ 183 001e FFF7FEFF 		bl	CyDelay
+ 168:main.c        ****         c++;
+ 184              		.loc 1 168 0
+ 185 0022 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 186 0024 0133     		adds	r3, r3, #1
+ 187 0026 FB73     		strb	r3, [r7, #15]
+ 188              	.L13:
+ 164:main.c        ****     {
+ 189              		.loc 1 164 0
+ 190 0028 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 191 002a 7A68     		ldr	r2, [r7, #4]
+ 192 002c 1344     		add	r3, r3, r2
+ 193 002e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 194 0030 002B     		cmp	r3, #0
+ 195 0032 ECD1     		bne	.L14
+ 169:main.c        ****     }
+ 170:main.c        **** }
+ 196              		.loc 1 170 0
+ 197 0034 00BF     		nop
+ 198 0036 1037     		adds	r7, r7, #16
+ 199              		.cfi_def_cfa_offset 8
+ 200 0038 BD46     		mov	sp, r7
+ 201              		.cfi_def_cfa_register 13
+ 202              		@ sp needed
+ 203 003a 80BD     		pop	{r7, pc}
+ 204              		.cfi_endproc
+ 205              	.LFE65:
+ 206              		.size	DialNumber, .-DialNumber
+ 207              		.section	.rodata
+ 208 0022 0000     		.align	2
+ 209              	.LC2:
+ 210 0024 526F7720 		.ascii	"Row divider: %d\015\012\000"
+ 210      64697669 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 8
+
+
+ 210      6465723A 
+ 210      2025640D 
+ 210      0A00
+ 211 0036 0000     		.align	2
+ 212              	.LC3:
+ 213 0038 436F6C20 		.ascii	"Col divider: %d\015\012\000"
+ 213      64697669 
+ 213      6465723A 
+ 213      2025640D 
+ 213      0A00
+ 214 004a 0000     		.align	2
+ 215              	.LC4:
+ 216 004c 53746172 		.ascii	"Startin tone... \015\012\000"
+ 216      74696E20 
+ 216      746F6E65 
+ 216      2E2E2E20 
+ 216      0D0A00
+ 217 005f 00       		.align	2
+ 218              	.LC5:
+ 219 0060 53746F70 		.ascii	"Stop tone \015\012\000"
+ 219      20746F6E 
+ 219      65200D0A 
+ 219      00
+ 220              		.section	.text.PlayTones,"ax",%progbits
+ 221              		.align	2
+ 222              		.global	PlayTones
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.type	PlayTones, %function
+ 226              	PlayTones:
+ 227              	.LFB66:
+ 171:main.c        **** 
+ 172:main.c        **** /*******************************************************************************
+ 173:main.c        **** * Function Name: PlayTones( )
+ 174:main.c        **** ********************************************************************************
+ 175:main.c        **** *
+ 176:main.c        **** * Summary:
+ 177:main.c        **** * Generates the two tones required to dial the given key code. The valid
+ 178:main.c        **** * dial characters are "1 2 3 4 5 6 7 8 9 0 A B C D * #". Any invalid
+ 179:main.c        **** * character will generate a pause.
+ 180:main.c        **** *
+ 181:main.c        **** * Parameters:
+ 182:main.c        **** * char key: Keypad character to be dialed.
+ 183:main.c        **** *
+ 184:main.c        **** * Return:
+ 185:main.c        **** * void
+ 186:main.c        **** *
+ 187:main.c        **** *******************************************************************************/
+ 188:main.c        **** void PlayTones( char key )
+ 189:main.c        **** {
+ 228              		.loc 1 189 0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 16
+ 231              		@ frame_needed = 1, uses_anonymous_args = 0
+ 232 0000 80B5     		push	{r7, lr}
+ 233              		.cfi_def_cfa_offset 8
+ 234              		.cfi_offset 7, -8
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 9
+
+
+ 235              		.cfi_offset 14, -4
+ 236 0002 84B0     		sub	sp, sp, #16
+ 237              		.cfi_def_cfa_offset 24
+ 238 0004 00AF     		add	r7, sp, #0
+ 239              		.cfi_def_cfa_register 7
+ 240 0006 0346     		mov	r3, r0
+ 241 0008 FB71     		strb	r3, [r7, #7]
+ 190:main.c        ****     int8 idx;
+ 191:main.c        ****     uint8 row_div, col_div;
+ 192:main.c        **** 
+ 193:main.c        ****     idx = KeyIndex(keyCodes, key); /* Convert key to "keyCodes" array index */
+ 242              		.loc 1 193 0
+ 243 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 244 000c 1946     		mov	r1, r3
+ 245 000e 2448     		ldr	r0, .L19
+ 246 0010 FFF7FEFF 		bl	KeyIndex
+ 247 0014 0346     		mov	r3, r0
+ 248 0016 FB73     		strb	r3, [r7, #15]
+ 194:main.c        ****     if (idx >= 0 ) /* Is key valid */
+ 249              		.loc 1 194 0
+ 250 0018 97F90F30 		ldrsb	r3, [r7, #15]
+ 251 001c 002B     		cmp	r3, #0
+ 252 001e 37DB     		blt	.L16
+ 195:main.c        ****     { /* Valid Key */
+ 196:main.c        ****         col_div = colDiv[(uint8)(idx & 0x03)]; /* Get divider for column tone */
+ 253              		.loc 1 196 0
+ 254 0020 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 255 0022 03F00303 		and	r3, r3, #3
+ 256 0026 1F4A     		ldr	r2, .L19+4
+ 257 0028 D35C     		ldrb	r3, [r2, r3]
+ 258 002a BB73     		strb	r3, [r7, #14]
+ 197:main.c        ****         row_div = rowDiv[(uint8)((idx >> 2)& 0x03)];/* Get divider for row tone */
+ 259              		.loc 1 197 0
+ 260 002c 97F90F30 		ldrsb	r3, [r7, #15]
+ 261 0030 9B10     		asrs	r3, r3, #2
+ 262 0032 5BB2     		sxtb	r3, r3
+ 263 0034 DBB2     		uxtb	r3, r3
+ 264 0036 03F00303 		and	r3, r3, #3
+ 265 003a 1B4A     		ldr	r2, .L19+8
+ 266 003c D35C     		ldrb	r3, [r2, r3]
+ 267 003e 7B73     		strb	r3, [r7, #13]
+ 198:main.c        **** 
+ 199:main.c        ****         Row_Divider_WritePeriod(row_div);             /* Set both dividers  */
+ 268              		.loc 1 199 0
+ 269 0040 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 270 0042 1846     		mov	r0, r3
+ 271 0044 FFF7FEFF 		bl	Row_Divider_WritePeriod
+ 200:main.c        ****         Col_Divider_WritePeriod(col_div);
+ 272              		.loc 1 200 0
+ 273 0048 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 274 004a 1846     		mov	r0, r3
+ 275 004c FFF7FEFF 		bl	Col_Divider_WritePeriod
+ 201:main.c        ****         
+ 202:main.c        ****         sprintf(TransmitBuffer, "Row divider: %d\r\n", row_div);
+ 276              		.loc 1 202 0
+ 277 0050 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 278 0052 1A46     		mov	r2, r3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 10
+
+
+ 279 0054 1549     		ldr	r1, .L19+12
+ 280 0056 1648     		ldr	r0, .L19+16
+ 281 0058 FFF7FEFF 		bl	sprintf
+ 203:main.c        ****         UART_1_PutString(TransmitBuffer);
+ 282              		.loc 1 203 0
+ 283 005c 1448     		ldr	r0, .L19+16
+ 284 005e FFF7FEFF 		bl	UART_1_PutString
+ 204:main.c        ****         
+ 205:main.c        ****         sprintf(TransmitBuffer, "Col divider: %d\r\n", col_div);
+ 285              		.loc 1 205 0
+ 286 0062 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 287 0064 1A46     		mov	r2, r3
+ 288 0066 1349     		ldr	r1, .L19+20
+ 289 0068 1148     		ldr	r0, .L19+16
+ 290 006a FFF7FEFF 		bl	sprintf
+ 206:main.c        ****         UART_1_PutString(TransmitBuffer);
+ 291              		.loc 1 206 0
+ 292 006e 1048     		ldr	r0, .L19+16
+ 293 0070 FFF7FEFF 		bl	UART_1_PutString
+ 207:main.c        **** 
+ 208:main.c        ****         ToneClock_Start();                            /* Turn on clock */
+ 294              		.loc 1 208 0
+ 295 0074 FFF7FEFF 		bl	ToneClock_Start
+ 209:main.c        ****         
+ 210:main.c        ****         UART_1_PutString("Startin tone... \r\n");
+ 296              		.loc 1 210 0
+ 297 0078 0F48     		ldr	r0, .L19+24
+ 298 007a FFF7FEFF 		bl	UART_1_PutString
+ 211:main.c        ****                 
+ 212:main.c        ****         CyDelay(TONE_DURATION_MS);                    /* Wait for the tone duration */
+ 299              		.loc 1 212 0
+ 300 007e 5020     		movs	r0, #80
+ 301 0080 FFF7FEFF 		bl	CyDelay
+ 213:main.c        ****         ToneClock_Stop();                             /* Turn off clock */
+ 302              		.loc 1 213 0
+ 303 0084 FFF7FEFF 		bl	ToneClock_Stop
+ 214:main.c        ****         
+ 215:main.c        ****         UART_1_PutString("Stop tone \r\n");
+ 304              		.loc 1 215 0
+ 305 0088 0C48     		ldr	r0, .L19+28
+ 306 008a FFF7FEFF 		bl	UART_1_PutString
+ 216:main.c        ****     }
+ 217:main.c        ****     else /* Invalid key, just pause for set period of time. */
+ 218:main.c        ****     {
+ 219:main.c        ****         CyDelay(TONE_PAUSE_MS);
+ 220:main.c        ****     }
+ 221:main.c        **** }
+ 307              		.loc 1 221 0
+ 308 008e 02E0     		b	.L18
+ 309              	.L16:
+ 219:main.c        ****     }
+ 310              		.loc 1 219 0
+ 311 0090 6420     		movs	r0, #100
+ 312 0092 FFF7FEFF 		bl	CyDelay
+ 313              	.L18:
+ 314              		.loc 1 221 0
+ 315 0096 00BF     		nop
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 11
+
+
+ 316 0098 1037     		adds	r7, r7, #16
+ 317              		.cfi_def_cfa_offset 8
+ 318 009a BD46     		mov	sp, r7
+ 319              		.cfi_def_cfa_register 13
+ 320              		@ sp needed
+ 321 009c 80BD     		pop	{r7, pc}
+ 322              	.L20:
+ 323 009e 00BF     		.align	2
+ 324              	.L19:
+ 325 00a0 00000000 		.word	keyCodes
+ 326 00a4 00000000 		.word	colDiv
+ 327 00a8 00000000 		.word	rowDiv
+ 328 00ac 24000000 		.word	.LC2
+ 329 00b0 00000000 		.word	TransmitBuffer
+ 330 00b4 38000000 		.word	.LC3
+ 331 00b8 4C000000 		.word	.LC4
+ 332 00bc 60000000 		.word	.LC5
+ 333              		.cfi_endproc
+ 334              	.LFE66:
+ 335              		.size	PlayTones, .-PlayTones
+ 336              		.section	.text.KeyIndex,"ax",%progbits
+ 337              		.align	2
+ 338              		.global	KeyIndex
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.type	KeyIndex, %function
+ 342              	KeyIndex:
+ 343              	.LFB67:
+ 222:main.c        **** 
+ 223:main.c        **** /*******************************************************************************
+ 224:main.c        **** * Function Name: KeyIndex( )
+ 225:main.c        **** ********************************************************************************
+ 226:main.c        **** *
+ 227:main.c        **** * Summary:
+ 228:main.c        **** * This function finds the location of a character in a string and returns
+ 229:main.c        **** * the index. If the character is not found a -1 is returned.
+ 230:main.c        **** *
+ 231:main.c        **** * Parameters:
+ 232:main.c        **** * char * keyString: String to search through. This strings should be null
+ 233:main.c        **** * terminated and less than 255 characters in lenth.
+ 234:main.c        **** * char key: Character to find in "String".
+ 235:main.c        **** *
+ 236:main.c        **** * Return:
+ 237:main.c        **** * int8: Index of "key" in "keyString". If not found, return -1.
+ 238:main.c        **** *
+ 239:main.c        **** *******************************************************************************/
+ 240:main.c        **** int8 KeyIndex(char * keyString, char key)
+ 241:main.c        **** {
+ 344              		.loc 1 241 0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 16
+ 347              		@ frame_needed = 1, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349 0000 80B4     		push	{r7}
+ 350              		.cfi_def_cfa_offset 4
+ 351              		.cfi_offset 7, -4
+ 352 0002 85B0     		sub	sp, sp, #20
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 12
+
+
+ 353              		.cfi_def_cfa_offset 24
+ 354 0004 00AF     		add	r7, sp, #0
+ 355              		.cfi_def_cfa_register 7
+ 356 0006 7860     		str	r0, [r7, #4]
+ 357 0008 0B46     		mov	r3, r1
+ 358 000a FB70     		strb	r3, [r7, #3]
+ 242:main.c        ****     int8 i; /* String index */
+ 243:main.c        ****     int8 charLoc = -1; /* Location of character in string */
+ 359              		.loc 1 243 0
+ 360 000c FF23     		movs	r3, #255
+ 361 000e BB73     		strb	r3, [r7, #14]
+ 244:main.c        **** 
+ 245:main.c        ****     /* Search through string for character match */
+ 246:main.c        ****     for(i=0; (keyString[i] != 0); i++)
+ 362              		.loc 1 246 0
+ 363 0010 0023     		movs	r3, #0
+ 364 0012 FB73     		strb	r3, [r7, #15]
+ 365 0014 10E0     		b	.L22
+ 366              	.L25:
+ 247:main.c        ****     {
+ 248:main.c        ****         /* If character is found return index in string */
+ 249:main.c        ****         if (key == keyString[i])
+ 367              		.loc 1 249 0
+ 368 0016 97F90F30 		ldrsb	r3, [r7, #15]
+ 369 001a 7A68     		ldr	r2, [r7, #4]
+ 370 001c 1344     		add	r3, r3, r2
+ 371 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 372 0020 FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+ 373 0022 9A42     		cmp	r2, r3
+ 374 0024 02D1     		bne	.L23
+ 250:main.c        ****         {
+ 251:main.c        ****             charLoc = i;
+ 375              		.loc 1 251 0
+ 376 0026 FB7B     		ldrb	r3, [r7, #15]
+ 377 0028 BB73     		strb	r3, [r7, #14]
+ 252:main.c        ****             break;
+ 378              		.loc 1 252 0
+ 379 002a 0CE0     		b	.L24
+ 380              	.L23:
+ 246:main.c        ****     {
+ 381              		.loc 1 246 0 discriminator 2
+ 382 002c 97F90F30 		ldrsb	r3, [r7, #15]
+ 383 0030 DBB2     		uxtb	r3, r3
+ 384 0032 0133     		adds	r3, r3, #1
+ 385 0034 DBB2     		uxtb	r3, r3
+ 386 0036 FB73     		strb	r3, [r7, #15]
+ 387              	.L22:
+ 246:main.c        ****     {
+ 388              		.loc 1 246 0 is_stmt 0 discriminator 1
+ 389 0038 97F90F30 		ldrsb	r3, [r7, #15]
+ 390 003c 7A68     		ldr	r2, [r7, #4]
+ 391 003e 1344     		add	r3, r3, r2
+ 392 0040 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 393 0042 002B     		cmp	r3, #0
+ 394 0044 E7D1     		bne	.L25
+ 395              	.L24:
+ 253:main.c        ****         }
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 13
+
+
+ 254:main.c        ****     }
+ 255:main.c        ****     return charLoc;
+ 396              		.loc 1 255 0 is_stmt 1
+ 397 0046 97F90E30 		ldrsb	r3, [r7, #14]
+ 256:main.c        **** }
+ 398              		.loc 1 256 0
+ 399 004a 1846     		mov	r0, r3
+ 400 004c 1437     		adds	r7, r7, #20
+ 401              		.cfi_def_cfa_offset 4
+ 402 004e BD46     		mov	sp, r7
+ 403              		.cfi_def_cfa_register 13
+ 404              		@ sp needed
+ 405 0050 80BC     		pop	{r7}
+ 406              		.cfi_restore 7
+ 407              		.cfi_def_cfa_offset 0
+ 408 0052 7047     		bx	lr
+ 409              		.cfi_endproc
+ 410              	.LFE67:
+ 411              		.size	KeyIndex, .-KeyIndex
+ 412              		.text
+ 413              	.Letext0:
+ 414              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 415              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 416              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 417              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 418              		.section	.debug_info,"",%progbits
+ 419              	.Ldebug_info0:
+ 420 0000 39020000 		.4byte	0x239
+ 421 0004 0400     		.2byte	0x4
+ 422 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 423 000a 04       		.byte	0x4
+ 424 000b 01       		.uleb128 0x1
+ 425 000c 00000000 		.4byte	.LASF31
+ 426 0010 0C       		.byte	0xc
+ 427 0011 E1010000 		.4byte	.LASF32
+ 428 0015 BA000000 		.4byte	.LASF33
+ 429 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 430 001d 00000000 		.4byte	0
+ 431 0021 00000000 		.4byte	.Ldebug_line0
+ 432 0025 02       		.uleb128 0x2
+ 433 0026 01       		.byte	0x1
+ 434 0027 06       		.byte	0x6
+ 435 0028 12020000 		.4byte	.LASF0
+ 436 002c 02       		.uleb128 0x2
+ 437 002d 01       		.byte	0x1
+ 438 002e 08       		.byte	0x8
+ 439 002f 07010000 		.4byte	.LASF1
+ 440 0033 02       		.uleb128 0x2
+ 441 0034 02       		.byte	0x2
+ 442 0035 05       		.byte	0x5
+ 443 0036 ED010000 		.4byte	.LASF2
+ 444 003a 02       		.uleb128 0x2
+ 445 003b 02       		.byte	0x2
+ 446 003c 07       		.byte	0x7
+ 447 003d 9E000000 		.4byte	.LASF3
+ 448 0041 03       		.uleb128 0x3
+ 449 0042 94000000 		.4byte	.LASF9
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 14
+
+
+ 450 0046 02       		.byte	0x2
+ 451 0047 3F       		.byte	0x3f
+ 452 0048 4C000000 		.4byte	0x4c
+ 453 004c 02       		.uleb128 0x2
+ 454 004d 04       		.byte	0x4
+ 455 004e 05       		.byte	0x5
+ 456 004f FD010000 		.4byte	.LASF4
+ 457 0053 02       		.uleb128 0x2
+ 458 0054 04       		.byte	0x4
+ 459 0055 07       		.byte	0x7
+ 460 0056 24010000 		.4byte	.LASF5
+ 461 005a 02       		.uleb128 0x2
+ 462 005b 08       		.byte	0x8
+ 463 005c 05       		.byte	0x5
+ 464 005d C9010000 		.4byte	.LASF6
+ 465 0061 02       		.uleb128 0x2
+ 466 0062 08       		.byte	0x8
+ 467 0063 07       		.byte	0x7
+ 468 0064 81010000 		.4byte	.LASF7
+ 469 0068 04       		.uleb128 0x4
+ 470 0069 04       		.byte	0x4
+ 471 006a 05       		.byte	0x5
+ 472 006b 696E7400 		.ascii	"int\000"
+ 473 006f 02       		.uleb128 0x2
+ 474 0070 04       		.byte	0x4
+ 475 0071 07       		.byte	0x7
+ 476 0072 74010000 		.4byte	.LASF8
+ 477 0076 03       		.uleb128 0x3
+ 478 0077 A9010000 		.4byte	.LASF10
+ 479 007b 03       		.byte	0x3
+ 480 007c 2C       		.byte	0x2c
+ 481 007d 41000000 		.4byte	0x41
+ 482 0081 05       		.uleb128 0x5
+ 483 0082 F7010000 		.4byte	.LASF11
+ 484 0086 04       		.byte	0x4
+ 485 0087 9201     		.2byte	0x192
+ 486 0089 2C000000 		.4byte	0x2c
+ 487 008d 05       		.uleb128 0x5
+ 488 008e 6A010000 		.4byte	.LASF12
+ 489 0092 04       		.byte	0x4
+ 490 0093 9501     		.2byte	0x195
+ 491 0095 25000000 		.4byte	0x25
+ 492 0099 02       		.uleb128 0x2
+ 493 009a 04       		.byte	0x4
+ 494 009b 04       		.byte	0x4
+ 495 009c 8E000000 		.4byte	.LASF13
+ 496 00a0 02       		.uleb128 0x2
+ 497 00a1 08       		.byte	0x8
+ 498 00a2 04       		.byte	0x4
+ 499 00a3 4A010000 		.4byte	.LASF14
+ 500 00a7 02       		.uleb128 0x2
+ 501 00a8 01       		.byte	0x1
+ 502 00a9 08       		.byte	0x8
+ 503 00aa E8010000 		.4byte	.LASF15
+ 504 00ae 02       		.uleb128 0x2
+ 505 00af 08       		.byte	0x8
+ 506 00b0 04       		.byte	0x4
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 15
+
+
+ 507 00b1 06020000 		.4byte	.LASF16
+ 508 00b5 02       		.uleb128 0x2
+ 509 00b6 04       		.byte	0x4
+ 510 00b7 07       		.byte	0x7
+ 511 00b8 C0010000 		.4byte	.LASF17
+ 512 00bc 06       		.uleb128 0x6
+ 513 00bd 04       		.byte	0x4
+ 514 00be A7000000 		.4byte	0xa7
+ 515 00c2 07       		.uleb128 0x7
+ 516 00c3 6F010000 		.4byte	.LASF18
+ 517 00c7 01       		.byte	0x1
+ 518 00c8 5E       		.byte	0x5e
+ 519 00c9 68000000 		.4byte	0x68
+ 520 00cd 00000000 		.4byte	.LFB64
+ 521 00d1 7C000000 		.4byte	.LFE64-.LFB64
+ 522 00d5 01       		.uleb128 0x1
+ 523 00d6 9C       		.byte	0x9c
+ 524 00d7 E9000000 		.4byte	0xe9
+ 525 00db 08       		.uleb128 0x8
+ 526 00dc 436800   		.ascii	"Ch\000"
+ 527 00df 01       		.byte	0x1
+ 528 00e0 61       		.byte	0x61
+ 529 00e1 81000000 		.4byte	0x81
+ 530 00e5 02       		.uleb128 0x2
+ 531 00e6 91       		.byte	0x91
+ 532 00e7 77       		.sleb128 -9
+ 533 00e8 00       		.byte	0
+ 534 00e9 09       		.uleb128 0x9
+ 535 00ea 1E020000 		.4byte	.LASF19
+ 536 00ee 01       		.byte	0x1
+ 537 00ef A1       		.byte	0xa1
+ 538 00f0 00000000 		.4byte	.LFB65
+ 539 00f4 3C000000 		.4byte	.LFE65-.LFB65
+ 540 00f8 01       		.uleb128 0x1
+ 541 00f9 9C       		.byte	0x9c
+ 542 00fa 19010000 		.4byte	0x119
+ 543 00fe 0A       		.uleb128 0xa
+ 544 00ff A2010000 		.4byte	.LASF21
+ 545 0103 01       		.byte	0x1
+ 546 0104 A1       		.byte	0xa1
+ 547 0105 BC000000 		.4byte	0xbc
+ 548 0109 02       		.uleb128 0x2
+ 549 010a 91       		.byte	0x91
+ 550 010b 6C       		.sleb128 -20
+ 551 010c 08       		.uleb128 0x8
+ 552 010d 6300     		.ascii	"c\000"
+ 553 010f 01       		.byte	0x1
+ 554 0110 A3       		.byte	0xa3
+ 555 0111 81000000 		.4byte	0x81
+ 556 0115 02       		.uleb128 0x2
+ 557 0116 91       		.byte	0x91
+ 558 0117 77       		.sleb128 -9
+ 559 0118 00       		.byte	0
+ 560 0119 09       		.uleb128 0x9
+ 561 011a 98010000 		.4byte	.LASF20
+ 562 011e 01       		.byte	0x1
+ 563 011f BC       		.byte	0xbc
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 16
+
+
+ 564 0120 00000000 		.4byte	.LFB66
+ 565 0124 C0000000 		.4byte	.LFE66-.LFB66
+ 566 0128 01       		.uleb128 0x1
+ 567 0129 9C       		.byte	0x9c
+ 568 012a 67010000 		.4byte	0x167
+ 569 012e 0B       		.uleb128 0xb
+ 570 012f 6B657900 		.ascii	"key\000"
+ 571 0133 01       		.byte	0x1
+ 572 0134 BC       		.byte	0xbc
+ 573 0135 A7000000 		.4byte	0xa7
+ 574 0139 02       		.uleb128 0x2
+ 575 013a 91       		.byte	0x91
+ 576 013b 6F       		.sleb128 -17
+ 577 013c 08       		.uleb128 0x8
+ 578 013d 69647800 		.ascii	"idx\000"
+ 579 0141 01       		.byte	0x1
+ 580 0142 BE       		.byte	0xbe
+ 581 0143 8D000000 		.4byte	0x8d
+ 582 0147 02       		.uleb128 0x2
+ 583 0148 91       		.byte	0x91
+ 584 0149 77       		.sleb128 -9
+ 585 014a 0C       		.uleb128 0xc
+ 586 014b 51010000 		.4byte	.LASF22
+ 587 014f 01       		.byte	0x1
+ 588 0150 BF       		.byte	0xbf
+ 589 0151 81000000 		.4byte	0x81
+ 590 0155 02       		.uleb128 0x2
+ 591 0156 91       		.byte	0x91
+ 592 0157 75       		.sleb128 -11
+ 593 0158 0C       		.uleb128 0xc
+ 594 0159 62010000 		.4byte	.LASF23
+ 595 015d 01       		.byte	0x1
+ 596 015e BF       		.byte	0xbf
+ 597 015f 81000000 		.4byte	0x81
+ 598 0163 02       		.uleb128 0x2
+ 599 0164 91       		.byte	0x91
+ 600 0165 76       		.sleb128 -10
+ 601 0166 00       		.byte	0
+ 602 0167 0D       		.uleb128 0xd
+ 603 0168 59010000 		.4byte	.LASF34
+ 604 016c 01       		.byte	0x1
+ 605 016d F0       		.byte	0xf0
+ 606 016e 8D000000 		.4byte	0x8d
+ 607 0172 00000000 		.4byte	.LFB67
+ 608 0176 54000000 		.4byte	.LFE67-.LFB67
+ 609 017a 01       		.uleb128 0x1
+ 610 017b 9C       		.byte	0x9c
+ 611 017c B7010000 		.4byte	0x1b7
+ 612 0180 0A       		.uleb128 0xa
+ 613 0181 D7010000 		.4byte	.LASF24
+ 614 0185 01       		.byte	0x1
+ 615 0186 F0       		.byte	0xf0
+ 616 0187 BC000000 		.4byte	0xbc
+ 617 018b 02       		.uleb128 0x2
+ 618 018c 91       		.byte	0x91
+ 619 018d 6C       		.sleb128 -20
+ 620 018e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 17
+
+
+ 621 018f 6B657900 		.ascii	"key\000"
+ 622 0193 01       		.byte	0x1
+ 623 0194 F0       		.byte	0xf0
+ 624 0195 A7000000 		.4byte	0xa7
+ 625 0199 02       		.uleb128 0x2
+ 626 019a 91       		.byte	0x91
+ 627 019b 6B       		.sleb128 -21
+ 628 019c 08       		.uleb128 0x8
+ 629 019d 6900     		.ascii	"i\000"
+ 630 019f 01       		.byte	0x1
+ 631 01a0 F2       		.byte	0xf2
+ 632 01a1 8D000000 		.4byte	0x8d
+ 633 01a5 02       		.uleb128 0x2
+ 634 01a6 91       		.byte	0x91
+ 635 01a7 77       		.sleb128 -9
+ 636 01a8 0C       		.uleb128 0xc
+ 637 01a9 15010000 		.4byte	.LASF25
+ 638 01ad 01       		.byte	0x1
+ 639 01ae F3       		.byte	0xf3
+ 640 01af 8D000000 		.4byte	0x8d
+ 641 01b3 02       		.uleb128 0x2
+ 642 01b4 91       		.byte	0x91
+ 643 01b5 76       		.sleb128 -10
+ 644 01b6 00       		.byte	0
+ 645 01b7 0E       		.uleb128 0xe
+ 646 01b8 3D010000 		.4byte	.LASF26
+ 647 01bc 05       		.byte	0x5
+ 648 01bd 1207     		.2byte	0x712
+ 649 01bf C3010000 		.4byte	0x1c3
+ 650 01c3 0F       		.uleb128 0xf
+ 651 01c4 76000000 		.4byte	0x76
+ 652 01c8 10       		.uleb128 0x10
+ 653 01c9 A7000000 		.4byte	0xa7
+ 654 01cd D8010000 		.4byte	0x1d8
+ 655 01d1 11       		.uleb128 0x11
+ 656 01d2 B5000000 		.4byte	0xb5
+ 657 01d6 10       		.byte	0x10
+ 658 01d7 00       		.byte	0
+ 659 01d8 12       		.uleb128 0x12
+ 660 01d9 B1000000 		.4byte	.LASF27
+ 661 01dd 01       		.byte	0x1
+ 662 01de 3A       		.byte	0x3a
+ 663 01df C8010000 		.4byte	0x1c8
+ 664 01e3 05       		.uleb128 0x5
+ 665 01e4 03       		.byte	0x3
+ 666 01e5 00000000 		.4byte	keyCodes
+ 667 01e9 10       		.uleb128 0x10
+ 668 01ea 81000000 		.4byte	0x81
+ 669 01ee F9010000 		.4byte	0x1f9
+ 670 01f2 11       		.uleb128 0x11
+ 671 01f3 B5000000 		.4byte	0xb5
+ 672 01f7 03       		.byte	0x3
+ 673 01f8 00       		.byte	0
+ 674 01f9 12       		.uleb128 0x12
+ 675 01fa 36010000 		.4byte	.LASF28
+ 676 01fe 01       		.byte	0x1
+ 677 01ff 40       		.byte	0x40
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 18
+
+
+ 678 0200 E9010000 		.4byte	0x1e9
+ 679 0204 05       		.uleb128 0x5
+ 680 0205 03       		.byte	0x3
+ 681 0206 00000000 		.4byte	rowDiv
+ 682 020a 12       		.uleb128 0x12
+ 683 020b 1D010000 		.4byte	.LASF29
+ 684 020f 01       		.byte	0x1
+ 685 0210 43       		.byte	0x43
+ 686 0211 E9010000 		.4byte	0x1e9
+ 687 0215 05       		.uleb128 0x5
+ 688 0216 03       		.byte	0x3
+ 689 0217 00000000 		.4byte	colDiv
+ 690 021b 10       		.uleb128 0x10
+ 691 021c A7000000 		.4byte	0xa7
+ 692 0220 2B020000 		.4byte	0x22b
+ 693 0224 11       		.uleb128 0x11
+ 694 0225 B5000000 		.4byte	0xb5
+ 695 0229 0F       		.byte	0xf
+ 696 022a 00       		.byte	0
+ 697 022b 12       		.uleb128 0x12
+ 698 022c B1010000 		.4byte	.LASF30
+ 699 0230 01       		.byte	0x1
+ 700 0231 46       		.byte	0x46
+ 701 0232 1B020000 		.4byte	0x21b
+ 702 0236 05       		.uleb128 0x5
+ 703 0237 03       		.byte	0x3
+ 704 0238 00000000 		.4byte	TransmitBuffer
+ 705 023c 00       		.byte	0
+ 706              		.section	.debug_abbrev,"",%progbits
+ 707              	.Ldebug_abbrev0:
+ 708 0000 01       		.uleb128 0x1
+ 709 0001 11       		.uleb128 0x11
+ 710 0002 01       		.byte	0x1
+ 711 0003 25       		.uleb128 0x25
+ 712 0004 0E       		.uleb128 0xe
+ 713 0005 13       		.uleb128 0x13
+ 714 0006 0B       		.uleb128 0xb
+ 715 0007 03       		.uleb128 0x3
+ 716 0008 0E       		.uleb128 0xe
+ 717 0009 1B       		.uleb128 0x1b
+ 718 000a 0E       		.uleb128 0xe
+ 719 000b 55       		.uleb128 0x55
+ 720 000c 17       		.uleb128 0x17
+ 721 000d 11       		.uleb128 0x11
+ 722 000e 01       		.uleb128 0x1
+ 723 000f 10       		.uleb128 0x10
+ 724 0010 17       		.uleb128 0x17
+ 725 0011 00       		.byte	0
+ 726 0012 00       		.byte	0
+ 727 0013 02       		.uleb128 0x2
+ 728 0014 24       		.uleb128 0x24
+ 729 0015 00       		.byte	0
+ 730 0016 0B       		.uleb128 0xb
+ 731 0017 0B       		.uleb128 0xb
+ 732 0018 3E       		.uleb128 0x3e
+ 733 0019 0B       		.uleb128 0xb
+ 734 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 19
+
+
+ 735 001b 0E       		.uleb128 0xe
+ 736 001c 00       		.byte	0
+ 737 001d 00       		.byte	0
+ 738 001e 03       		.uleb128 0x3
+ 739 001f 16       		.uleb128 0x16
+ 740 0020 00       		.byte	0
+ 741 0021 03       		.uleb128 0x3
+ 742 0022 0E       		.uleb128 0xe
+ 743 0023 3A       		.uleb128 0x3a
+ 744 0024 0B       		.uleb128 0xb
+ 745 0025 3B       		.uleb128 0x3b
+ 746 0026 0B       		.uleb128 0xb
+ 747 0027 49       		.uleb128 0x49
+ 748 0028 13       		.uleb128 0x13
+ 749 0029 00       		.byte	0
+ 750 002a 00       		.byte	0
+ 751 002b 04       		.uleb128 0x4
+ 752 002c 24       		.uleb128 0x24
+ 753 002d 00       		.byte	0
+ 754 002e 0B       		.uleb128 0xb
+ 755 002f 0B       		.uleb128 0xb
+ 756 0030 3E       		.uleb128 0x3e
+ 757 0031 0B       		.uleb128 0xb
+ 758 0032 03       		.uleb128 0x3
+ 759 0033 08       		.uleb128 0x8
+ 760 0034 00       		.byte	0
+ 761 0035 00       		.byte	0
+ 762 0036 05       		.uleb128 0x5
+ 763 0037 16       		.uleb128 0x16
+ 764 0038 00       		.byte	0
+ 765 0039 03       		.uleb128 0x3
+ 766 003a 0E       		.uleb128 0xe
+ 767 003b 3A       		.uleb128 0x3a
+ 768 003c 0B       		.uleb128 0xb
+ 769 003d 3B       		.uleb128 0x3b
+ 770 003e 05       		.uleb128 0x5
+ 771 003f 49       		.uleb128 0x49
+ 772 0040 13       		.uleb128 0x13
+ 773 0041 00       		.byte	0
+ 774 0042 00       		.byte	0
+ 775 0043 06       		.uleb128 0x6
+ 776 0044 0F       		.uleb128 0xf
+ 777 0045 00       		.byte	0
+ 778 0046 0B       		.uleb128 0xb
+ 779 0047 0B       		.uleb128 0xb
+ 780 0048 49       		.uleb128 0x49
+ 781 0049 13       		.uleb128 0x13
+ 782 004a 00       		.byte	0
+ 783 004b 00       		.byte	0
+ 784 004c 07       		.uleb128 0x7
+ 785 004d 2E       		.uleb128 0x2e
+ 786 004e 01       		.byte	0x1
+ 787 004f 3F       		.uleb128 0x3f
+ 788 0050 19       		.uleb128 0x19
+ 789 0051 03       		.uleb128 0x3
+ 790 0052 0E       		.uleb128 0xe
+ 791 0053 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 20
+
+
+ 792 0054 0B       		.uleb128 0xb
+ 793 0055 3B       		.uleb128 0x3b
+ 794 0056 0B       		.uleb128 0xb
+ 795 0057 49       		.uleb128 0x49
+ 796 0058 13       		.uleb128 0x13
+ 797 0059 11       		.uleb128 0x11
+ 798 005a 01       		.uleb128 0x1
+ 799 005b 12       		.uleb128 0x12
+ 800 005c 06       		.uleb128 0x6
+ 801 005d 40       		.uleb128 0x40
+ 802 005e 18       		.uleb128 0x18
+ 803 005f 9642     		.uleb128 0x2116
+ 804 0061 19       		.uleb128 0x19
+ 805 0062 01       		.uleb128 0x1
+ 806 0063 13       		.uleb128 0x13
+ 807 0064 00       		.byte	0
+ 808 0065 00       		.byte	0
+ 809 0066 08       		.uleb128 0x8
+ 810 0067 34       		.uleb128 0x34
+ 811 0068 00       		.byte	0
+ 812 0069 03       		.uleb128 0x3
+ 813 006a 08       		.uleb128 0x8
+ 814 006b 3A       		.uleb128 0x3a
+ 815 006c 0B       		.uleb128 0xb
+ 816 006d 3B       		.uleb128 0x3b
+ 817 006e 0B       		.uleb128 0xb
+ 818 006f 49       		.uleb128 0x49
+ 819 0070 13       		.uleb128 0x13
+ 820 0071 02       		.uleb128 0x2
+ 821 0072 18       		.uleb128 0x18
+ 822 0073 00       		.byte	0
+ 823 0074 00       		.byte	0
+ 824 0075 09       		.uleb128 0x9
+ 825 0076 2E       		.uleb128 0x2e
+ 826 0077 01       		.byte	0x1
+ 827 0078 3F       		.uleb128 0x3f
+ 828 0079 19       		.uleb128 0x19
+ 829 007a 03       		.uleb128 0x3
+ 830 007b 0E       		.uleb128 0xe
+ 831 007c 3A       		.uleb128 0x3a
+ 832 007d 0B       		.uleb128 0xb
+ 833 007e 3B       		.uleb128 0x3b
+ 834 007f 0B       		.uleb128 0xb
+ 835 0080 27       		.uleb128 0x27
+ 836 0081 19       		.uleb128 0x19
+ 837 0082 11       		.uleb128 0x11
+ 838 0083 01       		.uleb128 0x1
+ 839 0084 12       		.uleb128 0x12
+ 840 0085 06       		.uleb128 0x6
+ 841 0086 40       		.uleb128 0x40
+ 842 0087 18       		.uleb128 0x18
+ 843 0088 9642     		.uleb128 0x2116
+ 844 008a 19       		.uleb128 0x19
+ 845 008b 01       		.uleb128 0x1
+ 846 008c 13       		.uleb128 0x13
+ 847 008d 00       		.byte	0
+ 848 008e 00       		.byte	0
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 21
+
+
+ 849 008f 0A       		.uleb128 0xa
+ 850 0090 05       		.uleb128 0x5
+ 851 0091 00       		.byte	0
+ 852 0092 03       		.uleb128 0x3
+ 853 0093 0E       		.uleb128 0xe
+ 854 0094 3A       		.uleb128 0x3a
+ 855 0095 0B       		.uleb128 0xb
+ 856 0096 3B       		.uleb128 0x3b
+ 857 0097 0B       		.uleb128 0xb
+ 858 0098 49       		.uleb128 0x49
+ 859 0099 13       		.uleb128 0x13
+ 860 009a 02       		.uleb128 0x2
+ 861 009b 18       		.uleb128 0x18
+ 862 009c 00       		.byte	0
+ 863 009d 00       		.byte	0
+ 864 009e 0B       		.uleb128 0xb
+ 865 009f 05       		.uleb128 0x5
+ 866 00a0 00       		.byte	0
+ 867 00a1 03       		.uleb128 0x3
+ 868 00a2 08       		.uleb128 0x8
+ 869 00a3 3A       		.uleb128 0x3a
+ 870 00a4 0B       		.uleb128 0xb
+ 871 00a5 3B       		.uleb128 0x3b
+ 872 00a6 0B       		.uleb128 0xb
+ 873 00a7 49       		.uleb128 0x49
+ 874 00a8 13       		.uleb128 0x13
+ 875 00a9 02       		.uleb128 0x2
+ 876 00aa 18       		.uleb128 0x18
+ 877 00ab 00       		.byte	0
+ 878 00ac 00       		.byte	0
+ 879 00ad 0C       		.uleb128 0xc
+ 880 00ae 34       		.uleb128 0x34
+ 881 00af 00       		.byte	0
+ 882 00b0 03       		.uleb128 0x3
+ 883 00b1 0E       		.uleb128 0xe
+ 884 00b2 3A       		.uleb128 0x3a
+ 885 00b3 0B       		.uleb128 0xb
+ 886 00b4 3B       		.uleb128 0x3b
+ 887 00b5 0B       		.uleb128 0xb
+ 888 00b6 49       		.uleb128 0x49
+ 889 00b7 13       		.uleb128 0x13
+ 890 00b8 02       		.uleb128 0x2
+ 891 00b9 18       		.uleb128 0x18
+ 892 00ba 00       		.byte	0
+ 893 00bb 00       		.byte	0
+ 894 00bc 0D       		.uleb128 0xd
+ 895 00bd 2E       		.uleb128 0x2e
+ 896 00be 01       		.byte	0x1
+ 897 00bf 3F       		.uleb128 0x3f
+ 898 00c0 19       		.uleb128 0x19
+ 899 00c1 03       		.uleb128 0x3
+ 900 00c2 0E       		.uleb128 0xe
+ 901 00c3 3A       		.uleb128 0x3a
+ 902 00c4 0B       		.uleb128 0xb
+ 903 00c5 3B       		.uleb128 0x3b
+ 904 00c6 0B       		.uleb128 0xb
+ 905 00c7 27       		.uleb128 0x27
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 22
+
+
+ 906 00c8 19       		.uleb128 0x19
+ 907 00c9 49       		.uleb128 0x49
+ 908 00ca 13       		.uleb128 0x13
+ 909 00cb 11       		.uleb128 0x11
+ 910 00cc 01       		.uleb128 0x1
+ 911 00cd 12       		.uleb128 0x12
+ 912 00ce 06       		.uleb128 0x6
+ 913 00cf 40       		.uleb128 0x40
+ 914 00d0 18       		.uleb128 0x18
+ 915 00d1 9742     		.uleb128 0x2117
+ 916 00d3 19       		.uleb128 0x19
+ 917 00d4 01       		.uleb128 0x1
+ 918 00d5 13       		.uleb128 0x13
+ 919 00d6 00       		.byte	0
+ 920 00d7 00       		.byte	0
+ 921 00d8 0E       		.uleb128 0xe
+ 922 00d9 34       		.uleb128 0x34
+ 923 00da 00       		.byte	0
+ 924 00db 03       		.uleb128 0x3
+ 925 00dc 0E       		.uleb128 0xe
+ 926 00dd 3A       		.uleb128 0x3a
+ 927 00de 0B       		.uleb128 0xb
+ 928 00df 3B       		.uleb128 0x3b
+ 929 00e0 05       		.uleb128 0x5
+ 930 00e1 49       		.uleb128 0x49
+ 931 00e2 13       		.uleb128 0x13
+ 932 00e3 3F       		.uleb128 0x3f
+ 933 00e4 19       		.uleb128 0x19
+ 934 00e5 3C       		.uleb128 0x3c
+ 935 00e6 19       		.uleb128 0x19
+ 936 00e7 00       		.byte	0
+ 937 00e8 00       		.byte	0
+ 938 00e9 0F       		.uleb128 0xf
+ 939 00ea 35       		.uleb128 0x35
+ 940 00eb 00       		.byte	0
+ 941 00ec 49       		.uleb128 0x49
+ 942 00ed 13       		.uleb128 0x13
+ 943 00ee 00       		.byte	0
+ 944 00ef 00       		.byte	0
+ 945 00f0 10       		.uleb128 0x10
+ 946 00f1 01       		.uleb128 0x1
+ 947 00f2 01       		.byte	0x1
+ 948 00f3 49       		.uleb128 0x49
+ 949 00f4 13       		.uleb128 0x13
+ 950 00f5 01       		.uleb128 0x1
+ 951 00f6 13       		.uleb128 0x13
+ 952 00f7 00       		.byte	0
+ 953 00f8 00       		.byte	0
+ 954 00f9 11       		.uleb128 0x11
+ 955 00fa 21       		.uleb128 0x21
+ 956 00fb 00       		.byte	0
+ 957 00fc 49       		.uleb128 0x49
+ 958 00fd 13       		.uleb128 0x13
+ 959 00fe 2F       		.uleb128 0x2f
+ 960 00ff 0B       		.uleb128 0xb
+ 961 0100 00       		.byte	0
+ 962 0101 00       		.byte	0
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 23
+
+
+ 963 0102 12       		.uleb128 0x12
+ 964 0103 34       		.uleb128 0x34
+ 965 0104 00       		.byte	0
+ 966 0105 03       		.uleb128 0x3
+ 967 0106 0E       		.uleb128 0xe
+ 968 0107 3A       		.uleb128 0x3a
+ 969 0108 0B       		.uleb128 0xb
+ 970 0109 3B       		.uleb128 0x3b
+ 971 010a 0B       		.uleb128 0xb
+ 972 010b 49       		.uleb128 0x49
+ 973 010c 13       		.uleb128 0x13
+ 974 010d 3F       		.uleb128 0x3f
+ 975 010e 19       		.uleb128 0x19
+ 976 010f 02       		.uleb128 0x2
+ 977 0110 18       		.uleb128 0x18
+ 978 0111 00       		.byte	0
+ 979 0112 00       		.byte	0
+ 980 0113 00       		.byte	0
+ 981              		.section	.debug_aranges,"",%progbits
+ 982 0000 34000000 		.4byte	0x34
+ 983 0004 0200     		.2byte	0x2
+ 984 0006 00000000 		.4byte	.Ldebug_info0
+ 985 000a 04       		.byte	0x4
+ 986 000b 00       		.byte	0
+ 987 000c 0000     		.2byte	0
+ 988 000e 0000     		.2byte	0
+ 989 0010 00000000 		.4byte	.LFB64
+ 990 0014 7C000000 		.4byte	.LFE64-.LFB64
+ 991 0018 00000000 		.4byte	.LFB65
+ 992 001c 3C000000 		.4byte	.LFE65-.LFB65
+ 993 0020 00000000 		.4byte	.LFB66
+ 994 0024 C0000000 		.4byte	.LFE66-.LFB66
+ 995 0028 00000000 		.4byte	.LFB67
+ 996 002c 54000000 		.4byte	.LFE67-.LFB67
+ 997 0030 00000000 		.4byte	0
+ 998 0034 00000000 		.4byte	0
+ 999              		.section	.debug_ranges,"",%progbits
+ 1000              	.Ldebug_ranges0:
+ 1001 0000 00000000 		.4byte	.LFB64
+ 1002 0004 7C000000 		.4byte	.LFE64
+ 1003 0008 00000000 		.4byte	.LFB65
+ 1004 000c 3C000000 		.4byte	.LFE65
+ 1005 0010 00000000 		.4byte	.LFB66
+ 1006 0014 C0000000 		.4byte	.LFE66
+ 1007 0018 00000000 		.4byte	.LFB67
+ 1008 001c 54000000 		.4byte	.LFE67
+ 1009 0020 00000000 		.4byte	0
+ 1010 0024 00000000 		.4byte	0
+ 1011              		.section	.debug_line,"",%progbits
+ 1012              	.Ldebug_line0:
+ 1013 0000 E3010000 		.section	.debug_str,"MS",%progbits,1
+ 1013      02004C01 
+ 1013      00000201 
+ 1013      FB0E0D00 
+ 1013      01010101 
+ 1014              	.LASF31:
+ 1015 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 24
+
+
+ 1015      43313120 
+ 1015      352E342E 
+ 1015      31203230 
+ 1015      31363036 
+ 1016 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1016      20726576 
+ 1016      6973696F 
+ 1016      6E203233 
+ 1016      37373135 
+ 1017 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1017      66756E63 
+ 1017      74696F6E 
+ 1017      2D736563 
+ 1017      74696F6E 
+ 1018              	.LASF13:
+ 1019 008e 666C6F61 		.ascii	"float\000"
+ 1019      7400
+ 1020              	.LASF9:
+ 1021 0094 5F5F696E 		.ascii	"__int32_t\000"
+ 1021      7433325F 
+ 1021      7400
+ 1022              	.LASF3:
+ 1023 009e 73686F72 		.ascii	"short unsigned int\000"
+ 1023      7420756E 
+ 1023      7369676E 
+ 1023      65642069 
+ 1023      6E7400
+ 1024              	.LASF27:
+ 1025 00b1 6B657943 		.ascii	"keyCodes\000"
+ 1025      6F646573 
+ 1025      00
+ 1026              	.LASF33:
+ 1027 00ba 433A5C55 		.ascii	"C:\\Users\\Luis Alonso Murillo\\Documents\\GitHub\\"
+ 1027      73657273 
+ 1027      5C4C7569 
+ 1027      7320416C 
+ 1027      6F6E736F 
+ 1028 00e8 44544D46 		.ascii	"DTMF\\transmitter\\Encoder.cydsn\000"
+ 1028      5C747261 
+ 1028      6E736D69 
+ 1028      74746572 
+ 1028      5C456E63 
+ 1029              	.LASF1:
+ 1030 0107 756E7369 		.ascii	"unsigned char\000"
+ 1030      676E6564 
+ 1030      20636861 
+ 1030      7200
+ 1031              	.LASF25:
+ 1032 0115 63686172 		.ascii	"charLoc\000"
+ 1032      4C6F6300 
+ 1033              	.LASF29:
+ 1034 011d 636F6C44 		.ascii	"colDiv\000"
+ 1034      697600
+ 1035              	.LASF5:
+ 1036 0124 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1036      20756E73 
+ 1036      69676E65 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 25
+
+
+ 1036      6420696E 
+ 1036      7400
+ 1037              	.LASF28:
+ 1038 0136 726F7744 		.ascii	"rowDiv\000"
+ 1038      697600
+ 1039              	.LASF26:
+ 1040 013d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1040      52784275 
+ 1040      66666572 
+ 1040      00
+ 1041              	.LASF14:
+ 1042 014a 646F7562 		.ascii	"double\000"
+ 1042      6C6500
+ 1043              	.LASF22:
+ 1044 0151 726F775F 		.ascii	"row_div\000"
+ 1044      64697600 
+ 1045              	.LASF34:
+ 1046 0159 4B657949 		.ascii	"KeyIndex\000"
+ 1046      6E646578 
+ 1046      00
+ 1047              	.LASF23:
+ 1048 0162 636F6C5F 		.ascii	"col_div\000"
+ 1048      64697600 
+ 1049              	.LASF12:
+ 1050 016a 696E7438 		.ascii	"int8\000"
+ 1050      00
+ 1051              	.LASF18:
+ 1052 016f 6D61696E 		.ascii	"main\000"
+ 1052      00
+ 1053              	.LASF8:
+ 1054 0174 756E7369 		.ascii	"unsigned int\000"
+ 1054      676E6564 
+ 1054      20696E74 
+ 1054      00
+ 1055              	.LASF7:
+ 1056 0181 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1056      206C6F6E 
+ 1056      6720756E 
+ 1056      7369676E 
+ 1056      65642069 
+ 1057              	.LASF20:
+ 1058 0198 506C6179 		.ascii	"PlayTones\000"
+ 1058      546F6E65 
+ 1058      7300
+ 1059              	.LASF21:
+ 1060 01a2 6E756D62 		.ascii	"number\000"
+ 1060      657200
+ 1061              	.LASF10:
+ 1062 01a9 696E7433 		.ascii	"int32_t\000"
+ 1062      325F7400 
+ 1063              	.LASF30:
+ 1064 01b1 5472616E 		.ascii	"TransmitBuffer\000"
+ 1064      736D6974 
+ 1064      42756666 
+ 1064      657200
+ 1065              	.LASF17:
+ 1066 01c0 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\ccygHqzE.s 			page 26
+
+
+ 1066      74797065 
+ 1066      00
+ 1067              	.LASF6:
+ 1068 01c9 6C6F6E67 		.ascii	"long long int\000"
+ 1068      206C6F6E 
+ 1068      6720696E 
+ 1068      7400
+ 1069              	.LASF24:
+ 1070 01d7 6B657953 		.ascii	"keyString\000"
+ 1070      7472696E 
+ 1070      6700
+ 1071              	.LASF32:
+ 1072 01e1 6D61696E 		.ascii	"main.c\000"
+ 1072      2E6300
+ 1073              	.LASF15:
+ 1074 01e8 63686172 		.ascii	"char\000"
+ 1074      00
+ 1075              	.LASF2:
+ 1076 01ed 73686F72 		.ascii	"short int\000"
+ 1076      7420696E 
+ 1076      7400
+ 1077              	.LASF11:
+ 1078 01f7 75696E74 		.ascii	"uint8\000"
+ 1078      3800
+ 1079              	.LASF4:
+ 1080 01fd 6C6F6E67 		.ascii	"long int\000"
+ 1080      20696E74 
+ 1080      00
+ 1081              	.LASF16:
+ 1082 0206 6C6F6E67 		.ascii	"long double\000"
+ 1082      20646F75 
+ 1082      626C6500 
+ 1083              	.LASF0:
+ 1084 0212 7369676E 		.ascii	"signed char\000"
+ 1084      65642063 
+ 1084      68617200 
+ 1085              	.LASF19:
+ 1086 021e 4469616C 		.ascii	"DialNumber\000"
+ 1086      4E756D62 
+ 1086      657200
+ 1087              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -47,18 +47,19 @@
 
 #include <project.h>
 #include <stdio.h>
+#include "cyfitter.h"
 
 /* Project Defines */
-#define TRANSMIT_BUFFER_SIZE  16
+//#define TRANSMIT_BUFFER_SIZE  16
 
     /* Transmit Buffers */
     /*char rowsBuffer[TRANSMIT_BUFFER_SIZE];
     char columnsBuffer[TRANSMIT_BUFFER_SIZE];*/
-    char keyPadBuffer[TRANSMIT_BUFFER_SIZE];
+    //char keyPadBuffer[TRANSMIT_BUFFER_SIZE];
     /* Variables for output data */
     /*uint8 rowsOutput;
     uint8 columnsOutput;*/
-    uint8 keyPadOutput;
+    //uint8 keyPadOutput;
 
 //UART transmit interrupt for rows and columns
 /*CY_ISR_PROTO(Transmit_Rows);
@@ -68,13 +69,10 @@ CY_ISR_PROTO(Transmit_Columns);*/
 CY_ISR_PROTO(Transmit_KeyPad)
 {
     CyDelay(50);
-    keyPadOutput = KeyPad_Read();
-    
-    if (keyPadOutput > 0)
-    {
-        sprintf(keyPadBuffer, "%d\r\n", keyPadOutput);
-        UART_1_PutString(keyPadBuffer);
-    }
+    char8 keyPressed;					
+		
+	keyPressed = KeyPad_GetButton();		//Value recieved from Matrix
+    UART_1_PutChar(keyPressed);
 }*/
 
 /*CY_ISR_PROTO(Transmit_Rows)
@@ -100,6 +98,75 @@ CY_ISR_PROTO(Transmit_Columns)
         UART_1_PutString(columnsBuffer);
     }
 }*/
+char8 KeyPad_Key[4][4] = {
+					{'1','2','3','A'},		//Row 0
+					
+					{'4','5','6','B'},		//Row 1
+										
+					{'7','8','9','C'},		//Row 2
+					
+					{'*','0','#','D'}		//Row 3
+				  };
+    
+uint8 KeyPad_GetCol(void)
+{
+	uint8 column;
+		
+	while(!(KeyPad_Read() & 0x10));	//Wait for a valid press of button
+	
+	if(KeyPad_Read() & 0x10)			//Check for a valid press of button
+	{
+		column = KeyPad_Read();
+	}
+	
+	column = (column & 0x03);										//Extract correct Column
+	
+	return (column);
+}
+
+uint8 KeyPad_GetRow(void)
+{
+	uint8 row;
+	
+	while(!(KeyPad_Read() & 0x10));	//Wait for a valid press of button
+	
+	if(KeyPad_Read() & 0x10)			//Check for a valid press of button
+	{
+		row = KeyPad_Read();
+	}
+		
+	row = (row & 0x0C) >> 2;								//Extract correct Row
+	
+	return row;
+}
+
+char8 KeyPad_GetButton(void)
+{
+	char8 button;
+	
+	uint8 row,col;
+	
+	row = KeyPad_GetRow();
+    
+    col = KeyPad_GetCol();
+
+	button = KeyPad_Key[row][col];										//Assign correct Character
+	
+	while(!(KeyPad_Read() & 0x10));	//Wait for a valid press of button
+	
+	return button;
+}
+
+/*CY_ISR_PROTO(Transmit_KeyPad);
+
+CY_ISR(Transmit_KeyPad)
+{
+    //CyDelay(50);
+    char8 keyPressed;					
+		
+	keyPressed = KeyPad_GetButton();		//Value recieved from Matrix
+    UART_1_PutChar(keyPressed);
+}*/
 
 
 int main()
@@ -109,8 +176,8 @@ int main()
     
     /* Start all components used on schematic */
     /*isr_rows_StartEx(Transmit_Rows);
-    isr_columns_StartEx(Transmit_Columns);
-    isr_keypad_StartEx(Transmit_KeyPad);*/
+    isr_columns_StartEx(Transmit_Columns);*/
+    //isr_keypad_StartEx(Transmit_KeyPad);
     UART_1_Start();
     
     /* Send message to verify COM port is connected properly */
@@ -122,13 +189,21 @@ int main()
     for(;;)
     {
 		/* wait here */
-        CyDelay(500);
+        /*CyDelay(500);
         keyPadOutput = KeyPad_Read();
         if (keyPadOutput > 0)
         {
             sprintf(keyPadBuffer, "%d\r\n", keyPadOutput);
             UART_1_PutString(keyPadBuffer);
-        }  
+        }*/
+        /*char8 keyPressed;						
+	    keyPressed = KeyPad_GetButton();		//Value recieved from Matrix
+        sprintf(keyPadBuffer, "%c\r\n", keyPressed);
+        UART_1_PutString(keyPadBuffer);*/
+        char8 keyPressed;					
+		
+	    keyPressed = KeyPad_GetButton();		//Value recieved from Matrix
+        UART_1_PutChar(keyPressed);
     }
 }
 

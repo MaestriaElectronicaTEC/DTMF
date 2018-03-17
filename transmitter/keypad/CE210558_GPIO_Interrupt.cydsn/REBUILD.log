@@ -1,4 +1,4 @@
---------------- Rebuild Started: 03/15/2018 23:54:43 Project: CE210558_GPIO_Interrupt, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Rebuild Started: 03/16/2018 21:13:35 Project: CE210558_GPIO_Interrupt, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 Deleting file ".\CE210558_GPIO_Interrupt.rpt"
 cydsfit.exe -.appdatapath "C:\Users\fabis\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\CE210558_GPIO_Interrupt.cyprj -d CY8C5888LTI-LP097 -s C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
@@ -50,6 +50,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\fabis\Desktop\CE210558_GPIO_Interrupt.cydsn\CortexM3\ARM_GCC_541\Debug\CE210558_GPIO_Interrupt.elf
-Flash used: 4584 of 262144 bytes (1.7%).
-SRAM used: 1541 of 65536 bytes (2.4%). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 03/15/2018 23:55:26 ---------------
+Flash used: 2294 of 262144 bytes (0.9%).
+SRAM used: 1405 of 65536 bytes (2.1%). Stack: 1024 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 03/16/2018 21:14:19 ---------------

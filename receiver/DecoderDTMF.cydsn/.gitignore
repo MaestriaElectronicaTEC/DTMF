@@ -1,5 +1,0 @@
-*.o
-*.lst
-*.P
-CortexM3/*
-Generated_Source/*

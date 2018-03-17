@@ -1,0 +1,7 @@
+C:\Users\Luis Alonso Murillo\Documents\GitHub\DTMF\receiver\DecoderDTMF.cydsn\DecoderDTMF.cyprj|a4f39c7c-164f-47b9-bf73-8590a81d9a81
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7dac5530-eba3-4e0b-bd09-488e446bca0a
+C:\Users\Luis Alonso Murillo\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|1396763d-76f4-4916-bfa8-333d54fe4390
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|984932d4-283f-40f4-acab-4c5101b955df
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|61f246f4-8a3d-4eac-bb71-6a60038b5461
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b0c70236-275b-4b2f-810b-985f97967868
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|3cf1ba21-50e9-4650-a63a-c62720370423

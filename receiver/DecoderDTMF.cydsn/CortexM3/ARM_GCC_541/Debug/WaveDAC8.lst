@@ -1,0 +1,2759 @@
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"WaveDAC8.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	WaveDAC8_initVar
+  20              		.bss
+  21              		.type	WaveDAC8_initVar, %object
+  22              		.size	WaveDAC8_initVar, 1
+  23              	WaveDAC8_initVar:
+  24 0000 00       		.space	1
+  25              		.global	WaveDAC8_wave1
+  26              		.section	.rodata
+  27              		.align	2
+  28              		.type	WaveDAC8_wave1, %object
+  29              		.size	WaveDAC8_wave1, 1000
+  30              	WaveDAC8_wave1:
+  31 0000 80       		.byte	-128
+  32 0001 80       		.byte	-128
+  33 0002 81       		.byte	-127
+  34 0003 82       		.byte	-126
+  35 0004 83       		.byte	-125
+  36 0005 83       		.byte	-125
+  37 0006 84       		.byte	-124
+  38 0007 85       		.byte	-123
+  39 0008 86       		.byte	-122
+  40 0009 87       		.byte	-121
+  41 000a 87       		.byte	-121
+  42 000b 88       		.byte	-120
+  43 000c 89       		.byte	-119
+  44 000d 8A       		.byte	-118
+  45 000e 8A       		.byte	-118
+  46 000f 8B       		.byte	-117
+  47 0010 8C       		.byte	-116
+  48 0011 8D       		.byte	-115
+  49 0012 8E       		.byte	-114
+  50 0013 8E       		.byte	-114
+  51 0014 8F       		.byte	-113
+  52 0015 90       		.byte	-112
+  53 0016 91       		.byte	-111
+  54 0017 92       		.byte	-110
+  55 0018 92       		.byte	-110
+  56 0019 93       		.byte	-109
+  57 001a 94       		.byte	-108
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 2
+
+
+  58 001b 95       		.byte	-107
+  59 001c 95       		.byte	-107
+  60 001d 96       		.byte	-106
+  61 001e 97       		.byte	-105
+  62 001f 98       		.byte	-104
+  63 0020 98       		.byte	-104
+  64 0021 99       		.byte	-103
+  65 0022 9A       		.byte	-102
+  66 0023 9B       		.byte	-101
+  67 0024 9C       		.byte	-100
+  68 0025 9C       		.byte	-100
+  69 0026 9D       		.byte	-99
+  70 0027 9E       		.byte	-98
+  71 0028 9F       		.byte	-97
+  72 0029 9F       		.byte	-97
+  73 002a A0       		.byte	-96
+  74 002b A1       		.byte	-95
+  75 002c A2       		.byte	-94
+  76 002d A2       		.byte	-94
+  77 002e A3       		.byte	-93
+  78 002f A4       		.byte	-92
+  79 0030 A5       		.byte	-91
+  80 0031 A5       		.byte	-91
+  81 0032 A6       		.byte	-90
+  82 0033 A7       		.byte	-89
+  83 0034 A8       		.byte	-88
+  84 0035 A8       		.byte	-88
+  85 0036 A9       		.byte	-87
+  86 0037 AA       		.byte	-86
+  87 0038 AB       		.byte	-85
+  88 0039 AB       		.byte	-85
+  89 003a AC       		.byte	-84
+  90 003b AD       		.byte	-83
+  91 003c AE       		.byte	-82
+  92 003d AE       		.byte	-82
+  93 003e AF       		.byte	-81
+  94 003f B0       		.byte	-80
+  95 0040 B0       		.byte	-80
+  96 0041 B1       		.byte	-79
+  97 0042 B2       		.byte	-78
+  98 0043 B3       		.byte	-77
+  99 0044 B3       		.byte	-77
+ 100 0045 B4       		.byte	-76
+ 101 0046 B5       		.byte	-75
+ 102 0047 B5       		.byte	-75
+ 103 0048 B6       		.byte	-74
+ 104 0049 B7       		.byte	-73
+ 105 004a B8       		.byte	-72
+ 106 004b B8       		.byte	-72
+ 107 004c B9       		.byte	-71
+ 108 004d BA       		.byte	-70
+ 109 004e BA       		.byte	-70
+ 110 004f BB       		.byte	-69
+ 111 0050 BC       		.byte	-68
+ 112 0051 BC       		.byte	-68
+ 113 0052 BD       		.byte	-67
+ 114 0053 BE       		.byte	-66
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 3
+
+
+ 115 0054 BE       		.byte	-66
+ 116 0055 BF       		.byte	-65
+ 117 0056 C0       		.byte	-64
+ 118 0057 C0       		.byte	-64
+ 119 0058 C1       		.byte	-63
+ 120 0059 C2       		.byte	-62
+ 121 005a C2       		.byte	-62
+ 122 005b C3       		.byte	-61
+ 123 005c C4       		.byte	-60
+ 124 005d C4       		.byte	-60
+ 125 005e C5       		.byte	-59
+ 126 005f C6       		.byte	-58
+ 127 0060 C6       		.byte	-58
+ 128 0061 C7       		.byte	-57
+ 129 0062 C8       		.byte	-56
+ 130 0063 C8       		.byte	-56
+ 131 0064 C9       		.byte	-55
+ 132 0065 CA       		.byte	-54
+ 133 0066 CA       		.byte	-54
+ 134 0067 CB       		.byte	-53
+ 135 0068 CB       		.byte	-53
+ 136 0069 CC       		.byte	-52
+ 137 006a CD       		.byte	-51
+ 138 006b CD       		.byte	-51
+ 139 006c CE       		.byte	-50
+ 140 006d CF       		.byte	-49
+ 141 006e CF       		.byte	-49
+ 142 006f D0       		.byte	-48
+ 143 0070 D0       		.byte	-48
+ 144 0071 D1       		.byte	-47
+ 145 0072 D2       		.byte	-46
+ 146 0073 D2       		.byte	-46
+ 147 0074 D3       		.byte	-45
+ 148 0075 D3       		.byte	-45
+ 149 0076 D4       		.byte	-44
+ 150 0077 D4       		.byte	-44
+ 151 0078 D5       		.byte	-43
+ 152 0079 D6       		.byte	-42
+ 153 007a D6       		.byte	-42
+ 154 007b D7       		.byte	-41
+ 155 007c D7       		.byte	-41
+ 156 007d D8       		.byte	-40
+ 157 007e D8       		.byte	-40
+ 158 007f D9       		.byte	-39
+ 159 0080 DA       		.byte	-38
+ 160 0081 DA       		.byte	-38
+ 161 0082 DB       		.byte	-37
+ 162 0083 DB       		.byte	-37
+ 163 0084 DC       		.byte	-36
+ 164 0085 DC       		.byte	-36
+ 165 0086 DD       		.byte	-35
+ 166 0087 DD       		.byte	-35
+ 167 0088 DE       		.byte	-34
+ 168 0089 DE       		.byte	-34
+ 169 008a DF       		.byte	-33
+ 170 008b DF       		.byte	-33
+ 171 008c E0       		.byte	-32
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 4
+
+
+ 172 008d E0       		.byte	-32
+ 173 008e E1       		.byte	-31
+ 174 008f E1       		.byte	-31
+ 175 0090 E2       		.byte	-30
+ 176 0091 E2       		.byte	-30
+ 177 0092 E3       		.byte	-29
+ 178 0093 E3       		.byte	-29
+ 179 0094 E4       		.byte	-28
+ 180 0095 E4       		.byte	-28
+ 181 0096 E5       		.byte	-27
+ 182 0097 E5       		.byte	-27
+ 183 0098 E6       		.byte	-26
+ 184 0099 E6       		.byte	-26
+ 185 009a E6       		.byte	-26
+ 186 009b E7       		.byte	-25
+ 187 009c E7       		.byte	-25
+ 188 009d E8       		.byte	-24
+ 189 009e E8       		.byte	-24
+ 190 009f E9       		.byte	-23
+ 191 00a0 E9       		.byte	-23
+ 192 00a1 E9       		.byte	-23
+ 193 00a2 EA       		.byte	-22
+ 194 00a3 EA       		.byte	-22
+ 195 00a4 EB       		.byte	-21
+ 196 00a5 EB       		.byte	-21
+ 197 00a6 EB       		.byte	-21
+ 198 00a7 EC       		.byte	-20
+ 199 00a8 EC       		.byte	-20
+ 200 00a9 ED       		.byte	-19
+ 201 00aa ED       		.byte	-19
+ 202 00ab ED       		.byte	-19
+ 203 00ac EE       		.byte	-18
+ 204 00ad EE       		.byte	-18
+ 205 00ae EF       		.byte	-17
+ 206 00af EF       		.byte	-17
+ 207 00b0 EF       		.byte	-17
+ 208 00b1 F0       		.byte	-16
+ 209 00b2 F0       		.byte	-16
+ 210 00b3 F0       		.byte	-16
+ 211 00b4 F1       		.byte	-15
+ 212 00b5 F1       		.byte	-15
+ 213 00b6 F1       		.byte	-15
+ 214 00b7 F2       		.byte	-14
+ 215 00b8 F2       		.byte	-14
+ 216 00b9 F2       		.byte	-14
+ 217 00ba F3       		.byte	-13
+ 218 00bb F3       		.byte	-13
+ 219 00bc F3       		.byte	-13
+ 220 00bd F3       		.byte	-13
+ 221 00be F4       		.byte	-12
+ 222 00bf F4       		.byte	-12
+ 223 00c0 F4       		.byte	-12
+ 224 00c1 F5       		.byte	-11
+ 225 00c2 F5       		.byte	-11
+ 226 00c3 F5       		.byte	-11
+ 227 00c4 F5       		.byte	-11
+ 228 00c5 F6       		.byte	-10
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 5
+
+
+ 229 00c6 F6       		.byte	-10
+ 230 00c7 F6       		.byte	-10
+ 231 00c8 F6       		.byte	-10
+ 232 00c9 F7       		.byte	-9
+ 233 00ca F7       		.byte	-9
+ 234 00cb F7       		.byte	-9
+ 235 00cc F7       		.byte	-9
+ 236 00cd F8       		.byte	-8
+ 237 00ce F8       		.byte	-8
+ 238 00cf F8       		.byte	-8
+ 239 00d0 F8       		.byte	-8
+ 240 00d1 F8       		.byte	-8
+ 241 00d2 F9       		.byte	-7
+ 242 00d3 F9       		.byte	-7
+ 243 00d4 F9       		.byte	-7
+ 244 00d5 F9       		.byte	-7
+ 245 00d6 F9       		.byte	-7
+ 246 00d7 F9       		.byte	-7
+ 247 00d8 FA       		.byte	-6
+ 248 00d9 FA       		.byte	-6
+ 249 00da FA       		.byte	-6
+ 250 00db FA       		.byte	-6
+ 251 00dc FA       		.byte	-6
+ 252 00dd FA       		.byte	-6
+ 253 00de FB       		.byte	-5
+ 254 00df FB       		.byte	-5
+ 255 00e0 FB       		.byte	-5
+ 256 00e1 FB       		.byte	-5
+ 257 00e2 FB       		.byte	-5
+ 258 00e3 FB       		.byte	-5
+ 259 00e4 FB       		.byte	-5
+ 260 00e5 FB       		.byte	-5
+ 261 00e6 FC       		.byte	-4
+ 262 00e7 FC       		.byte	-4
+ 263 00e8 FC       		.byte	-4
+ 264 00e9 FC       		.byte	-4
+ 265 00ea FC       		.byte	-4
+ 266 00eb FC       		.byte	-4
+ 267 00ec FC       		.byte	-4
+ 268 00ed FC       		.byte	-4
+ 269 00ee FC       		.byte	-4
+ 270 00ef FC       		.byte	-4
+ 271 00f0 FC       		.byte	-4
+ 272 00f1 FC       		.byte	-4
+ 273 00f2 FC       		.byte	-4
+ 274 00f3 FC       		.byte	-4
+ 275 00f4 FC       		.byte	-4
+ 276 00f5 FC       		.byte	-4
+ 277 00f6 FC       		.byte	-4
+ 278 00f7 FC       		.byte	-4
+ 279 00f8 FC       		.byte	-4
+ 280 00f9 FC       		.byte	-4
+ 281 00fa FC       		.byte	-4
+ 282 00fb FC       		.byte	-4
+ 283 00fc FC       		.byte	-4
+ 284 00fd FC       		.byte	-4
+ 285 00fe FC       		.byte	-4
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 6
+
+
+ 286 00ff FC       		.byte	-4
+ 287 0100 FC       		.byte	-4
+ 288 0101 FC       		.byte	-4
+ 289 0102 FC       		.byte	-4
+ 290 0103 FC       		.byte	-4
+ 291 0104 FC       		.byte	-4
+ 292 0105 FC       		.byte	-4
+ 293 0106 FC       		.byte	-4
+ 294 0107 FC       		.byte	-4
+ 295 0108 FC       		.byte	-4
+ 296 0109 FC       		.byte	-4
+ 297 010a FC       		.byte	-4
+ 298 010b FC       		.byte	-4
+ 299 010c FC       		.byte	-4
+ 300 010d FC       		.byte	-4
+ 301 010e FC       		.byte	-4
+ 302 010f FB       		.byte	-5
+ 303 0110 FB       		.byte	-5
+ 304 0111 FB       		.byte	-5
+ 305 0112 FB       		.byte	-5
+ 306 0113 FB       		.byte	-5
+ 307 0114 FB       		.byte	-5
+ 308 0115 FB       		.byte	-5
+ 309 0116 FB       		.byte	-5
+ 310 0117 FA       		.byte	-6
+ 311 0118 FA       		.byte	-6
+ 312 0119 FA       		.byte	-6
+ 313 011a FA       		.byte	-6
+ 314 011b FA       		.byte	-6
+ 315 011c FA       		.byte	-6
+ 316 011d F9       		.byte	-7
+ 317 011e F9       		.byte	-7
+ 318 011f F9       		.byte	-7
+ 319 0120 F9       		.byte	-7
+ 320 0121 F9       		.byte	-7
+ 321 0122 F9       		.byte	-7
+ 322 0123 F8       		.byte	-8
+ 323 0124 F8       		.byte	-8
+ 324 0125 F8       		.byte	-8
+ 325 0126 F8       		.byte	-8
+ 326 0127 F8       		.byte	-8
+ 327 0128 F7       		.byte	-9
+ 328 0129 F7       		.byte	-9
+ 329 012a F7       		.byte	-9
+ 330 012b F7       		.byte	-9
+ 331 012c F6       		.byte	-10
+ 332 012d F6       		.byte	-10
+ 333 012e F6       		.byte	-10
+ 334 012f F6       		.byte	-10
+ 335 0130 F5       		.byte	-11
+ 336 0131 F5       		.byte	-11
+ 337 0132 F5       		.byte	-11
+ 338 0133 F5       		.byte	-11
+ 339 0134 F4       		.byte	-12
+ 340 0135 F4       		.byte	-12
+ 341 0136 F4       		.byte	-12
+ 342 0137 F3       		.byte	-13
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 7
+
+
+ 343 0138 F3       		.byte	-13
+ 344 0139 F3       		.byte	-13
+ 345 013a F3       		.byte	-13
+ 346 013b F2       		.byte	-14
+ 347 013c F2       		.byte	-14
+ 348 013d F2       		.byte	-14
+ 349 013e F1       		.byte	-15
+ 350 013f F1       		.byte	-15
+ 351 0140 F1       		.byte	-15
+ 352 0141 F0       		.byte	-16
+ 353 0142 F0       		.byte	-16
+ 354 0143 F0       		.byte	-16
+ 355 0144 EF       		.byte	-17
+ 356 0145 EF       		.byte	-17
+ 357 0146 EF       		.byte	-17
+ 358 0147 EE       		.byte	-18
+ 359 0148 EE       		.byte	-18
+ 360 0149 ED       		.byte	-19
+ 361 014a ED       		.byte	-19
+ 362 014b ED       		.byte	-19
+ 363 014c EC       		.byte	-20
+ 364 014d EC       		.byte	-20
+ 365 014e EB       		.byte	-21
+ 366 014f EB       		.byte	-21
+ 367 0150 EB       		.byte	-21
+ 368 0151 EA       		.byte	-22
+ 369 0152 EA       		.byte	-22
+ 370 0153 E9       		.byte	-23
+ 371 0154 E9       		.byte	-23
+ 372 0155 E9       		.byte	-23
+ 373 0156 E8       		.byte	-24
+ 374 0157 E8       		.byte	-24
+ 375 0158 E7       		.byte	-25
+ 376 0159 E7       		.byte	-25
+ 377 015a E6       		.byte	-26
+ 378 015b E6       		.byte	-26
+ 379 015c E6       		.byte	-26
+ 380 015d E5       		.byte	-27
+ 381 015e E5       		.byte	-27
+ 382 015f E4       		.byte	-28
+ 383 0160 E4       		.byte	-28
+ 384 0161 E3       		.byte	-29
+ 385 0162 E3       		.byte	-29
+ 386 0163 E2       		.byte	-30
+ 387 0164 E2       		.byte	-30
+ 388 0165 E1       		.byte	-31
+ 389 0166 E1       		.byte	-31
+ 390 0167 E0       		.byte	-32
+ 391 0168 E0       		.byte	-32
+ 392 0169 DF       		.byte	-33
+ 393 016a DF       		.byte	-33
+ 394 016b DE       		.byte	-34
+ 395 016c DE       		.byte	-34
+ 396 016d DD       		.byte	-35
+ 397 016e DD       		.byte	-35
+ 398 016f DC       		.byte	-36
+ 399 0170 DC       		.byte	-36
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 8
+
+
+ 400 0171 DB       		.byte	-37
+ 401 0172 DB       		.byte	-37
+ 402 0173 DA       		.byte	-38
+ 403 0174 DA       		.byte	-38
+ 404 0175 D9       		.byte	-39
+ 405 0176 D8       		.byte	-40
+ 406 0177 D8       		.byte	-40
+ 407 0178 D7       		.byte	-41
+ 408 0179 D7       		.byte	-41
+ 409 017a D6       		.byte	-42
+ 410 017b D6       		.byte	-42
+ 411 017c D5       		.byte	-43
+ 412 017d D4       		.byte	-44
+ 413 017e D4       		.byte	-44
+ 414 017f D3       		.byte	-45
+ 415 0180 D3       		.byte	-45
+ 416 0181 D2       		.byte	-46
+ 417 0182 D2       		.byte	-46
+ 418 0183 D1       		.byte	-47
+ 419 0184 D0       		.byte	-48
+ 420 0185 D0       		.byte	-48
+ 421 0186 CF       		.byte	-49
+ 422 0187 CF       		.byte	-49
+ 423 0188 CE       		.byte	-50
+ 424 0189 CD       		.byte	-51
+ 425 018a CD       		.byte	-51
+ 426 018b CC       		.byte	-52
+ 427 018c CB       		.byte	-53
+ 428 018d CB       		.byte	-53
+ 429 018e CA       		.byte	-54
+ 430 018f CA       		.byte	-54
+ 431 0190 C9       		.byte	-55
+ 432 0191 C8       		.byte	-56
+ 433 0192 C8       		.byte	-56
+ 434 0193 C7       		.byte	-57
+ 435 0194 C6       		.byte	-58
+ 436 0195 C6       		.byte	-58
+ 437 0196 C5       		.byte	-59
+ 438 0197 C4       		.byte	-60
+ 439 0198 C4       		.byte	-60
+ 440 0199 C3       		.byte	-61
+ 441 019a C2       		.byte	-62
+ 442 019b C2       		.byte	-62
+ 443 019c C1       		.byte	-63
+ 444 019d C0       		.byte	-64
+ 445 019e C0       		.byte	-64
+ 446 019f BF       		.byte	-65
+ 447 01a0 BE       		.byte	-66
+ 448 01a1 BE       		.byte	-66
+ 449 01a2 BD       		.byte	-67
+ 450 01a3 BC       		.byte	-68
+ 451 01a4 BC       		.byte	-68
+ 452 01a5 BB       		.byte	-69
+ 453 01a6 BA       		.byte	-70
+ 454 01a7 BA       		.byte	-70
+ 455 01a8 B9       		.byte	-71
+ 456 01a9 B8       		.byte	-72
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 9
+
+
+ 457 01aa B8       		.byte	-72
+ 458 01ab B7       		.byte	-73
+ 459 01ac B6       		.byte	-74
+ 460 01ad B5       		.byte	-75
+ 461 01ae B5       		.byte	-75
+ 462 01af B4       		.byte	-76
+ 463 01b0 B3       		.byte	-77
+ 464 01b1 B3       		.byte	-77
+ 465 01b2 B2       		.byte	-78
+ 466 01b3 B1       		.byte	-79
+ 467 01b4 B0       		.byte	-80
+ 468 01b5 B0       		.byte	-80
+ 469 01b6 AF       		.byte	-81
+ 470 01b7 AE       		.byte	-82
+ 471 01b8 AE       		.byte	-82
+ 472 01b9 AD       		.byte	-83
+ 473 01ba AC       		.byte	-84
+ 474 01bb AB       		.byte	-85
+ 475 01bc AB       		.byte	-85
+ 476 01bd AA       		.byte	-86
+ 477 01be A9       		.byte	-87
+ 478 01bf A8       		.byte	-88
+ 479 01c0 A8       		.byte	-88
+ 480 01c1 A7       		.byte	-89
+ 481 01c2 A6       		.byte	-90
+ 482 01c3 A5       		.byte	-91
+ 483 01c4 A5       		.byte	-91
+ 484 01c5 A4       		.byte	-92
+ 485 01c6 A3       		.byte	-93
+ 486 01c7 A2       		.byte	-94
+ 487 01c8 A2       		.byte	-94
+ 488 01c9 A1       		.byte	-95
+ 489 01ca A0       		.byte	-96
+ 490 01cb 9F       		.byte	-97
+ 491 01cc 9F       		.byte	-97
+ 492 01cd 9E       		.byte	-98
+ 493 01ce 9D       		.byte	-99
+ 494 01cf 9C       		.byte	-100
+ 495 01d0 9C       		.byte	-100
+ 496 01d1 9B       		.byte	-101
+ 497 01d2 9A       		.byte	-102
+ 498 01d3 99       		.byte	-103
+ 499 01d4 98       		.byte	-104
+ 500 01d5 98       		.byte	-104
+ 501 01d6 97       		.byte	-105
+ 502 01d7 96       		.byte	-106
+ 503 01d8 95       		.byte	-107
+ 504 01d9 95       		.byte	-107
+ 505 01da 94       		.byte	-108
+ 506 01db 93       		.byte	-109
+ 507 01dc 92       		.byte	-110
+ 508 01dd 92       		.byte	-110
+ 509 01de 91       		.byte	-111
+ 510 01df 90       		.byte	-112
+ 511 01e0 8F       		.byte	-113
+ 512 01e1 8E       		.byte	-114
+ 513 01e2 8E       		.byte	-114
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 10
+
+
+ 514 01e3 8D       		.byte	-115
+ 515 01e4 8C       		.byte	-116
+ 516 01e5 8B       		.byte	-117
+ 517 01e6 8A       		.byte	-118
+ 518 01e7 8A       		.byte	-118
+ 519 01e8 89       		.byte	-119
+ 520 01e9 88       		.byte	-120
+ 521 01ea 87       		.byte	-121
+ 522 01eb 87       		.byte	-121
+ 523 01ec 86       		.byte	-122
+ 524 01ed 85       		.byte	-123
+ 525 01ee 84       		.byte	-124
+ 526 01ef 83       		.byte	-125
+ 527 01f0 83       		.byte	-125
+ 528 01f1 82       		.byte	-126
+ 529 01f2 81       		.byte	-127
+ 530 01f3 80       		.byte	-128
+ 531 01f4 80       		.byte	-128
+ 532 01f5 7F       		.byte	127
+ 533 01f6 7E       		.byte	126
+ 534 01f7 7D       		.byte	125
+ 535 01f8 7C       		.byte	124
+ 536 01f9 7C       		.byte	124
+ 537 01fa 7B       		.byte	123
+ 538 01fb 7A       		.byte	122
+ 539 01fc 79       		.byte	121
+ 540 01fd 78       		.byte	120
+ 541 01fe 78       		.byte	120
+ 542 01ff 77       		.byte	119
+ 543 0200 76       		.byte	118
+ 544 0201 75       		.byte	117
+ 545 0202 75       		.byte	117
+ 546 0203 74       		.byte	116
+ 547 0204 73       		.byte	115
+ 548 0205 72       		.byte	114
+ 549 0206 71       		.byte	113
+ 550 0207 71       		.byte	113
+ 551 0208 70       		.byte	112
+ 552 0209 6F       		.byte	111
+ 553 020a 6E       		.byte	110
+ 554 020b 6D       		.byte	109
+ 555 020c 6D       		.byte	109
+ 556 020d 6C       		.byte	108
+ 557 020e 6B       		.byte	107
+ 558 020f 6A       		.byte	106
+ 559 0210 6A       		.byte	106
+ 560 0211 69       		.byte	105
+ 561 0212 68       		.byte	104
+ 562 0213 67       		.byte	103
+ 563 0214 67       		.byte	103
+ 564 0215 66       		.byte	102
+ 565 0216 65       		.byte	101
+ 566 0217 64       		.byte	100
+ 567 0218 63       		.byte	99
+ 568 0219 63       		.byte	99
+ 569 021a 62       		.byte	98
+ 570 021b 61       		.byte	97
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 11
+
+
+ 571 021c 60       		.byte	96
+ 572 021d 60       		.byte	96
+ 573 021e 5F       		.byte	95
+ 574 021f 5E       		.byte	94
+ 575 0220 5D       		.byte	93
+ 576 0221 5D       		.byte	93
+ 577 0222 5C       		.byte	92
+ 578 0223 5B       		.byte	91
+ 579 0224 5A       		.byte	90
+ 580 0225 5A       		.byte	90
+ 581 0226 59       		.byte	89
+ 582 0227 58       		.byte	88
+ 583 0228 57       		.byte	87
+ 584 0229 57       		.byte	87
+ 585 022a 56       		.byte	86
+ 586 022b 55       		.byte	85
+ 587 022c 54       		.byte	84
+ 588 022d 54       		.byte	84
+ 589 022e 53       		.byte	83
+ 590 022f 52       		.byte	82
+ 591 0230 51       		.byte	81
+ 592 0231 51       		.byte	81
+ 593 0232 50       		.byte	80
+ 594 0233 4F       		.byte	79
+ 595 0234 4F       		.byte	79
+ 596 0235 4E       		.byte	78
+ 597 0236 4D       		.byte	77
+ 598 0237 4C       		.byte	76
+ 599 0238 4C       		.byte	76
+ 600 0239 4B       		.byte	75
+ 601 023a 4A       		.byte	74
+ 602 023b 4A       		.byte	74
+ 603 023c 49       		.byte	73
+ 604 023d 48       		.byte	72
+ 605 023e 47       		.byte	71
+ 606 023f 47       		.byte	71
+ 607 0240 46       		.byte	70
+ 608 0241 45       		.byte	69
+ 609 0242 45       		.byte	69
+ 610 0243 44       		.byte	68
+ 611 0244 43       		.byte	67
+ 612 0245 43       		.byte	67
+ 613 0246 42       		.byte	66
+ 614 0247 41       		.byte	65
+ 615 0248 41       		.byte	65
+ 616 0249 40       		.byte	64
+ 617 024a 3F       		.byte	63
+ 618 024b 3F       		.byte	63
+ 619 024c 3E       		.byte	62
+ 620 024d 3D       		.byte	61
+ 621 024e 3D       		.byte	61
+ 622 024f 3C       		.byte	60
+ 623 0250 3B       		.byte	59
+ 624 0251 3B       		.byte	59
+ 625 0252 3A       		.byte	58
+ 626 0253 39       		.byte	57
+ 627 0254 39       		.byte	57
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 12
+
+
+ 628 0255 38       		.byte	56
+ 629 0256 37       		.byte	55
+ 630 0257 37       		.byte	55
+ 631 0258 36       		.byte	54
+ 632 0259 35       		.byte	53
+ 633 025a 35       		.byte	53
+ 634 025b 34       		.byte	52
+ 635 025c 34       		.byte	52
+ 636 025d 33       		.byte	51
+ 637 025e 32       		.byte	50
+ 638 025f 32       		.byte	50
+ 639 0260 31       		.byte	49
+ 640 0261 30       		.byte	48
+ 641 0262 30       		.byte	48
+ 642 0263 2F       		.byte	47
+ 643 0264 2F       		.byte	47
+ 644 0265 2E       		.byte	46
+ 645 0266 2D       		.byte	45
+ 646 0267 2D       		.byte	45
+ 647 0268 2C       		.byte	44
+ 648 0269 2C       		.byte	44
+ 649 026a 2B       		.byte	43
+ 650 026b 2B       		.byte	43
+ 651 026c 2A       		.byte	42
+ 652 026d 29       		.byte	41
+ 653 026e 29       		.byte	41
+ 654 026f 28       		.byte	40
+ 655 0270 28       		.byte	40
+ 656 0271 27       		.byte	39
+ 657 0272 27       		.byte	39
+ 658 0273 26       		.byte	38
+ 659 0274 25       		.byte	37
+ 660 0275 25       		.byte	37
+ 661 0276 24       		.byte	36
+ 662 0277 24       		.byte	36
+ 663 0278 23       		.byte	35
+ 664 0279 23       		.byte	35
+ 665 027a 22       		.byte	34
+ 666 027b 22       		.byte	34
+ 667 027c 21       		.byte	33
+ 668 027d 21       		.byte	33
+ 669 027e 20       		.byte	32
+ 670 027f 20       		.byte	32
+ 671 0280 1F       		.byte	31
+ 672 0281 1F       		.byte	31
+ 673 0282 1E       		.byte	30
+ 674 0283 1E       		.byte	30
+ 675 0284 1D       		.byte	29
+ 676 0285 1D       		.byte	29
+ 677 0286 1C       		.byte	28
+ 678 0287 1C       		.byte	28
+ 679 0288 1B       		.byte	27
+ 680 0289 1B       		.byte	27
+ 681 028a 1A       		.byte	26
+ 682 028b 1A       		.byte	26
+ 683 028c 19       		.byte	25
+ 684 028d 19       		.byte	25
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 13
+
+
+ 685 028e 19       		.byte	25
+ 686 028f 18       		.byte	24
+ 687 0290 18       		.byte	24
+ 688 0291 17       		.byte	23
+ 689 0292 17       		.byte	23
+ 690 0293 16       		.byte	22
+ 691 0294 16       		.byte	22
+ 692 0295 16       		.byte	22
+ 693 0296 15       		.byte	21
+ 694 0297 15       		.byte	21
+ 695 0298 14       		.byte	20
+ 696 0299 14       		.byte	20
+ 697 029a 14       		.byte	20
+ 698 029b 13       		.byte	19
+ 699 029c 13       		.byte	19
+ 700 029d 12       		.byte	18
+ 701 029e 12       		.byte	18
+ 702 029f 12       		.byte	18
+ 703 02a0 11       		.byte	17
+ 704 02a1 11       		.byte	17
+ 705 02a2 10       		.byte	16
+ 706 02a3 10       		.byte	16
+ 707 02a4 10       		.byte	16
+ 708 02a5 0F       		.byte	15
+ 709 02a6 0F       		.byte	15
+ 710 02a7 0F       		.byte	15
+ 711 02a8 0E       		.byte	14
+ 712 02a9 0E       		.byte	14
+ 713 02aa 0E       		.byte	14
+ 714 02ab 0D       		.byte	13
+ 715 02ac 0D       		.byte	13
+ 716 02ad 0D       		.byte	13
+ 717 02ae 0C       		.byte	12
+ 718 02af 0C       		.byte	12
+ 719 02b0 0C       		.byte	12
+ 720 02b1 0C       		.byte	12
+ 721 02b2 0B       		.byte	11
+ 722 02b3 0B       		.byte	11
+ 723 02b4 0B       		.byte	11
+ 724 02b5 0A       		.byte	10
+ 725 02b6 0A       		.byte	10
+ 726 02b7 0A       		.byte	10
+ 727 02b8 0A       		.byte	10
+ 728 02b9 09       		.byte	9
+ 729 02ba 09       		.byte	9
+ 730 02bb 09       		.byte	9
+ 731 02bc 09       		.byte	9
+ 732 02bd 08       		.byte	8
+ 733 02be 08       		.byte	8
+ 734 02bf 08       		.byte	8
+ 735 02c0 08       		.byte	8
+ 736 02c1 07       		.byte	7
+ 737 02c2 07       		.byte	7
+ 738 02c3 07       		.byte	7
+ 739 02c4 07       		.byte	7
+ 740 02c5 07       		.byte	7
+ 741 02c6 06       		.byte	6
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 14
+
+
+ 742 02c7 06       		.byte	6
+ 743 02c8 06       		.byte	6
+ 744 02c9 06       		.byte	6
+ 745 02ca 06       		.byte	6
+ 746 02cb 06       		.byte	6
+ 747 02cc 05       		.byte	5
+ 748 02cd 05       		.byte	5
+ 749 02ce 05       		.byte	5
+ 750 02cf 05       		.byte	5
+ 751 02d0 05       		.byte	5
+ 752 02d1 05       		.byte	5
+ 753 02d2 04       		.byte	4
+ 754 02d3 04       		.byte	4
+ 755 02d4 04       		.byte	4
+ 756 02d5 04       		.byte	4
+ 757 02d6 04       		.byte	4
+ 758 02d7 04       		.byte	4
+ 759 02d8 04       		.byte	4
+ 760 02d9 04       		.byte	4
+ 761 02da 03       		.byte	3
+ 762 02db 03       		.byte	3
+ 763 02dc 03       		.byte	3
+ 764 02dd 03       		.byte	3
+ 765 02de 03       		.byte	3
+ 766 02df 03       		.byte	3
+ 767 02e0 03       		.byte	3
+ 768 02e1 03       		.byte	3
+ 769 02e2 03       		.byte	3
+ 770 02e3 03       		.byte	3
+ 771 02e4 03       		.byte	3
+ 772 02e5 03       		.byte	3
+ 773 02e6 03       		.byte	3
+ 774 02e7 03       		.byte	3
+ 775 02e8 03       		.byte	3
+ 776 02e9 03       		.byte	3
+ 777 02ea 03       		.byte	3
+ 778 02eb 03       		.byte	3
+ 779 02ec 03       		.byte	3
+ 780 02ed 03       		.byte	3
+ 781 02ee 03       		.byte	3
+ 782 02ef 03       		.byte	3
+ 783 02f0 03       		.byte	3
+ 784 02f1 03       		.byte	3
+ 785 02f2 03       		.byte	3
+ 786 02f3 03       		.byte	3
+ 787 02f4 03       		.byte	3
+ 788 02f5 03       		.byte	3
+ 789 02f6 03       		.byte	3
+ 790 02f7 03       		.byte	3
+ 791 02f8 03       		.byte	3
+ 792 02f9 03       		.byte	3
+ 793 02fa 03       		.byte	3
+ 794 02fb 03       		.byte	3
+ 795 02fc 03       		.byte	3
+ 796 02fd 03       		.byte	3
+ 797 02fe 03       		.byte	3
+ 798 02ff 03       		.byte	3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 15
+
+
+ 799 0300 03       		.byte	3
+ 800 0301 03       		.byte	3
+ 801 0302 03       		.byte	3
+ 802 0303 04       		.byte	4
+ 803 0304 04       		.byte	4
+ 804 0305 04       		.byte	4
+ 805 0306 04       		.byte	4
+ 806 0307 04       		.byte	4
+ 807 0308 04       		.byte	4
+ 808 0309 04       		.byte	4
+ 809 030a 04       		.byte	4
+ 810 030b 05       		.byte	5
+ 811 030c 05       		.byte	5
+ 812 030d 05       		.byte	5
+ 813 030e 05       		.byte	5
+ 814 030f 05       		.byte	5
+ 815 0310 05       		.byte	5
+ 816 0311 06       		.byte	6
+ 817 0312 06       		.byte	6
+ 818 0313 06       		.byte	6
+ 819 0314 06       		.byte	6
+ 820 0315 06       		.byte	6
+ 821 0316 06       		.byte	6
+ 822 0317 07       		.byte	7
+ 823 0318 07       		.byte	7
+ 824 0319 07       		.byte	7
+ 825 031a 07       		.byte	7
+ 826 031b 07       		.byte	7
+ 827 031c 08       		.byte	8
+ 828 031d 08       		.byte	8
+ 829 031e 08       		.byte	8
+ 830 031f 08       		.byte	8
+ 831 0320 09       		.byte	9
+ 832 0321 09       		.byte	9
+ 833 0322 09       		.byte	9
+ 834 0323 09       		.byte	9
+ 835 0324 0A       		.byte	10
+ 836 0325 0A       		.byte	10
+ 837 0326 0A       		.byte	10
+ 838 0327 0A       		.byte	10
+ 839 0328 0B       		.byte	11
+ 840 0329 0B       		.byte	11
+ 841 032a 0B       		.byte	11
+ 842 032b 0C       		.byte	12
+ 843 032c 0C       		.byte	12
+ 844 032d 0C       		.byte	12
+ 845 032e 0C       		.byte	12
+ 846 032f 0D       		.byte	13
+ 847 0330 0D       		.byte	13
+ 848 0331 0D       		.byte	13
+ 849 0332 0E       		.byte	14
+ 850 0333 0E       		.byte	14
+ 851 0334 0E       		.byte	14
+ 852 0335 0F       		.byte	15
+ 853 0336 0F       		.byte	15
+ 854 0337 0F       		.byte	15
+ 855 0338 10       		.byte	16
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 16
+
+
+ 856 0339 10       		.byte	16
+ 857 033a 10       		.byte	16
+ 858 033b 11       		.byte	17
+ 859 033c 11       		.byte	17
+ 860 033d 12       		.byte	18
+ 861 033e 12       		.byte	18
+ 862 033f 12       		.byte	18
+ 863 0340 13       		.byte	19
+ 864 0341 13       		.byte	19
+ 865 0342 14       		.byte	20
+ 866 0343 14       		.byte	20
+ 867 0344 14       		.byte	20
+ 868 0345 15       		.byte	21
+ 869 0346 15       		.byte	21
+ 870 0347 16       		.byte	22
+ 871 0348 16       		.byte	22
+ 872 0349 16       		.byte	22
+ 873 034a 17       		.byte	23
+ 874 034b 17       		.byte	23
+ 875 034c 18       		.byte	24
+ 876 034d 18       		.byte	24
+ 877 034e 19       		.byte	25
+ 878 034f 19       		.byte	25
+ 879 0350 19       		.byte	25
+ 880 0351 1A       		.byte	26
+ 881 0352 1A       		.byte	26
+ 882 0353 1B       		.byte	27
+ 883 0354 1B       		.byte	27
+ 884 0355 1C       		.byte	28
+ 885 0356 1C       		.byte	28
+ 886 0357 1D       		.byte	29
+ 887 0358 1D       		.byte	29
+ 888 0359 1E       		.byte	30
+ 889 035a 1E       		.byte	30
+ 890 035b 1F       		.byte	31
+ 891 035c 1F       		.byte	31
+ 892 035d 20       		.byte	32
+ 893 035e 20       		.byte	32
+ 894 035f 21       		.byte	33
+ 895 0360 21       		.byte	33
+ 896 0361 22       		.byte	34
+ 897 0362 22       		.byte	34
+ 898 0363 23       		.byte	35
+ 899 0364 23       		.byte	35
+ 900 0365 24       		.byte	36
+ 901 0366 24       		.byte	36
+ 902 0367 25       		.byte	37
+ 903 0368 25       		.byte	37
+ 904 0369 26       		.byte	38
+ 905 036a 27       		.byte	39
+ 906 036b 27       		.byte	39
+ 907 036c 28       		.byte	40
+ 908 036d 28       		.byte	40
+ 909 036e 29       		.byte	41
+ 910 036f 29       		.byte	41
+ 911 0370 2A       		.byte	42
+ 912 0371 2B       		.byte	43
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 17
+
+
+ 913 0372 2B       		.byte	43
+ 914 0373 2C       		.byte	44
+ 915 0374 2C       		.byte	44
+ 916 0375 2D       		.byte	45
+ 917 0376 2D       		.byte	45
+ 918 0377 2E       		.byte	46
+ 919 0378 2F       		.byte	47
+ 920 0379 2F       		.byte	47
+ 921 037a 30       		.byte	48
+ 922 037b 30       		.byte	48
+ 923 037c 31       		.byte	49
+ 924 037d 32       		.byte	50
+ 925 037e 32       		.byte	50
+ 926 037f 33       		.byte	51
+ 927 0380 34       		.byte	52
+ 928 0381 34       		.byte	52
+ 929 0382 35       		.byte	53
+ 930 0383 35       		.byte	53
+ 931 0384 36       		.byte	54
+ 932 0385 37       		.byte	55
+ 933 0386 37       		.byte	55
+ 934 0387 38       		.byte	56
+ 935 0388 39       		.byte	57
+ 936 0389 39       		.byte	57
+ 937 038a 3A       		.byte	58
+ 938 038b 3B       		.byte	59
+ 939 038c 3B       		.byte	59
+ 940 038d 3C       		.byte	60
+ 941 038e 3D       		.byte	61
+ 942 038f 3D       		.byte	61
+ 943 0390 3E       		.byte	62
+ 944 0391 3F       		.byte	63
+ 945 0392 3F       		.byte	63
+ 946 0393 40       		.byte	64
+ 947 0394 41       		.byte	65
+ 948 0395 41       		.byte	65
+ 949 0396 42       		.byte	66
+ 950 0397 43       		.byte	67
+ 951 0398 43       		.byte	67
+ 952 0399 44       		.byte	68
+ 953 039a 45       		.byte	69
+ 954 039b 45       		.byte	69
+ 955 039c 46       		.byte	70
+ 956 039d 47       		.byte	71
+ 957 039e 47       		.byte	71
+ 958 039f 48       		.byte	72
+ 959 03a0 49       		.byte	73
+ 960 03a1 4A       		.byte	74
+ 961 03a2 4A       		.byte	74
+ 962 03a3 4B       		.byte	75
+ 963 03a4 4C       		.byte	76
+ 964 03a5 4C       		.byte	76
+ 965 03a6 4D       		.byte	77
+ 966 03a7 4E       		.byte	78
+ 967 03a8 4F       		.byte	79
+ 968 03a9 4F       		.byte	79
+ 969 03aa 50       		.byte	80
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 18
+
+
+ 970 03ab 51       		.byte	81
+ 971 03ac 51       		.byte	81
+ 972 03ad 52       		.byte	82
+ 973 03ae 53       		.byte	83
+ 974 03af 54       		.byte	84
+ 975 03b0 54       		.byte	84
+ 976 03b1 55       		.byte	85
+ 977 03b2 56       		.byte	86
+ 978 03b3 57       		.byte	87
+ 979 03b4 57       		.byte	87
+ 980 03b5 58       		.byte	88
+ 981 03b6 59       		.byte	89
+ 982 03b7 5A       		.byte	90
+ 983 03b8 5A       		.byte	90
+ 984 03b9 5B       		.byte	91
+ 985 03ba 5C       		.byte	92
+ 986 03bb 5D       		.byte	93
+ 987 03bc 5D       		.byte	93
+ 988 03bd 5E       		.byte	94
+ 989 03be 5F       		.byte	95
+ 990 03bf 60       		.byte	96
+ 991 03c0 60       		.byte	96
+ 992 03c1 61       		.byte	97
+ 993 03c2 62       		.byte	98
+ 994 03c3 63       		.byte	99
+ 995 03c4 63       		.byte	99
+ 996 03c5 64       		.byte	100
+ 997 03c6 65       		.byte	101
+ 998 03c7 66       		.byte	102
+ 999 03c8 67       		.byte	103
+ 1000 03c9 67       		.byte	103
+ 1001 03ca 68       		.byte	104
+ 1002 03cb 69       		.byte	105
+ 1003 03cc 6A       		.byte	106
+ 1004 03cd 6A       		.byte	106
+ 1005 03ce 6B       		.byte	107
+ 1006 03cf 6C       		.byte	108
+ 1007 03d0 6D       		.byte	109
+ 1008 03d1 6D       		.byte	109
+ 1009 03d2 6E       		.byte	110
+ 1010 03d3 6F       		.byte	111
+ 1011 03d4 70       		.byte	112
+ 1012 03d5 71       		.byte	113
+ 1013 03d6 71       		.byte	113
+ 1014 03d7 72       		.byte	114
+ 1015 03d8 73       		.byte	115
+ 1016 03d9 74       		.byte	116
+ 1017 03da 75       		.byte	117
+ 1018 03db 75       		.byte	117
+ 1019 03dc 76       		.byte	118
+ 1020 03dd 77       		.byte	119
+ 1021 03de 78       		.byte	120
+ 1022 03df 78       		.byte	120
+ 1023 03e0 79       		.byte	121
+ 1024 03e1 7A       		.byte	122
+ 1025 03e2 7B       		.byte	123
+ 1026 03e3 7C       		.byte	124
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 19
+
+
+ 1027 03e4 7C       		.byte	124
+ 1028 03e5 7D       		.byte	125
+ 1029 03e6 7E       		.byte	126
+ 1030 03e7 7F       		.byte	127
+ 1031              		.global	WaveDAC8_wave2
+ 1032              		.align	2
+ 1033              		.type	WaveDAC8_wave2, %object
+ 1034              		.size	WaveDAC8_wave2, 100
+ 1035              	WaveDAC8_wave2:
+ 1036 03e8 80       		.byte	-128
+ 1037 03e9 87       		.byte	-121
+ 1038 03ea 8F       		.byte	-113
+ 1039 03eb 97       		.byte	-105
+ 1040 03ec 9F       		.byte	-97
+ 1041 03ed A6       		.byte	-90
+ 1042 03ee AE       		.byte	-82
+ 1043 03ef B5       		.byte	-75
+ 1044 03f0 BC       		.byte	-68
+ 1045 03f1 C2       		.byte	-62
+ 1046 03f2 C9       		.byte	-55
+ 1047 03f3 CF       		.byte	-49
+ 1048 03f4 D5       		.byte	-43
+ 1049 03f5 DB       		.byte	-37
+ 1050 03f6 E0       		.byte	-32
+ 1051 03f7 E5       		.byte	-27
+ 1052 03f8 E9       		.byte	-23
+ 1053 03f9 ED       		.byte	-19
+ 1054 03fa F1       		.byte	-15
+ 1055 03fb F4       		.byte	-12
+ 1056 03fc F6       		.byte	-10
+ 1057 03fd F9       		.byte	-7
+ 1058 03fe FA       		.byte	-6
+ 1059 03ff FC       		.byte	-4
+ 1060 0400 FC       		.byte	-4
+ 1061 0401 FC       		.byte	-4
+ 1062 0402 FC       		.byte	-4
+ 1063 0403 FC       		.byte	-4
+ 1064 0404 FA       		.byte	-6
+ 1065 0405 F9       		.byte	-7
+ 1066 0406 F6       		.byte	-10
+ 1067 0407 F4       		.byte	-12
+ 1068 0408 F1       		.byte	-15
+ 1069 0409 ED       		.byte	-19
+ 1070 040a E9       		.byte	-23
+ 1071 040b E5       		.byte	-27
+ 1072 040c E0       		.byte	-32
+ 1073 040d DB       		.byte	-37
+ 1074 040e D5       		.byte	-43
+ 1075 040f CF       		.byte	-49
+ 1076 0410 C9       		.byte	-55
+ 1077 0411 C2       		.byte	-62
+ 1078 0412 BC       		.byte	-68
+ 1079 0413 B5       		.byte	-75
+ 1080 0414 AE       		.byte	-82
+ 1081 0415 A6       		.byte	-90
+ 1082 0416 9F       		.byte	-97
+ 1083 0417 97       		.byte	-105
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 20
+
+
+ 1084 0418 8F       		.byte	-113
+ 1085 0419 87       		.byte	-121
+ 1086 041a 80       		.byte	-128
+ 1087 041b 78       		.byte	120
+ 1088 041c 70       		.byte	112
+ 1089 041d 68       		.byte	104
+ 1090 041e 60       		.byte	96
+ 1091 041f 59       		.byte	89
+ 1092 0420 51       		.byte	81
+ 1093 0421 4A       		.byte	74
+ 1094 0422 43       		.byte	67
+ 1095 0423 3D       		.byte	61
+ 1096 0424 36       		.byte	54
+ 1097 0425 30       		.byte	48
+ 1098 0426 2A       		.byte	42
+ 1099 0427 24       		.byte	36
+ 1100 0428 1F       		.byte	31
+ 1101 0429 1A       		.byte	26
+ 1102 042a 16       		.byte	22
+ 1103 042b 12       		.byte	18
+ 1104 042c 0E       		.byte	14
+ 1105 042d 0B       		.byte	11
+ 1106 042e 09       		.byte	9
+ 1107 042f 06       		.byte	6
+ 1108 0430 05       		.byte	5
+ 1109 0431 03       		.byte	3
+ 1110 0432 03       		.byte	3
+ 1111 0433 03       		.byte	3
+ 1112 0434 03       		.byte	3
+ 1113 0435 03       		.byte	3
+ 1114 0436 05       		.byte	5
+ 1115 0437 06       		.byte	6
+ 1116 0438 09       		.byte	9
+ 1117 0439 0B       		.byte	11
+ 1118 043a 0E       		.byte	14
+ 1119 043b 12       		.byte	18
+ 1120 043c 16       		.byte	22
+ 1121 043d 1A       		.byte	26
+ 1122 043e 1F       		.byte	31
+ 1123 043f 24       		.byte	36
+ 1124 0440 2A       		.byte	42
+ 1125 0441 30       		.byte	48
+ 1126 0442 36       		.byte	54
+ 1127 0443 3D       		.byte	61
+ 1128 0444 43       		.byte	67
+ 1129 0445 4A       		.byte	74
+ 1130 0446 51       		.byte	81
+ 1131 0447 59       		.byte	89
+ 1132 0448 60       		.byte	96
+ 1133 0449 68       		.byte	104
+ 1134 044a 70       		.byte	112
+ 1135 044b 78       		.byte	120
+ 1136              		.bss
+ 1137              	WaveDAC8_Wave1Chan:
+ 1138 0001 00       		.space	1
+ 1139              	WaveDAC8_Wave2Chan:
+ 1140 0002 00       		.space	1
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 21
+
+
+ 1141              	WaveDAC8_Wave1TD:
+ 1142 0003 00       		.space	1
+ 1143              	WaveDAC8_Wave2TD:
+ 1144 0004 00       		.space	1
+ 1145              		.section	.text.WaveDAC8_Init,"ax",%progbits
+ 1146              		.align	2
+ 1147              		.global	WaveDAC8_Init
+ 1148              		.thumb
+ 1149              		.thumb_func
+ 1150              		.type	WaveDAC8_Init, %function
+ 1151              	WaveDAC8_Init:
+ 1152              	.LFB0:
+ 1153              		.file 1 "Generated_Source\\PSoC5\\WaveDAC8.c"
+   1:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/WaveDAC8.c **** * File Name: WaveDAC8.c
+   3:Generated_Source\PSoC5/WaveDAC8.c **** * Version 2.10
+   4:Generated_Source\PSoC5/WaveDAC8.c **** *
+   5:Generated_Source\PSoC5/WaveDAC8.c **** * Description:
+   6:Generated_Source\PSoC5/WaveDAC8.c **** *  This file provides the source code for the 8-bit Waveform DAC 
+   7:Generated_Source\PSoC5/WaveDAC8.c **** *  (WaveDAC8) Component.
+   8:Generated_Source\PSoC5/WaveDAC8.c **** *
+   9:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+  10:Generated_Source\PSoC5/WaveDAC8.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  11:Generated_Source\PSoC5/WaveDAC8.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC5/WaveDAC8.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC5/WaveDAC8.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+  15:Generated_Source\PSoC5/WaveDAC8.c **** 
+  16:Generated_Source\PSoC5/WaveDAC8.c **** #include "WaveDAC8.h"
+  17:Generated_Source\PSoC5/WaveDAC8.c **** 
+  18:Generated_Source\PSoC5/WaveDAC8.c **** uint8  WaveDAC8_initVar = 0u;
+  19:Generated_Source\PSoC5/WaveDAC8.c **** 
+  20:Generated_Source\PSoC5/WaveDAC8.c **** const uint8 CYCODE WaveDAC8_wave1[WaveDAC8_WAVE1_LENGTH] = { 128u,128u,129u,130u,131u,131u,132u,133
+  21:Generated_Source\PSoC5/WaveDAC8.c **** const uint8 CYCODE WaveDAC8_wave2[WaveDAC8_WAVE2_LENGTH] = { 128u,135u,143u,151u,159u,166u,174u,181
+  22:Generated_Source\PSoC5/WaveDAC8.c **** 
+  23:Generated_Source\PSoC5/WaveDAC8.c **** static uint8  WaveDAC8_Wave1Chan;
+  24:Generated_Source\PSoC5/WaveDAC8.c **** static uint8  WaveDAC8_Wave2Chan;
+  25:Generated_Source\PSoC5/WaveDAC8.c **** static uint8  WaveDAC8_Wave1TD;
+  26:Generated_Source\PSoC5/WaveDAC8.c **** static uint8  WaveDAC8_Wave2TD;
+  27:Generated_Source\PSoC5/WaveDAC8.c **** 
+  28:Generated_Source\PSoC5/WaveDAC8.c **** 
+  29:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+  30:Generated_Source\PSoC5/WaveDAC8.c **** * Function Name: WaveDAC8_Init
+  31:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+  32:Generated_Source\PSoC5/WaveDAC8.c **** *
+  33:Generated_Source\PSoC5/WaveDAC8.c **** * Summary:
+  34:Generated_Source\PSoC5/WaveDAC8.c **** *  Initializes component with parameters set in the customizer.
+  35:Generated_Source\PSoC5/WaveDAC8.c **** *
+  36:Generated_Source\PSoC5/WaveDAC8.c **** * Parameters:  
+  37:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+  38:Generated_Source\PSoC5/WaveDAC8.c **** *
+  39:Generated_Source\PSoC5/WaveDAC8.c **** * Return: 
+  40:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+  41:Generated_Source\PSoC5/WaveDAC8.c **** *
+  42:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/WaveDAC8.c **** void WaveDAC8_Init(void) 
+  44:Generated_Source\PSoC5/WaveDAC8.c **** {
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 22
+
+
+ 1154              		.loc 1 44 0
+ 1155              		.cfi_startproc
+ 1156              		@ args = 0, pretend = 0, frame = 0
+ 1157              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1158 0000 80B5     		push	{r7, lr}
+ 1159              		.cfi_def_cfa_offset 8
+ 1160              		.cfi_offset 7, -8
+ 1161              		.cfi_offset 14, -4
+ 1162 0002 00AF     		add	r7, sp, #0
+ 1163              		.cfi_def_cfa_register 7
+  45:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_VDAC8_Init();
+ 1164              		.loc 1 45 0
+ 1165 0004 FFF7FEFF 		bl	WaveDAC8_VDAC8_Init
+  46:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_VDAC8_SetSpeed(WaveDAC8_HIGHSPEED);
+ 1166              		.loc 1 46 0
+ 1167 0008 0220     		movs	r0, #2
+ 1168 000a FFF7FEFF 		bl	WaveDAC8_VDAC8_SetSpeed
+  47:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_VDAC8_SetRange(WaveDAC8_DAC_RANGE);
+ 1169              		.loc 1 47 0
+ 1170 000e 0020     		movs	r0, #0
+ 1171 0010 FFF7FEFF 		bl	WaveDAC8_VDAC8_SetRange
+  48:Generated_Source\PSoC5/WaveDAC8.c **** 
+  49:Generated_Source\PSoC5/WaveDAC8.c **** 	#if(WaveDAC8_DAC_MODE == WaveDAC8_CURRENT_MODE)
+  50:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_IDAC8_SetPolarity(WaveDAC8_DAC_POL);
+  51:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* WaveDAC8_DAC_MODE == WaveDAC8_CURRENT_MODE */
+  52:Generated_Source\PSoC5/WaveDAC8.c **** 
+  53:Generated_Source\PSoC5/WaveDAC8.c **** 	#if(WaveDAC8_OUT_MODE == WaveDAC8_BUFFER_MODE)
+  54:Generated_Source\PSoC5/WaveDAC8.c **** 	   WaveDAC8_BuffAmp_Init();
+  55:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* WaveDAC8_OUT_MODE == WaveDAC8_BUFFER_MODE */
+  56:Generated_Source\PSoC5/WaveDAC8.c **** 
+  57:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Get the TD Number for the DMA channel 1 and 2   */
+  58:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Wave1TD = CyDmaTdAllocate();
+ 1172              		.loc 1 58 0
+ 1173 0014 FFF7FEFF 		bl	CyDmaTdAllocate
+ 1174 0018 0346     		mov	r3, r0
+ 1175 001a 1A46     		mov	r2, r3
+ 1176 001c 094B     		ldr	r3, .L2
+ 1177 001e 1A70     		strb	r2, [r3]
+  59:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Wave2TD = CyDmaTdAllocate();
+ 1178              		.loc 1 59 0
+ 1179 0020 FFF7FEFF 		bl	CyDmaTdAllocate
+ 1180 0024 0346     		mov	r3, r0
+ 1181 0026 1A46     		mov	r2, r3
+ 1182 0028 074B     		ldr	r3, .L2+4
+ 1183 002a 1A70     		strb	r2, [r3]
+  60:Generated_Source\PSoC5/WaveDAC8.c **** 	
+  61:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Initialize waveform pointers  */
+  62:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Wave1Setup(WaveDAC8_wave1, WaveDAC8_WAVE1_LENGTH) ;
+ 1184              		.loc 1 62 0
+ 1185 002c 4FF47A71 		mov	r1, #1000
+ 1186 0030 0648     		ldr	r0, .L2+8
+ 1187 0032 FFF7FEFF 		bl	WaveDAC8_Wave1Setup
+  63:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Wave2Setup(WaveDAC8_wave2, WaveDAC8_WAVE2_LENGTH) ;
+ 1188              		.loc 1 63 0
+ 1189 0036 6421     		movs	r1, #100
+ 1190 0038 0548     		ldr	r0, .L2+12
+ 1191 003a FFF7FEFF 		bl	WaveDAC8_Wave2Setup
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 23
+
+
+  64:Generated_Source\PSoC5/WaveDAC8.c **** 	
+  65:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Initialize the internal clock if one present  */
+  66:Generated_Source\PSoC5/WaveDAC8.c **** 	#if defined(WaveDAC8_DacClk_PHASE)
+  67:Generated_Source\PSoC5/WaveDAC8.c **** 	   WaveDAC8_DacClk_SetPhase(WaveDAC8_CLK_PHASE_0nS);
+  68:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* defined(WaveDAC8_DacClk_PHASE) */
+  69:Generated_Source\PSoC5/WaveDAC8.c **** }
+ 1192              		.loc 1 69 0
+ 1193 003e 00BF     		nop
+ 1194 0040 80BD     		pop	{r7, pc}
+ 1195              	.L3:
+ 1196 0042 00BF     		.align	2
+ 1197              	.L2:
+ 1198 0044 03000000 		.word	WaveDAC8_Wave1TD
+ 1199 0048 04000000 		.word	WaveDAC8_Wave2TD
+ 1200 004c 00000000 		.word	WaveDAC8_wave1
+ 1201 0050 00000000 		.word	WaveDAC8_wave2
+ 1202              		.cfi_endproc
+ 1203              	.LFE0:
+ 1204              		.size	WaveDAC8_Init, .-WaveDAC8_Init
+ 1205              		.section	.text.WaveDAC8_Enable,"ax",%progbits
+ 1206              		.align	2
+ 1207              		.global	WaveDAC8_Enable
+ 1208              		.thumb
+ 1209              		.thumb_func
+ 1210              		.type	WaveDAC8_Enable, %function
+ 1211              	WaveDAC8_Enable:
+ 1212              	.LFB1:
+  70:Generated_Source\PSoC5/WaveDAC8.c **** 
+  71:Generated_Source\PSoC5/WaveDAC8.c **** 
+  72:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+  73:Generated_Source\PSoC5/WaveDAC8.c **** * Function Name: WaveDAC8_Enable
+  74:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+  75:Generated_Source\PSoC5/WaveDAC8.c **** *  
+  76:Generated_Source\PSoC5/WaveDAC8.c **** * Summary: 
+  77:Generated_Source\PSoC5/WaveDAC8.c **** *  Enables the DAC block and DMA operation.
+  78:Generated_Source\PSoC5/WaveDAC8.c **** *
+  79:Generated_Source\PSoC5/WaveDAC8.c **** * Parameters:  
+  80:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+  81:Generated_Source\PSoC5/WaveDAC8.c **** *
+  82:Generated_Source\PSoC5/WaveDAC8.c **** * Return: 
+  83:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+  84:Generated_Source\PSoC5/WaveDAC8.c **** *
+  85:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+  86:Generated_Source\PSoC5/WaveDAC8.c **** void WaveDAC8_Enable(void) 
+  87:Generated_Source\PSoC5/WaveDAC8.c **** {
+ 1213              		.loc 1 87 0
+ 1214              		.cfi_startproc
+ 1215              		@ args = 0, pretend = 0, frame = 0
+ 1216              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1217 0000 80B5     		push	{r7, lr}
+ 1218              		.cfi_def_cfa_offset 8
+ 1219              		.cfi_offset 7, -8
+ 1220              		.cfi_offset 14, -4
+ 1221 0002 00AF     		add	r7, sp, #0
+ 1222              		.cfi_def_cfa_register 7
+  88:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_VDAC8_Enable();
+ 1223              		.loc 1 88 0
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 24
+
+
+ 1224 0004 FFF7FEFF 		bl	WaveDAC8_VDAC8_Enable
+  89:Generated_Source\PSoC5/WaveDAC8.c **** 
+  90:Generated_Source\PSoC5/WaveDAC8.c **** 	#if(WaveDAC8_OUT_MODE == WaveDAC8_BUFFER_MODE)
+  91:Generated_Source\PSoC5/WaveDAC8.c **** 	   WaveDAC8_BuffAmp_Enable();
+  92:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* WaveDAC8_OUT_MODE == WaveDAC8_BUFFER_MODE */
+  93:Generated_Source\PSoC5/WaveDAC8.c **** 
+  94:Generated_Source\PSoC5/WaveDAC8.c **** 	/* 
+  95:Generated_Source\PSoC5/WaveDAC8.c **** 	* Enable the channel. It is configured to remember the TD value so that
+  96:Generated_Source\PSoC5/WaveDAC8.c **** 	* it can be restored from the place where it has been stopped.
+  97:Generated_Source\PSoC5/WaveDAC8.c **** 	*/
+  98:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaChEnable(WaveDAC8_Wave1Chan, 1u);
+ 1225              		.loc 1 98 0
+ 1226 0008 094B     		ldr	r3, .L5
+ 1227 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1228 000c 0121     		movs	r1, #1
+ 1229 000e 1846     		mov	r0, r3
+ 1230 0010 FFF7FEFF 		bl	CyDmaChEnable
+  99:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaChEnable(WaveDAC8_Wave2Chan, 1u);
+ 1231              		.loc 1 99 0
+ 1232 0014 074B     		ldr	r3, .L5+4
+ 1233 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1234 0018 0121     		movs	r1, #1
+ 1235 001a 1846     		mov	r0, r3
+ 1236 001c FFF7FEFF 		bl	CyDmaChEnable
+ 100:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 101:Generated_Source\PSoC5/WaveDAC8.c **** 	/* set the initial value */
+ 102:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_SetValue(0u);
+ 1237              		.loc 1 102 0
+ 1238 0020 0020     		movs	r0, #0
+ 1239 0022 FFF7FEFF 		bl	WaveDAC8_VDAC8_SetValue
+ 103:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 104:Generated_Source\PSoC5/WaveDAC8.c **** 	#if(WaveDAC8_CLOCK_SRC == WaveDAC8_CLOCK_INT)  	
+ 105:Generated_Source\PSoC5/WaveDAC8.c **** 	   WaveDAC8_DacClk_Start();
+ 1240              		.loc 1 105 0
+ 1241 0026 FFF7FEFF 		bl	WaveDAC8_DacClk_Start
+ 106:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* WaveDAC8_CLOCK_SRC == WaveDAC8_CLOCK_INT */
+ 107:Generated_Source\PSoC5/WaveDAC8.c **** }
+ 1242              		.loc 1 107 0
+ 1243 002a 00BF     		nop
+ 1244 002c 80BD     		pop	{r7, pc}
+ 1245              	.L6:
+ 1246 002e 00BF     		.align	2
+ 1247              	.L5:
+ 1248 0030 01000000 		.word	WaveDAC8_Wave1Chan
+ 1249 0034 02000000 		.word	WaveDAC8_Wave2Chan
+ 1250              		.cfi_endproc
+ 1251              	.LFE1:
+ 1252              		.size	WaveDAC8_Enable, .-WaveDAC8_Enable
+ 1253              		.section	.text.WaveDAC8_Start,"ax",%progbits
+ 1254              		.align	2
+ 1255              		.global	WaveDAC8_Start
+ 1256              		.thumb
+ 1257              		.thumb_func
+ 1258              		.type	WaveDAC8_Start, %function
+ 1259              	WaveDAC8_Start:
+ 1260              	.LFB2:
+ 108:Generated_Source\PSoC5/WaveDAC8.c **** 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 25
+
+
+ 109:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 110:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+ 111:Generated_Source\PSoC5/WaveDAC8.c **** * Function Name: WaveDAC8_Start
+ 112:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+ 113:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 114:Generated_Source\PSoC5/WaveDAC8.c **** * Summary:
+ 115:Generated_Source\PSoC5/WaveDAC8.c **** *  The start function initializes the voltage DAC with the default values, 
+ 116:Generated_Source\PSoC5/WaveDAC8.c **** *  and sets the power to the given level.  A power level of 0, is the same as 
+ 117:Generated_Source\PSoC5/WaveDAC8.c **** *  executing the stop function.
+ 118:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 119:Generated_Source\PSoC5/WaveDAC8.c **** * Parameters:  
+ 120:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+ 121:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 122:Generated_Source\PSoC5/WaveDAC8.c **** * Return: 
+ 123:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+ 124:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 125:Generated_Source\PSoC5/WaveDAC8.c **** * Reentrant:
+ 126:Generated_Source\PSoC5/WaveDAC8.c **** *  No
+ 127:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 128:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+ 129:Generated_Source\PSoC5/WaveDAC8.c **** void WaveDAC8_Start(void) 
+ 130:Generated_Source\PSoC5/WaveDAC8.c **** {
+ 1261              		.loc 1 130 0
+ 1262              		.cfi_startproc
+ 1263              		@ args = 0, pretend = 0, frame = 0
+ 1264              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1265 0000 80B5     		push	{r7, lr}
+ 1266              		.cfi_def_cfa_offset 8
+ 1267              		.cfi_offset 7, -8
+ 1268              		.cfi_offset 14, -4
+ 1269 0002 00AF     		add	r7, sp, #0
+ 1270              		.cfi_def_cfa_register 7
+ 131:Generated_Source\PSoC5/WaveDAC8.c **** 	/* If not Initialized then initialize all required hardware and software */
+ 132:Generated_Source\PSoC5/WaveDAC8.c **** 	if(WaveDAC8_initVar == 0u)
+ 1271              		.loc 1 132 0
+ 1272 0004 064B     		ldr	r3, .L9
+ 1273 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1274 0008 002B     		cmp	r3, #0
+ 1275 000a 04D1     		bne	.L8
+ 133:Generated_Source\PSoC5/WaveDAC8.c **** 	{
+ 134:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Init();
+ 1276              		.loc 1 134 0
+ 1277 000c FFF7FEFF 		bl	WaveDAC8_Init
+ 135:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_initVar = 1u;
+ 1278              		.loc 1 135 0
+ 1279 0010 034B     		ldr	r3, .L9
+ 1280 0012 0122     		movs	r2, #1
+ 1281 0014 1A70     		strb	r2, [r3]
+ 1282              	.L8:
+ 136:Generated_Source\PSoC5/WaveDAC8.c **** 	}
+ 137:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 138:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Enable();
+ 1283              		.loc 1 138 0
+ 1284 0016 FFF7FEFF 		bl	WaveDAC8_Enable
+ 139:Generated_Source\PSoC5/WaveDAC8.c **** }
+ 1285              		.loc 1 139 0
+ 1286 001a 00BF     		nop
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 26
+
+
+ 1287 001c 80BD     		pop	{r7, pc}
+ 1288              	.L10:
+ 1289 001e 00BF     		.align	2
+ 1290              	.L9:
+ 1291 0020 00000000 		.word	WaveDAC8_initVar
+ 1292              		.cfi_endproc
+ 1293              	.LFE2:
+ 1294              		.size	WaveDAC8_Start, .-WaveDAC8_Start
+ 1295              		.section	.text.WaveDAC8_StartEx,"ax",%progbits
+ 1296              		.align	2
+ 1297              		.global	WaveDAC8_StartEx
+ 1298              		.thumb
+ 1299              		.thumb_func
+ 1300              		.type	WaveDAC8_StartEx, %function
+ 1301              	WaveDAC8_StartEx:
+ 1302              	.LFB3:
+ 140:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 141:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 142:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+ 143:Generated_Source\PSoC5/WaveDAC8.c **** * Function Name: WaveDAC8_StartEx
+ 144:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+ 145:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 146:Generated_Source\PSoC5/WaveDAC8.c **** * Summary:
+ 147:Generated_Source\PSoC5/WaveDAC8.c **** *  The StartEx function sets pointers and sizes for both waveforms
+ 148:Generated_Source\PSoC5/WaveDAC8.c **** *  and then starts the component.
+ 149:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 150:Generated_Source\PSoC5/WaveDAC8.c **** * Parameters:  
+ 151:Generated_Source\PSoC5/WaveDAC8.c **** *   uint8 * wavePtr1:     Pointer to the waveform 1 array.
+ 152:Generated_Source\PSoC5/WaveDAC8.c **** *   uint16  sampleSize1:  The amount of samples in the waveform 1.
+ 153:Generated_Source\PSoC5/WaveDAC8.c **** *   uint8 * wavePtr2:     Pointer to the waveform 2 array.
+ 154:Generated_Source\PSoC5/WaveDAC8.c **** *   uint16  sampleSize2:  The amount of samples in the waveform 2.
+ 155:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 156:Generated_Source\PSoC5/WaveDAC8.c **** * Return: 
+ 157:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+ 158:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 159:Generated_Source\PSoC5/WaveDAC8.c **** * Reentrant:
+ 160:Generated_Source\PSoC5/WaveDAC8.c **** *  No
+ 161:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 162:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+ 163:Generated_Source\PSoC5/WaveDAC8.c **** void WaveDAC8_StartEx(const uint8 * wavePtr1, uint16 sampleSize1, const uint8 * wavePtr2, uint16 sa
+ 164:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 165:Generated_Source\PSoC5/WaveDAC8.c **** {
+ 1303              		.loc 1 165 0
+ 1304              		.cfi_startproc
+ 1305              		@ args = 0, pretend = 0, frame = 16
+ 1306              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1307 0000 80B5     		push	{r7, lr}
+ 1308              		.cfi_def_cfa_offset 8
+ 1309              		.cfi_offset 7, -8
+ 1310              		.cfi_offset 14, -4
+ 1311 0002 84B0     		sub	sp, sp, #16
+ 1312              		.cfi_def_cfa_offset 24
+ 1313 0004 00AF     		add	r7, sp, #0
+ 1314              		.cfi_def_cfa_register 7
+ 1315 0006 F860     		str	r0, [r7, #12]
+ 1316 0008 7A60     		str	r2, [r7, #4]
+ 1317 000a 1A46     		mov	r2, r3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 27
+
+
+ 1318 000c 0B46     		mov	r3, r1	@ movhi
+ 1319 000e 7B81     		strh	r3, [r7, #10]	@ movhi
+ 1320 0010 1346     		mov	r3, r2	@ movhi
+ 1321 0012 3B81     		strh	r3, [r7, #8]	@ movhi
+ 166:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Wave1Setup(wavePtr1, sampleSize1);
+ 1322              		.loc 1 166 0
+ 1323 0014 7B89     		ldrh	r3, [r7, #10]
+ 1324 0016 1946     		mov	r1, r3
+ 1325 0018 F868     		ldr	r0, [r7, #12]
+ 1326 001a FFF7FEFF 		bl	WaveDAC8_Wave1Setup
+ 167:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Wave2Setup(wavePtr2, sampleSize2);
+ 1327              		.loc 1 167 0
+ 1328 001e 3B89     		ldrh	r3, [r7, #8]
+ 1329 0020 1946     		mov	r1, r3
+ 1330 0022 7868     		ldr	r0, [r7, #4]
+ 1331 0024 FFF7FEFF 		bl	WaveDAC8_Wave2Setup
+ 168:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_Start();
+ 1332              		.loc 1 168 0
+ 1333 0028 FFF7FEFF 		bl	WaveDAC8_Start
+ 169:Generated_Source\PSoC5/WaveDAC8.c **** }
+ 1334              		.loc 1 169 0
+ 1335 002c 00BF     		nop
+ 1336 002e 1037     		adds	r7, r7, #16
+ 1337              		.cfi_def_cfa_offset 8
+ 1338 0030 BD46     		mov	sp, r7
+ 1339              		.cfi_def_cfa_register 13
+ 1340              		@ sp needed
+ 1341 0032 80BD     		pop	{r7, pc}
+ 1342              		.cfi_endproc
+ 1343              	.LFE3:
+ 1344              		.size	WaveDAC8_StartEx, .-WaveDAC8_StartEx
+ 1345              		.section	.text.WaveDAC8_Stop,"ax",%progbits
+ 1346              		.align	2
+ 1347              		.global	WaveDAC8_Stop
+ 1348              		.thumb
+ 1349              		.thumb_func
+ 1350              		.type	WaveDAC8_Stop, %function
+ 1351              	WaveDAC8_Stop:
+ 1352              	.LFB4:
+ 170:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 171:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 172:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+ 173:Generated_Source\PSoC5/WaveDAC8.c **** * Function Name: WaveDAC8_Stop
+ 174:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+ 175:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 176:Generated_Source\PSoC5/WaveDAC8.c **** * Summary:
+ 177:Generated_Source\PSoC5/WaveDAC8.c **** *  Stops the clock (if internal), disables the DMA channels
+ 178:Generated_Source\PSoC5/WaveDAC8.c **** *  and powers down the DAC.
+ 179:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 180:Generated_Source\PSoC5/WaveDAC8.c **** * Parameters:  
+ 181:Generated_Source\PSoC5/WaveDAC8.c **** *  None  
+ 182:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 183:Generated_Source\PSoC5/WaveDAC8.c **** * Return: 
+ 184:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+ 185:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 186:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+ 187:Generated_Source\PSoC5/WaveDAC8.c **** void WaveDAC8_Stop(void) 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 28
+
+
+ 188:Generated_Source\PSoC5/WaveDAC8.c **** {
+ 1353              		.loc 1 188 0
+ 1354              		.cfi_startproc
+ 1355              		@ args = 0, pretend = 0, frame = 0
+ 1356              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1357 0000 80B5     		push	{r7, lr}
+ 1358              		.cfi_def_cfa_offset 8
+ 1359              		.cfi_offset 7, -8
+ 1360              		.cfi_offset 14, -4
+ 1361 0002 00AF     		add	r7, sp, #0
+ 1362              		.cfi_def_cfa_register 7
+ 189:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Turn off internal clock, if one present */
+ 190:Generated_Source\PSoC5/WaveDAC8.c **** 	#if(WaveDAC8_CLOCK_SRC == WaveDAC8_CLOCK_INT)  	
+ 191:Generated_Source\PSoC5/WaveDAC8.c **** 	   WaveDAC8_DacClk_Stop();
+ 1363              		.loc 1 191 0
+ 1364 0004 FFF7FEFF 		bl	WaveDAC8_DacClk_Stop
+ 192:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* WaveDAC8_CLOCK_SRC == WaveDAC8_CLOCK_INT */
+ 193:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 194:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Disble DMA channels */
+ 195:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaChDisable(WaveDAC8_Wave1Chan);
+ 1365              		.loc 1 195 0
+ 1366 0008 064B     		ldr	r3, .L13
+ 1367 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1368 000c 1846     		mov	r0, r3
+ 1369 000e FFF7FEFF 		bl	CyDmaChDisable
+ 196:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaChDisable(WaveDAC8_Wave2Chan);
+ 1370              		.loc 1 196 0
+ 1371 0012 054B     		ldr	r3, .L13+4
+ 1372 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1373 0016 1846     		mov	r0, r3
+ 1374 0018 FFF7FEFF 		bl	CyDmaChDisable
+ 197:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 198:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Disable power to DAC */
+ 199:Generated_Source\PSoC5/WaveDAC8.c **** 	WaveDAC8_VDAC8_Stop();
+ 1375              		.loc 1 199 0
+ 1376 001c FFF7FEFF 		bl	WaveDAC8_VDAC8_Stop
+ 200:Generated_Source\PSoC5/WaveDAC8.c **** }
+ 1377              		.loc 1 200 0
+ 1378 0020 00BF     		nop
+ 1379 0022 80BD     		pop	{r7, pc}
+ 1380              	.L14:
+ 1381              		.align	2
+ 1382              	.L13:
+ 1383 0024 01000000 		.word	WaveDAC8_Wave1Chan
+ 1384 0028 02000000 		.word	WaveDAC8_Wave2Chan
+ 1385              		.cfi_endproc
+ 1386              	.LFE4:
+ 1387              		.size	WaveDAC8_Stop, .-WaveDAC8_Stop
+ 1388              		.section	.text.WaveDAC8_Wave1Setup,"ax",%progbits
+ 1389              		.align	2
+ 1390              		.global	WaveDAC8_Wave1Setup
+ 1391              		.thumb
+ 1392              		.thumb_func
+ 1393              		.type	WaveDAC8_Wave1Setup, %function
+ 1394              	WaveDAC8_Wave1Setup:
+ 1395              	.LFB5:
+ 201:Generated_Source\PSoC5/WaveDAC8.c **** 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 29
+
+
+ 202:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 203:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+ 204:Generated_Source\PSoC5/WaveDAC8.c **** * Function Name: WaveDAC8_Wave1Setup
+ 205:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+ 206:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 207:Generated_Source\PSoC5/WaveDAC8.c **** * Summary:
+ 208:Generated_Source\PSoC5/WaveDAC8.c **** *  Sets pointer and size for waveform 1.                                    
+ 209:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 210:Generated_Source\PSoC5/WaveDAC8.c **** * Parameters:  
+ 211:Generated_Source\PSoC5/WaveDAC8.c **** *  uint8 * WavePtr:     Pointer to the waveform array.
+ 212:Generated_Source\PSoC5/WaveDAC8.c **** *  uint16  SampleSize:  The amount of samples in the waveform.
+ 213:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 214:Generated_Source\PSoC5/WaveDAC8.c **** * Return: 
+ 215:Generated_Source\PSoC5/WaveDAC8.c **** *  None 
+ 216:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 217:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+ 218:Generated_Source\PSoC5/WaveDAC8.c **** void WaveDAC8_Wave1Setup(const uint8 * wavePtr, uint16 sampleSize)
+ 219:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 220:Generated_Source\PSoC5/WaveDAC8.c **** {
+ 1396              		.loc 1 220 0
+ 1397              		.cfi_startproc
+ 1398              		@ args = 0, pretend = 0, frame = 8
+ 1399              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1400 0000 80B5     		push	{r7, lr}
+ 1401              		.cfi_def_cfa_offset 8
+ 1402              		.cfi_offset 7, -8
+ 1403              		.cfi_offset 14, -4
+ 1404 0002 82B0     		sub	sp, sp, #8
+ 1405              		.cfi_def_cfa_offset 16
+ 1406 0004 00AF     		add	r7, sp, #0
+ 1407              		.cfi_def_cfa_register 7
+ 1408 0006 7860     		str	r0, [r7, #4]
+ 1409 0008 0B46     		mov	r3, r1
+ 1410 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 221:Generated_Source\PSoC5/WaveDAC8.c **** 	#if (CY_PSOC3)
+ 222:Generated_Source\PSoC5/WaveDAC8.c **** 		uint16 memoryType; /* determining the source memory type */
+ 223:Generated_Source\PSoC5/WaveDAC8.c **** 		memoryType = (WaveDAC8_HI16FLASHPTR == HI16(wavePtr)) ? HI16(CYDEV_FLS_BASE) : HI16(CYDEV_SRAM_BA
+ 224:Generated_Source\PSoC5/WaveDAC8.c **** 		
+ 225:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave1Chan = WaveDAC8_Wave1_DMA_DmaInitialize(
+ 226:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave1_DMA_BYTES_PER_BURST, WaveDAC8_Wave1_DMA_REQUEST_PER_BURST,
+ 227:Generated_Source\PSoC5/WaveDAC8.c **** 		memoryType, HI16(CYDEV_PERIPH_BASE));
+ 228:Generated_Source\PSoC5/WaveDAC8.c **** 	#else /* PSoC 5 */
+ 229:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave1Chan = WaveDAC8_Wave1_DMA_DmaInitialize(
+ 230:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave1_DMA_BYTES_PER_BURST, WaveDAC8_Wave1_DMA_REQUEST_PER_BURST,
+ 231:Generated_Source\PSoC5/WaveDAC8.c **** 		HI16(wavePtr), HI16(WaveDAC8_DAC8__D));
+ 1411              		.loc 1 231 0
+ 1412 000c 7B68     		ldr	r3, [r7, #4]
+ 1413 000e 1B0C     		lsrs	r3, r3, #16
+ 229:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave1_DMA_BYTES_PER_BURST, WaveDAC8_Wave1_DMA_REQUEST_PER_BURST,
+ 1414              		.loc 1 229 0
+ 1415 0010 9AB2     		uxth	r2, r3
+ 1416 0012 4FF48043 		mov	r3, #16384
+ 1417 0016 0121     		movs	r1, #1
+ 1418 0018 0120     		movs	r0, #1
+ 1419 001a FFF7FEFF 		bl	WaveDAC8_Wave1_DMA_DmaInitialize
+ 1420 001e 0346     		mov	r3, r0
+ 1421 0020 1A46     		mov	r2, r3
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 30
+
+
+ 1422 0022 0F4B     		ldr	r3, .L16
+ 1423 0024 1A70     		strb	r2, [r3]
+ 232:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* CY_PSOC3 */
+ 233:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 234:Generated_Source\PSoC5/WaveDAC8.c **** 	/*
+ 235:Generated_Source\PSoC5/WaveDAC8.c **** 	* TD is looping on itself. 
+ 236:Generated_Source\PSoC5/WaveDAC8.c ****     * Increment the source address, but not the destination address. 
+ 237:Generated_Source\PSoC5/WaveDAC8.c **** 	*/
+ 238:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaTdSetConfiguration(WaveDAC8_Wave1TD, sampleSize, WaveDAC8_Wave1TD, 
+ 1424              		.loc 1 238 0
+ 1425 0026 0F4B     		ldr	r3, .L16+4
+ 1426 0028 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1427 002a 0E4B     		ldr	r3, .L16+4
+ 1428 002c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1429 002e 7988     		ldrh	r1, [r7, #2]
+ 1430 0030 0123     		movs	r3, #1
+ 1431 0032 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 239:Generated_Source\PSoC5/WaveDAC8.c ****                                     (uint8)CY_DMA_TD_INC_SRC_ADR | (uint8)WaveDAC8_Wave1_DMA__TD_TE
+ 240:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 241:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Set the TD source and destination address */
+ 242:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaTdSetAddress(WaveDAC8_Wave1TD, LO16((uint32)wavePtr), LO16(WaveDAC8_DAC8__D));
+ 1432              		.loc 1 242 0
+ 1433 0036 0B4B     		ldr	r3, .L16+4
+ 1434 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1435 003a 7A68     		ldr	r2, [r7, #4]
+ 1436 003c 91B2     		uxth	r1, r2
+ 1437 003e 4FF4B742 		mov	r2, #23424
+ 1438 0042 1846     		mov	r0, r3
+ 1439 0044 FFF7FEFF 		bl	CyDmaTdSetAddress
+ 243:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 244:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Associate the TD with the channel */
+ 245:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaChSetInitialTd(WaveDAC8_Wave1Chan, WaveDAC8_Wave1TD);
+ 1440              		.loc 1 245 0
+ 1441 0048 054B     		ldr	r3, .L16
+ 1442 004a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1443 004c 054B     		ldr	r3, .L16+4
+ 1444 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1445 0050 1946     		mov	r1, r3
+ 1446 0052 1046     		mov	r0, r2
+ 1447 0054 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 246:Generated_Source\PSoC5/WaveDAC8.c **** }
+ 1448              		.loc 1 246 0
+ 1449 0058 00BF     		nop
+ 1450 005a 0837     		adds	r7, r7, #8
+ 1451              		.cfi_def_cfa_offset 8
+ 1452 005c BD46     		mov	sp, r7
+ 1453              		.cfi_def_cfa_register 13
+ 1454              		@ sp needed
+ 1455 005e 80BD     		pop	{r7, pc}
+ 1456              	.L17:
+ 1457              		.align	2
+ 1458              	.L16:
+ 1459 0060 01000000 		.word	WaveDAC8_Wave1Chan
+ 1460 0064 03000000 		.word	WaveDAC8_Wave1TD
+ 1461              		.cfi_endproc
+ 1462              	.LFE5:
+ 1463              		.size	WaveDAC8_Wave1Setup, .-WaveDAC8_Wave1Setup
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 31
+
+
+ 1464              		.section	.text.WaveDAC8_Wave2Setup,"ax",%progbits
+ 1465              		.align	2
+ 1466              		.global	WaveDAC8_Wave2Setup
+ 1467              		.thumb
+ 1468              		.thumb_func
+ 1469              		.type	WaveDAC8_Wave2Setup, %function
+ 1470              	WaveDAC8_Wave2Setup:
+ 1471              	.LFB6:
+ 247:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 248:Generated_Source\PSoC5/WaveDAC8.c **** 
+ 249:Generated_Source\PSoC5/WaveDAC8.c **** /*******************************************************************************
+ 250:Generated_Source\PSoC5/WaveDAC8.c **** * Function Name: WaveDAC8_Wave2Setup
+ 251:Generated_Source\PSoC5/WaveDAC8.c **** ********************************************************************************
+ 252:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 253:Generated_Source\PSoC5/WaveDAC8.c **** * Summary:
+ 254:Generated_Source\PSoC5/WaveDAC8.c **** *  Sets pointer and size for waveform 2.                                    
+ 255:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 256:Generated_Source\PSoC5/WaveDAC8.c **** * Parameters:  
+ 257:Generated_Source\PSoC5/WaveDAC8.c **** *  uint8 * WavePtr:     Pointer to the waveform array.
+ 258:Generated_Source\PSoC5/WaveDAC8.c **** *  uint16  SampleSize:  The amount of samples in the waveform.
+ 259:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 260:Generated_Source\PSoC5/WaveDAC8.c **** * Return: 
+ 261:Generated_Source\PSoC5/WaveDAC8.c **** *  None
+ 262:Generated_Source\PSoC5/WaveDAC8.c **** *
+ 263:Generated_Source\PSoC5/WaveDAC8.c **** *******************************************************************************/
+ 264:Generated_Source\PSoC5/WaveDAC8.c **** void WaveDAC8_Wave2Setup(const uint8 * wavePtr, uint16 sampleSize)
+ 265:Generated_Source\PSoC5/WaveDAC8.c ****  
+ 266:Generated_Source\PSoC5/WaveDAC8.c **** {
+ 1472              		.loc 1 266 0
+ 1473              		.cfi_startproc
+ 1474              		@ args = 0, pretend = 0, frame = 8
+ 1475              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1476 0000 80B5     		push	{r7, lr}
+ 1477              		.cfi_def_cfa_offset 8
+ 1478              		.cfi_offset 7, -8
+ 1479              		.cfi_offset 14, -4
+ 1480 0002 82B0     		sub	sp, sp, #8
+ 1481              		.cfi_def_cfa_offset 16
+ 1482 0004 00AF     		add	r7, sp, #0
+ 1483              		.cfi_def_cfa_register 7
+ 1484 0006 7860     		str	r0, [r7, #4]
+ 1485 0008 0B46     		mov	r3, r1
+ 1486 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 267:Generated_Source\PSoC5/WaveDAC8.c **** 	#if (CY_PSOC3)
+ 268:Generated_Source\PSoC5/WaveDAC8.c **** 		uint16 memoryType; /* determining the source memory type */
+ 269:Generated_Source\PSoC5/WaveDAC8.c **** 		memoryType = (WaveDAC8_HI16FLASHPTR == HI16(wavePtr)) ? HI16(CYDEV_FLS_BASE) : HI16(CYDEV_SRAM_BA
+ 270:Generated_Source\PSoC5/WaveDAC8.c **** 			
+ 271:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave2Chan = WaveDAC8_Wave2_DMA_DmaInitialize(
+ 272:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave2_DMA_BYTES_PER_BURST, WaveDAC8_Wave2_DMA_REQUEST_PER_BURST,
+ 273:Generated_Source\PSoC5/WaveDAC8.c **** 		memoryType, HI16(CYDEV_PERIPH_BASE));
+ 274:Generated_Source\PSoC5/WaveDAC8.c **** 	#else /* PSoC 5 */
+ 275:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave2Chan = WaveDAC8_Wave2_DMA_DmaInitialize(
+ 276:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave2_DMA_BYTES_PER_BURST, WaveDAC8_Wave2_DMA_REQUEST_PER_BURST,
+ 277:Generated_Source\PSoC5/WaveDAC8.c **** 		HI16(wavePtr), HI16(WaveDAC8_DAC8__D));
+ 1487              		.loc 1 277 0
+ 1488 000c 7B68     		ldr	r3, [r7, #4]
+ 1489 000e 1B0C     		lsrs	r3, r3, #16
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 32
+
+
+ 275:Generated_Source\PSoC5/WaveDAC8.c **** 		WaveDAC8_Wave2_DMA_BYTES_PER_BURST, WaveDAC8_Wave2_DMA_REQUEST_PER_BURST,
+ 1490              		.loc 1 275 0
+ 1491 0010 9AB2     		uxth	r2, r3
+ 1492 0012 4FF48043 		mov	r3, #16384
+ 1493 0016 0121     		movs	r1, #1
+ 1494 0018 0120     		movs	r0, #1
+ 1495 001a FFF7FEFF 		bl	WaveDAC8_Wave2_DMA_DmaInitialize
+ 1496 001e 0346     		mov	r3, r0
+ 1497 0020 1A46     		mov	r2, r3
+ 1498 0022 0F4B     		ldr	r3, .L19
+ 1499 0024 1A70     		strb	r2, [r3]
+ 278:Generated_Source\PSoC5/WaveDAC8.c **** 	#endif /* CY_PSOC3 */
+ 279:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 280:Generated_Source\PSoC5/WaveDAC8.c **** 	/*
+ 281:Generated_Source\PSoC5/WaveDAC8.c **** 	* TD is looping on itself. 
+ 282:Generated_Source\PSoC5/WaveDAC8.c **** 	* Increment the source address, but not the destination address. 
+ 283:Generated_Source\PSoC5/WaveDAC8.c **** 	*/
+ 284:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaTdSetConfiguration(WaveDAC8_Wave2TD, sampleSize, WaveDAC8_Wave2TD, 
+ 1500              		.loc 1 284 0
+ 1501 0026 0F4B     		ldr	r3, .L19+4
+ 1502 0028 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1503 002a 0E4B     		ldr	r3, .L19+4
+ 1504 002c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1505 002e 7988     		ldrh	r1, [r7, #2]
+ 1506 0030 0123     		movs	r3, #1
+ 1507 0032 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 285:Generated_Source\PSoC5/WaveDAC8.c ****                                     (uint8)CY_DMA_TD_INC_SRC_ADR | (uint8)WaveDAC8_Wave2_DMA__TD_TE
+ 286:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 287:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Set the TD source and destination address */
+ 288:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaTdSetAddress(WaveDAC8_Wave2TD, LO16((uint32)wavePtr), LO16(WaveDAC8_DAC8__D));
+ 1508              		.loc 1 288 0
+ 1509 0036 0B4B     		ldr	r3, .L19+4
+ 1510 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1511 003a 7A68     		ldr	r2, [r7, #4]
+ 1512 003c 91B2     		uxth	r1, r2
+ 1513 003e 4FF4B742 		mov	r2, #23424
+ 1514 0042 1846     		mov	r0, r3
+ 1515 0044 FFF7FEFF 		bl	CyDmaTdSetAddress
+ 289:Generated_Source\PSoC5/WaveDAC8.c **** 	
+ 290:Generated_Source\PSoC5/WaveDAC8.c **** 	/* Associate the TD with the channel */
+ 291:Generated_Source\PSoC5/WaveDAC8.c **** 	(void)CyDmaChSetInitialTd(WaveDAC8_Wave2Chan, WaveDAC8_Wave2TD);
+ 1516              		.loc 1 291 0
+ 1517 0048 054B     		ldr	r3, .L19
+ 1518 004a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1519 004c 054B     		ldr	r3, .L19+4
+ 1520 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1521 0050 1946     		mov	r1, r3
+ 1522 0052 1046     		mov	r0, r2
+ 1523 0054 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 292:Generated_Source\PSoC5/WaveDAC8.c **** }
+ 1524              		.loc 1 292 0
+ 1525 0058 00BF     		nop
+ 1526 005a 0837     		adds	r7, r7, #8
+ 1527              		.cfi_def_cfa_offset 8
+ 1528 005c BD46     		mov	sp, r7
+ 1529              		.cfi_def_cfa_register 13
+ 1530              		@ sp needed
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 33
+
+
+ 1531 005e 80BD     		pop	{r7, pc}
+ 1532              	.L20:
+ 1533              		.align	2
+ 1534              	.L19:
+ 1535 0060 02000000 		.word	WaveDAC8_Wave2Chan
+ 1536 0064 04000000 		.word	WaveDAC8_Wave2TD
+ 1537              		.cfi_endproc
+ 1538              	.LFE6:
+ 1539              		.size	WaveDAC8_Wave2Setup, .-WaveDAC8_Wave2Setup
+ 1540              		.text
+ 1541              	.Letext0:
+ 1542              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 1543              		.section	.debug_info,"",%progbits
+ 1544              	.Ldebug_info0:
+ 1545 0000 55020000 		.4byte	0x255
+ 1546 0004 0400     		.2byte	0x4
+ 1547 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1548 000a 04       		.byte	0x4
+ 1549 000b 01       		.uleb128 0x1
+ 1550 000c 5C000000 		.4byte	.LASF37
+ 1551 0010 0C       		.byte	0xc
+ 1552 0011 38010000 		.4byte	.LASF38
+ 1553 0015 0E000000 		.4byte	.LASF39
+ 1554 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1555 001d 00000000 		.4byte	0
+ 1556 0021 00000000 		.4byte	.Ldebug_line0
+ 1557 0025 02       		.uleb128 0x2
+ 1558 0026 01       		.byte	0x1
+ 1559 0027 06       		.byte	0x6
+ 1560 0028 A9020000 		.4byte	.LASF0
+ 1561 002c 02       		.uleb128 0x2
+ 1562 002d 01       		.byte	0x1
+ 1563 002e 08       		.byte	0x8
+ 1564 002f C0010000 		.4byte	.LASF1
+ 1565 0033 02       		.uleb128 0x2
+ 1566 0034 02       		.byte	0x2
+ 1567 0035 05       		.byte	0x5
+ 1568 0036 E9010000 		.4byte	.LASF2
+ 1569 003a 02       		.uleb128 0x2
+ 1570 003b 02       		.byte	0x2
+ 1571 003c 07       		.byte	0x7
+ 1572 003d FE000000 		.4byte	.LASF3
+ 1573 0041 02       		.uleb128 0x2
+ 1574 0042 04       		.byte	0x4
+ 1575 0043 05       		.byte	0x5
+ 1576 0044 94020000 		.4byte	.LASF4
+ 1577 0048 02       		.uleb128 0x2
+ 1578 0049 04       		.byte	0x4
+ 1579 004a 07       		.byte	0x7
+ 1580 004b 84010000 		.4byte	.LASF5
+ 1581 004f 02       		.uleb128 0x2
+ 1582 0050 08       		.byte	0x8
+ 1583 0051 05       		.byte	0x5
+ 1584 0052 50020000 		.4byte	.LASF6
+ 1585 0056 02       		.uleb128 0x2
+ 1586 0057 08       		.byte	0x8
+ 1587 0058 07       		.byte	0x7
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 34
+
+
+ 1588 0059 1F020000 		.4byte	.LASF7
+ 1589 005d 03       		.uleb128 0x3
+ 1590 005e 04       		.byte	0x4
+ 1591 005f 05       		.byte	0x5
+ 1592 0060 696E7400 		.ascii	"int\000"
+ 1593 0064 02       		.uleb128 0x2
+ 1594 0065 04       		.byte	0x4
+ 1595 0066 07       		.byte	0x7
+ 1596 0067 12020000 		.4byte	.LASF8
+ 1597 006b 04       		.uleb128 0x4
+ 1598 006c 9E010000 		.4byte	.LASF9
+ 1599 0070 02       		.byte	0x2
+ 1600 0071 9201     		.2byte	0x192
+ 1601 0073 2C000000 		.4byte	0x2c
+ 1602 0077 04       		.uleb128 0x4
+ 1603 0078 F3010000 		.4byte	.LASF10
+ 1604 007c 02       		.byte	0x2
+ 1605 007d 9301     		.2byte	0x193
+ 1606 007f 3A000000 		.4byte	0x3a
+ 1607 0083 04       		.uleb128 0x4
+ 1608 0084 FA010000 		.4byte	.LASF11
+ 1609 0088 02       		.byte	0x2
+ 1610 0089 9401     		.2byte	0x194
+ 1611 008b 48000000 		.4byte	0x48
+ 1612 008f 02       		.uleb128 0x2
+ 1613 0090 04       		.byte	0x4
+ 1614 0091 04       		.byte	0x4
+ 1615 0092 23010000 		.4byte	.LASF12
+ 1616 0096 02       		.uleb128 0x2
+ 1617 0097 08       		.byte	0x8
+ 1618 0098 04       		.byte	0x4
+ 1619 0099 CE010000 		.4byte	.LASF13
+ 1620 009d 02       		.uleb128 0x2
+ 1621 009e 01       		.byte	0x1
+ 1622 009f 08       		.byte	0x8
+ 1623 00a0 5E020000 		.4byte	.LASF14
+ 1624 00a4 02       		.uleb128 0x2
+ 1625 00a5 08       		.byte	0x8
+ 1626 00a6 04       		.byte	0x4
+ 1627 00a7 9D020000 		.4byte	.LASF15
+ 1628 00ab 02       		.uleb128 0x2
+ 1629 00ac 04       		.byte	0x4
+ 1630 00ad 07       		.byte	0x7
+ 1631 00ae 47020000 		.4byte	.LASF16
+ 1632 00b2 05       		.uleb128 0x5
+ 1633 00b3 00000000 		.4byte	.LASF17
+ 1634 00b7 01       		.byte	0x1
+ 1635 00b8 2B       		.byte	0x2b
+ 1636 00b9 00000000 		.4byte	.LFB0
+ 1637 00bd 54000000 		.4byte	.LFE0-.LFB0
+ 1638 00c1 01       		.uleb128 0x1
+ 1639 00c2 9C       		.byte	0x9c
+ 1640 00c3 05       		.uleb128 0x5
+ 1641 00c4 A4010000 		.4byte	.LASF18
+ 1642 00c8 01       		.byte	0x1
+ 1643 00c9 56       		.byte	0x56
+ 1644 00ca 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 35
+
+
+ 1645 00ce 38000000 		.4byte	.LFE1-.LFB1
+ 1646 00d2 01       		.uleb128 0x1
+ 1647 00d3 9C       		.byte	0x9c
+ 1648 00d4 05       		.uleb128 0x5
+ 1649 00d5 29010000 		.4byte	.LASF19
+ 1650 00d9 01       		.byte	0x1
+ 1651 00da 81       		.byte	0x81
+ 1652 00db 00000000 		.4byte	.LFB2
+ 1653 00df 24000000 		.4byte	.LFE2-.LFB2
+ 1654 00e3 01       		.uleb128 0x1
+ 1655 00e4 9C       		.byte	0x9c
+ 1656 00e5 06       		.uleb128 0x6
+ 1657 00e6 01020000 		.4byte	.LASF25
+ 1658 00ea 01       		.byte	0x1
+ 1659 00eb A3       		.byte	0xa3
+ 1660 00ec 00000000 		.4byte	.LFB3
+ 1661 00f0 34000000 		.4byte	.LFE3-.LFB3
+ 1662 00f4 01       		.uleb128 0x1
+ 1663 00f5 9C       		.byte	0x9c
+ 1664 00f6 33010000 		.4byte	0x133
+ 1665 00fa 07       		.uleb128 0x7
+ 1666 00fb 11010000 		.4byte	.LASF20
+ 1667 00ff 01       		.byte	0x1
+ 1668 0100 A3       		.byte	0xa3
+ 1669 0101 33010000 		.4byte	0x133
+ 1670 0105 02       		.uleb128 0x2
+ 1671 0106 91       		.byte	0x91
+ 1672 0107 74       		.sleb128 -12
+ 1673 0108 07       		.uleb128 0x7
+ 1674 0109 B5020000 		.4byte	.LASF21
+ 1675 010d 01       		.byte	0x1
+ 1676 010e A3       		.byte	0xa3
+ 1677 010f 77000000 		.4byte	0x77
+ 1678 0113 02       		.uleb128 0x2
+ 1679 0114 91       		.byte	0x91
+ 1680 0115 72       		.sleb128 -14
+ 1681 0116 07       		.uleb128 0x7
+ 1682 0117 1A010000 		.4byte	.LASF22
+ 1683 011b 01       		.byte	0x1
+ 1684 011c A3       		.byte	0xa3
+ 1685 011d 33010000 		.4byte	0x133
+ 1686 0121 02       		.uleb128 0x2
+ 1687 0122 91       		.byte	0x91
+ 1688 0123 6C       		.sleb128 -20
+ 1689 0124 07       		.uleb128 0x7
+ 1690 0125 B4010000 		.4byte	.LASF23
+ 1691 0129 01       		.byte	0x1
+ 1692 012a A3       		.byte	0xa3
+ 1693 012b 77000000 		.4byte	0x77
+ 1694 012f 02       		.uleb128 0x2
+ 1695 0130 91       		.byte	0x91
+ 1696 0131 70       		.sleb128 -16
+ 1697 0132 00       		.byte	0
+ 1698 0133 08       		.uleb128 0x8
+ 1699 0134 04       		.byte	0x4
+ 1700 0135 39010000 		.4byte	0x139
+ 1701 0139 09       		.uleb128 0x9
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 36
+
+
+ 1702 013a 6B000000 		.4byte	0x6b
+ 1703 013e 05       		.uleb128 0x5
+ 1704 013f 65010000 		.4byte	.LASF24
+ 1705 0143 01       		.byte	0x1
+ 1706 0144 BB       		.byte	0xbb
+ 1707 0145 00000000 		.4byte	.LFB4
+ 1708 0149 2C000000 		.4byte	.LFE4-.LFB4
+ 1709 014d 01       		.uleb128 0x1
+ 1710 014e 9C       		.byte	0x9c
+ 1711 014f 06       		.uleb128 0x6
+ 1712 0150 EA000000 		.4byte	.LASF26
+ 1713 0154 01       		.byte	0x1
+ 1714 0155 DA       		.byte	0xda
+ 1715 0156 00000000 		.4byte	.LFB5
+ 1716 015a 68000000 		.4byte	.LFE5-.LFB5
+ 1717 015e 01       		.uleb128 0x1
+ 1718 015f 9C       		.byte	0x9c
+ 1719 0160 81010000 		.4byte	0x181
+ 1720 0164 07       		.uleb128 0x7
+ 1721 0165 96010000 		.4byte	.LASF27
+ 1722 0169 01       		.byte	0x1
+ 1723 016a DA       		.byte	0xda
+ 1724 016b 33010000 		.4byte	0x133
+ 1725 016f 02       		.uleb128 0x2
+ 1726 0170 91       		.byte	0x91
+ 1727 0171 74       		.sleb128 -12
+ 1728 0172 07       		.uleb128 0x7
+ 1729 0173 5A010000 		.4byte	.LASF28
+ 1730 0177 01       		.byte	0x1
+ 1731 0178 DA       		.byte	0xda
+ 1732 0179 77000000 		.4byte	0x77
+ 1733 017d 02       		.uleb128 0x2
+ 1734 017e 91       		.byte	0x91
+ 1735 017f 72       		.sleb128 -14
+ 1736 0180 00       		.byte	0
+ 1737 0181 0A       		.uleb128 0xa
+ 1738 0182 D5010000 		.4byte	.LASF29
+ 1739 0186 01       		.byte	0x1
+ 1740 0187 0801     		.2byte	0x108
+ 1741 0189 00000000 		.4byte	.LFB6
+ 1742 018d 68000000 		.4byte	.LFE6-.LFB6
+ 1743 0191 01       		.uleb128 0x1
+ 1744 0192 9C       		.byte	0x9c
+ 1745 0193 B6010000 		.4byte	0x1b6
+ 1746 0197 0B       		.uleb128 0xb
+ 1747 0198 96010000 		.4byte	.LASF27
+ 1748 019c 01       		.byte	0x1
+ 1749 019d 0801     		.2byte	0x108
+ 1750 019f 33010000 		.4byte	0x133
+ 1751 01a3 02       		.uleb128 0x2
+ 1752 01a4 91       		.byte	0x91
+ 1753 01a5 74       		.sleb128 -12
+ 1754 01a6 0B       		.uleb128 0xb
+ 1755 01a7 5A010000 		.4byte	.LASF28
+ 1756 01ab 01       		.byte	0x1
+ 1757 01ac 0801     		.2byte	0x108
+ 1758 01ae 77000000 		.4byte	0x77
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 37
+
+
+ 1759 01b2 02       		.uleb128 0x2
+ 1760 01b3 91       		.byte	0x91
+ 1761 01b4 72       		.sleb128 -14
+ 1762 01b5 00       		.byte	0
+ 1763 01b6 0C       		.uleb128 0xc
+ 1764 01b7 63020000 		.4byte	.LASF30
+ 1765 01bb 01       		.byte	0x1
+ 1766 01bc 17       		.byte	0x17
+ 1767 01bd 6B000000 		.4byte	0x6b
+ 1768 01c1 05       		.uleb128 0x5
+ 1769 01c2 03       		.byte	0x3
+ 1770 01c3 01000000 		.4byte	WaveDAC8_Wave1Chan
+ 1771 01c7 0C       		.uleb128 0xc
+ 1772 01c8 D2020000 		.4byte	.LASF31
+ 1773 01cc 01       		.byte	0x1
+ 1774 01cd 18       		.byte	0x18
+ 1775 01ce 6B000000 		.4byte	0x6b
+ 1776 01d2 05       		.uleb128 0x5
+ 1777 01d3 03       		.byte	0x3
+ 1778 01d4 02000000 		.4byte	WaveDAC8_Wave2Chan
+ 1779 01d8 0C       		.uleb128 0xc
+ 1780 01d9 36020000 		.4byte	.LASF32
+ 1781 01dd 01       		.byte	0x1
+ 1782 01de 19       		.byte	0x19
+ 1783 01df 6B000000 		.4byte	0x6b
+ 1784 01e3 05       		.uleb128 0x5
+ 1785 01e4 03       		.byte	0x3
+ 1786 01e5 03000000 		.4byte	WaveDAC8_Wave1TD
+ 1787 01e9 0C       		.uleb128 0xc
+ 1788 01ea C1020000 		.4byte	.LASF33
+ 1789 01ee 01       		.byte	0x1
+ 1790 01ef 1A       		.byte	0x1a
+ 1791 01f0 6B000000 		.4byte	0x6b
+ 1792 01f4 05       		.uleb128 0x5
+ 1793 01f5 03       		.byte	0x3
+ 1794 01f6 04000000 		.4byte	WaveDAC8_Wave2TD
+ 1795 01fa 0D       		.uleb128 0xd
+ 1796 01fb 73010000 		.4byte	.LASF34
+ 1797 01ff 01       		.byte	0x1
+ 1798 0200 12       		.byte	0x12
+ 1799 0201 6B000000 		.4byte	0x6b
+ 1800 0205 05       		.uleb128 0x5
+ 1801 0206 03       		.byte	0x3
+ 1802 0207 00000000 		.4byte	WaveDAC8_initVar
+ 1803 020b 0E       		.uleb128 0xe
+ 1804 020c 39010000 		.4byte	0x139
+ 1805 0210 1C020000 		.4byte	0x21c
+ 1806 0214 0F       		.uleb128 0xf
+ 1807 0215 AB000000 		.4byte	0xab
+ 1808 0219 E703     		.2byte	0x3e7
+ 1809 021b 00       		.byte	0
+ 1810 021c 0D       		.uleb128 0xd
+ 1811 021d 76020000 		.4byte	.LASF35
+ 1812 0221 01       		.byte	0x1
+ 1813 0222 14       		.byte	0x14
+ 1814 0223 2D020000 		.4byte	0x22d
+ 1815 0227 05       		.uleb128 0x5
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 38
+
+
+ 1816 0228 03       		.byte	0x3
+ 1817 0229 00000000 		.4byte	WaveDAC8_wave1
+ 1818 022d 09       		.uleb128 0x9
+ 1819 022e 0B020000 		.4byte	0x20b
+ 1820 0232 0E       		.uleb128 0xe
+ 1821 0233 39010000 		.4byte	0x139
+ 1822 0237 42020000 		.4byte	0x242
+ 1823 023b 10       		.uleb128 0x10
+ 1824 023c AB000000 		.4byte	0xab
+ 1825 0240 63       		.byte	0x63
+ 1826 0241 00       		.byte	0
+ 1827 0242 0D       		.uleb128 0xd
+ 1828 0243 85020000 		.4byte	.LASF36
+ 1829 0247 01       		.byte	0x1
+ 1830 0248 15       		.byte	0x15
+ 1831 0249 53020000 		.4byte	0x253
+ 1832 024d 05       		.uleb128 0x5
+ 1833 024e 03       		.byte	0x3
+ 1834 024f 00000000 		.4byte	WaveDAC8_wave2
+ 1835 0253 09       		.uleb128 0x9
+ 1836 0254 32020000 		.4byte	0x232
+ 1837 0258 00       		.byte	0
+ 1838              		.section	.debug_abbrev,"",%progbits
+ 1839              	.Ldebug_abbrev0:
+ 1840 0000 01       		.uleb128 0x1
+ 1841 0001 11       		.uleb128 0x11
+ 1842 0002 01       		.byte	0x1
+ 1843 0003 25       		.uleb128 0x25
+ 1844 0004 0E       		.uleb128 0xe
+ 1845 0005 13       		.uleb128 0x13
+ 1846 0006 0B       		.uleb128 0xb
+ 1847 0007 03       		.uleb128 0x3
+ 1848 0008 0E       		.uleb128 0xe
+ 1849 0009 1B       		.uleb128 0x1b
+ 1850 000a 0E       		.uleb128 0xe
+ 1851 000b 55       		.uleb128 0x55
+ 1852 000c 17       		.uleb128 0x17
+ 1853 000d 11       		.uleb128 0x11
+ 1854 000e 01       		.uleb128 0x1
+ 1855 000f 10       		.uleb128 0x10
+ 1856 0010 17       		.uleb128 0x17
+ 1857 0011 00       		.byte	0
+ 1858 0012 00       		.byte	0
+ 1859 0013 02       		.uleb128 0x2
+ 1860 0014 24       		.uleb128 0x24
+ 1861 0015 00       		.byte	0
+ 1862 0016 0B       		.uleb128 0xb
+ 1863 0017 0B       		.uleb128 0xb
+ 1864 0018 3E       		.uleb128 0x3e
+ 1865 0019 0B       		.uleb128 0xb
+ 1866 001a 03       		.uleb128 0x3
+ 1867 001b 0E       		.uleb128 0xe
+ 1868 001c 00       		.byte	0
+ 1869 001d 00       		.byte	0
+ 1870 001e 03       		.uleb128 0x3
+ 1871 001f 24       		.uleb128 0x24
+ 1872 0020 00       		.byte	0
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 39
+
+
+ 1873 0021 0B       		.uleb128 0xb
+ 1874 0022 0B       		.uleb128 0xb
+ 1875 0023 3E       		.uleb128 0x3e
+ 1876 0024 0B       		.uleb128 0xb
+ 1877 0025 03       		.uleb128 0x3
+ 1878 0026 08       		.uleb128 0x8
+ 1879 0027 00       		.byte	0
+ 1880 0028 00       		.byte	0
+ 1881 0029 04       		.uleb128 0x4
+ 1882 002a 16       		.uleb128 0x16
+ 1883 002b 00       		.byte	0
+ 1884 002c 03       		.uleb128 0x3
+ 1885 002d 0E       		.uleb128 0xe
+ 1886 002e 3A       		.uleb128 0x3a
+ 1887 002f 0B       		.uleb128 0xb
+ 1888 0030 3B       		.uleb128 0x3b
+ 1889 0031 05       		.uleb128 0x5
+ 1890 0032 49       		.uleb128 0x49
+ 1891 0033 13       		.uleb128 0x13
+ 1892 0034 00       		.byte	0
+ 1893 0035 00       		.byte	0
+ 1894 0036 05       		.uleb128 0x5
+ 1895 0037 2E       		.uleb128 0x2e
+ 1896 0038 00       		.byte	0
+ 1897 0039 3F       		.uleb128 0x3f
+ 1898 003a 19       		.uleb128 0x19
+ 1899 003b 03       		.uleb128 0x3
+ 1900 003c 0E       		.uleb128 0xe
+ 1901 003d 3A       		.uleb128 0x3a
+ 1902 003e 0B       		.uleb128 0xb
+ 1903 003f 3B       		.uleb128 0x3b
+ 1904 0040 0B       		.uleb128 0xb
+ 1905 0041 27       		.uleb128 0x27
+ 1906 0042 19       		.uleb128 0x19
+ 1907 0043 11       		.uleb128 0x11
+ 1908 0044 01       		.uleb128 0x1
+ 1909 0045 12       		.uleb128 0x12
+ 1910 0046 06       		.uleb128 0x6
+ 1911 0047 40       		.uleb128 0x40
+ 1912 0048 18       		.uleb128 0x18
+ 1913 0049 9642     		.uleb128 0x2116
+ 1914 004b 19       		.uleb128 0x19
+ 1915 004c 00       		.byte	0
+ 1916 004d 00       		.byte	0
+ 1917 004e 06       		.uleb128 0x6
+ 1918 004f 2E       		.uleb128 0x2e
+ 1919 0050 01       		.byte	0x1
+ 1920 0051 3F       		.uleb128 0x3f
+ 1921 0052 19       		.uleb128 0x19
+ 1922 0053 03       		.uleb128 0x3
+ 1923 0054 0E       		.uleb128 0xe
+ 1924 0055 3A       		.uleb128 0x3a
+ 1925 0056 0B       		.uleb128 0xb
+ 1926 0057 3B       		.uleb128 0x3b
+ 1927 0058 0B       		.uleb128 0xb
+ 1928 0059 27       		.uleb128 0x27
+ 1929 005a 19       		.uleb128 0x19
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 40
+
+
+ 1930 005b 11       		.uleb128 0x11
+ 1931 005c 01       		.uleb128 0x1
+ 1932 005d 12       		.uleb128 0x12
+ 1933 005e 06       		.uleb128 0x6
+ 1934 005f 40       		.uleb128 0x40
+ 1935 0060 18       		.uleb128 0x18
+ 1936 0061 9642     		.uleb128 0x2116
+ 1937 0063 19       		.uleb128 0x19
+ 1938 0064 01       		.uleb128 0x1
+ 1939 0065 13       		.uleb128 0x13
+ 1940 0066 00       		.byte	0
+ 1941 0067 00       		.byte	0
+ 1942 0068 07       		.uleb128 0x7
+ 1943 0069 05       		.uleb128 0x5
+ 1944 006a 00       		.byte	0
+ 1945 006b 03       		.uleb128 0x3
+ 1946 006c 0E       		.uleb128 0xe
+ 1947 006d 3A       		.uleb128 0x3a
+ 1948 006e 0B       		.uleb128 0xb
+ 1949 006f 3B       		.uleb128 0x3b
+ 1950 0070 0B       		.uleb128 0xb
+ 1951 0071 49       		.uleb128 0x49
+ 1952 0072 13       		.uleb128 0x13
+ 1953 0073 02       		.uleb128 0x2
+ 1954 0074 18       		.uleb128 0x18
+ 1955 0075 00       		.byte	0
+ 1956 0076 00       		.byte	0
+ 1957 0077 08       		.uleb128 0x8
+ 1958 0078 0F       		.uleb128 0xf
+ 1959 0079 00       		.byte	0
+ 1960 007a 0B       		.uleb128 0xb
+ 1961 007b 0B       		.uleb128 0xb
+ 1962 007c 49       		.uleb128 0x49
+ 1963 007d 13       		.uleb128 0x13
+ 1964 007e 00       		.byte	0
+ 1965 007f 00       		.byte	0
+ 1966 0080 09       		.uleb128 0x9
+ 1967 0081 26       		.uleb128 0x26
+ 1968 0082 00       		.byte	0
+ 1969 0083 49       		.uleb128 0x49
+ 1970 0084 13       		.uleb128 0x13
+ 1971 0085 00       		.byte	0
+ 1972 0086 00       		.byte	0
+ 1973 0087 0A       		.uleb128 0xa
+ 1974 0088 2E       		.uleb128 0x2e
+ 1975 0089 01       		.byte	0x1
+ 1976 008a 3F       		.uleb128 0x3f
+ 1977 008b 19       		.uleb128 0x19
+ 1978 008c 03       		.uleb128 0x3
+ 1979 008d 0E       		.uleb128 0xe
+ 1980 008e 3A       		.uleb128 0x3a
+ 1981 008f 0B       		.uleb128 0xb
+ 1982 0090 3B       		.uleb128 0x3b
+ 1983 0091 05       		.uleb128 0x5
+ 1984 0092 27       		.uleb128 0x27
+ 1985 0093 19       		.uleb128 0x19
+ 1986 0094 11       		.uleb128 0x11
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 41
+
+
+ 1987 0095 01       		.uleb128 0x1
+ 1988 0096 12       		.uleb128 0x12
+ 1989 0097 06       		.uleb128 0x6
+ 1990 0098 40       		.uleb128 0x40
+ 1991 0099 18       		.uleb128 0x18
+ 1992 009a 9642     		.uleb128 0x2116
+ 1993 009c 19       		.uleb128 0x19
+ 1994 009d 01       		.uleb128 0x1
+ 1995 009e 13       		.uleb128 0x13
+ 1996 009f 00       		.byte	0
+ 1997 00a0 00       		.byte	0
+ 1998 00a1 0B       		.uleb128 0xb
+ 1999 00a2 05       		.uleb128 0x5
+ 2000 00a3 00       		.byte	0
+ 2001 00a4 03       		.uleb128 0x3
+ 2002 00a5 0E       		.uleb128 0xe
+ 2003 00a6 3A       		.uleb128 0x3a
+ 2004 00a7 0B       		.uleb128 0xb
+ 2005 00a8 3B       		.uleb128 0x3b
+ 2006 00a9 05       		.uleb128 0x5
+ 2007 00aa 49       		.uleb128 0x49
+ 2008 00ab 13       		.uleb128 0x13
+ 2009 00ac 02       		.uleb128 0x2
+ 2010 00ad 18       		.uleb128 0x18
+ 2011 00ae 00       		.byte	0
+ 2012 00af 00       		.byte	0
+ 2013 00b0 0C       		.uleb128 0xc
+ 2014 00b1 34       		.uleb128 0x34
+ 2015 00b2 00       		.byte	0
+ 2016 00b3 03       		.uleb128 0x3
+ 2017 00b4 0E       		.uleb128 0xe
+ 2018 00b5 3A       		.uleb128 0x3a
+ 2019 00b6 0B       		.uleb128 0xb
+ 2020 00b7 3B       		.uleb128 0x3b
+ 2021 00b8 0B       		.uleb128 0xb
+ 2022 00b9 49       		.uleb128 0x49
+ 2023 00ba 13       		.uleb128 0x13
+ 2024 00bb 02       		.uleb128 0x2
+ 2025 00bc 18       		.uleb128 0x18
+ 2026 00bd 00       		.byte	0
+ 2027 00be 00       		.byte	0
+ 2028 00bf 0D       		.uleb128 0xd
+ 2029 00c0 34       		.uleb128 0x34
+ 2030 00c1 00       		.byte	0
+ 2031 00c2 03       		.uleb128 0x3
+ 2032 00c3 0E       		.uleb128 0xe
+ 2033 00c4 3A       		.uleb128 0x3a
+ 2034 00c5 0B       		.uleb128 0xb
+ 2035 00c6 3B       		.uleb128 0x3b
+ 2036 00c7 0B       		.uleb128 0xb
+ 2037 00c8 49       		.uleb128 0x49
+ 2038 00c9 13       		.uleb128 0x13
+ 2039 00ca 3F       		.uleb128 0x3f
+ 2040 00cb 19       		.uleb128 0x19
+ 2041 00cc 02       		.uleb128 0x2
+ 2042 00cd 18       		.uleb128 0x18
+ 2043 00ce 00       		.byte	0
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 42
+
+
+ 2044 00cf 00       		.byte	0
+ 2045 00d0 0E       		.uleb128 0xe
+ 2046 00d1 01       		.uleb128 0x1
+ 2047 00d2 01       		.byte	0x1
+ 2048 00d3 49       		.uleb128 0x49
+ 2049 00d4 13       		.uleb128 0x13
+ 2050 00d5 01       		.uleb128 0x1
+ 2051 00d6 13       		.uleb128 0x13
+ 2052 00d7 00       		.byte	0
+ 2053 00d8 00       		.byte	0
+ 2054 00d9 0F       		.uleb128 0xf
+ 2055 00da 21       		.uleb128 0x21
+ 2056 00db 00       		.byte	0
+ 2057 00dc 49       		.uleb128 0x49
+ 2058 00dd 13       		.uleb128 0x13
+ 2059 00de 2F       		.uleb128 0x2f
+ 2060 00df 05       		.uleb128 0x5
+ 2061 00e0 00       		.byte	0
+ 2062 00e1 00       		.byte	0
+ 2063 00e2 10       		.uleb128 0x10
+ 2064 00e3 21       		.uleb128 0x21
+ 2065 00e4 00       		.byte	0
+ 2066 00e5 49       		.uleb128 0x49
+ 2067 00e6 13       		.uleb128 0x13
+ 2068 00e7 2F       		.uleb128 0x2f
+ 2069 00e8 0B       		.uleb128 0xb
+ 2070 00e9 00       		.byte	0
+ 2071 00ea 00       		.byte	0
+ 2072 00eb 00       		.byte	0
+ 2073              		.section	.debug_aranges,"",%progbits
+ 2074 0000 4C000000 		.4byte	0x4c
+ 2075 0004 0200     		.2byte	0x2
+ 2076 0006 00000000 		.4byte	.Ldebug_info0
+ 2077 000a 04       		.byte	0x4
+ 2078 000b 00       		.byte	0
+ 2079 000c 0000     		.2byte	0
+ 2080 000e 0000     		.2byte	0
+ 2081 0010 00000000 		.4byte	.LFB0
+ 2082 0014 54000000 		.4byte	.LFE0-.LFB0
+ 2083 0018 00000000 		.4byte	.LFB1
+ 2084 001c 38000000 		.4byte	.LFE1-.LFB1
+ 2085 0020 00000000 		.4byte	.LFB2
+ 2086 0024 24000000 		.4byte	.LFE2-.LFB2
+ 2087 0028 00000000 		.4byte	.LFB3
+ 2088 002c 34000000 		.4byte	.LFE3-.LFB3
+ 2089 0030 00000000 		.4byte	.LFB4
+ 2090 0034 2C000000 		.4byte	.LFE4-.LFB4
+ 2091 0038 00000000 		.4byte	.LFB5
+ 2092 003c 68000000 		.4byte	.LFE5-.LFB5
+ 2093 0040 00000000 		.4byte	.LFB6
+ 2094 0044 68000000 		.4byte	.LFE6-.LFB6
+ 2095 0048 00000000 		.4byte	0
+ 2096 004c 00000000 		.4byte	0
+ 2097              		.section	.debug_ranges,"",%progbits
+ 2098              	.Ldebug_ranges0:
+ 2099 0000 00000000 		.4byte	.LFB0
+ 2100 0004 54000000 		.4byte	.LFE0
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 43
+
+
+ 2101 0008 00000000 		.4byte	.LFB1
+ 2102 000c 38000000 		.4byte	.LFE1
+ 2103 0010 00000000 		.4byte	.LFB2
+ 2104 0014 24000000 		.4byte	.LFE2
+ 2105 0018 00000000 		.4byte	.LFB3
+ 2106 001c 34000000 		.4byte	.LFE3
+ 2107 0020 00000000 		.4byte	.LFB4
+ 2108 0024 2C000000 		.4byte	.LFE4
+ 2109 0028 00000000 		.4byte	.LFB5
+ 2110 002c 68000000 		.4byte	.LFE5
+ 2111 0030 00000000 		.4byte	.LFB6
+ 2112 0034 68000000 		.4byte	.LFE6
+ 2113 0038 00000000 		.4byte	0
+ 2114 003c 00000000 		.4byte	0
+ 2115              		.section	.debug_line,"",%progbits
+ 2116              	.Ldebug_line0:
+ 2117 0000 EE000000 		.section	.debug_str,"MS",%progbits,1
+ 2117      02004500 
+ 2117      00000201 
+ 2117      FB0E0D00 
+ 2117      01010101 
+ 2118              	.LASF17:
+ 2119 0000 57617665 		.ascii	"WaveDAC8_Init\000"
+ 2119      44414338 
+ 2119      5F496E69 
+ 2119      7400
+ 2120              	.LASF39:
+ 2121 000e 433A5C55 		.ascii	"C:\\Users\\Luis Alonso Murillo\\Documents\\GitHub\\"
+ 2121      73657273 
+ 2121      5C4C7569 
+ 2121      7320416C 
+ 2121      6F6E736F 
+ 2122 003c 44544D46 		.ascii	"DTMF\\receiver\\DecoderDTMF.cydsn\000"
+ 2122      5C726563 
+ 2122      65697665 
+ 2122      725C4465 
+ 2122      636F6465 
+ 2123              	.LASF37:
+ 2124 005c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2124      43313120 
+ 2124      352E342E 
+ 2124      31203230 
+ 2124      31363036 
+ 2125 008f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2125      20726576 
+ 2125      6973696F 
+ 2125      6E203233 
+ 2125      37373135 
+ 2126 00c2 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2126      66756E63 
+ 2126      74696F6E 
+ 2126      2D736563 
+ 2126      74696F6E 
+ 2127              	.LASF26:
+ 2128 00ea 57617665 		.ascii	"WaveDAC8_Wave1Setup\000"
+ 2128      44414338 
+ 2128      5F576176 
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 44
+
+
+ 2128      65315365 
+ 2128      74757000 
+ 2129              	.LASF3:
+ 2130 00fe 73686F72 		.ascii	"short unsigned int\000"
+ 2130      7420756E 
+ 2130      7369676E 
+ 2130      65642069 
+ 2130      6E7400
+ 2131              	.LASF20:
+ 2132 0111 77617665 		.ascii	"wavePtr1\000"
+ 2132      50747231 
+ 2132      00
+ 2133              	.LASF22:
+ 2134 011a 77617665 		.ascii	"wavePtr2\000"
+ 2134      50747232 
+ 2134      00
+ 2135              	.LASF12:
+ 2136 0123 666C6F61 		.ascii	"float\000"
+ 2136      7400
+ 2137              	.LASF19:
+ 2138 0129 57617665 		.ascii	"WaveDAC8_Start\000"
+ 2138      44414338 
+ 2138      5F537461 
+ 2138      727400
+ 2139              	.LASF38:
+ 2140 0138 47656E65 		.ascii	"Generated_Source\\PSoC5\\WaveDAC8.c\000"
+ 2140      72617465 
+ 2140      645F536F 
+ 2140      75726365 
+ 2140      5C50536F 
+ 2141              	.LASF28:
+ 2142 015a 73616D70 		.ascii	"sampleSize\000"
+ 2142      6C655369 
+ 2142      7A6500
+ 2143              	.LASF24:
+ 2144 0165 57617665 		.ascii	"WaveDAC8_Stop\000"
+ 2144      44414338 
+ 2144      5F53746F 
+ 2144      7000
+ 2145              	.LASF34:
+ 2146 0173 57617665 		.ascii	"WaveDAC8_initVar\000"
+ 2146      44414338 
+ 2146      5F696E69 
+ 2146      74566172 
+ 2146      00
+ 2147              	.LASF5:
+ 2148 0184 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2148      20756E73 
+ 2148      69676E65 
+ 2148      6420696E 
+ 2148      7400
+ 2149              	.LASF27:
+ 2150 0196 77617665 		.ascii	"wavePtr\000"
+ 2150      50747200 
+ 2151              	.LASF9:
+ 2152 019e 75696E74 		.ascii	"uint8\000"
+ 2152      3800
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 45
+
+
+ 2153              	.LASF18:
+ 2154 01a4 57617665 		.ascii	"WaveDAC8_Enable\000"
+ 2154      44414338 
+ 2154      5F456E61 
+ 2154      626C6500 
+ 2155              	.LASF23:
+ 2156 01b4 73616D70 		.ascii	"sampleSize2\000"
+ 2156      6C655369 
+ 2156      7A653200 
+ 2157              	.LASF1:
+ 2158 01c0 756E7369 		.ascii	"unsigned char\000"
+ 2158      676E6564 
+ 2158      20636861 
+ 2158      7200
+ 2159              	.LASF13:
+ 2160 01ce 646F7562 		.ascii	"double\000"
+ 2160      6C6500
+ 2161              	.LASF29:
+ 2162 01d5 57617665 		.ascii	"WaveDAC8_Wave2Setup\000"
+ 2162      44414338 
+ 2162      5F576176 
+ 2162      65325365 
+ 2162      74757000 
+ 2163              	.LASF2:
+ 2164 01e9 73686F72 		.ascii	"short int\000"
+ 2164      7420696E 
+ 2164      7400
+ 2165              	.LASF10:
+ 2166 01f3 75696E74 		.ascii	"uint16\000"
+ 2166      313600
+ 2167              	.LASF11:
+ 2168 01fa 75696E74 		.ascii	"uint32\000"
+ 2168      333200
+ 2169              	.LASF25:
+ 2170 0201 57617665 		.ascii	"WaveDAC8_StartEx\000"
+ 2170      44414338 
+ 2170      5F537461 
+ 2170      72744578 
+ 2170      00
+ 2171              	.LASF8:
+ 2172 0212 756E7369 		.ascii	"unsigned int\000"
+ 2172      676E6564 
+ 2172      20696E74 
+ 2172      00
+ 2173              	.LASF7:
+ 2174 021f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2174      206C6F6E 
+ 2174      6720756E 
+ 2174      7369676E 
+ 2174      65642069 
+ 2175              	.LASF32:
+ 2176 0236 57617665 		.ascii	"WaveDAC8_Wave1TD\000"
+ 2176      44414338 
+ 2176      5F576176 
+ 2176      65315444 
+ 2176      00
+ 2177              	.LASF16:
+ARM GAS  C:\Users\LUISAL~1\AppData\Local\Temp\cceCtsDO.s 			page 46
+
+
+ 2178 0247 73697A65 		.ascii	"sizetype\000"
+ 2178      74797065 
+ 2178      00
+ 2179              	.LASF6:
+ 2180 0250 6C6F6E67 		.ascii	"long long int\000"
+ 2180      206C6F6E 
+ 2180      6720696E 
+ 2180      7400
+ 2181              	.LASF14:
+ 2182 025e 63686172 		.ascii	"char\000"
+ 2182      00
+ 2183              	.LASF30:
+ 2184 0263 57617665 		.ascii	"WaveDAC8_Wave1Chan\000"
+ 2184      44414338 
+ 2184      5F576176 
+ 2184      65314368 
+ 2184      616E00
+ 2185              	.LASF35:
+ 2186 0276 57617665 		.ascii	"WaveDAC8_wave1\000"
+ 2186      44414338 
+ 2186      5F776176 
+ 2186      653100
+ 2187              	.LASF36:
+ 2188 0285 57617665 		.ascii	"WaveDAC8_wave2\000"
+ 2188      44414338 
+ 2188      5F776176 
+ 2188      653200
+ 2189              	.LASF4:
+ 2190 0294 6C6F6E67 		.ascii	"long int\000"
+ 2190      20696E74 
+ 2190      00
+ 2191              	.LASF15:
+ 2192 029d 6C6F6E67 		.ascii	"long double\000"
+ 2192      20646F75 
+ 2192      626C6500 
+ 2193              	.LASF0:
+ 2194 02a9 7369676E 		.ascii	"signed char\000"
+ 2194      65642063 
+ 2194      68617200 
+ 2195              	.LASF21:
+ 2196 02b5 73616D70 		.ascii	"sampleSize1\000"
+ 2196      6C655369 
+ 2196      7A653100 
+ 2197              	.LASF33:
+ 2198 02c1 57617665 		.ascii	"WaveDAC8_Wave2TD\000"
+ 2198      44414338 
+ 2198      5F576176 
+ 2198      65325444 
+ 2198      00
+ 2199              	.LASF31:
+ 2200 02d2 57617665 		.ascii	"WaveDAC8_Wave2Chan\000"
+ 2200      44414338 
+ 2200      5F576176 
+ 2200      65324368 
+ 2200      616E00
+ 2201              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -198,17 +198,7 @@ void PlayTones( char key )
 
         Row_Divider_WritePeriod(row_div);             /* Set both dividers  */
         Col_Divider_WritePeriod(col_div);
-        
-        sprintf(TransmitBuffer, "Row divider: %d\r\n", row_div);
-        UART_1_PutString(TransmitBuffer);
-        
-        sprintf(TransmitBuffer, "Col divider: %d\r\n", col_div);
-        UART_1_PutString(TransmitBuffer);
-
         ToneClock_Start();                            /* Turn on clock */
-        
-        UART_1_PutString("Startin tone... \r\n");
-                
         CyDelay(TONE_DURATION_MS);                    /* Wait for the tone duration */
         ToneClock_Stop();                             /* Turn off clock */
         

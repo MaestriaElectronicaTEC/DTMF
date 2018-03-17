@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c311a965-2c39-432a-b4ea-defeb3772408
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|52d7f18a-7bcd-4f60-a4f8-f7718c35ced1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|fe3d0425-7444-480e-b3c9-5575b9e2d350
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|762effc0-ae2c-43ff-8659-b50b52323047
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|a61b7004-2d7f-4830-866e-0b678994bce9
+C:\Users\rjimenez\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|09289d2f-1e25-4481-8854-303553146ce4
+C:\Users\rjimenez\Desktop\ADC_UART.cywrk\CE95277 ADC and UART\DTMF_Decoder.cydsn\DTMF_Decoder.cyprj|640f022c-dc79-42b6-9d1f-5e2c88699e47

@@ -1,42 +1,4 @@
 /******************************************************************************
-* Project Name		: CE95277 ADC and UART
-* File Name			: main.c
-* Version 			: **
-* Device Used		: CY8C5888LTI-LP097
-* Software Used		: PSoC Creator 3.1 SP2
-* Compiler    		: ARM GCC 4.8.4, ARM RVDS Generic, ARM MDK Generic
-* Related Hardware	: CY8CKIT059 PSoC 5 LP Prototyping Kit 
-* Owner				: KLMZ
-*
-********************************************************************************
-* Copyright (2015), Cypress Semiconductor Corporation. All Rights Reserved.
-********************************************************************************
-* This software is owned by Cypress Semiconductor Corporation (Cypress)
-* and is protected by and subject to worldwide patent protection (United
-* States and foreign), United States copyright laws and international treaty
-* provisions. Cypress hereby grants to licensee a personal, non-exclusive,
-* non-transferable license to copy, use, modify, create derivative works of,
-* and compile the Cypress Source Code and derivative works for the sole
-* purpose of creating custom software in support of licensee product to be
-* used only in conjunction with a Cypress integrated circuit as specified in
-* the applicable agreement. Any reproduction, modification, translation,
-* compilation, or representation of this software except as specified above 
-* is prohibited without the express written permission of Cypress.
-*
-* Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH 
-* REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-* Cypress reserves the right to make changes without further notice to the 
-* materials described herein. Cypress does not assume any liability arising out 
-* of the application or use of any product or circuit described herein. Cypress 
-* does not authorize its products for use as critical components in life-support 
-* systems where a malfunction or failure may reasonably be expected to result in 
-* significant injury to the user. The inclusion of Cypress' product in a life-
-* support systems application implies that the manufacturer assumes all risk of 
-* such use and in doing so indemnifies Cypress against all charges. 
-*
-* Use of this Software may be limited by and subject to the applicable Cypress
-* software license agreement. 
 *******************************************************************************/
 
 #include <device.h>
@@ -49,15 +11,15 @@
 #define TRANSMIT_BUFFER_SIZE  16
 
 /* DTMF specifics */
-#define DTMF_679 679
-#define DTMF_770 770
-#define DTMF_852 852
-#define DTMF_941 941
-#define DTMF_1209 1209
-#define DTMF_1336 1336
-#define DTMF_1477 1477
+#define DTMF_679 679.00
+#define DTMF_770 770.00
+#define DTMF_852 852.00
+#define DTMF_941 941.00
+#define DTMF_1209 1209.00
+#define DTMF_1336 1336.00
+#define DTMF_1477 1477.00
 //
-#define SAMPLE_FRECUENCY 10000
+#define SAMPLING_FREQUENCY 8000.0
 #define SAMPLES 2000
 
 /* Variable to store ADC result */
@@ -73,6 +35,7 @@ uint8 EmulatedData;
 
 uint16 internalCounter = 0;
 
+//uint16 a_signal[SAMPLES];
 uint16 a_signal[SAMPLES];
 
 uint8 goertzel_compute();
@@ -98,20 +61,14 @@ CY_ISR(Transmit)
         if(SendSingleByte || ContinuouslySendData)
         {
                 
-            a_signal[internalCounter] = Output;
+            //a_signal[internalCounter] = Output;
             
             // When the amount of samples be
-            if(SAMPLES == internalCounter ) {
-                UART_1_PutString("On the limit \r\n");
+            if(SAMPLES == internalCounter ) 
+            {
                 ContinuouslySendData = FALSE;
                 goertzel_compute();
             }
-            
-            /* Format ADC result for transmition */
-            //sprintf(TransmitBuffer, "%d\r\n", Output);
-            
-            /* Send out the data */
-            //UART_1_PutString(TransmitBuffer);
             
             /* Reset the send once flag */
             SendSingleByte = FALSE;
@@ -128,20 +85,20 @@ CY_ISR(Transmit)
 ///**
 //* Goertezel Algorithm
 //*/
-double goertzel_filter(uint16 in_signal[], double frecuency_detect, uint16 samples);
+float goertzel_filter(uint16 in_signal[], float frecuency_detect, uint16 samples);
 
-double goertzel_filter(uint16 in_signal[], double frecuency_detect, uint16 samples)
+float goertzel_filter(uint16 in_signal[], float frecuency_detect, uint16 samples)
 {
-    double vk;
-    double vk_1 = 0.0;
-    double vk_2 = 0.0;
-    double cos_coeff;
-    double k;
-    double power;
+    float vk;
+    float vk_1 = 0.0;
+    float vk_2 = 0.0;
+    float cos_coeff;
+    float k;
+    float power;
   
     int i;
     
-    cos_coeff = 2*cos(2*M_PI*frecuency_detect/SAMPLE_FRECUENCY); 
+    cos_coeff = 2.0*cos(2.0*M_PI*frecuency_detect/SAMPLING_FREQUENCY); 
     
     for (i = 0; i < samples; i++){
         vk = cos_coeff * vk_1 - vk_2 + in_signal[i];
@@ -150,38 +107,21 @@ double goertzel_filter(uint16 in_signal[], double frecuency_detect, uint16 sampl
     }
     
     power = (vk_1 * vk_1) + (vk_2 * vk_2) - (cos_coeff * vk_1 * vk_2);
-    
-    UART_1_PutString("On the filter \r\n");
-    
-    if (0 < power) {
-       /* Format ADC result for transmition */
-        sprintf(TransmitBuffer, "Power bigger to 0\r\n");
-        /* Send out the data */
-        UART_1_PutString(TransmitBuffer); 
-    }
-    
-    
+
     return power;    
 }
 
 /**
 * Goertezel Coefficient Axx
 */
-double goertzel_coefficient(double xk, uint16 samples);
+float goertzel_coefficient(float xk, uint16 samples);
 
-double goertzel_coefficient(double xk, uint16 samples)
+float goertzel_coefficient(float xk, uint16 samples)
 {
-    double ak;
+    float ak;
     
-    ak = (2/samples) * sqrt(xk);
-    
-    UART_1_PutString("On the coeff \r\n");
-    
-    /* Format ADC result for transmition */
-    sprintf(TransmitBuffer, "Coeff: %d\r\n", ak);
-    /* Send out the data */
-    UART_1_PutString(TransmitBuffer);
-    
+    ak = (2.0/(float)samples) * sqrt(xk);
+        
     return ak;     
 }
 
@@ -193,16 +133,14 @@ void goertzel_init();
 //
 uint8 goertzel_compute()
 {
-    double h18, h20, h22, h24, h31, h34, h38;
-    double a18, a20, a22, a24, a31, a34, a38;
-    double thr;
-    
-    UART_1_PutString("On the Goertzel Compute \r\n");
-    
+    float h18, h20, h22, h24, h31, h34, h38;
+    float a18, a20, a22, a24, a31, a34, a38;
+    float thr;
+        
     // each of the 7 filters with different frequencies to revise
     h18 = goertzel_filter(a_signal, DTMF_679, SAMPLES);
     h20 = goertzel_filter(a_signal, DTMF_770, SAMPLES);
-    h22 = goertzel_filter(a_signal, 852.52, SAMPLES);
+    h22 = goertzel_filter(a_signal, DTMF_852, SAMPLES);
     h24 = goertzel_filter(a_signal, DTMF_941, SAMPLES);
     h31 = goertzel_filter(a_signal, DTMF_1209, SAMPLES);
     h34 = goertzel_filter(a_signal, DTMF_1336, SAMPLES);
@@ -220,21 +158,7 @@ uint8 goertzel_compute()
     // Threshold that needs to be overpassed to detect a tone
     thr = (a18 + a20 + a22 + a24 + a31 + a34 + a38)/4;
     
-    /* Format ADC result for transmition */
-    sprintf(TransmitBuffer, "TH: %s\r\n", (char)thr);
-    
-    /* Send out the data */
-    UART_1_PutString(TransmitBuffer);
-    
     // If-else statements
-    
-    if (thr < a22) {
-       /* Format ADC result for transmition */
-        sprintf(TransmitBuffer, "%s\r\n", "The key is XXXXX\n");
-   
-        /* Send out the data */
-        UART_1_PutString(TransmitBuffer); 
-    }
     
     // First row
     if (a18 > thr && a31 > thr) {
@@ -347,6 +271,22 @@ uint8 goertzel_compute()
     return 0;
 }
 
+/* Synthesize some test data at a given frequency. */
+void Generate(float frequency_sin, float frequency_cos)
+{
+    int	index;
+    float step_sin, step_cos;
+
+    step_sin = frequency_sin * ((2.0 * M_PI) / SAMPLING_FREQUENCY);
+    step_cos = frequency_cos * ((2.0 * M_PI) / SAMPLING_FREQUENCY);
+
+    /* Generate the test data */
+    for (index = 0; index < 2000; index++)
+    {
+        a_signal[index] = (1000.0 * sin(index * step_sin) + 1000.0) + (1000.0 * cos(index * step_cos) + 1000.0);   
+    }
+}
+
 ///////////////////////////
 
 /*******************************************************************************
@@ -393,6 +333,8 @@ int main()
     /* Send message to verify COM port is connected properly */
     UART_1_PutString("COM Port Open \r\n");
     
+    Generate(674.0, 1331.0);
+    
     Timer_Start();
     isr_StartEx(Transmit);
     CyGlobalIntEnable;
@@ -410,7 +352,8 @@ int main()
                 break;
             case 'C':
             case 'c':
-                SendSingleByte = TRUE;
+                
+                //SendSingleByte = TRUE;
                 break;
             case 'S':
             case 's':

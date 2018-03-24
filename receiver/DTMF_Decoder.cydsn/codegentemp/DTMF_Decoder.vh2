@@ -2,7 +2,7 @@
 --	Conversion of DTMF_Decoder.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Mar 22 23:18:41 2018
+--	Sat Mar 24 00:22:44 2018
 --
 
 USE cypress.cypress.all;
@@ -12,9 +12,6 @@ ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
 END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
-TERMINAL Net_135 : bit;
-TERMINAL Net_87 : bit;
-TERMINAL Net_136 : bit;
 SIGNAL \UART_1:Net_9\ : bit;
 SIGNAL \UART_1:Net_61\ : bit;
 SIGNAL one : bit;
@@ -31,11 +28,11 @@ SIGNAL \UART_1:BUART:FinalAddrMode_0\ : bit;
 SIGNAL \UART_1:BUART:tx_ctrl_mark\ : bit;
 SIGNAL \UART_1:BUART:reset_sr\ : bit;
 SIGNAL \UART_1:BUART:HalfDuplexSend_last\ : bit;
-SIGNAL Net_20 : bit;
+SIGNAL Net_171 : bit;
 SIGNAL \UART_1:BUART:txn\ : bit;
-SIGNAL Net_53 : bit;
+SIGNAL Net_165 : bit;
 SIGNAL \UART_1:BUART:tx_interrupt_out\ : bit;
-SIGNAL Net_54 : bit;
+SIGNAL Net_166 : bit;
 SIGNAL \UART_1:BUART:rx_interrupt_out\ : bit;
 SIGNAL \UART_1:BUART:tx_state_1\ : bit;
 SIGNAL \UART_1:BUART:tx_state_0\ : bit;
@@ -122,7 +119,7 @@ SIGNAL \UART_1:BUART:tx_status_0\ : bit;
 SIGNAL \UART_1:BUART:tx_status_1\ : bit;
 SIGNAL \UART_1:BUART:tx_status_2\ : bit;
 SIGNAL \UART_1:BUART:tx_status_3\ : bit;
-SIGNAL Net_51 : bit;
+SIGNAL Net_163 : bit;
 SIGNAL \UART_1:BUART:tx_bitclk\ : bit;
 SIGNAL \UART_1:BUART:tx_ctrl_mark_last\ : bit;
 SIGNAL \UART_1:BUART:tx_mark\ : bit;
@@ -266,7 +263,7 @@ SIGNAL \UART_1:BUART:rx_status_4\ : bit;
 SIGNAL \UART_1:BUART:rx_status_5\ : bit;
 SIGNAL \UART_1:BUART:rx_status_6\ : bit;
 SIGNAL \UART_1:BUART:rx_addr_match_status\ : bit;
-SIGNAL Net_50 : bit;
+SIGNAL Net_162 : bit;
 SIGNAL \UART_1:BUART:rx_markspace_pre\ : bit;
 SIGNAL \UART_1:BUART:rx_parity_error_pre\ : bit;
 SIGNAL \UART_1:BUART:rx_break_status\ : bit;
@@ -365,11 +362,14 @@ SIGNAL tmpFB_0__Tx_P12_7_net_0 : bit;
 SIGNAL tmpIO_0__Tx_P12_7_net_0 : bit;
 TERMINAL tmpSIOVREF__Tx_P12_7_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Tx_P12_7_net_0 : bit;
-SIGNAL tmpOE__SW1_net_0 : bit;
-SIGNAL Net_125 : bit;
-SIGNAL tmpIO_0__SW1_net_0 : bit;
-TERMINAL tmpSIOVREF__SW1_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__SW1_net_0 : bit;
+SIGNAL tmpOE__P1_6_net_0 : bit;
+SIGNAL tmpFB_0__P1_6_net_0 : bit;
+TERMINAL Net_175 : bit;
+SIGNAL tmpIO_0__P1_6_net_0 : bit;
+TERMINAL tmpSIOVREF__P1_6_net_0 : bit;
+TERMINAL Net_204 : bit;
+SIGNAL tmpINTERRUPT_0__P1_6_net_0 : bit;
+TERMINAL Net_151 : bit;
 TERMINAL \ADC_DelSig_1:Net_244\ : bit;
 TERMINAL \ADC_DelSig_1:Net_690\ : bit;
 TERMINAL \ADC_DelSig_1:Net_35\ : bit;
@@ -377,7 +377,6 @@ TERMINAL \ADC_DelSig_1:Net_34\ : bit;
 TERMINAL \ADC_DelSig_1:Net_677\ : bit;
 TERMINAL \ADC_DelSig_1:Net_20\ : bit;
 SIGNAL \ADC_DelSig_1:Net_488\ : bit;
-TERMINAL Net_79 : bit;
 TERMINAL \ADC_DelSig_1:Net_520\ : bit;
 SIGNAL \ADC_DelSig_1:Net_481\ : bit;
 SIGNAL \ADC_DelSig_1:Net_482\ : bit;
@@ -408,43 +407,15 @@ SIGNAL \ADC_DelSig_1:Net_252\ : bit;
 SIGNAL \ADC_DelSig_1:soc\ : bit;
 SIGNAL \ADC_DelSig_1:Net_268\ : bit;
 SIGNAL \ADC_DelSig_1:Net_270\ : bit;
-TERMINAL \WaveDAC8:Net_211\ : bit;
-SIGNAL \WaveDAC8:Net_279\ : bit;
-TERMINAL \WaveDAC8:Net_189\ : bit;
-TERMINAL \WaveDAC8:Net_256\ : bit;
-TERMINAL \WaveDAC8:Net_190\ : bit;
-TERMINAL \WaveDAC8:Net_254\ : bit;
-SIGNAL \WaveDAC8:Net_183\ : bit;
-SIGNAL Net_138 : bit;
-SIGNAL \WaveDAC8:Net_107\ : bit;
-SIGNAL Net_139 : bit;
-SIGNAL \WaveDAC8:demux:tmp__demux_0_reg\ : bit;
-SIGNAL \WaveDAC8:Net_134\ : bit;
-SIGNAL \WaveDAC8:Net_336\ : bit;
-SIGNAL \WaveDAC8:demux:tmp__demux_1_reg\ : bit;
-SIGNAL \WaveDAC8:VDAC8:Net_83\ : bit;
-SIGNAL \WaveDAC8:VDAC8:Net_81\ : bit;
-SIGNAL \WaveDAC8:VDAC8:Net_82\ : bit;
-TERMINAL \WaveDAC8:VDAC8:Net_77\ : bit;
-SIGNAL \WaveDAC8:Net_280\ : bit;
-SIGNAL \WaveDAC8:Net_80\ : bit;
-SIGNAL \WaveDAC8:cydff_1\ : bit;
-SIGNAL Net_114 : bit;
-SIGNAL \Timer:Net_260\ : bit;
-SIGNAL \Timer:Net_266\ : bit;
-SIGNAL Net_124 : bit;
-SIGNAL \Timer:Net_51\ : bit;
-SIGNAL \Timer:Net_261\ : bit;
-SIGNAL \Timer:Net_57\ : bit;
-SIGNAL Net_115 : bit;
-SIGNAL Net_120 : bit;
-SIGNAL \Timer:Net_102\ : bit;
+TERMINAL Net_212 : bit;
+TERMINAL Net_66 : bit;
+TERMINAL Net_154 : bit;
 SIGNAL \UART_1:BUART:reset_reg\\D\ : bit;
 SIGNAL \UART_1:BUART:txn\\D\ : bit;
 SIGNAL \UART_1:BUART:tx_state_1\\D\ : bit;
 SIGNAL \UART_1:BUART:tx_state_0\\D\ : bit;
 SIGNAL \UART_1:BUART:tx_state_2\\D\ : bit;
-SIGNAL Net_51D : bit;
+SIGNAL Net_163D : bit;
 SIGNAL \UART_1:BUART:tx_bitclk\\D\ : bit;
 SIGNAL \UART_1:BUART:tx_ctrl_mark_last\\D\ : bit;
 SIGNAL \UART_1:BUART:tx_mark\\D\ : bit;
@@ -468,12 +439,11 @@ SIGNAL \UART_1:BUART:rx_break_status\\D\ : bit;
 SIGNAL \UART_1:BUART:rx_address_detected\\D\ : bit;
 SIGNAL \UART_1:BUART:rx_last\\D\ : bit;
 SIGNAL \UART_1:BUART:rx_parity_bit\\D\ : bit;
-SIGNAL \WaveDAC8:cydff_1\\D\ : bit;
 BEGIN
 
 one <=  ('1') ;
 
-Net_20 <= (not \UART_1:BUART:txn\);
+Net_171 <= (not \UART_1:BUART:txn\);
 
 \UART_1:BUART:counter_load_not\ <= ((not \UART_1:BUART:tx_bitclk_enable_pre\ and \UART_1:BUART:tx_state_2\)
 	OR \UART_1:BUART:tx_state_0\
@@ -483,7 +453,7 @@ Net_20 <= (not \UART_1:BUART:txn\);
 
 \UART_1:BUART:tx_status_2\ <= (not \UART_1:BUART:tx_fifo_notfull\);
 
-Net_51D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
+Net_163D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 	OR (not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_0\)
 	OR (not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_1\));
 
@@ -583,20 +553,6 @@ Net_51D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 
 Net_36 <=  ('0') ;
 
-\WaveDAC8:Net_183\ <= ((not \WaveDAC8:Net_134\ and \WaveDAC8:Net_279\));
-
-\WaveDAC8:Net_107\ <= ((\WaveDAC8:Net_279\ and \WaveDAC8:Net_134\));
-
-SW_1:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"SwitchSPST_v1_0",
-		port_names=>"T1, T2",
-		width=>2)
-	PORT MAP(connect=>(Net_135, Net_87));
-R_2:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"Resistor_v1_0",
-		port_names=>"T1, T2",
-		width=>2)
-	PORT MAP(connect=>(Net_87, Net_136));
 \UART_1:IntClock\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"b0162966-0060-4af5-82d1-fcb491ad7619/be0a0e37-ad17-42ca-b5a1-1a654d736358",
@@ -1029,7 +985,7 @@ Tx_P12_7:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_20,
+		y=>Net_171,
 		fb=>(tmpFB_0__Tx_P12_7_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__Tx_P12_7_net_0),
@@ -1042,17 +998,12 @@ Tx_P12_7:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>Net_36,
 		interrupt=>tmpINTERRUPT_0__Tx_P12_7_net_0);
-GND_2:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"Gnd_v1_0",
-		port_names=>"T1",
-		width=>1)
-	PORT MAP(connect=>Net_135);
-SW1:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
-		drive_mode=>"010",
-		ibuf_enabled=>"1",
-		init_dr_st=>"1",
-		input_sync=>"0",
+P1_6:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"152fd21c-a4ed-4ade-9bd5-9b5467d4e420",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
 		input_clk_en=>'0',
 		input_sync_mode=>"0",
 		intr_mode=>"00",
@@ -1074,7 +1025,7 @@ SW1:cy_psoc3_pins_v1_10
 		oe_conn=>"0",
 		oe_reset=>'0',
 		pin_aliases=>"",
-		pin_mode=>"I",
+		pin_mode=>"A",
 		por_state=>4,
 		sio_group_cnt=>0,
 		sio_hifreq=>"00000000",
@@ -1088,7 +1039,7 @@ SW1:cy_psoc3_pins_v1_10
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
-		vtrip=>"00",
+		vtrip=>"10",
 		width=>1,
 		port_alias_required=>'0',
 		port_alias_group=>"",
@@ -1105,23 +1056,23 @@ SW1:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(Net_36),
-		fb=>Net_125,
-		analog=>(open),
-		io=>(tmpIO_0__SW1_net_0),
-		siovref=>(tmpSIOVREF__SW1_net_0),
-		annotation=>Net_87,
+		fb=>(tmpFB_0__P1_6_net_0),
+		analog=>Net_175,
+		io=>(tmpIO_0__P1_6_net_0),
+		siovref=>(tmpSIOVREF__P1_6_net_0),
+		annotation=>Net_204,
 		in_clock=>Net_36,
 		in_clock_en=>one,
 		in_reset=>Net_36,
 		out_clock=>Net_36,
 		out_clock_en=>one,
 		out_reset=>Net_36,
-		interrupt=>tmpINTERRUPT_0__SW1_net_0);
-PWR_2:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"Power_v1_0",
+		interrupt=>tmpINTERRUPT_0__P1_6_net_0);
+GND_1:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Gnd_v1_0",
 		port_names=>"T1",
 		width=>1)
-	PORT MAP(connect=>Net_136);
+	PORT MAP(connect=>Net_151);
 \ADC_DelSig_1:vRef_2\:cy_vref_v1_0
 	GENERIC MAP(guid=>"15B3DB15-B7B3-4d62-A2DF-25EA392A7161",
 		name=>"Vssa (GND)",
@@ -1155,7 +1106,7 @@ PWR_2:cy_annotation_universal_v1_0
 	GENERIC MAP(cy_registers=>"",
 		resolution=>8)
 	PORT MAP(aclock=>\ADC_DelSig_1:Net_488\,
-		vplus=>Net_79,
+		vplus=>Net_175,
 		vminus=>\ADC_DelSig_1:Net_520\,
 		modbit=>Net_36,
 		reset_udb=>Net_36,
@@ -1215,7 +1166,7 @@ PWR_2:cy_annotation_universal_v1_0
 		id=>"1ff1f650-c02e-401e-8bbd-7cfbaf5a55a9/edd15f43-b66b-457b-be3a-5342345270c8",
 		source_clock_id=>"61737EF6-3B74-48f9-8B91-F7473A442AE7",
 		divisor=>0,
-		period=>"6250000000",
+		period=>"7812500000",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>\ADC_DelSig_1:Net_488\,
@@ -1227,86 +1178,36 @@ PWR_2:cy_annotation_universal_v1_0
 		ext_start=>one,
 		mod_reset=>\ADC_DelSig_1:mod_reset\,
 		interrupt=>Net_131);
-\WaveDAC8:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
-	PORT MAP(noconnect=>\WaveDAC8:Net_211\);
-\WaveDAC8:DacClk\:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"6295a7a9-9add-4f69-8a4e-69ebea6c02d7/77086516-855e-4b7b-abbe-47b22f8543de",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"11506950197.9195",
-		is_direct=>'0',
-		is_digital=>'1')
-	PORT MAP(clock_out=>\WaveDAC8:Net_279\,
-		dig_domain_out=>open);
-\WaveDAC8:cy_analog_virtualmux_1_connect\:cy_connect_v1_0
-	GENERIC MAP(sig_width=>1,
-		is_net_join=>'0')
-	PORT MAP(signal1=>\WaveDAC8:Net_189\,
-		signal2=>\WaveDAC8:Net_256\);
-\WaveDAC8:cy_analog_virtualmux_2_connect\:cy_connect_v1_0
-	GENERIC MAP(sig_width=>1,
-		is_net_join=>'0')
-	PORT MAP(signal1=>\WaveDAC8:Net_190\,
-		signal2=>\WaveDAC8:Net_211\);
-\WaveDAC8:cy_analog_noconnect_2\:cy_analog_noconnect_v1_0
-	PORT MAP(noconnect=>\WaveDAC8:Net_254\);
-\WaveDAC8:Wave1_DMA\:cy_dma_v1_0
-	GENERIC MAP(drq_type=>"10",
-		num_tds=>0)
-	PORT MAP(drq=>\WaveDAC8:Net_183\,
-		trq=>Net_36,
-		nrq=>Net_138);
-\WaveDAC8:Wave2_DMA\:cy_dma_v1_0
-	GENERIC MAP(drq_type=>"10",
-		num_tds=>0)
-	PORT MAP(drq=>\WaveDAC8:Net_107\,
-		trq=>Net_36,
-		nrq=>Net_139);
-\WaveDAC8:VDAC8:viDAC8\:cy_psoc3_vidac8_v1_0
-	GENERIC MAP(cy_registers=>"",
-		reg_data=>'0',
-		is_all_if_any=>'0')
-	PORT MAP(reset=>Net_36,
-		idir=>Net_36,
-		ioff=>Net_36,
-		data=>(Net_36, Net_36, Net_36, Net_36,
-			Net_36, Net_36, Net_36, Net_36),
-		strobe=>\WaveDAC8:Net_279\,
-		strobe_udb=>\WaveDAC8:Net_279\,
-		vout=>\WaveDAC8:Net_189\,
-		iout=>\WaveDAC8:VDAC8:Net_77\);
-\WaveDAC8:VDAC8:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
-	PORT MAP(noconnect=>\WaveDAC8:VDAC8:Net_77\);
-\WaveDAC8:cy_analog_virtualmux_3_connect\:cy_connect_v1_0
-	GENERIC MAP(sig_width=>1,
-		is_net_join=>'0')
-	PORT MAP(signal1=>Net_79,
-		signal2=>\WaveDAC8:Net_256\);
-\Timer:TimerHW\:cy_psoc3_timer_v1_0
-	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>Net_114,
-		kill=>Net_36,
-		enable=>one,
-		capture=>Net_36,
-		timer_reset=>Net_36,
-		tc=>Net_120,
-		compare=>\Timer:Net_261\,
-		interrupt=>\Timer:Net_57\);
-isr:cy_isr_v1_0
-	GENERIC MAP(int_type=>"00",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_120);
-Clock_1:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"a1829d82-7cde-4b1c-b7a1-6cc4208281c1",
-		source_clock_id=>"61737EF6-3B74-48f9-8B91-F7473A442AE7",
-		divisor=>0,
-		period=>"1000000000",
-		is_direct=>'0',
-		is_digital=>'1')
-	PORT MAP(clock_out=>Net_114,
-		dig_domain_out=>open);
+C1:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Capacitor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_151, Net_204));
+R2:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Resistor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_212, Net_204));
+mic_AO:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"TestPoint_v1_0",
+		port_names=>"T1",
+		width=>1)
+	PORT MAP(connect=>Net_66);
+R4:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Resistor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_66, Net_212));
+C3:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Capacitor_v1_0",
+		port_names=>"T1, T2",
+		width=>2)
+	PORT MAP(connect=>(Net_154, Net_212));
+GND_3:cy_annotation_universal_v1_0
+	GENERIC MAP(comp_name=>"Gnd_v1_0",
+		port_names=>"T1",
+		width=>1)
+	PORT MAP(connect=>Net_154);
 \UART_1:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>Net_36,
 		clk=>\UART_1:BUART:clock_op\,
@@ -1327,10 +1228,10 @@ Clock_1:cy_clock_v1_0
 	PORT MAP(d=>\UART_1:BUART:tx_state_2\\D\,
 		clk=>\UART_1:BUART:clock_op\,
 		q=>\UART_1:BUART:tx_state_2\);
-Net_51:cy_dff
-	PORT MAP(d=>Net_51D,
+Net_163:cy_dff
+	PORT MAP(d=>Net_163D,
 		clk=>\UART_1:BUART:clock_op\,
-		q=>Net_51);
+		q=>Net_163);
 \UART_1:BUART:tx_bitclk\:cy_dff
 	PORT MAP(d=>\UART_1:BUART:tx_bitclk\\D\,
 		clk=>\UART_1:BUART:clock_op\,
@@ -1423,9 +1324,5 @@ Net_51:cy_dff
 	PORT MAP(d=>\UART_1:BUART:rx_parity_bit\,
 		clk=>\UART_1:BUART:clock_op\,
 		q=>\UART_1:BUART:rx_parity_bit\);
-\WaveDAC8:cydff_1\:cy_dff
-	PORT MAP(d=>Net_125,
-		clk=>\WaveDAC8:Net_279\,
-		q=>\WaveDAC8:Net_134\);
 
 END R_T_L;

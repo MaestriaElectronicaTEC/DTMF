@@ -41,46 +41,6 @@ uint16 a_signal[SAMPLES];
 uint8 goertzel_compute();
 
 
-CY_ISR_PROTO(Transmit);
-
-CY_ISR(Transmit)
-{
-    
-    /* Check to see if an ADC conversion has completed */
-    if(ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS))
-    {
-        /* Use the GetResult16 API to get an 8 bit unsigned result in
-         * single ended mode.  The API CountsTo_mVolts is then used
-         * to convert the ADC counts into mV before transmitting via
-         * the UART.  See the datasheet API description for more
-         * details */
-        //Output = ADC_DelSig_1_CountsTo_mVolts(ADC_DelSig_1_GetResult16());
-        Output = ADC_DelSig_1_GetResult16();
-  
-        /* Send data based on last UART command */
-        if(SendSingleByte || ContinuouslySendData)
-        {
-                
-            //a_signal[internalCounter] = Output;
-            
-            // When the amount of samples be
-            if(SAMPLES == internalCounter ) 
-            {
-                ContinuouslySendData = FALSE;
-                goertzel_compute();
-            }
-            
-            /* Reset the send once flag */
-            SendSingleByte = FALSE;
-
-            // Define the counter incremental
-            internalCounter++;
-    
-        }    
-    }
-}
-
-
 //
 ///**
 //* Goertezel Algorithm
@@ -319,7 +279,6 @@ int main()
     /* Start the components */
     ADC_DelSig_1_Start();
     UART_1_Start();
-    WaveDAC8_Start();
     
     /* Initialize Variables */
     ContinuouslySendData = FALSE;
@@ -333,10 +292,10 @@ int main()
     /* Send message to verify COM port is connected properly */
     UART_1_PutString("COM Port Open \r\n");
     
-    Generate(674.0, 1331.0);
+    //Generate(674.0, 1331.0);
     
-    Timer_Start();
-    isr_StartEx(Transmit);
+    //Timer_Start();
+    //isr_StartEx(Transmit);
     CyGlobalIntEnable;
     
     for(;;)
@@ -371,6 +330,46 @@ int main()
                 /* Place error handling code here */
                 break;    
         }
+        
+        /* Check to see if an ADC conversion has completed */
+        if(ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS))
+        {
+        /* Use the GetResult16 API to get an 8 bit unsigned result in
+         * single ended mode.  The API CountsTo_mVolts is then used
+         * to convert the ADC counts into mV before transmitting via
+         * the UART.  See the datasheet API description for more
+         * details */
+        //Output = ADC_DelSig_1_CountsTo_mVolts(ADC_DelSig_1_GetResult16());
+        Output = ADC_DelSig_1_GetResult16();
+  
+        /* Send data based on last UART command */
+        if(SendSingleByte || ContinuouslySendData)
+        {
+                
+            a_signal[internalCounter] = Output;
+            
+            // When the amount of samples be
+            if(SAMPLES == internalCounter ) 
+            {
+                ContinuouslySendData = FALSE;
+                goertzel_compute();
+                internalCounter = 0;
+            }
+            
+            /* Reset the send once flag */
+            SendSingleByte = FALSE;
+
+            // Define the counter incremental
+            internalCounter++;
+            
+            /* Format ADC result for transmition */
+            sprintf(TransmitBuffer, "%hu\r\n", a_signal[internalCounter]);
+   
+            /* Send out the data */
+            UART_1_PutString(TransmitBuffer);
+    
+        }    
+    }
         
     }
 }

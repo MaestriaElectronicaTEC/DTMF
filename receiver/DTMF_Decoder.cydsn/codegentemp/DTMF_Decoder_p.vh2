@@ -1,12 +1,11 @@
 -- Project:   DTMF_Decoder
--- Generated: 03/22/2018 23:18:45
--- PSoC Creator  4.2
+-- Generated: 03/24/2018 00:22:46
+-- PSoC Creator  4.1 Update 1
 
 ENTITY DTMF_Decoder IS
     PORT(
         Rx_12_6(0)_PAD : IN std_ulogic;
-        Tx_P12_7(0)_PAD : OUT std_ulogic;
-        SW1(0)_PAD : IN std_ulogic);
+        Tx_P12_7(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
@@ -30,20 +29,13 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
     SIGNAL ClockBlock_PLL_OUT : bit;
     SIGNAL ClockBlock_XTAL : bit;
     SIGNAL ClockBlock_XTAL_32KHZ : bit;
-    SIGNAL Net_114 : bit;
-    ATTRIBUTE global_signal OF Net_114 : SIGNAL IS true;
-    SIGNAL Net_114_local : bit;
-    SIGNAL Net_120 : bit;
-    SIGNAL Net_125 : bit;
     SIGNAL Net_131 : bit;
-    SIGNAL Net_138 : bit;
-    SIGNAL Net_139 : bit;
-    SIGNAL Net_20 : bit;
+    SIGNAL Net_171 : bit;
     SIGNAL Net_25 : bit;
     SIGNAL Net_36 : bit;
     ATTRIBUTE GROUND OF Net_36 : SIGNAL IS true;
+    SIGNAL P1_6(0)__PA : bit;
     SIGNAL Rx_12_6(0)__PA : bit;
-    SIGNAL SW1(0)__PA : bit;
     SIGNAL Tx_P12_7(0)__PA : bit;
     SIGNAL \ADC_DelSig_1:Net_245_0\ : bit;
     SIGNAL \ADC_DelSig_1:Net_245_1\ : bit;
@@ -67,8 +59,6 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
     SIGNAL \ADC_DelSig_1:mod_dat_2\ : bit;
     SIGNAL \ADC_DelSig_1:mod_dat_3\ : bit;
     SIGNAL \ADC_DelSig_1:mod_reset\ : bit;
-    SIGNAL \Timer:Net_261\ : bit;
-    SIGNAL \Timer:Net_57\ : bit;
     SIGNAL \UART_1:BUART:counter_load_not\ : bit;
     SIGNAL \UART_1:BUART:pollcount_0\ : bit;
     SIGNAL \UART_1:BUART:pollcount_1\ : bit;
@@ -111,27 +101,20 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
     ATTRIBUTE udbclken_assigned OF \UART_1:Net_9\ : SIGNAL IS "True";
     ATTRIBUTE global_signal OF \UART_1:Net_9\ : SIGNAL IS true;
     SIGNAL \UART_1:Net_9_local\ : bit;
-    SIGNAL \WaveDAC8:Net_107\ : bit;
-    SIGNAL \WaveDAC8:Net_134\ : bit;
-    SIGNAL \WaveDAC8:Net_183\ : bit;
-    SIGNAL \WaveDAC8:Net_279\ : bit;
-    ATTRIBUTE global_signal OF \WaveDAC8:Net_279\ : SIGNAL IS true;
-    SIGNAL \WaveDAC8:Net_279_local\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
     ATTRIBUTE GROUND OF __ZERO__ : SIGNAL IS true;
     SIGNAL one : bit;
     ATTRIBUTE POWER OF one : SIGNAL IS true;
-    SIGNAL \ClockBlock.dclk_glb_ff_1__sig\ : bit;
     SIGNAL \ClockBlock.aclk_glb_ff_0__sig\ : bit;
     ATTRIBUTE lib_model OF Rx_12_6(0) : LABEL IS "iocell1";
     ATTRIBUTE Location OF Rx_12_6(0) : LABEL IS "P12[6]";
     ATTRIBUTE lib_model OF Tx_P12_7(0) : LABEL IS "iocell2";
     ATTRIBUTE Location OF Tx_P12_7(0) : LABEL IS "P12[7]";
-    ATTRIBUTE lib_model OF SW1(0) : LABEL IS "iocell3";
-    ATTRIBUTE Location OF SW1(0) : LABEL IS "P2[2]";
-    ATTRIBUTE lib_model OF Net_20 : LABEL IS "macrocell1";
+    ATTRIBUTE lib_model OF P1_6(0) : LABEL IS "iocell3";
+    ATTRIBUTE Location OF P1_6(0) : LABEL IS "P1[6]";
+    ATTRIBUTE lib_model OF Net_171 : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF \UART_1:BUART:counter_load_not\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \UART_1:BUART:tx_status_0\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \UART_1:BUART:tx_status_2\ : LABEL IS "macrocell4";
@@ -139,35 +122,29 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_postpoll\ : LABEL IS "macrocell6";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_4\ : LABEL IS "macrocell7";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_5\ : LABEL IS "macrocell8";
-    ATTRIBUTE lib_model OF \WaveDAC8:Net_183\ : LABEL IS "macrocell9";
-    ATTRIBUTE lib_model OF \WaveDAC8:Net_107\ : LABEL IS "macrocell10";
-    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell11";
+    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell9";
     ATTRIBUTE lib_model OF \UART_1:BUART:sTX:TxShifter:u0\ : LABEL IS "datapathcell1";
     ATTRIBUTE lib_model OF \UART_1:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "datapathcell2";
     ATTRIBUTE lib_model OF \UART_1:BUART:sTX:TxSts\ : LABEL IS "statusicell1";
     ATTRIBUTE lib_model OF \UART_1:BUART:sRX:RxShifter:u0\ : LABEL IS "datapathcell3";
     ATTRIBUTE lib_model OF \UART_1:BUART:sRX:RxSts\ : LABEL IS "statusicell2";
     ATTRIBUTE Location OF \ADC_DelSig_1:DSM\ : LABEL IS "F(DSM,0)";
-    ATTRIBUTE lib_model OF \WaveDAC8:Wave1_DMA\ : LABEL IS "drqcell1";
-    ATTRIBUTE lib_model OF \WaveDAC8:Wave2_DMA\ : LABEL IS "drqcell2";
-    ATTRIBUTE Location OF \WaveDAC8:VDAC8:viDAC8\ : LABEL IS "F(VIDAC,2)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:txn\ : LABEL IS "macrocell12";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_1\ : LABEL IS "macrocell13";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_0\ : LABEL IS "macrocell14";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_2\ : LABEL IS "macrocell15";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_bitclk\ : LABEL IS "macrocell16";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell17";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_0\ : LABEL IS "macrocell18";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_load_fifo\ : LABEL IS "macrocell19";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_3\ : LABEL IS "macrocell20";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_2\ : LABEL IS "macrocell21";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_bitclk_enable\ : LABEL IS "macrocell22";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell23";
-    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_1\ : LABEL IS "macrocell24";
-    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_0\ : LABEL IS "macrocell25";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_3\ : LABEL IS "macrocell26";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_last\ : LABEL IS "macrocell27";
-    ATTRIBUTE lib_model OF \WaveDAC8:Net_134\ : LABEL IS "macrocell28";
+    ATTRIBUTE lib_model OF \UART_1:BUART:txn\ : LABEL IS "macrocell10";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_1\ : LABEL IS "macrocell11";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_0\ : LABEL IS "macrocell12";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_2\ : LABEL IS "macrocell13";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_bitclk\ : LABEL IS "macrocell14";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell15";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_0\ : LABEL IS "macrocell16";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_load_fifo\ : LABEL IS "macrocell17";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_3\ : LABEL IS "macrocell18";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_2\ : LABEL IS "macrocell19";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_bitclk_enable\ : LABEL IS "macrocell20";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell21";
+    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_1\ : LABEL IS "macrocell22";
+    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_0\ : LABEL IS "macrocell23";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_3\ : LABEL IS "macrocell24";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_last\ : LABEL IS "macrocell25";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -316,6 +293,8 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
             f0_blk_stat_comb : OUT std_ulogic;
             f1_bus_stat_comb : OUT std_ulogic;
             f1_blk_stat_comb : OUT std_ulogic;
+            ce0 : OUT std_ulogic;
+            ce0i : IN std_ulogic;
             p_in_0 : IN std_ulogic;
             p_in_1 : IN std_ulogic;
             p_in_2 : IN std_ulogic;
@@ -332,8 +311,6 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
             p_out_5 : OUT std_ulogic;
             p_out_6 : OUT std_ulogic;
             p_out_7 : OUT std_ulogic;
-            ce0i : IN std_ulogic;
-            ce0 : OUT std_ulogic;
             cl0i : IN std_ulogic;
             cl0 : OUT std_ulogic;
             z0i : IN std_ulogic;
@@ -381,14 +358,6 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
             modrst : OUT std_ulogic;
             interrupt : OUT std_ulogic);
     END COMPONENT;
-    COMPONENT drqcell
-        PORT (
-            dmareq : IN std_ulogic;
-            termin : IN std_ulogic;
-            termout : OUT std_ulogic;
-            interrupt : OUT std_ulogic;
-            clock : IN std_ulogic);
-    END COMPONENT;
     COMPONENT dsmodcell
         PORT (
             aclock : IN std_ulogic;
@@ -418,11 +387,11 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
     END COMPONENT;
     COMPONENT iocell
         PORT (
+            pin_input : IN std_ulogic;
             oe : IN std_ulogic;
             fb : OUT std_ulogic;
-            pa_out : OUT std_ulogic;
-            pin_input : IN std_ulogic;
             pad_in : IN std_ulogic;
+            pa_out : OUT std_ulogic;
             pad_out : OUT std_ulogic;
             oe_reg : OUT std_ulogic;
             oe_internal : IN std_ulogic;
@@ -515,33 +484,6 @@ ARCHITECTURE __DEFAULT__ OF DTMF_Decoder IS
     ATTRIBUTE udb_clk OF statusicell : COMPONENT IS "clock";
     ATTRIBUTE udb_clken OF statusicell : COMPONENT IS "clk_en";
     ATTRIBUTE udb_reset OF statusicell : COMPONENT IS "reset";
-    COMPONENT timercell
-        PORT (
-            clock : IN std_ulogic;
-            kill : IN std_ulogic;
-            enable : IN std_ulogic;
-            capture : IN std_ulogic;
-            timer_reset : IN std_ulogic;
-            tc : OUT std_ulogic;
-            cmp : OUT std_ulogic;
-            irq : OUT std_ulogic);
-    END COMPONENT;
-    COMPONENT vidaccell
-        PORT (
-            data_0 : IN std_ulogic;
-            data_1 : IN std_ulogic;
-            data_2 : IN std_ulogic;
-            data_3 : IN std_ulogic;
-            data_4 : IN std_ulogic;
-            data_5 : IN std_ulogic;
-            data_6 : IN std_ulogic;
-            data_7 : IN std_ulogic;
-            strobe : IN std_ulogic;
-            strobe_udb : IN std_ulogic;
-            reset : IN std_ulogic;
-            idir : IN std_ulogic;
-            ioff : IN std_ulogic);
-    END COMPONENT;
 BEGIN
 
     ClockBlock:clockblockcell
@@ -561,17 +503,12 @@ BEGIN
             dsi_glb_div => open,
             dclk_glb_0 => \ADC_DelSig_1:Net_93\,
             dclk_0 => \ADC_DelSig_1:Net_93_local\,
-            dclk_glb_1 => Net_114,
-            dclk_1 => Net_114_local,
-            dclk_glb_2 => \UART_1:Net_9\,
-            dclk_2 => \UART_1:Net_9_local\,
+            dclk_glb_1 => \UART_1:Net_9\,
+            dclk_1 => \UART_1:Net_9_local\,
             aclk_glb_0 => \ADC_DelSig_1:Net_488\,
             aclk_0 => \ADC_DelSig_1:Net_488_local\,
             clk_a_dig_glb_0 => \ADC_DelSig_1:Net_488_adig\,
             clk_a_dig_0 => \ADC_DelSig_1:Net_488_adig_local\,
-            dclk_glb_3 => \WaveDAC8:Net_279\,
-            dclk_3 => \WaveDAC8:Net_279_local\,
-            dclk_glb_ff_1 => \ClockBlock.dclk_glb_ff_1__sig\,
             aclk_glb_ff_0 => \ClockBlock.aclk_glb_ff_0__sig\);
 
     Rx_12_6:logicalport
@@ -748,7 +685,7 @@ BEGIN
         PORT MAP(
             pa_out => Tx_P12_7(0)__PA,
             oe => open,
-            pin_input => Net_20,
+            pin_input => Net_171,
             pad_out => Tx_P12_7(0)_PAD,
             pad_in => Tx_P12_7(0)_PAD,
             in_clock => open,
@@ -758,15 +695,15 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    SW1:logicalport
+    P1_6:logicalport
         GENERIC MAP(
-            drive_mode => "010",
-            ibuf_enabled => "1",
-            id => "8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
-            init_dr_st => "1",
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "152fd21c-a4ed-4ade-9bd5-9b5467d4e420",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
-            input_sync => "0",
+            input_sync => "1",
             input_sync_mode => "0",
             intr_mode => "00",
             invert_in_clock => 0,
@@ -796,7 +733,7 @@ BEGIN
             pa_out_clock_en => -1,
             pa_out_reset => -1,
             pin_aliases => "",
-            pin_mode => "I",
+            pin_mode => "A",
             por_state => 4,
             port_alias_group => "",
             port_alias_required => 0,
@@ -813,7 +750,7 @@ BEGIN
             spanning => 0,
             sw_only => 0,
             use_annotation => "1",
-            vtrip => "00",
+            vtrip => "10",
             width => 1,
             in_clk_inv => 0,
             in_clken_inv => 0,
@@ -829,19 +766,17 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    SW1(0):iocell
+    P1_6(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "SW1",
+            logicalport => "P1_6",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => SW1(0)__PA,
+            pa_out => P1_6(0)__PA,
             oe => open,
-            fb => Net_125,
-            pad_in => SW1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -849,13 +784,13 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Net_20:macrocell
+    Net_171:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => Net_20,
+            q => Net_171,
             main_0 => \UART_1:BUART:txn\);
 
     \UART_1:BUART:counter_load_not\:macrocell
@@ -934,26 +869,6 @@ BEGIN
             q => \UART_1:BUART:rx_status_5\,
             main_0 => \UART_1:BUART:rx_fifonotempty\,
             main_1 => \UART_1:BUART:rx_state_stop1_reg\);
-
-    \WaveDAC8:Net_183\:macrocell
-        GENERIC MAP(
-            eqn_main => "(!main_0 * main_1)",
-            regmode => 0,
-            clken_mode => 1)
-        PORT MAP(
-            q => \WaveDAC8:Net_183\,
-            main_0 => \WaveDAC8:Net_134\,
-            main_1 => \WaveDAC8:Net_279_local\);
-
-    \WaveDAC8:Net_107\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
-            regmode => 0,
-            clken_mode => 1)
-        PORT MAP(
-            q => \WaveDAC8:Net_107\,
-            main_0 => \WaveDAC8:Net_134\,
-            main_1 => \WaveDAC8:Net_279_local\);
 
     __ONE__:macrocell
         GENERIC MAP(
@@ -1178,58 +1093,6 @@ BEGIN
             ext_start => __ONE__,
             modrst => \ADC_DelSig_1:mod_reset\,
             interrupt => Net_131);
-
-    \WaveDAC8:Wave1_DMA\:drqcell
-        GENERIC MAP(
-            drq_type => "10",
-            num_tds => 0)
-        PORT MAP(
-            dmareq => \WaveDAC8:Net_183\,
-            termin => '0',
-            termout => Net_138,
-            clock => ClockBlock_BUS_CLK);
-
-    \WaveDAC8:Wave2_DMA\:drqcell
-        GENERIC MAP(
-            drq_type => "10",
-            num_tds => 0)
-        PORT MAP(
-            dmareq => \WaveDAC8:Net_107\,
-            termin => '0',
-            termout => Net_139,
-            clock => ClockBlock_BUS_CLK);
-
-    \WaveDAC8:VDAC8:viDAC8\:vidaccell
-        GENERIC MAP(
-            cy_registers => "",
-            is_all_if_any => 0,
-            reg_data => 0)
-        PORT MAP(
-            reset => open,
-            idir => open,
-            ioff => open,
-            strobe_udb => \WaveDAC8:Net_279_local\);
-
-    \Timer:TimerHW\:timercell
-        GENERIC MAP(
-            cy_registers => "")
-        PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_1__sig\,
-            kill => open,
-            enable => __ONE__,
-            capture => open,
-            timer_reset => open,
-            tc => Net_120,
-            cmp => \Timer:Net_261\,
-            irq => \Timer:Net_57\);
-
-    isr:interrupt
-        GENERIC MAP(
-            int_type => "00",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_120,
-            clock => ClockBlock_BUS_CLK);
 
     \UART_1:BUART:txn\:macrocell
         GENERIC MAP(
@@ -1481,16 +1344,5 @@ BEGIN
             q => \UART_1:BUART:rx_last\,
             clock_0 => \UART_1:Net_9\,
             main_0 => Net_25);
-
-    \WaveDAC8:Net_134\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \WaveDAC8:Net_134\,
-            clock_0 => \WaveDAC8:Net_279\,
-            main_0 => Net_125);
 
 END __DEFAULT__;
